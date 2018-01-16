@@ -4,11 +4,16 @@
 
 `react-create-app <nameofapp>`
 
+(and cd into it)
+
 ## 2. Install chillifront
 
 `yarn add https://github.com/BlueChilli/ChilliSource.Front.git`
 
 ## 3. Add Redux Store
+
+
+`./src/redux/configureStore.js`
 
 ```js
 import {createStore, applyMiddleware} from 'redux';
@@ -89,9 +94,11 @@ But here's the short story:
 
 `yarn add npm-run-all node-sass-chokidar -D`
 
+*Wait for the installation to finish*
+
 In `package.json`:
 
-*Important*: remove `start` and `build` scripts before pasting.
+*Important*: remove `start` and `build` scripts before pasting. 
 
 ```
 "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
@@ -106,7 +113,7 @@ In `package.json`:
 
 Install the `HelloWorld` module as a test.
 
-* mkdir `/src/modules`
+* mkdir `./src/modules`
 * copy "HelloWorld" module in.
 * Add it as a module in './src/App.js'
 
@@ -119,7 +126,7 @@ export default chillifront(
 ...
 ```
 
-The component creates a route `/helloworld`. 
+Test it with `https://localhost:3000/helloworld`
 
 ## 10. Other modules which you might need
 
