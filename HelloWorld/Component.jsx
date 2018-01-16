@@ -1,12 +1,11 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import {pressButton} from "./actions";
-
+import "./styles.css";
 class Foo extends Component {
   render() {
-    const txt = this.props.isPressed ? "I AM PRESSED" : "Press Me!";
-    return <button onClick={this.props.pressButton}>
-      {txt}
+    return <button onClick={this.props.pressButton} className="hello-world">
+      {this.props.isPressed ? "Hello" : "World"}
     </button>
   }
 }
@@ -19,7 +18,7 @@ const mapDispatch = (dispatch) => {
 
 const mapState = (state) => {
   return {
-    isPressed: state.getIn(['ExamplePressMe', 'isPressed'])
+    isPressed: state.getIn(['HelloWorld', 'isPressed'])
   }
 };
 

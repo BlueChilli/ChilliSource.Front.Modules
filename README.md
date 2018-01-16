@@ -52,17 +52,80 @@ export default chillifront(
 Make a directory called `./App/Entry.jsx`
 
 ```js
-import React from 'react'
+import React, {Fragment} from 'react'
+import {Switch} from "react-router";
 
 export default class extends React.Component {
-    render() {
-        return (
-            <h1>Hello World!</h1>
-        )
-    }
-};
+  render() {
+    return (
+      <Fragment>
+        <nav>Winning</nav>
+        <Switch>
+          {this.props.routes}
+        </Switch>
+      </Fragment>
+    )
+  }
+}
 ```
 
 (from here `yarn start` should give you a hello world)
 
+## 6. Set up environment variables
 
+* Create a file in your front end root, `.env.development.local`
+* Remember to prefix your vars with `REACT_APP_`.
+* Access these in the app with `process.env.REACT_APP_VARNAME`
+
+Read the react-create-app docs.
+
+## 7. Set up HTTPS
+
+Add `HTTPS=true` to your `.env.development.local` file.
+
+## 8. Set up Sass
+
+Instructions are [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-a-css-preprocessor-sass-less-etc)
+
+But here's the short story:
+
+`yarn add npm-run-all node-sass-chokidar -D`
+
+In package.json:
+
+important: remove `start` and `build` before pasting
+
+```
+"build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
+"watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
+"start-js": "react-scripts start",
+"start": "npm-run-all -p watch-css start-js",
+"build-js": "react-scripts build",
+"build": "npm-run-all build-css build-js",
+```
+
+## 9. Modules
+
+Install the `HelloWorld` module as a test.
+
+* mkdir `/src/modules`
+* copy "HelloWorld" module in.
+* Add it as a module in './src/App.js'
+
+```
+import HelloWorld from "./modules/HelloWorld";
+...
+export default chillifront(
+  [
+    new HelloWorld()
+...
+```
+
+The component creates a route `/helloworld`. 
+
+## 10. Other modules which you might need
+
+* PersistState 
+* 404 (Gives you some 404 love)
+* ReduxThunk (middleware)
+* ReduxPromiseMiddleware

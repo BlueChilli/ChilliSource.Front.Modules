@@ -1,3 +1,3 @@
 export const pressButton = () => ({
-  type: 'EPM_PRESS_BUTTON'
+  type: 'HW_PRESS_BUTTON'
 });
