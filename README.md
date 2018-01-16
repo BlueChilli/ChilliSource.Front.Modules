@@ -73,11 +73,9 @@ export default class extends React.Component {
 
 ## 6. Set up environment variables
 
-* Create a file in your front end root, `.env.development.local`
-* Remember to prefix your vars with `REACT_APP_`.
-* Access these in the app with `process.env.REACT_APP_VARNAME`
+* Create a file in your front end root called `.env.development.local`
 
-Read the react-create-app docs.
+Note: Remember to prefix your vars with `REACT_APP_`. Access these in the app with `process.env.REACT_APP_VARNAME`. Read the react-create-app docs.
 
 ## 7. Set up HTTPS
 
@@ -91,9 +89,9 @@ But here's the short story:
 
 `yarn add npm-run-all node-sass-chokidar -D`
 
-In package.json:
+In `package.json`:
 
-important: remove `start` and `build` before pasting
+*Important*: remove `start` and `build` scripts before pasting.
 
 ```
 "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
