@@ -1,0 +1,19 @@
+@keyframes edbspinner {
+    to {transform: rotate(360deg);}
+}
+
+.edbspinner:before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+    border-radius: 50%;
+    border-top: 6px solid #59c8ea;
+    border-right: 6px solid transparent;
+    animation: edbspinner .5s linear infinite;
+}

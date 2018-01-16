@@ -1,0 +1,21 @@
+.four-oh-four{
+    display:flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 500px;
+    height: 100%;
+}
+
+.four-oh-four h1{
+    font-size: 200px;
+    margin:0;
+}
+
+.four-oh-four img{
+    width: 234px;
+    position: relative;
+    top: 45px;
+}
+body,html, body > div {height:100%;}

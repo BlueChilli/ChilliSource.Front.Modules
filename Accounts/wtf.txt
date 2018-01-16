@@ -1,0 +1,11 @@
+      <Route path="account">
+        <Route path="register" component={Register}/>
+        <Route path="manage" component={Manage}/>
+        <Route path="logout" component={Logout}/>
+        <Route path="login" component={Login}/>
+        <Route path="forgotPassword" component={ForgotPassword}/>
+        <Route path="resetPassword" component={ResetPassword}/>
+      </Route>
+
+
+
