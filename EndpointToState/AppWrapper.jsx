@@ -37,7 +37,6 @@ export default options => (WrappedComponent) => {
 				cacheLife: options.cacheLife,
 				id: options.id
 			}).then(data => {
-				console.log("data", data);
 				this.props.dispatch(saveState(data));
 				this.setState({loaded: true});
 			}).catch((error) => {
