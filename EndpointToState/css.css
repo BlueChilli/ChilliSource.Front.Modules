@@ -1,0 +1,57 @@
+@keyframes edbspinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.edbspinner:before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+    border-radius: 50%;
+    border-top: 6px solid #eee;
+    border-right: 6px solid transparent;
+    animation: edbspinner .5s linear infinite;
+}
+
+.swagger-error {
+    margin-top: 30px;
+    background: rgb(254, 255, 253);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+    font-family: monospace;
+}
+
+.swagger-error h1 {
+    font-size: 27px;
+    padding: 10px 50px;
+    background: #106f10;
+    border-radius: 5px;
+    color: #eee;
+    margin: 0 20px;
+    text-shadow: 2px 2px #111;
+}
+
+.swagger-error p {
+    padding: 0;
+    font-size: 15px;
+    font-weight: 100;
+    color: #444;
+}
+
+.ets-fetching-text {
+    position: absolute;
+    top: calc(50% - 10px);
+    text-align: center;
+    font-size: 12px;
+    width: 100%;
+}
