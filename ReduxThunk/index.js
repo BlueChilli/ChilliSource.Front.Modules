@@ -1,4 +1,4 @@
-import { Mod } from 'chillifrontx';
+import { Mod } from 'chillifront';
 import thunk from 'redux-thunk';
 
 export default class ReduxThunk extends Mod {
