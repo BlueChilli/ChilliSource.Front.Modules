@@ -8,7 +8,7 @@
 
 ## 2. Install chillifront
 
-`yarn add https://github.com/BlueChilli/ChilliSource.Front.git`
+`yarn add git+ssh://git@github.com:BlueChilli/ChilliSource.Front.git`
 
 ## 3. Add Redux Store
 
