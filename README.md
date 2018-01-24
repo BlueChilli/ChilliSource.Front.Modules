@@ -10,6 +10,9 @@
 
 `yarn add git+ssh://git@github.com:BlueChilli/ChilliSource.Front.git`
 
+or if that fails:
+`yarn add https://github.com/BlueChilli/ChilliSource.Front.git`
+
 ## 3. Add Redux Store
 
 
