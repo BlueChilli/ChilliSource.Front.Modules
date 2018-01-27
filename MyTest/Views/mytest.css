@@ -1,0 +1,28 @@
+.mytest .btn-container {
+  margin: 32px 0; }
+
+.mytest .btn {
+  border-radius: 3px;
+  cursor: pointer;
+  background: #344155;
+  color: #eee;
+  border: 1px solid black;
+  padding: 5px 10px;
+  display: inline-block;
+  text-decoration: none; }
+  .mytest .btn:hover {
+    background: #4a596e; }
+
+.mytest .list-container {
+  margin-bottom: 32px; }
+
+.mytest .list-item {
+  cursor: pointer;
+  height: 100%;
+  box-shadow: 1px 1px 1px 1px #dadada;
+  background: #f9f9f9;
+  padding: 16px; }
+  .mytest .list-item:hover {
+    background: #fff; }
+  .mytest .list-item p {
+    font-size: 85%; }

@@ -1,0 +1,134 @@
+input[type="text"],
+input[type="date"],
+input[type="datetime"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="time"],
+input[type="url"],
+input[type="password"],
+textarea,
+select {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid #dedede;
+  background: #ffffff;
+  transition: all 500ms;
+
+  &::placeholder {
+    color: #dddddd;
+  }
+
+  &:-webkit-autofill {
+    background-color: inherit;
+  }
+
+  &.invalid {
+    background: #fff9f9;
+    border: 1px solid #de3f10;
+    color: #de3f10;
+    transition: all 500ms;
+  }
+}
+
+.form-element {
+  margin-bottom: 24px;
+  font-size: 13px;
+
+  label {
+    display: block;
+    padding: 0 0 6px 7px;
+    font-weight: normal;
+    letter-spacing: 1px;
+  }
+
+  .error-text {
+    font-size: .85em;
+    padding: 5px;
+    color: #de3f10;
+  }
+
+  .fade-enter {
+    opacity: 0.01;
+    //transform: scaleY(0);
+    transform-origin: top;
+    position: relative;
+    max-height: 1px;
+    overflow: hidden;
+  }
+
+  .fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: all 400ms linear;
+    max-height: 100px;
+    overflow: hidden;
+
+  }
+
+  button {
+    background: #13699c;
+    color: white;
+    border: 1px solid #666;
+    padding: 12px 24px;
+    font: inherit;
+    letter-spacing: 1px;
+    cursor: pointer;
+    outline: inherit !important;
+    border-radius: 4px;
+    transition: all 400ms;
+    &:hover {
+      transition: all 400ms;
+      background: #0f537c;
+    }
+
+    &:disabled {
+      opacity: 0.2;
+      background: #49687a;
+      color: #eeeeee;
+      transition: all 400ms;
+    }
+  }
+
+}
+
+.inline-notification {
+  color: #de3f10;
+  margin-bottom: 20px;
+}
+
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+  background: white !important;
+}
+
+.validating {
+  display: block;
+  margin: 7px 0 0 7px;
+  color: #aa6b02;
+  .txt {
+    position: relative;
+    bottom: 5px;
+    margin-left: 8px;
+  }
+  .linespinner {
+    display: inline-block;
+    height: 17px;
+    width: 17px;
+    animation: lsrotate 0.5s infinite linear;
+    border: 2px solid #aa6b02;
+    border-right-color: transparent;
+    border-radius: 50%;
+  }
+
+  @keyframes lsrotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+

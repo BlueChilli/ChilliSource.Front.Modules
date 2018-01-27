@@ -1,0 +1,38 @@
+.mytest {
+  .btn-container {
+    margin: 32px 0;
+  }
+
+  .btn {
+    border-radius: 3px;
+    cursor: pointer;
+    background: #344155;
+    color: #eee;
+    border: 1px solid black;
+    padding: 5px 10px;
+    display: inline-block;
+    text-decoration: none;
+    &:hover {
+      background: #4a596e;
+    }
+  }
+
+  .list-container{
+    margin-bottom: 32px;
+  }
+
+  .list-item {
+    cursor: pointer;
+    height: 100%;
+    box-shadow: 1px 1px 1px 1px #dadada;
+    background: #f9f9f9;
+    padding: 16px;
+    &:hover{
+      background: #fff;
+    }
+    p {
+      font-size: 85%;
+    }
+
+  }
+}

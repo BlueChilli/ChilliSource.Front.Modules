@@ -1,0 +1,131 @@
+input[type="text"],
+input[type="date"],
+input[type="datetime"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="time"],
+input[type="url"],
+input[type="password"],
+textarea,
+select {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid #dedede;
+  background: #ffffff;
+  transition: all 500ms; }
+  input[type="text"]::placeholder,
+  input[type="date"]::placeholder,
+  input[type="datetime"]::placeholder,
+  input[type="email"]::placeholder,
+  input[type="number"]::placeholder,
+  input[type="search"]::placeholder,
+  input[type="time"]::placeholder,
+  input[type="url"]::placeholder,
+  input[type="password"]::placeholder,
+  textarea::placeholder,
+  select::placeholder {
+    color: #dddddd; }
+  input[type="text"]:-webkit-autofill,
+  input[type="date"]:-webkit-autofill,
+  input[type="datetime"]:-webkit-autofill,
+  input[type="email"]:-webkit-autofill,
+  input[type="number"]:-webkit-autofill,
+  input[type="search"]:-webkit-autofill,
+  input[type="time"]:-webkit-autofill,
+  input[type="url"]:-webkit-autofill,
+  input[type="password"]:-webkit-autofill,
+  textarea:-webkit-autofill,
+  select:-webkit-autofill {
+    background-color: inherit; }
+  input[type="text"].invalid,
+  input[type="date"].invalid,
+  input[type="datetime"].invalid,
+  input[type="email"].invalid,
+  input[type="number"].invalid,
+  input[type="search"].invalid,
+  input[type="time"].invalid,
+  input[type="url"].invalid,
+  input[type="password"].invalid,
+  textarea.invalid,
+  select.invalid {
+    background: #fff9f9;
+    border: 1px solid #de3f10;
+    color: #de3f10;
+    transition: all 500ms; }
+
+.form-element {
+  margin-bottom: 24px;
+  font-size: 13px; }
+  .form-element label {
+    display: block;
+    padding: 0 0 6px 7px;
+    font-weight: normal;
+    letter-spacing: 1px; }
+  .form-element .error-text {
+    font-size: .85em;
+    padding: 5px;
+    color: #de3f10; }
+  .form-element .fade-enter {
+    opacity: 0.01;
+    transform-origin: top;
+    position: relative;
+    max-height: 1px;
+    overflow: hidden; }
+  .form-element .fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: all 400ms linear;
+    max-height: 100px;
+    overflow: hidden; }
+  .form-element button {
+    background: #13699c;
+    color: white;
+    border: 1px solid #666;
+    padding: 12px 24px;
+    font: inherit;
+    letter-spacing: 1px;
+    cursor: pointer;
+    outline: inherit !important;
+    border-radius: 4px;
+    transition: all 400ms; }
+    .form-element button:hover {
+      transition: all 400ms;
+      background: #0f537c; }
+    .form-element button:disabled {
+      opacity: 0.2;
+      background: #49687a;
+      color: #eeeeee;
+      transition: all 400ms; }
+
+.inline-notification {
+  color: #de3f10;
+  margin-bottom: 20px; }
+
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+  background: white !important; }
+
+.validating {
+  display: block;
+  margin: 7px 0 0 7px;
+  color: #aa6b02; }
+  .validating .txt {
+    position: relative;
+    bottom: 5px;
+    margin-left: 8px; }
+  .validating .linespinner {
+    display: inline-block;
+    height: 17px;
+    width: 17px;
+    animation: lsrotate 0.5s infinite linear;
+    border: 2px solid #aa6b02;
+    border-right-color: transparent;
+    border-radius: 50%; }
+
+@keyframes lsrotate {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
