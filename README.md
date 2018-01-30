@@ -103,9 +103,9 @@ In `package.json`:
 
 *Important*: remove `start` and `build` scripts before pasting. 
 
-```
-"build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
-"watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
+```diff
+-"build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
++"watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
 "start-js": "react-scripts start",
 "start": "npm-run-all -p watch-css start-js",
 "build-js": "react-scripts build",
