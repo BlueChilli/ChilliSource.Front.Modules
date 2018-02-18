@@ -4,7 +4,6 @@ import ReactShow from "react-show";
 import "./form.css";
 
 export const Button = (props) => {
-  // console.log("BUTTON", props.initialValues);
   // If there are initialValues
   let buttonText;
   if (props.initialValues) {
