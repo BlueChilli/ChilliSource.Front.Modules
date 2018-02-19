@@ -5,10 +5,11 @@ require('./styles.css');
 
 export default class View extends React.Component {
   render() {
+    console.log("this.props", this.props);
     return (
       <div className="four-oh-four">
         <h1>4<img src={sad} alt="0" />4</h1>
-        <p>Not Found, Missing, or just plain Gone.</p>
+        <p>{this.props.text}</p>
       </div>
     );
   }

@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Mod } from 'chillifront';
 import { reducer as form } from 'redux-form/immutable';
 

@@ -1,4 +1,4 @@
-export const inline = (id, text, level = 'success', time = 4000) => (dispatch) => {
+export const showNotification = (id, text, level = 'success', time = 4000) => (dispatch) => {
   dispatch({
     type: '@@bcnotify/SHOW_NOTIFICATION',
     id,
@@ -8,7 +8,7 @@ export const inline = (id, text, level = 'success', time = 4000) => (dispatch) =
   });
 };
 
-export const clear = id => (dispatch) => {
+export const clearNotification = id => (dispatch) => {
   dispatch({
     type: '@@bcnotify/CLEAR_NOTIFICATION',
     id,
