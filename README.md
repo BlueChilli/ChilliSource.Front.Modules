@@ -95,7 +95,9 @@ Instructions are [here](https://github.com/facebookincubator/create-react-app/bl
 
 But here's the short story:
 
-`yarn add npm-run-all node-sass-chokidar -D`
+```ssh
+yarn add npm-run-all node-sass-chokidar -D
+```
 
 *Wait for the installation to finish*
 
@@ -103,7 +105,7 @@ In `package.json`:
 
 *Important*: remove `start` and `build` scripts before pasting. 
 
-```
+```js
 "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
 "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
 "start-js": "react-scripts start",
@@ -116,11 +118,11 @@ In `package.json`:
 
 Install the `HelloWorld` module as a test.
 
-* mkdir `./src/modules`
+* `mkdir ./src/modules`
 * copy "HelloWorld" module in.
-* Add it as a module in './src/App.js'
+* Add it as a module in `./src/App.js`
 
-```
+```js
 import HelloWorld from "./modules/HelloWorld";
 ...
 export default chillifront(
