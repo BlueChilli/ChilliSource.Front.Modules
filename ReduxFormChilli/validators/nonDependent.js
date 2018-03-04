@@ -1,8 +1,18 @@
+if (!Array.isArray) {
+  Array.isArray = function(arg) {
+    return Object.prototype.toString.call(arg) === '[object Array]';
+  };
+}
+
+
 export const alwaysFail = (value) => {
   return "Field set to always fail :)";
 };
 
 export const required = value => {
+  if(Array.isArray(value)){
+    return (value.length>0 ? undefined : "Required");
+  }
   return (value ? undefined : "Required");
 };
 

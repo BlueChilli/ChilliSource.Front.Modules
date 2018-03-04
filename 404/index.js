@@ -1,5 +1,7 @@
 import View from './View';
 import {Mod} from 'chillifront';
+import React from "react";
+
 
 export default class NotFoundPage extends Mod {
 
@@ -7,11 +9,18 @@ export default class NotFoundPage extends Mod {
     return "NotFoundPage";
   }
 
+  options() {
+    return {
+      text: "Oh now, something went wrong."
+    }
+  }
+
   routes(applyEnhancers) {
     return [
       {
-        component: applyEnhancers(View),
+        component: applyEnhancers(() => <View text={this.getOption("text")}/>),
       },
     ];
   }
+
 }

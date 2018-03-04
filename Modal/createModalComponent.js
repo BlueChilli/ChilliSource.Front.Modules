@@ -1,10 +1,9 @@
 import React, {Fragment} from "react";
 import {connect} from "react-redux";
-import {hideModal, showModal} from "./actions";
+import {hideModal} from "./actions";
 import {Map} from "immutable";
-import ReactShow from "react-show";
 
-export const createModalComponent = (id, promise = undefined) => {
+export const createModalComponent = (id, promise = undefined, options = {}) => {
 
   const mstp = state => {
     return {
@@ -36,11 +35,14 @@ export const createModalComponent = (id, promise = undefined) => {
 
       componentDidMount() {
         // Close if ESC is hit
-        document.addEventListener("keydown", (event) => {
-          if (event.keyCode === 27) {
-            this.props.dispatch(hideModal(this.props.id));
-          }
-        }, false);
+
+        if (options.noEsc !== true) {
+          document.addEventListener("keydown", (event) => {
+            if (event.keyCode === 27) {
+              this.props.dispatch(hideModal(this.props.id));
+            }
+          }, false);
+        }
       }
 
       componentWillUnmount() {
@@ -77,23 +79,13 @@ export const createModalComponent = (id, promise = undefined) => {
         const showThis = (this.isOpen(this.props) && !this.state.isFetching && !this.state.hasErrors) === true;
         return (
           <Fragment>
-            <ReactShow
-              show={showThis}
-              styleHide={{
-                opacity: 0
-              }}
-              styleShow={{
-                opacity: 1
-              }}
-            >
-              <Wrapper modal={this.props.modal} meta={this.props.meta} closeHandler={this.props.closeHandler}/>
-            </ReactShow>
-
+            {showThis &&
+            <Wrapper modal={this.props.modal} meta={this.props.meta} closeHandler={this.props.closeHandler}/>
+            }
 
             {this.state.isFetching === true && (
               <div className="modal-loading-spinner "/>
             )}
-
 
           </Fragment>
         )

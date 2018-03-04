@@ -3,6 +3,8 @@ import "./modal.css";
 import {Map} from "immutable";
 
 export default class ModalWrapper extends React.Component {
+
+
   render() {
 
 
@@ -17,7 +19,9 @@ export default class ModalWrapper extends React.Component {
             <div className="modal-header">
               <div className="text">{title} (#{id})</div>
               <div className="close">
-                <span onClick={this.props.closeHandler}>x</span>
+                <span onClick={() => {
+                  this.props.closeHandler();
+                }}>x</span>
               </div>
             </div>
             <div className="modal-content">

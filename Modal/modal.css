@@ -21,7 +21,7 @@
 
 .modal-wrapper {
   animation: modalFadeIn 0.4s ease;
-  z-index: 101;
+  z-index: 301;
   display: flex;
   align-items: center;
   justify-content: center; }

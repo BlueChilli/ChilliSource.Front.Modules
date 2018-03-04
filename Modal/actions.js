@@ -1,4 +1,4 @@
-export const showModal = (id, meta) => (dispatch) => {
+export const showModal = (id, meta={}) => (dispatch) => {
   return dispatch({
     type: '@@bcmodal/SHOW_MODAL',
     id,

@@ -1,6 +1,5 @@
 import {createReducer} from 'redux-immutablejs';
-import {fromJS} from 'immutable';
-import {Map, toJS} from 'immutable';
+import {Map} from 'immutable';
 
 const initialState = new Map();
 
