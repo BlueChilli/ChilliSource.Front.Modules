@@ -13,5 +13,4 @@ export default class Modal extends Mod {
     }
   }
 
-
 }

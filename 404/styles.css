@@ -8,14 +8,11 @@
   height: 60%; }
 
 .four-oh-four h1 {
-  font-size: 200px;
+  font-size: 100px;
   margin: 0;
   padding: 0; }
 
 .four-oh-four img {
   width: 234px;
   position: relative;
-  bottom: 18px; }
-
-body, html, body > div {
-  height: 100%; }
+  top: 46px; }

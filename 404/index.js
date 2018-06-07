@@ -11,7 +11,7 @@ export default class NotFoundPage extends Mod {
 
   options() {
     return {
-      text: "Oh now, something went wrong."
+      text: "Oh no, something went wrong."
     }
   }
 

@@ -1,0 +1,10 @@
+.tfws-wrapper {
+  display: flex;
+  .tfws-field {
+    flex: 1 1 auto;
+  }
+  .tfws-btn {
+    margin-left: 8px;
+    flex: 0 0 auto;
+  }
+}

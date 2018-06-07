@@ -1,0 +1,61 @@
+form {
+  font-family: Muli, sans-serif; }
+  form * {
+    box-sizing: border-box; }
+  form .form-element {
+    margin-bottom: 24px; }
+    form .form-element .form-label {
+      color: #000;
+      margin-bottom: 12px;
+      font-weight: 600; }
+    form .form-element .form-label-right {
+      float: right; }
+    form .form-element .form-input {
+      width: 100%;
+      margin-bottom: 4px;
+      color: #979797; }
+      form .form-element .form-input ::-webkit-input-placeholder {
+        color: #b1b1b1; }
+      form .form-element .form-input ::-moz-placeholder {
+        color: #b1b1b1; }
+      form .form-element .form-input :-ms-input-placeholder {
+        color: #b1b1b1; }
+      form .form-element .form-input :-moz-placeholder {
+        color: #b1b1b1; }
+      form .form-element .form-input input {
+        color: #979797;
+        width: 100%;
+        font-size: 16px;
+        max-width: 100%;
+        padding: 20px;
+        border: 1px solid #979797;
+        border-radius: 4px; }
+        form .form-element .form-input input.invalid, form .form-element .form-input input.invalid:focus {
+          border: 1px solid #bf0000;
+          outline: none !important; }
+    form .form-element .form-error {
+      color: #bf0000;
+      font-size: 12px; }
+    form .form-element .form-helpertext {
+      color: #7c929c;
+      margin: 4px 0 4px;
+      font-size: 13px; }
+    form .form-element > button, form .form-element .button-submit {
+      padding: 20px 40px;
+      border-radius: 30px;
+      font-size: 16px;
+      color: white;
+      background: #00a9a0;
+      border: 1px solid #00a9a0; }
+      form .form-element > button:hover, form .form-element .button-submit:hover {
+        cursor: pointer;
+        background: #00c3b8;
+        transition: 300ms background;
+        border: 1px solid #00c3b8; }
+      form .form-element > button:disabled, form .form-element .button-submit:disabled {
+        opacity: 0.5;
+        transition: 300ms opacity; }
+  form .form-error {
+    color: #bf0000;
+    font-size: 16px;
+    font-weight: 600; }
