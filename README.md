@@ -21,7 +21,7 @@ or if that fails:
 ```js
 import {createStore, applyMiddleware} from 'redux';
 import {composeWithDevTools} from 'redux-devtools-extension';
-import {combineReducers} from "redux-immutablejs";
+import {combineReducers} from "redux";
 
 // Optional Middleware
 const middleware = [];
