@@ -2,7 +2,7 @@ import React from 'react'
 import {reduxForm, SubmissionError} from "redux-form";
 import {compose} from 'redux';
 import {connect} from "react-redux";
-import get from "lodash.get";
+import get from "lodash/get";
 
 import {
   getSummaryArrayByOperationId,

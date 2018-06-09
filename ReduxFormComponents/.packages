@@ -1,0 +1,5 @@
+@fortawesome/fontawesome
+@fortawesome/fontawesome-free-solid
+@fortawesome/react-fontawesome
+react-show@^2.0.4
+classnames
