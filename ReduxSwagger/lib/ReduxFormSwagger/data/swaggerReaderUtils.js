@@ -1,4 +1,4 @@
-import get from 'lodash/get';
+import get from 'lodash.get';
 import {getSummaryFromSchemaItem} from "./getSummaryFromSchemaItem";
 import {getAlreadyLoadedSwaggerData} from "./loadSwaggerDataPromise";
 

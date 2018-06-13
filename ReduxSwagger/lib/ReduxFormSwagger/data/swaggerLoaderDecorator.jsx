@@ -8,15 +8,18 @@ const SwaggerLoaderDecorator = Child => {
     constructor(props, context) {
       super(props, context);
       this.state = {
+        uid: "SwaggerLoaderDecorator" + Math.floor(Math.random() * 0xFFFF),
         swaggerDataExists: false
       };
     }
 
-    componentWillMount() {
-      loadSwaggerDataPromise().then(_ => {
-        this.setState({swaggerDataExists: true});
-      });
+    componentDidMount() {
 
+      return loadSwaggerDataPromise().then(_ => {
+        //
+        this.setState({swaggerDataExists: true});
+
+      });
     }
 
     render() {

@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from "react";
 import ReactShow from "react-show";
-import get from "lodash/get";
+import get from "lodash.get";
 import "../fontawesome";
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faExclamation from '@fortawesome/fontawesome-free-solid/faExclamationTriangle';

@@ -1,4 +1,5 @@
 import getAxiosInstance from "./getAxiosInstance";
+//const source = CancelToken.source();
 import {getDataExpectations} from "./swaggerReaderUtils";
 import queryString from "query-string";
 import findReplaceString from "../helpers/findReplaceString";

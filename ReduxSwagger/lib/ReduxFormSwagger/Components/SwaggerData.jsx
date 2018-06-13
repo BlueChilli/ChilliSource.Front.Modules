@@ -8,11 +8,14 @@ import InlineSpinner from "./InlineSpinner/InlineSpinner";
 import {connect} from 'react-redux';
 import get from "lodash/get";
 
+// Is is probably really bad, but if you find me a working alternative, then awesome.
+let isMounted = false;
 
 class SwaggerData extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
+      uid: "SwaggerData:" + Math.floor(Math.random() * 0xFFFF),
       data: undefined,
       dataModified: undefined,
       isLoaded: false,
@@ -20,7 +23,6 @@ class SwaggerData extends React.Component {
       errorResponse: undefined
     };
   }
-
 
   getUtils() {
     return {
@@ -30,15 +32,16 @@ class SwaggerData extends React.Component {
       set: (path, value) => {
         const data = set(this.state.data, path, value);
         this.setState({data: data});
-        console.log("DATA", data);
       }
     }
   }
 
+  componentWillUnmount() {
+    isMounted = false;
+  }
 
-  componentWillMount() {
-
-
+  componentDidMount() {
+    isMounted = true;
     const apiParams = {
       queryString: this.props.queryString,
       path: this.props.path,
@@ -47,6 +50,7 @@ class SwaggerData extends React.Component {
     };
 
     apiCreator(this.props.id, apiParams).then(data => {
+
       if (this.props.debug === true) {
         console.log("SWAGGER_DATA", this.props.id, data);
       }
@@ -54,7 +58,6 @@ class SwaggerData extends React.Component {
       let dataModified;
       if (this.props.modifyData) {
         dataModified = this.props.modifyData(data);
-        this.setState({dataModified});
         if (this.props.debug === true) {
           console.log("SWAGGER_DATA_MODIFIED", this.props.id, dataModified);
         }
@@ -62,7 +65,7 @@ class SwaggerData extends React.Component {
 
 
       this.props.dispatch({
-        type: "@@bcswagger/APISUCCESS/"+this.props.id,
+        type: "@@bcswagger/APISUCCESS/" + this.props.id,
         payload: {
           data: data,
           dataModified: dataModified,
@@ -71,7 +74,14 @@ class SwaggerData extends React.Component {
       });
 
 
-      this.setState({data, isLoaded: true});
+      // To prevent race condition where it tries to apply
+      // state to an unmounted component
+      if (isMounted === false) {
+        return;
+      } else {
+        this.setState({dataModified, data, isLoaded: true});
+      }
+
     }).catch(apiPayload => {
 
       const responseData = get(apiPayload, "response.data");
@@ -86,6 +96,8 @@ class SwaggerData extends React.Component {
       });
       this.setState({hasError: true, errorResponse: apiPayload.response || {}});
     });
+
+
   }
 
   render() {

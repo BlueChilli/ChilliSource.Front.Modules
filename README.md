@@ -2,7 +2,7 @@
 
 ## 1. Install boilerplate
 
-`react-create-app <nameofapp>`
+`create-react-app <nameofapp>`
 
 (and cd into it)
 
@@ -21,19 +21,19 @@ or if that fails:
 ```js
 import {createStore, applyMiddleware} from 'redux';
 import {composeWithDevTools} from 'redux-devtools-extension';
-import {combineReducers} from "redux-immutablejs";
+import {combineReducers} from "redux";
 
 // Optional Middleware
 const middleware = [];
 
 export default function configureStore(initialState, modReducers = {}, modMiddleware = [], modStoreEnhancers = []) {
-    const composedEnhancers = composeWithDevTools(
-        applyMiddleware(...modMiddleware.concat(middleware)),
-        ...modStoreEnhancers
-    );
+  const composedEnhancers = composeWithDevTools(
+    applyMiddleware(...modMiddleware.concat(middleware)),
+    ...modStoreEnhancers
+  );
 
-    const rootReducer = combineReducers(modReducers);
-    return createStore(rootReducer, initialState, composedEnhancers);
+  const rootReducer = combineReducers(modReducers);
+  return createStore(rootReducer, initialState, composedEnhancers);
 }
 ```
 
@@ -114,7 +114,7 @@ In `package.json`:
 "build": "npm-run-all build-css build-js",
 ```
 
-## 9. Modules
+## 9. Modules (not really necessary)
 
 Install the `HelloWorld` module as a test.
 
@@ -135,7 +135,54 @@ Test it with `https://localhost:3000/helloworld`
 
 ## 10. Other modules which you might need
 
+BC's module-stash lives at:
+
+[https://github.com/BlueChilli/ChilliSource.Front.Modules](https://github.com/BlueChilli/ChilliSource.Front.Modules)
+
+It's highly recommended as a BC dev, that you grab this repo.
+
+Copy these modules across to `./src/modules`
+
 * PersistState 
 * 404 (Gives you some 404 love)
 * ReduxThunk (middleware)
 * ReduxPromiseMiddleware
+
+Your App.js should resemble something like this:
+
+```js
+import chillifront from "chillifront";
+import configureStore from "./redux/configureStore";
+import Entry from "./App/Entry";
+import PersistState from "./modules/PeristState/index";
+import NotFoundPage from "./modules/404/index";
+import ReduxThunk from "./modules/ReduxThunk/index";
+import ReduxPromiseMiddleware from "./modules/ReduxThunk/index";
+
+export default chillifront(
+  [
+    new PersistState(),
+    new NotFoundPage(),
+    new ReduxThunk(),
+    new ReduxPromiseMiddleware()
+  ],
+  configureStore
+)(Entry);
+```
+
+## 11. Auto installing dependencies (temp solution)
+
+1. Find the `getPackages` module in the above repo and copy it into modules
+2. Via command line, cd into the `getPackages` dir. 
+3. `yarn install && yarn start`
+4. Dependency list will copied to the clipboard, do as you see fit.
+
+## 12. Creating a route and a page.
+
+Chillifront makes use of [React Router 4](https://reacttraining.com/react-router/).
+
+
+
+
+
+

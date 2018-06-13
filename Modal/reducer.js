@@ -1,13 +1,20 @@
-import {createReducer} from 'redux-immutablejs';
+import {createReducer} from 'redux-create-reducer';
 
-import {Map} from 'immutable';
+const initialState = {};
 
-const initialState = new Map();
-
-export default createReducer(initialState, {
-  '@@bcmodal/SHOW_MODAL': (state, action) => state.set(action.id, Map({
-    id: action.id, isOpen: true, meta: action.meta
-  })),
-
-  '@@bcmodal/HIDE_MODAL': (state, action) => state.setIn([action.id, "isOpen"], false)
+const modalReducer = createReducer(initialState, {
+  '@@bcmodal/SHOW_MODAL'(state, {payload: {id, meta}}) {
+    return {
+      ...state,
+      ...{[id]: {isOpen: true, meta}}
+    }
+  },
+  '@@bcmodal/HIDE_MODAL'(state, {payload: {id, meta}}) {
+    return {
+      ...state,
+      ...{[id]: {isOpen: false, meta}}
+    }
+  }
 });
+
+export default modalReducer;

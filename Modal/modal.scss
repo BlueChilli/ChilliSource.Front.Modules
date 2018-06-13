@@ -40,6 +40,13 @@
     background: #ffffff;
     min-width: 500px;
     box-shadow: 1px 5px 20px 0 rgba(0, 0, 0, 0.2);
+
+    @media screen and (max-width: 800px){
+      min-width: 50%;
+    }
+
+
+
     .modal-header {
       justify-content: space-between;
       display: flex;
@@ -60,6 +67,9 @@
 
     .modal-content {
       padding: 16px;
+      @media screen and (max-width: 600px){
+        padding: 8px;
+      }
     }
 
   }

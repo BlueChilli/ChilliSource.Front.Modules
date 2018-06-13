@@ -2,7 +2,7 @@ import React from 'react'
 import {reduxForm, SubmissionError} from "redux-form";
 import {compose} from 'redux';
 import {connect} from "react-redux";
-import get from "lodash/get";
+import get from "lodash.get";
 
 import {
   getSummaryArrayByOperationId,
@@ -12,13 +12,21 @@ import {apiCreator} from "../data/apiCreators";
 import SwaggerLoaderDecorator from "../data/swaggerLoaderDecorator";
 
 
+// Is is probably really bad, but if you find me a working alternative, then awesome.
+let isMounted = false;
+
 class SwaggerForm extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {summary: []};
   }
 
-  componentWillMount() {
+  componentWillUnmount() {
+    isMounted = false;
+  }
+
+  componentDidMount() {
+    isMounted = true;
     this.setState({summary: getSummaryArrayByOperationId(this.props.id)});
   }
 
@@ -54,6 +62,8 @@ function mapStateToProps(state, props) {
     onSubmit: (payload, dispatch, formProps) => {
 
       return apiCreator(props.id, {body: payload}).then(apiPayload => {
+
+        if (isMounted === false) return;
 
         dispatch({
           type: "@@bcswagger/APISUCCESS/"+props.id,

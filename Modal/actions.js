@@ -1,14 +1,14 @@
-export const showModal = (id, meta={}) => (dispatch) => {
+export const showModal = (id, meta = {}) => (dispatch) => {
   return dispatch({
     type: '@@bcmodal/SHOW_MODAL',
-    id,
-    meta
+    payload: {id, meta},
+
   });
 };
 
-export const hideModal = id => (dispatch) => {
+export const hideModal = (id, meta = {}) => (dispatch) => {
   return dispatch({
     type: '@@bcmodal/HIDE_MODAL',
-    id,
+    payload: {id, meta},
   });
 };
