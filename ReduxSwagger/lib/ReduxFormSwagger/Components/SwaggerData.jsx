@@ -63,6 +63,20 @@ class SwaggerData extends React.Component {
         }
       }
 
+      if (this.props.saveState) {
+        const target = this.props.saveState;
+        this.props.dispatch({
+          type: "@@bcswagger/SAVESTATE/FLAT",
+          payload: {
+            target,
+            data: data,
+            dataModified: dataModified,
+            id: this.props.id
+          }
+        });
+
+      }
+
 
       this.props.dispatch({
         type: "@@bcswagger/APISUCCESS/" + this.props.id,
