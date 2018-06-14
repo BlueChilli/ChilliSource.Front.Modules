@@ -1,3 +1,7 @@
-## DOCS
+## Index
 
-[test](/test.md)
+[Installation](/installation.md)
+
+### Guides
+
+[Swagger](/swagger.md)
