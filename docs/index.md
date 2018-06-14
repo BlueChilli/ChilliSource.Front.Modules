@@ -1,0 +1,3 @@
+## DOCS
+
+[test](/test.md)
