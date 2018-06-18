@@ -1,7 +1,8 @@
 ## Index
 
-[Installation](/installation.md)
+- [Installation](/installation.md)
 
 ### Guides
 
-[Swagger](/swagger.md)
+- [Swagger](/swagger.md)
+- [Logging](/logging.md)

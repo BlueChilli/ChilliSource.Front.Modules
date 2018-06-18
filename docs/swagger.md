@@ -3,6 +3,9 @@
 
 ### Configuration
 
+
+#### The non-chillifront method
+
 Throw this somewhere in your initialisation code:
 
 ```js
@@ -20,13 +23,45 @@ setBaseURL(baseURL);
 
 ```
 
+#### The chillifront method
+
+In `app.js`, put these modules in your declaration:
+
+```js
+export default chillifront(
+  [
+    new PersistState(),
+    new ReduxThunk(),
+    new ReduxPromiseMiddleware(),
+    new ReduxSwagger({
+      apiBase: process.env.REACT_APP_API_BASE,
+      apiKey: process.env.REACT_APP_API_KEY,
+    }),
+    new ReduxBCLog({
+      middleware: [logMiddleware],
+      logToConsole: false
+    })
+  ]
+);
+```
+
+The above code snippet makes use of `.env`.
+
+```
+REACT_APP_API_BASE=https://project.azurewebsites.net
+REACT_APP_API_KEY=A0A5D50D-4034-4BB2-8C5F-97CE869CAE5E
+```
+
+The `ReduxSwagger` module creates an embedded route, which will indicate if the Swagger definition is
+working: [https://localhost:3000/bcswagger](https://localhost:3000/bcswagger)
+
 
 ### Ways to get data
 
 1. Grabbing it programmatically.
 
 ```js
-import {apiGet} from "ReduxFormSwagger";
+import {apiGet} from "ReduxSwagger";
 
 apiGet("get/api/v1/currentuser").then(payload => {
   console.log(payload);
@@ -81,7 +116,7 @@ import {SwaggerData} from "ReduxFormSwagger";
 ```
 
 If your api call requires some params:
-(adding `debug={true}` will log to the console)
+(adding `debug={true}` will log context to the console)
 
 ```js
 <SwaggerData id="get/api/v1/thing/{id}" data={{id: 58}} debug={true}>
@@ -93,7 +128,8 @@ If your api call requires some params:
 </SwaggerData>
 ```
 
-Please note that the `data` prop in `SwaggerData` will try to magically determine if your swagger id needs to apply a *path* or a *query string*, and will act accordingly.
+Please note that the `data` prop in `SwaggerData` will try to magically determine
+if your swagger id needs to apply a *path* or a *query string*, and will act accordingly.
 
 If your API call requires both a *path* and a *queryString* you can be more explicit by using them as props.
 
@@ -120,12 +156,12 @@ const myDataModifier = (context) => {
 }
 ```
 
-So rather than mutating context, you create a new object.
+So rather than mutating context, it will create a whole new object.
 
 
 #### Utilities
 
-The 3rd parameter in the child function is a utility object which allows you modify things directly.
+The 3rd parameter in the child function is a utility object which allows you act directly.
 A handy use-case is for optimistic updates
 
 ```js
@@ -137,7 +173,7 @@ A handy use-case is for optimistic updates
        ....
 ```
 
-[Documentation for this coming soon]
+[More documentation for this coming soon...]
 
 
 ### Using Redux Forms
