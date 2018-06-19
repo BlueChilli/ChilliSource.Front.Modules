@@ -1,5 +1,22 @@
 # BC FE App setup
 
+# Quick Install Via Script
+
+`npx https://github.com/BlueChilli/ChilliSource.Front.Installer.git --install ./target-directory`
+
+This should give you a minimal app without any modules
+
+## Installing Modules
+
+Make sure you've CD'ed into your application.
+
+`npx https://github.com/BlueChilli/ChilliSource.Front.Installer.git --getMods`
+
+
+
+# Manual Install
+
+
 ## 1. Install boilerplate
 
 `create-react-app <nameofapp>`
