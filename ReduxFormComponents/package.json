@@ -5,19 +5,12 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "@fortawesome/fontawesome": "^1.1.8",
-    "@fortawesome/fontawesome-free-solid": "^5.0.13",
-    "@fortawesome/react-fontawesome": "^0.0.20",
-    "add": "^2.0.6",
-    "classnames": "^2.2.6",
     "local-storage": "^1.4.2",
     "react": "^16.4.1",
     "react-datepicker": "^1.5.0",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
-    "react-show": "2.0.4",
-    "redux-form": "^7.4.2",
-    "yarn": "^1.7.0"
+    "redux-form": "^7.4.2"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.4.7",
