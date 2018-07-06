@@ -1,4 +1,8 @@
-@import '../../../../ReduxFormComponents/lib/themes/variables.scss';
+@import '../../modules/ReduxFormComponents/lib/themes/variables.scss';
+
+body{
+  margin: 0;
+}
 
 * {
   box-sizing: border-box;

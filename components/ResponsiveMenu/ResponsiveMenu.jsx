@@ -58,6 +58,7 @@ class Hamburger extends React.Component {
                 onClick={() => {
                     this.setState({ menuOpen: false });
                 }}
+                style={this.props.style}
             >
                 <Menu
                     className={`bm-menu-${this.props.theme}`}
@@ -94,7 +95,7 @@ class Navbar extends React.Component {
         );
 
         return (
-            <nav className={navClasses}>
+            <nav className={navClasses}  style={this.props.style}>
                 <ul className="navbar-responsive__list">
                     {this.props.children}
                 </ul>

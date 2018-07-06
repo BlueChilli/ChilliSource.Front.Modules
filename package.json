@@ -28,9 +28,11 @@
     "moment": "^2.22.1",
     "prop-types": "^15.6.2",
     "react": "^16.3.2",
+    "react-burger-menu": "^2.5.2",
     "react-datepicker": "^1.5.0",
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",
+    "react-responsive": "^4.1.0",
     "react-show": "2.0.4",
     "redux": "^3.7.2",
     "redux-create-reducer": "^1.1.2",
@@ -43,9 +45,13 @@
   },
   "scripts": {
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "start": "npm-run-all --parallel storybook watch-css",
+    "start": "npm-run-all --parallel storybook watch-css watch-css-sb watch-css-components",
     "build": "build-storybook -c .storybook -o build",
     "build-css": "node-sass-chokidar ./modules/  -o ./modules/",
-    "watch-css": "node-sass-chokidar ./modules/ -o ./modules/ --watch"
+    "watch-css": "node-sass-chokidar ./modules/ -o ./modules/ --watch",
+    "build-css-sb": "node-sass-chokidar ./stories/  -o ./stories/",
+    "watch-css-sb": "node-sass-chokidar ./stories/ -o ./stories/ --watch",
+    "build-css-components": "node-sass-chokidar ./components/  -o ./components/",
+    "watch-css-components": "node-sass-chokidar ./components/ -o ./components/ --watch"
   }
 }
