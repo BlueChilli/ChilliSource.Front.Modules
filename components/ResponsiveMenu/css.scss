@@ -1,0 +1,140 @@
+/** variables **/
+$lightTheme: #e0e0e0;
+$lightThemeTextColor: #424242;
+$headerPadding: 10px;
+
+/** header **/
+.header {
+    padding: $headerPadding;
+}
+
+/** basic navbar **/
+.navbar-responsive {
+    &__list {
+        &-item {
+            position: relative;
+            display: inline-block;
+            padding: 8px 16px;
+            text-align: center;
+
+            a {
+                color: $lightThemeTextColor;
+            }
+
+            .submenu-item {
+                position: relative;
+                padding-bottom: 8px;
+            }
+
+            ul.submenu-items {
+                min-width: 100%;
+                width: auto;
+                position: absolute;
+                left: 0;
+                top: 44px;
+                background: $lightTheme;
+                opacity: 0.9;
+                border-color: $lightTheme;
+
+                li.navbar-responsive__list-item {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+/** Logo Right and Menu Left Tweaking **/
+.left-navbar {
+    div.bm-menu-wrap {
+        left: 0;
+    }
+
+    div.bm-burger-button {
+        left: 10px;
+    }
+
+    div.bm-cross-button {
+        left: 10px;
+    }
+}
+
+/** Mobile **/
+/** navbar for mobile **/
+.navbar-mobile {
+    ul.menu-items {
+        li.navbar-responsive__list-item {
+            display: block;
+            text-align: left;
+
+            ul.submenu-items {
+                position: static;
+            }
+        }
+    }
+}
+
+/** dropdown **/
+.submenu-items {
+    border: 1px solid;
+
+    /* optional */
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+
+    li.navbar-responsive__list-item {
+        text-align: left;
+    }
+}
+
+/** hamburger-button **/
+.bm-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.bm-burger-button {
+    position: absolute;
+    width: 36px;
+    height: 30px;
+    right: $headerPadding;
+    top: $headerPadding / 2;
+}
+
+.bm-cross-button {
+    height: 24px;
+    width: 24px;
+}
+
+.bm-menu {
+    padding: 2.5em 1.5em 0;
+    font-size: 1.15em;
+}
+
+.bm-morph-shape {
+    fill: darkblue;
+}
+
+.bm-burger-bars {
+    background: $lightThemeTextColor;
+}
+
+.bm-cross {
+    background: $lightThemeTextColor;
+}
+
+.bm-menu {
+    background: $lightTheme;
+}
+
+/** needed to fix to get full width and height for overlay **/
+.bm-overlay {
+    top: 0;
+    left: 0;
+}
+
+/** needed to fix extra space at the top **/
+.bm-menu-wrap {
+    top: 0;
+}
