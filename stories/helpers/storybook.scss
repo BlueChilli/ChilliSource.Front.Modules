@@ -1,4 +1,4 @@
-@import '../../lib/themes/variables.scss';
+@import '../../../../ReduxFormComponents/lib/themes/variables.scss';
 
 * {
   box-sizing: border-box;
@@ -31,9 +31,4 @@
   font-size: 12px;
   letter-spacing: 1px;
   font-family: monospace;
-}
-
-
-.woot{
-  color: green;
 }

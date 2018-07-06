@@ -1,8 +1,8 @@
 import {createStore, combineReducers} from 'redux'
 import {reducer as formReducer} from 'redux-form'
-//import stateStack from "../stateStack";
+import stateStack from "../stateStack";
 import ls from 'local-storage';
-//import modal from "./reducers/modal";
+import modal from "./reducers/modal";
 
 const swagger = (state = {url: ls.get("swaggerurl"), apikey: ls.get("swaggerapikey")}, action) => {
   switch (action.type) {
@@ -20,7 +20,9 @@ const swagger = (state = {url: ls.get("swaggerurl"), apikey: ls.get("swaggerapik
 
 const rootReducer = combineReducers({
   form: formReducer,
-  //stateStack: (state = stateStack) => state,
+  stateStack: (state = stateStack) => state,
+  swagger,
+  modal
 });
 
 

@@ -2,18 +2,24 @@ import React from 'react';
 import {Field} from 'redux-form';
 import {storiesOf} from '@storybook/react';
 import ReduxFormProviderDecorator from "./helpers/ReduxFormProviderDecorator";
-import DatePicker from "../lib/Vertical/Datepicker/DatePicker";
-import SimpleCheck from "../lib/Vertical/CheckSimple/CheckSimple";
-import ticked from "../lib/validators/ticked";
-import CheckArrayInline from "../lib/Vertical/CheckArrayInline/CheckArrayInline";
-import tickedArray from "../lib/validators/tickedArray";
-import Radio from "../lib/Vertical/Radio/Radio";
-import CheckArrayVertical from "../lib/Vertical/CheckArrayVertical/CheckArrayVertical";
-import RadioVertical from "../lib/Vertical/RadioVertical/RadioVertical";
-import TextFieldWithSubmit from "../lib/Vertical/TextFieldWithSubmit/TextFieldWithSubmit";
-import required from "../lib/validators/required";
-import TextField from "../lib/Vertical/TextField/TextField";
-import "../lib/themes/default.css";
+
+// Components we're basically testing
+import TextField from "../modules/ReduxFormComponents/lib/Vertical/TextField/TextField";
+import SimpleCheck from "../modules/ReduxFormComponents/lib/Vertical/CheckSimple/CheckSimple";
+import CheckArrayInline from "../modules/ReduxFormComponents/lib/Vertical/CheckArrayInline/CheckArrayInline";
+import Radio from "../modules/ReduxFormComponents/lib/Vertical/Radio/Radio";
+import CheckArrayVertical from "../modules/ReduxFormComponents/lib/Vertical/CheckArrayVertical/CheckArrayVertical";
+import RadioVertical from "../modules/ReduxFormComponents/lib/Vertical/RadioVertical/RadioVertical";
+import TextFieldWithSubmit from "../modules/ReduxFormComponents/lib/Vertical/TextFieldWithSubmit/TextFieldWithSubmit";
+
+// Validators
+import ticked from "../modules/ReduxFormComponents/lib/validators/ticked";
+import required from "../modules/ReduxFormComponents/lib/validators/required";
+import tickedArray from "../modules/ReduxFormComponents/lib/validators/tickedArray";
+
+// CSS
+import "../modules/ReduxFormComponents/lib/themes/default.css";
+import DatePicker from "../modules/ReduxFormComponents/lib/Vertical/Datepicker/DatePicker";
 
 
 const genericOptions1 = [
@@ -40,7 +46,7 @@ const genericOptions1 = [
 ];
 
 
-storiesOf('Vertical Fields', module)
+storiesOf('Vertical Form Fields', module)
   .addDecorator(getStory => <ReduxFormProviderDecorator story={getStory()}/>)
   .add('Everything', () => (
     <div>

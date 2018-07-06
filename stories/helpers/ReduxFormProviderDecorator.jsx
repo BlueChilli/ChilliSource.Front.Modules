@@ -5,7 +5,8 @@ import {compose} from "redux";
 import {Field, reduxForm} from 'redux-form';
 import {action} from '@storybook/addon-actions';
 import "./storybook.css";
-import {SubmitButton} from "../../lib/General/SubmitButton";
+import {SubmitButton} from "../../modules/ReduxFormComponents/lib/General/SubmitButton";
+
 
 
 let PristineForm = props => {
