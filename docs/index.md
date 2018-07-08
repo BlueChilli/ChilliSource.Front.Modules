@@ -1,11 +1,7 @@
 ## Index
 
 - [Installation](/installation.md)
-
-### Dev Guide
-
-- [Redux Form Components](/dev/devformcomponents.md)
-
+- [Dev Guide](/dev/Intro.md)
 
 ### Guides
 
