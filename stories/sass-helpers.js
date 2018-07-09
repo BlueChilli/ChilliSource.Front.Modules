@@ -5,6 +5,7 @@ import { Field, reduxForm } from "redux-form";
 
 /** Components */
 import TextField from "../modules/ReduxFormComponents/lib/Vertical/TextField/";
+import TextFieldWithSubmit from "../modules/ReduxFormComponents/lib/Vertical/TextFieldWithSubmit/";
 import SimpleCheck from "../modules/ReduxFormComponents/lib/Vertical/CheckSimple/CheckSimple";
 
 import { DemoFormDecorator } from "./helpers/";
@@ -25,6 +26,14 @@ storiesOf("Style Helpers", module)
           name="textField"
           component={TextField}
           helperText="This is some helper text"
+        />
+
+        <Field
+          label="Label"
+          name="textField"
+          component={TextFieldWithSubmit}
+          helperText="This is some helper text"
+          className="margin-top-2"
         />
 
         {/* Simple Checkbox */}

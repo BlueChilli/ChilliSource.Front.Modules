@@ -10,7 +10,7 @@ import CheckArrayInline from "../modules/ReduxFormComponents/lib/Vertical/CheckA
 import Radio from "../modules/ReduxFormComponents/lib/Vertical/Radio/Radio";
 import CheckArrayVertical from "../modules/ReduxFormComponents/lib/Vertical/CheckArrayVertical/CheckArrayVertical";
 import RadioVertical from "../modules/ReduxFormComponents/lib/Vertical/RadioVertical/RadioVertical";
-import TextFieldWithSubmit from "../modules/ReduxFormComponents/lib/Vertical/TextFieldWithSubmit/TextFieldWithSubmit";
+import TextFieldWithSubmit from "../modules/ReduxFormComponents/lib/Vertical/TextFieldWithSubmit/";
 
 // Validators
 import ticked from "../modules/ReduxFormComponents/lib/validators/ticked";
