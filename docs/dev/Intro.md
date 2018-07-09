@@ -2,12 +2,9 @@
 
 Chillisource.Front.Modules uses Storybook to do all the things.
 
-Any useful th
-
+Captain obvious stuff:
 
 1. `git clone git@github.com:BlueChilli/ChilliSource.Front.Modules.git`
 2. `cd ChilliSource.Front.Modules`
 3. `yarn install`
-4. 
-
-
+4. `yarn start`
