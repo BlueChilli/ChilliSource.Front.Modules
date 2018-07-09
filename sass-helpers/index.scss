@@ -1,0 +1,29 @@
+@import "variables.scss";
+
+// Style Reset
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "SF Display";
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "SFProDisplay-Heavy";
+  color: $primaryTextColor;
+}
+
+// Importing Styles
+@import "spacing.scss";
+@import "base.scss";
+@import "form.scss";
