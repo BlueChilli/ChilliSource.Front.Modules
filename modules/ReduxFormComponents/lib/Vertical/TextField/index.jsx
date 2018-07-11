@@ -1,52 +1,73 @@
-/* eslint-disable */
-import React from "react";
-import classNames from "classnames";
-import Error from "../../General/Error";
-import FormElementWrapper from "../../helpers/FormElementWrapper";
+/** Libraries */
+import React from 'react';
+import { Field } from 'redux-form';
 
-export default props => {
-  const {
-    input,
-    helperText,
-    name,
-    autoFocus,
-    className,
-    label,
-    placeholder,
-    type,
-    meta: { active, touched, error, dirty, asyncValidating }
-  } = props;
-  const invalid = touched && error;
+/** Components */
+import FormElementWrapper from '../../helpers/FormElementWrapper';
 
-  const classes = classNames({
-    invalid
-  });
-
-  return (
-    <FormElementWrapper {...props} _id="fe-textfield">
-      {/* Label */}
-      <div className="form-label">
-        <label>{label || placeholder}</label>
-      </div>
-
-      {/* Helper Text */}
-      {helperText && <div className="form-helper">{helperText}</div>}
-
-      {/* Input Component */}
-      <div className="form-input">
-        <input
-          {...input}
-          className={`${classes} padding-1`}
-          autoFocus={autoFocus}
-          placeholder={placeholder || label}
-          type={type || "text"}
-        />
-      </div>
-
-      {/* Error */}
-      <div className="form-error">
-        <Error invalid={invalid}>{error}</Error>
-      </div>
-    </FormElementWrapper>
-  );
+const suppressReturn = event => {
+	if (event.keyCode === 13) {
+		event.preventDefault();
+		event.stopPropagation();
+	}
 };
+
+/** Input */
+const renderInputField = field => {
+	const {
+		input,
+		meta: { error, pristine },
+		placeholder,
+		type = 'text',
+		label,
+		helperText,
+		className,
+		autoFocus = false,
+		required = false,
+		disabled = false,
+	} = field;
+
+	const invalid = !pristine && error;
+
+	return (
+		<FormElementWrapper className={className} _id="fe-textfield">
+			{/* Label */}
+			{label && (
+				<div className="form-label">
+					<label>{label}</label>
+				</div>
+			)}
+
+			{/* Helper Text */}
+			{helperText && <div className="form-helper">{helperText}</div>}
+
+			{/* Input */}
+			<div className={`form-input ${invalid && 'error'}`}>
+				<input
+					{...input}
+					type={type}
+					placeholder={placeholder}
+					autoFocus={autoFocus}
+					required={required}
+					disabled={disabled}
+					onKeyDown={suppressReturn}
+				/>
+			</div>
+
+			{/* Error */}
+			{invalid && (
+				<div className="form-error">
+					<Error invalid={invalid}>{error}</Error>
+				</div>
+			)}
+		</FormElementWrapper>
+	);
+};
+
+class TextField extends React.Component {
+	render() {
+		return <Field {...this.props} component={renderInputField} />;
+	}
+}
+
+export default TextField;

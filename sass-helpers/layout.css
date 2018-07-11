@@ -10,6 +10,8 @@
     align-items: flex-end; }
   .flex.col {
     flex-direction: column; }
+  .flex.wrap {
+    flex-wrap: wrap; }
   .flex .width-0 {
     width: 0%; }
   .flex .width-10 {
