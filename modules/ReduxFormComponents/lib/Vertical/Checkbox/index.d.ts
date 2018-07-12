@@ -1,7 +1,7 @@
 import React from 'react';
 import { Validator, Formatter, Parser } from 'redux-form';
 
-interface RadioProps {
+interface CheckboxProps {
 	name: string;
 	id?: string;
 	className?: string;
@@ -19,4 +19,4 @@ interface RadioProps {
 	parse?: Parser;
 }
 
-export default class Radio extends React.Component<RadioProps> {}
+export default class Checkbox extends React.Component<CheckboxProps> {}

@@ -7,6 +7,7 @@ import { Field, reduxForm } from 'redux-form';
 import TextField from '../modules/ReduxFormComponents/lib/Vertical/TextField/';
 import Radio from '../modules/ReduxFormComponents/lib/Vertical/Radio';
 import Radios from '../modules/ReduxFormComponents/lib/Vertical/Radios';
+import Checkbox from '../modules/ReduxFormComponents/lib/Vertical/Checkbox';
 
 import { DemoFormDecorator } from './helpers/';
 
@@ -61,7 +62,7 @@ storiesOf('Style Helpers', module)
 
 				{/* Radios - Horizontal */}
 				<Radios
-					name="demoRadios"
+					name="demoRadiosHorizontal"
 					className="margin-top-2"
 					options={['Red', 'Green', 'Blue']}
 					label="Select a color"
@@ -69,12 +70,15 @@ storiesOf('Style Helpers', module)
 
 				{/* Radios - Vertical */}
 				<Radios
-					name="demoRadios"
+					name="demoRadiosVertical"
 					className="margin-top-2"
 					position="vertical"
 					options={['Red', 'Green', 'Blue']}
 					label="Select a color"
 				/>
+
+				{/* Checkbox */}
+				<Checkbox name="demoCheckbox" className="margin-top-2" label="Label" />
 			</React.Fragment>
 		);
 	});
