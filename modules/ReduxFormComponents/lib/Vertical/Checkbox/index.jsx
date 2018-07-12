@@ -10,6 +10,7 @@ const renderCheckbox = field => {
 		input,
 		label,
 		className,
+		required,
 		meta: { pristine, error },
 	} = field;
 
@@ -21,7 +22,13 @@ const renderCheckbox = field => {
 		<FormElementWrapper className={className}>
 			{/* Checkbox */}
 			<div className={`form-input ${invalid && 'error'}`}>
-				<input type="checkbox" {...input} checked={input.checked} onChange={handleChange} />
+				<input
+					type="checkbox"
+					{...input}
+					required={required}
+					checked={input.checked}
+					onChange={handleChange}
+				/>
 
 				{label && <label htmlFor={input.name}>{label}</label>}
 			</div>

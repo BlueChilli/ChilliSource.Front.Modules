@@ -8,6 +8,7 @@ import TextField from '../modules/ReduxFormComponents/lib/Vertical/TextField/';
 import Radio from '../modules/ReduxFormComponents/lib/Vertical/Radio';
 import Radios from '../modules/ReduxFormComponents/lib/Vertical/Radios';
 import Checkbox from '../modules/ReduxFormComponents/lib/Vertical/Checkbox';
+import Checkboxes from '../modules/ReduxFormComponents/lib/Vertical/Checkboxes';
 
 import { DemoFormDecorator } from './helpers/';
 
@@ -51,21 +52,21 @@ storiesOf('Style Helpers', module)
 
 				{/* TextField */}
 				<TextField
-					label="Label"
+					label="Single Line Input"
 					name="demoTextField"
 					helperText="This is some helper text"
 					className="margin-top-2"
 				/>
 
 				{/* Radio */}
-				<Radio name="demoRadio" className="margin-top-2" label="Label" />
+				<Radio name="demoRadio" className="margin-top-2" label="Single Radio" />
 
 				{/* Radios - Horizontal */}
 				<Radios
 					name="demoRadiosHorizontal"
 					className="margin-top-2"
 					options={['Red', 'Green', 'Blue']}
-					label="Select a color"
+					label="Horizontal Radios"
 				/>
 
 				{/* Radios - Vertical */}
@@ -74,11 +75,28 @@ storiesOf('Style Helpers', module)
 					className="margin-top-2"
 					position="vertical"
 					options={['Red', 'Green', 'Blue']}
-					label="Select a color"
+					label="Vertical Radios"
 				/>
 
 				{/* Checkbox */}
-				<Checkbox name="demoCheckbox" className="margin-top-2" label="Label" />
+				<Checkbox name="demoCheckbox" className="margin-top-2" label="Single Checkbox" />
+
+				{/* Checkboxes - Horizontal */}
+				<Checkboxes
+					name="demoCheckboxesHorizontal"
+					className="margin-top-2"
+					label="Horizontal Checkboxes"
+					options={['Red', 'Green', 'Blue']}
+				/>
+
+				{/* Checkboxes - Vertical */}
+				<Checkboxes
+					name="demoCheckboxesVertical"
+					className="margin-top-2"
+					label="Vertical Checkboxes"
+					position="vertical"
+					options={['Red', 'Green', 'Blue']}
+				/>
 			</React.Fragment>
 		);
 	});

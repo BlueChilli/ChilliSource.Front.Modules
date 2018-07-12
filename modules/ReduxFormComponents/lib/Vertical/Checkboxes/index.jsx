@@ -5,9 +5,9 @@ import React from 'react';
 import FormElementWrapper from '../../helpers/FormElementWrapper';
 
 /** Components */
-import Radio from '../Radio';
+import Checkbox from '../Checkbox';
 
-class Radios extends React.Component {
+class Checkboxes extends React.Component {
 	getFormattedOptions = () => {
 		const { options } = this.props;
 
@@ -60,16 +60,7 @@ class Radios extends React.Component {
 	};
 
 	render() {
-		const {
-			name,
-			className,
-			label,
-			helperText,
-			position,
-			flow,
-			optionWidth,
-			required = false,
-		} = this.props;
+		const { name, className, label, helperText, position, flow, optionWidth } = this.props;
 
 		return (
 			<FormElementWrapper className={className}>
@@ -85,18 +76,17 @@ class Radios extends React.Component {
 
 				{/* Radios */}
 				<div
-					className={`radios flex ${position === 'vertical' ? 'col' : ''} ${
+					className={`checkboxes flex ${position === 'vertical' ? 'col' : ''} ${
 						flow && flow === 'wrap' ? 'wrap' : ''
 					}`}>
 					{this.getFormattedOptions().map((option, index) => {
 						return (
-							<Radio
+							<Checkbox
 								name={name}
 								className={this.isOptionWidthValid() ? `width-${optionWidth}` : ''}
 								key={`${name}-${index}`}
 								label={option.label}
 								value={option.value}
-								required={required}
 							/>
 						);
 					})}
@@ -106,7 +96,4 @@ class Radios extends React.Component {
 	}
 }
 
-export default Radios;
-
-// position?: 'horizontal' | 'vertical';
-// flow?: 'wrap' | 'inline';
+export default Checkboxes;

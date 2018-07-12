@@ -11,6 +11,7 @@ const renderRadio = field => {
 		input,
 		label,
 		className,
+		required,
 		meta: { pristine, error },
 	} = field;
 
@@ -21,7 +22,13 @@ const renderRadio = field => {
 		<FormElementWrapper className={className}>
 			{/* Radio */}
 			<div className={`form-input ${invalid && 'error'}`}>
-				<input type="radio" {...input} checked={input.checked} onChange={handleChange} />
+				<input
+					type="radio"
+					{...input}
+					required={required}
+					checked={input.checked}
+					onChange={handleChange}
+				/>
 
 				{label && <label htmlFor={input.name}>{label}</label>}
 			</div>

@@ -1,12 +1,11 @@
 import React from 'react';
 
-interface RadiosProps {
+interface CheckboxesProps {
 	name: string;
 	className?: string;
 	options: string[] | { label: string; value: string | number }[];
 	label?: string;
 	helperText?: string;
-	required?: boolean;
 	/**
 	 * This is useful only when setting the flow property
 	 * to wrap. You can choose how much percent of the
@@ -29,4 +28,4 @@ interface RadiosProps {
 	flow?: 'wrap' | 'inline';
 }
 
-export default class Radios extends React.Component<RadiosProps> {}
+export default class Checkboxes extends React.Component<CheckboxesProps> {}

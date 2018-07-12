@@ -7,6 +7,7 @@ interface RadioProps {
 	className?: string;
 	label?: string;
 	value?: string | number;
+	required?: boolean;
 	validate?: Validator;
 	/**
 	 * Formats the value from the Redux store to be displayed
