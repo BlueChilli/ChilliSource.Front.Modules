@@ -7,5 +7,5 @@
 
 - [Swagger](/swagger.md)
 - [Logging](/logging.md)
-- [Modules](/modules/intro.md)
+- [Modules](/modules/index.md)
 
