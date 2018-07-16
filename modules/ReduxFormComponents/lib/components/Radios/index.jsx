@@ -107,6 +107,3 @@ class Radios extends React.Component {
 }
 
 export default Radios;
-
-// position?: 'horizontal' | 'vertical';
-// flow?: 'wrap' | 'inline';

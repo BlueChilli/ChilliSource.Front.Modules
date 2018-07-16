@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "SF Display"; }
+  font-family: 'SF Display'; }
   *:active, *:focus {
     outline: none; }
 
@@ -12,7 +12,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "SFProDisplay-Heavy";
+  font-family: 'SFProDisplay-Heavy';
   color: #4a4a4a; }
 
 /** Margins **/

@@ -1,18 +1,19 @@
 /** Libraries */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Field, reduxForm } from 'redux-form';
 
 /** Components */
-import TextField from '../modules/ReduxFormComponents/lib/Vertical/TextField/';
-import Radio from '../modules/ReduxFormComponents/lib/Vertical/Radio';
-import Radios from '../modules/ReduxFormComponents/lib/Vertical/Radios';
-import Checkbox from '../modules/ReduxFormComponents/lib/Vertical/Checkbox';
-import Checkboxes from '../modules/ReduxFormComponents/lib/Vertical/Checkboxes';
+import TextField from '../modules/ReduxFormComponents/lib/components/TextField/';
+import Radio from '../modules/ReduxFormComponents/lib/components/Radio';
+import Radios from '../modules/ReduxFormComponents/lib/components/Radios';
+import Checkbox from '../modules/ReduxFormComponents/lib/components/Checkbox';
+import Checkboxes from '../modules/ReduxFormComponents/lib/components/Checkboxes';
+import CalendarPicker from '../modules/ReduxFormComponents/lib/components/CalendarPicker';
 
 import { DemoFormDecorator } from './helpers/';
 
 import '../sass-helpers/index.css';
+import 'react-widgets/dist/css/react-widgets.css';
 
 /** Rendering Components */
 storiesOf('Style Helpers', module)
@@ -65,7 +66,8 @@ storiesOf('Style Helpers', module)
 				<Radios
 					name="demoRadiosHorizontal"
 					className="margin-top-2"
-					options={['Red', 'Green', 'Blue']}
+					options={['Red', 'Green', 'Blue', 'Yellow', 'Violet', 'Pink']}
+					flow="wrap"
 					label="Horizontal Radios"
 				/>
 
@@ -96,6 +98,14 @@ storiesOf('Style Helpers', module)
 					label="Vertical Checkboxes"
 					position="vertical"
 					options={['Red', 'Green', 'Blue']}
+				/>
+
+				{/* DatePicker */}
+				<CalendarPicker
+					name="demoCalendarPicker"
+					className="margin-top-2"
+					label="Calendar Picker"
+					helperText="This is a calendar date picker"
 				/>
 			</React.Fragment>
 		);
