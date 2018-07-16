@@ -5,7 +5,6 @@ The `TextField` component is a single line input field that allows the user to e
 | Property    | Required | Optional | Type       | Description                                                                                                                                        |
 | ----------- | -------- | -------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 | name        | `true`   |          | `string`   | The unique name assigned to the field                                                                                                              |
-| id          |          | `true`   | `string`   | An `id` if you'd like to reference this field                                                                                                      |
 | className   |          | `true`   | `string`   | Additional `class`es you'd like to add to the component                                                                                            |
 | placeholder |          | `true`   | `string`   | Text shown when the field has no value                                                                                                             |
 | onFocus     |          | `true`   | `function` | Custom event handler if you'd like to handle `onfocus` yourself                                                                                    |

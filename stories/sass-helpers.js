@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react';
 
 /** Components */
 import TextField from '../modules/ReduxFormComponents/lib/components/TextField/';
+import TextArea from '../modules/ReduxFormComponents/lib/components/TextArea/';
 import Radio from '../modules/ReduxFormComponents/lib/components/Radio';
 import Radios from '../modules/ReduxFormComponents/lib/components/Radios';
 import Checkbox from '../modules/ReduxFormComponents/lib/components/Checkbox';
@@ -59,6 +60,14 @@ storiesOf('Style Helpers', module)
 					name="demoTextField"
 					helperText="This is some helper text"
 					className="margin-top-2"
+				/>
+
+				{/* TextArea */}
+				<TextArea
+					name="demoTextArea"
+					label="Multi Line Input"
+					className="margin-top-2"
+					helperText="Please enter multi-line text here"
 				/>
 
 				{/* Radio */}

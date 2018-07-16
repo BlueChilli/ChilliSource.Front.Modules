@@ -33,6 +33,15 @@
       padding-right: 8px; }
       .form-element .form-input input:focus {
         border: 2px solid #0067ff; }
+    .form-element .form-input textarea {
+      width: 100%;
+      background-color: transparent;
+      border: 1px solid #adadb0;
+      font-size: 16px;
+      color: #4a4a4a;
+      padding: 8px; }
+      .form-element .form-input textarea:focus {
+        border: 2px solid #0067ff; }
     .form-element .form-input input[type='radio'] {
       position: absolute;
       width: 100%;
