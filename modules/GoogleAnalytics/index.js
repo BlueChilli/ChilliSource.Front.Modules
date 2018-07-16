@@ -25,7 +25,8 @@ export default class GoogleAnalytics extends Mod {
   options() {
     return {
       trackingId: "",
-      debug: true
+      debug: true,
+      autotrack: true
     };
   }
 }
