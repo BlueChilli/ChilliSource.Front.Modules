@@ -13,8 +13,8 @@ import Select from '../modules/ReduxFormComponents/lib/components/Select/';
 
 import { DemoFormDecorator } from './helpers/';
 
-import '../sass-helpers/index.css';
 import 'react-widgets/dist/css/react-widgets.css';
+import '../sass-helpers/index.css';
 
 /** Rendering Components */
 storiesOf('Style Helpers', module)
