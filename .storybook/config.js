@@ -4,6 +4,8 @@ function loadStories() {
   require('../stories/form-vertical-fields.js');
   require('../stories/sass-helpers.js');
   require('../stories/components.js');
+  require('../stories/chillsource-app.js');
+
 
 
 }
