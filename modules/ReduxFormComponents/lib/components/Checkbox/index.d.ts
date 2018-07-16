@@ -3,7 +3,6 @@ import { Validator, Formatter, Parser } from 'redux-form';
 
 interface CheckboxProps {
 	name: string;
-	id?: string;
 	className?: string;
 	label?: string;
 	value?: string | number;

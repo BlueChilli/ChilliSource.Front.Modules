@@ -5,6 +5,7 @@ interface CheckboxesProps {
 	className?: string;
 	options: string[] | { label: string; value: string | number }[];
 	label?: string;
+	required?: boolean;
 	helperText?: string;
 	/**
 	 * This is useful only when setting the flow property
