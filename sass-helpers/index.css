@@ -589,7 +589,7 @@ button {
   margin-top: 2px;
   margin-bottom: 2px;
   border: none;
-  height: auto; }
+  height: 36px; }
   .form-input .rw-widget.rw-multiselect .rw-widget-picker div input:focus {
     border: none; }
 
