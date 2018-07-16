@@ -10,6 +10,7 @@ import Checkbox from '../modules/ReduxFormComponents/lib/components/Checkbox';
 import Checkboxes from '../modules/ReduxFormComponents/lib/components/Checkboxes';
 import CalendarPicker from '../modules/ReduxFormComponents/lib/components/CalendarPicker';
 import Select from '../modules/ReduxFormComponents/lib/components/Select/';
+import MultiSelect from '../modules/ReduxFormComponents/lib/components/MultiSelect/';
 
 import { DemoFormDecorator } from './helpers/';
 
@@ -109,13 +110,36 @@ storiesOf('Style Helpers', module)
 					helperText="This is a calendar date picker"
 				/>
 
-				{/* DatePicker */}
+				{/* Select */}
 				<Select
 					name="demoSelect"
 					className="margin-top-2"
 					label="Select - Single Value"
 					helperText="This is a dropdown selector"
 					data={['Violet', 'Indigo', 'Blue', 'Green', 'Yellow', 'Orange', 'Red']}
+				/>
+
+				{/* MultiSelect */}
+				<MultiSelect
+					name="demoMultiSelect"
+					className="margin-top-2"
+					label="Select - Multiple Values"
+					helperText="This is a multi-value dropdown selector"
+					placeholder="Select values ..."
+					data={[
+						'Violet',
+						'Indigo',
+						'Blue',
+						'Green',
+						'Yellow',
+						'Orange',
+						'Red',
+						'Purple',
+						'Black',
+						'White',
+						'Peach',
+						'Navy',
+					]}
 				/>
 			</React.Fragment>
 		);

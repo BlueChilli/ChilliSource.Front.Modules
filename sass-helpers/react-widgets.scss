@@ -28,8 +28,36 @@
 			}
 		}
 
-		// Select and Dropdown
-		&.rw-dropdown-list {
+		// MultiSelect
+		&.rw-multiselect {
+			.rw-widget-picker {
+				div {
+					ul {
+						.rw-multiselect-tag {
+							background-color: $primaryColor;
+							border-color: $primaryColor;
+							color: #fff;
+							font-weight: normal;
+						}
+					}
+
+					input {
+						margin-top: 2px;
+						margin-bottom: 2px;
+						border: none;
+						height: auto;
+
+						&:focus {
+							border: none;
+						}
+					}
+				}
+			}
+		}
+
+		// Select, MultiSelect and Dropdown
+		&.rw-dropdown-list,
+		&.rw-multiselect {
 			.rw-popup-container {
 				.rw-popup-transition {
 					.rw-popup {
