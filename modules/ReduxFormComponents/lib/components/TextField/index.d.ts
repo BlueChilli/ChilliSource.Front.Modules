@@ -1,7 +1,7 @@
 import React, { FocusEvent } from 'react';
 import { Validator, Formatter, Parser, EventWithDataHandler } from 'redux-form';
 
-interface TextFieldWithFieldProps {
+interface TextFieldProps {
 	name: string;
 	id?: string;
 	className?: string;
@@ -23,4 +23,4 @@ interface TextFieldWithFieldProps {
 	parse?: Parser;
 }
 
-export default class TextFieldWithField extends React.Component<TextFieldWithFieldProps> {}
+export default class TextField extends React.Component<TextFieldProps> {}

@@ -1,7 +1,8 @@
 ## Index
 
-- [Installation](/installation.md)
-- [Dev Guide](/dev/Intro.md)
+- [Getting Started](/installation.md)
+- [Available Modules](/modules)
+- [Contributing](/dev/Intro.md)
 
 ### Guides
 
