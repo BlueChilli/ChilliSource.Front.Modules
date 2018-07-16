@@ -158,15 +158,7 @@ interface SelectProps {
 	 * An object of props that is passed directly to the underlying List component.
 	 */
 	listProps?: object;
-	/**
-	 * The HTML name attribute used to group checkboxes and radio buttons together.
-	 */
-	name?: string;
-	/**
-	 * Whether or not the SelectList allows multiple selection or not.
-	 * when false the SelectList will render as a list of radio buttons, and checkboxes when true.
-	 */
-	multiple?: boolean;
+	required?: boolean;
 }
 
 interface SelectMessages {
