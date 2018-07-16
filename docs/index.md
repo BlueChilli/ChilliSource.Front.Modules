@@ -1,10 +1,12 @@
 ## Index
 
 - [Getting Started](/installation.md)
-- [Available Modules](/modules)
-- [Contributing](/dev/Intro.md)
+- [Installation](/installation.md)
+- [Contributing](/dev/index.md)
 
 ### Guides
 
 - [Swagger](/swagger.md)
 - [Logging](/logging.md)
+- [Modules](/modules/index.md)
+

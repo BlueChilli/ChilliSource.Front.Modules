@@ -3,10 +3,10 @@ import { Mod } from 'chillifront';
 import reducer from './reducer';
 import * as actions from './actions';
 
-export default class Notificiations extends Mod {
+export default class Notificiation extends Mod {
 
   name() {
-    return "Notifications";
+    return "Notification";
   }
 
   actions() {
