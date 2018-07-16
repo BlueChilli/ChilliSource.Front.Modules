@@ -1,0 +1,28 @@
+# CalendarPicker
+
+CalendarPicker displays a calendar view that allows the user to choose a exact date, or a part of thereof. We currently **do not** support date range. If you need a range selection, you can use two pickers and enforce your own validation rules or try sourcing another package from`npm` and build your own component.
+
+| Property      | Required | Optional | Type                   | Description                                                                                                                                            |
+| ------------- | -------- | -------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| name          | `true`   |          | `string`               | The unique name assigned to the field                                                                                                                  |
+| className     |          | `true`   | `string`               | Additional `class`es you'd like to add to the component                                                                                                |
+| label         |          | `true`   | `string`               | The title for this field. It helps the user better understand what is required from them w.r.t. this field                                             |
+| helperText    |          | `true`   | `string`               | Text shown just below the label designed to further user understanding of the field                                                                    |
+| value         |          | `true`   | `Date`                 | **Only** specify if you are using this as a controlled component.                                                                                      |
+| defaultValue  |          | `true`   | `Date`                 | An initial value if required by the form                                                                                                               |
+| min           |          | `true`   | `Date`                 | The minimum date that the Calendar can navigate from.                                                                                                  |
+| max           |          | `true`   | `Date`                 | The maximum date that the Calendar can navigate to.                                                                                                    |
+| currentDate   |          | `true`   | `Date`                 | Default current date at which the calendar opens. If none is provided, opens at today's date or the value date (if any).                               |
+| footer        |          | `true`   | `boolean`              | Show or hide the Calendar footer. Default false                                                                                                        |
+| dayComponent  |          | `true`   | `React.ReactType`      | Provide a custom component to render the days of the month.                                                                                            |
+| initialView   |          | `true`   | `string`               | The starting and lowest level view the calendar can navigate down to. Possible values = `month`                                                        | `year` | `decade` | `century` |
+| finalView     |          | `true`   | `string`               | The highest level view the calendar can navigate up to. This value should be higher than initialView. Possible values = `month`                        | `year` | `decade` | `century` |
+| headerFormat  |          | `true`   | `string` or `function` | A formatter for the header button of the month view. Signature is `string | ((day: Date) => string)`                                                   |
+| footerFormat  |          | `true`   | `string` or `function` | A formatter for the Calendar footer, formats Today's Date as a string. Signature is `string | ((day: Date) => string)`                                 |
+| dayFormat     |          | `true`   | `string` or `function` | A formatter calendar days of the week, the default formats each day as a Narrow name: "Mo", "Tu", etc. Signature is `string | ((day: Date) => string)` |
+| dateFormat    |          | `true`   | `string` or `function` | A formatter for day of the month. Signature is `string | ((day: Date) => string)`                                                                      |
+| monthFormat   |          | `true`   | `string` or `function` | A formatter for month name. Signature is `string | ((day: Date) => string)`                                                                            |
+| yearFormat    |          | `true`   | `string` or `function` | A formatter for the year. Signature is `string | ((day: Date) => string)`                                                                              |
+| decadeFormat  |          | `true`   | `string` or `function` | A formatter for decade, the default formats the first and last year of the decade like: 2000 - 2009. Signature is `string | ((day: Date) => string)`   |
+| centuryFormat |          | `true`   | `string` or `function` | A formatter for century, the default formats the first and last year of the century like: 1900 - 1999. Signature is `string | ((day: Date) => string)` |
+| defaultView   |          | `true`   | `string`               | Set a unique starting view. Possible values = `month`                                                                                                  | `year` | `decade` | `century` |

@@ -1,0 +1,157 @@
+@import 'variables.scss';
+
+.form-element {
+	width: 100%;
+
+	// Form Label
+	.form-label {
+		height: 24px;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		font-size: 14px;
+		color: $primaryTextColor;
+
+		&.lower {
+			align-items: flex-end;
+		}
+
+		&.upper {
+			align-items: flex-start;
+		}
+	}
+
+	.form-helper {
+		height: 16px;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		font-size: 12px;
+		color: $secondaryTextColor;
+	}
+
+	// Form Input
+	.form-input {
+		position: relative;
+
+		// Single Line
+		input {
+			width: 100%;
+			height: 40px;
+			background-color: transparent;
+			border: 1px solid $secondaryTextColor;
+			font-size: 16px;
+			color: $primaryTextColor;
+			padding-left: 8px;
+			padding-right: 8px;
+
+			&:focus {
+				border: 2px solid $primaryColor;
+			}
+		}
+
+		// Text Area
+		textarea {
+			width: 100%;
+			background-color: transparent;
+			border: 1px solid $secondaryTextColor;
+			font-size: 16px;
+			color: $primaryTextColor;
+			padding: 8px;
+
+			&:focus {
+				border: 2px solid $primaryColor;
+			}
+		}
+
+		/** Radios **/
+		input[type='radio'] {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			cursor: pointer;
+
+			& + label {
+				padding-left: 24px;
+				height: auto;
+				display: inline-block;
+				vertical-align: middle;
+				cursor: pointer;
+				line-height: 24px;
+
+				&::before {
+					content: '';
+					display: block;
+					position: absolute;
+					top: 4px;
+					left: 0;
+					width: 14px;
+					height: 14px;
+					border: 1px solid $primaryTextColor;
+					border-radius: 50%;
+				}
+			}
+
+			&:checked + label {
+				&:after {
+					content: '';
+					display: block;
+					position: absolute;
+					top: 7px;
+					left: 3px;
+					width: 10px;
+					height: 10px;
+					background-color: $primaryColor;
+					border-radius: 50%;
+				}
+			}
+		}
+
+		/** Checkboxes **/
+		input[type='checkbox'] {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			cursor: pointer;
+
+			& + label {
+				padding-left: 24px;
+				height: auto;
+				display: inline-block;
+				line-height: 23px;
+				background-position: 0 2px;
+				vertical-align: middle;
+				cursor: pointer;
+				line-height: 24px;
+
+				&::before {
+					content: '';
+					display: block;
+					position: absolute;
+					top: 4px;
+					left: 0;
+					width: 14px;
+					height: 14px;
+					border: 1px solid $primaryTextColor;
+				}
+			}
+
+			&:checked + label {
+				&:after {
+					content: '';
+					display: block;
+					position: absolute;
+					top: 6px;
+					left: 2px;
+					width: 10px;
+					height: 5px;
+					border-bottom: 3px solid $primaryColor;
+					border-left: 3px solid $primaryColor;
+					transform: rotate(-45deg);
+				}
+			}
+		}
+	}
+}
