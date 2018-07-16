@@ -8,10 +8,6 @@ interface CalendarPickerProps {
 	helperText?: string;
 	className?: string;
 	/**
-	 * Set the culture of the Calendar, passed to the configured localizer.
-	 */
-	culture?: string;
-	/**
 	 * The current selected date, should be a Date object or null.
 	 */
 	value?: Date;
@@ -24,19 +20,6 @@ interface CalendarPickerProps {
 	 * the Date object
 	 */
 	onChange?: (date?: Date) => void;
-	/**
-	 * The native onKeyDown event, called preventDefault will prevent any custom behavior, included keyboard shortcuts.
-	 */
-	onKeyDown?: (event: KeyboardEvent) => void;
-	/**
-	 * Callback fired when the Calendar navigates between views, or forward and backwards in
-	 * time.
-	 */
-	onNavigate?: (date: Date, direction: string, view: string) => void;
-	/**
-	 * A callback fired when the view changes.
-	 */
-	onViewChange?: () => void;
 	/**
 	 * The minimum date that the Calendar can navigate from.
 	 */
@@ -51,11 +34,6 @@ interface CalendarPickerProps {
 	 * @default Date()
 	 */
 	currentDate?: Date;
-	/**
-	 * Change event Handler that is called when the currentDate is changed. The handler is
-	 * called with the currentDate object.
-	 */
-	onCurrentDateChange?: (date?: Date) => void;
 	/**
 	 * Show or hide the Calendar footer.
 	 * @default false
@@ -115,30 +93,10 @@ interface CalendarPickerProps {
 	 * 1900 - 1999.
 	 */
 	centuryFormat?: string | ((day: Date) => string);
-	messages?: {
-		/**
-		 * Title and screen reader text for the left arrow button.
-		 * @default: "navigate back"
-		 */
-		moveBack?: string;
-		/**
-		 * Title and screen reader text for the right arrow button.
-		 * @default: "navigate forward"
-		 */
-		moveForward?: string;
-	};
 	/**
 	 * Set a unique starting view
 	 */
 	defaultView?: View;
-	/**
-	 * Controls the currently displayed calendar view. Use defaultView to set a unique starting view.
-	 */
-	view?: View;
-	/**
-	 * Defines a list of views the Calendar can traverse through, starting with the first in the list to the last.
-	 */
-	views?: View[];
 }
 
 export default class CalendarPicker extends React.Component<CalendarPickerProps> {}
