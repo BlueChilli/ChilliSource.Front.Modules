@@ -20,7 +20,8 @@ import "./components/ResponsiveMenu/css.css";
 2. Menu boilerplate
 
 ```js
-<ResponsiveMenu right style={{ background: "#eee" }}>
+
+<ResponsiveMenu right>
     <MenuItem to="/">Home</MenuItem>
     <MenuItem to="/about">About</MenuItem>
     <MenuItem showIf={true} to="/edit">Edit</MenuItem>

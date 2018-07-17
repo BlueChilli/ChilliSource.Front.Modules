@@ -10,6 +10,7 @@ import NotificationTest from "../chillisauce-app/App/NotificationTest";
 import NotFoundPage from "../modules/404/index";
 import ReduxThunk from "../modules/ReduxThunk/index";
 import Notification from "../modules/Notification/index";
+import GoogleAnalytics from "../modules/GoogleAnalytics/index";
 
 
 const CF = ({children}) => {
@@ -23,6 +24,16 @@ storiesOf('ChillFront', module)
       new Notification(),
       new ReduxThunk(),
       new NotFoundPage()
+    ],
+    configureStore
+  )(NotificationTest)}</CF>)
+  .add('Google Analytics', () => <CF>{chillifront(
+    [
+      new GoogleAnalytics({
+        debug: true,
+        trackingId: "123123144",
+        require: ['eventTracker', 'outboundLinkTracker', 'urlChangeTracker']
+      })
     ],
     configureStore
   )(NotificationTest)}</CF>);
