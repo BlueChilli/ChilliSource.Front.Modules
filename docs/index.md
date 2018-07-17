@@ -9,4 +9,6 @@
 - [Swagger](/swagger.md)
 - [Logging](/logging.md)
 - [Modules](/modules/index.md)
+- [Components](/components/index.md)
+
 
