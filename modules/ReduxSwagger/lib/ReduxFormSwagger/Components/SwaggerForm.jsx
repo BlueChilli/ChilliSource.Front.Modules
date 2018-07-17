@@ -51,17 +51,17 @@ SwaggerForm.defaultProps = {
   onSuccess: () => {
   },
   onFail: () => {
-  }
+  },
+  beforeSubmit: payload => payload
 };
 
 
 function mapStateToProps(state, props) {
-
   return {
     form: props.id,
     onSubmit: (payload, dispatch, formProps) => {
-
-      return apiCreator(props.id, {body: payload}).then(apiPayload => {
+      const newPayload = props.beforeSubmit(payload);
+      return apiCreator(props.id, {body: newPayload}).then(apiPayload => {
 
         if (isMounted === false) return;
 
