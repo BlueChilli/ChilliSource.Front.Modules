@@ -13,15 +13,14 @@ And although you do not need to setup any of these modules yourself, generally, 
 - [Notification](notification.md)
 - [PersistState](persiststate.md)
 - [GoogleAnalytics](googleanalytics.md)
+- [Mixpanel](mixpanel.md)
+- [ReduxBCLog](reduxbclog.md)
+- [Hotjar](hotjar.md)
 
 ### Undocumented (todo)
 
 - [404](404.md)
-
-- [Hotjar](hotjar.md)
-- [Mixpanel](mixpanel.md)
 - [Modal](modal.md)
-- [ReduxBCLog](reduxbclog.md)
 - [ReduxForm](reduxform.md)
 - [ReduxFormComponents](reduxformcomponents.md)
 - [ReduxPromiseMiddleware](reduxpromisemiddleware.md)
