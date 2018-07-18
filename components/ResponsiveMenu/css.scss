@@ -54,16 +54,12 @@ span {
 }
 
 /** Logo Right and Menu Left Tweaking **/
-.left-navbar {
+div.bm-wrapper-left {
 	div.bm-menu-wrap {
 		left: 0;
 	}
 
 	div.bm-burger-button {
-		left: 10px;
-	}
-
-	div.bm-cross-button {
 		left: 10px;
 	}
 }
@@ -108,7 +104,7 @@ span {
 	position: absolute;
 	width: 36px;
 	height: 30px;
-	right: 10;
+	right: 10px;
 	top: 10 / 2;
 }
 

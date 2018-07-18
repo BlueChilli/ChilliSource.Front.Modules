@@ -9,11 +9,11 @@ export default class BurgerMenu extends React.Component {
 		return (
 			<BrowserRouter>
 				<ResponsiveMenu
+					left
 					style={{
 						background: '#eee',
 						boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
-					}}
-					right>
+					}}>
 					<MenuItem className="home" style={{ fontSize: 20 }} to="/">
 						Home
 					</MenuItem>
