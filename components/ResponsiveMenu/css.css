@@ -1,5 +1,10 @@
 /** variables **/
-/** header **/
+a,
+span {
+  text-decoration: none;
+  color: black;
+  font-family: sans-serif; }
+
 /** basic navbar **/
 .navbar-responsive ul {
   margin: 0;
@@ -10,8 +15,8 @@
   display: inline-block;
   padding: 0;
   text-align: center; }
-  .navbar-responsive__list-item a, .navbar-responsive__list-item .submenu-item {
-    color: #424242;
+  .navbar-responsive__list-item a,
+  .navbar-responsive__list-item .submenu-item {
     padding: 8px 16px;
     display: block;
     text-decoration: none; }
@@ -24,7 +29,7 @@
     width: auto;
     position: absolute;
     left: 0;
-    top: 34px;
+    top: 35px;
     background: #e0e0e0;
     opacity: 0.9;
     border-color: #e0e0e0; }
@@ -69,8 +74,8 @@
   position: absolute;
   width: 36px;
   height: 30px;
-  right: 10px;
-  top: 5px; }
+  right: 10;
+  top: 10 / 2; }
 
 .bm-cross-button {
   height: 24px;
