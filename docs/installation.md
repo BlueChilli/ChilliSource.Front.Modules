@@ -13,7 +13,6 @@ Make sure you've CD'ed into your application.
 `npx https://github.com/BlueChilli/ChilliSource.Front.Installer.git --getMods`
 
 
-
 # Manual Install
 
 
@@ -25,13 +24,9 @@ Make sure you've CD'ed into your application.
 
 ## 2. Install chillifront
 
-`yarn add git+ssh://git@github.com:BlueChilli/ChilliSource.Front.git`
-
-or if that fails:
-`yarn add https://github.com/BlueChilli/ChilliSource.Front.git`
+`yarn add chillifront`
 
 ## 3. Add Redux Store
-
 
 `./src/redux/configureStore.js`
 
@@ -174,7 +169,7 @@ import Entry from "./App/Entry";
 import PersistState from "./modules/PeristState/index";
 import NotFoundPage from "./modules/404/index";
 import ReduxThunk from "./modules/ReduxThunk/index";
-import ReduxPromiseMiddleware from "./modules/ReduxThunk/index";
+import ReduxPromiseMiddleware from "./modules/ReduxPromiseMiddleware/index";
 
 export default chillifront(
   [
