@@ -63,7 +63,7 @@
 		"valid-url": "^1.0.9"
 	},
 	"scripts": {
-		"storybook": "start-storybook -p 9001 -c .storybook",
+		"storybook": "start-storybook -p 9101 -c .storybook",
 		"start": "npm-run-all --parallel storybook watch-css watch-css-sb watch-css-components watch-sass-helpers",
 		"build": "build-storybook -c .storybook -o build",
 		"build-css": "node-sass-chokidar ./modules/  -o ./modules/",

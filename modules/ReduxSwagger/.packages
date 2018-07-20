@@ -1,3 +1,5 @@
 axios
 prop-types
 lodash
+redux-create-reducer
+query-string
