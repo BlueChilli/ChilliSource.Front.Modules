@@ -42,9 +42,7 @@ storiesOf('ChillFront', module)
     [
       new ReduxPromiseMiddleware(),
       new ReduxThunk(),
-      new SwaggerData({
-        mockMode: true
-      })
+      new SwaggerData()
     ],
     configureStore
   )(SwaggerDataTest)}</CF>);

@@ -1,19 +1,33 @@
 import React from 'react'
 import set from "lodash/set";
 import PropTypes from 'prop-types';
-
 import {compose} from 'redux';
 import {apiCreator} from "../data/apiCreators";
 import {connect} from 'react-redux';
 import get from "lodash/get";
 import swaggerLoaderDecoratorCreator from "./swaggerLoaderDecoratorCreator";
-import {getMockMode} from "../configuration";
 
 // Is is probably really bad, but if you find me a working alternative, then awesome.
 let isMounted = false;
 
 
 const SwaggerDataCreator = (Spinner, GenericError) => {
+
+
+   class Foo extends React.Component {
+
+    render() {
+
+      if (this.props.mockData) {
+        return React.createElement(connect()(SwaggerData), {...this.props});
+      } else {
+        return compose(
+          connect(),
+          swaggerLoaderDecoratorCreator(Spinner, GenericError)
+        )(SwaggerData);
+      }
+    }
+  }
 
   class SwaggerData extends React.Component {
     constructor(props, context) {
@@ -39,7 +53,6 @@ const SwaggerDataCreator = (Spinner, GenericError) => {
         }
       }
     }
-
 
     processData(data) {
       if (this.props.debug === true) {
@@ -68,7 +81,6 @@ const SwaggerDataCreator = (Spinner, GenericError) => {
 
       }
 
-
       this.props.dispatch({
         type: "@@bcswagger/APISUCCESS/" + this.props.id,
         payload: {
@@ -77,7 +89,6 @@ const SwaggerDataCreator = (Spinner, GenericError) => {
           id: this.props.id
         }
       });
-
 
       // To prevent race condition where it tries to apply
       // state to an unmounted component
@@ -95,7 +106,7 @@ const SwaggerDataCreator = (Spinner, GenericError) => {
     componentDidMount() {
       isMounted = true;
 
-      if (getMockMode() === true) {
+      if (this.props.mockData !== undefined) {
         return this.componentDidMountForMockMode();
       }
 
@@ -127,7 +138,6 @@ const SwaggerDataCreator = (Spinner, GenericError) => {
     }
 
     render() {
-
       if (!this.props.children) return null;
 
       if (this.state.hasError === true) {
@@ -152,10 +162,8 @@ const SwaggerDataCreator = (Spinner, GenericError) => {
     children: PropTypes.func,
   };
 
-  return compose(
-    connect(),
-    swaggerLoaderDecoratorCreator(Spinner, GenericError)
-  )(SwaggerData);
+  return Foo;
+
 };
 
 export default SwaggerDataCreator;
