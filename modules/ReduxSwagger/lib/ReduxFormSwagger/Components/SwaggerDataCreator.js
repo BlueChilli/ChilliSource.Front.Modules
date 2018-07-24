@@ -10,21 +10,22 @@ import swaggerLoaderDecoratorCreator from "./swaggerLoaderDecoratorCreator";
 // Is is probably really bad, but if you find me a working alternative, then awesome.
 let isMounted = false;
 
-
 const SwaggerDataCreator = (Spinner, GenericError) => {
 
-
-   class Foo extends React.Component {
+  class RCDEntry extends React.Component {
 
     render() {
 
       if (this.props.mockData) {
         return React.createElement(connect()(SwaggerData), {...this.props});
       } else {
-        return compose(
-          connect(),
-          swaggerLoaderDecoratorCreator(Spinner, GenericError)
-        )(SwaggerData);
+
+        return React.createElement(
+          compose(
+            connect(),
+            swaggerLoaderDecoratorCreator(Spinner, GenericError)
+          )(SwaggerData), {...this.props}
+        );
       }
     }
   }
@@ -54,7 +55,18 @@ const SwaggerDataCreator = (Spinner, GenericError) => {
       }
     }
 
+    removeSpinner() {
+      if (this.props.delay) {
+        setTimeout(() => {
+          this.setState({isLoaded: true});
+        }, this.props.delay);
+      } else {
+        this.setState({isLoaded: true});
+      }
+    }
+
     processData(data) {
+
       if (this.props.debug === true) {
         console.log("SWAGGER_DATA", this.props.id, data);
       }
@@ -95,7 +107,8 @@ const SwaggerDataCreator = (Spinner, GenericError) => {
       if (isMounted === false) {
         return;
       } else {
-        this.setState({dataModified, data, isLoaded: true});
+        this.setState({dataModified, data});
+        this.removeSpinner();
       }
     }
 
@@ -162,7 +175,7 @@ const SwaggerDataCreator = (Spinner, GenericError) => {
     children: PropTypes.func,
   };
 
-  return Foo;
+  return RCDEntry;
 
 };
 
