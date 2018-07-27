@@ -31,7 +31,7 @@ storiesOf('ChillFront', module)
     [
       new GoogleAnalytics({
         debug: true,
-        trackingId: "123123144",
+        trackingId: "UA-103046519-2",
         require: ['eventTracker', 'outboundLinkTracker', 'urlChangeTracker']
       })
     ],
