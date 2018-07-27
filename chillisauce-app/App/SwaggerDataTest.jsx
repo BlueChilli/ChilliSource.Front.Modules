@@ -1,12 +1,10 @@
 import React from 'react'
 import {SwaggerData} from "../../modules/ReduxSwagger/lib/ReduxFormSwagger/index";
 
-
 const mockData = {
   "name": "George McReact",
   "age": 99
 };
-
 
 export default class SwaggerDataTest extends React.Component {
   render() {
