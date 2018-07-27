@@ -2,7 +2,6 @@ import {Mod} from "chillifront";
 import {setApiKey, setBaseURL, setSwaggerEndpoint} from "./lib/ReduxFormSwagger";
 import SwaggerView from "./SwaggerView/SwaggerView";
 import reducer from "./reducer";
-import {setMockMode} from "./lib/ReduxFormSwagger/configuration";
 
 export default class ReduxSwagger2 extends Mod {
 
@@ -15,14 +14,12 @@ export default class ReduxSwagger2 extends Mod {
       apiBase: "",
       apiKey: "",
       swaggerPath: "/swagger/docs/v1",
-      mockMode: false
     };
   }
 
   init() {
-    const {apiBase, apiKey, swaggerPath, mockMode} = this.getOptions();
+    const {apiBase, apiKey, swaggerPath} = this.getOptions();
 
-    setMockMode(mockMode);
     setSwaggerEndpoint(`${apiBase}${swaggerPath}?flatten=true`);
     setApiKey(apiKey);
     setBaseURL(apiBase);

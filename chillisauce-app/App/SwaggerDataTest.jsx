@@ -9,7 +9,7 @@ const mockData = {
 export default class SwaggerDataTest extends React.Component {
   render() {
     return (
-      <SwaggerData mockData={mockData}>
+      <SwaggerData mockData={mockData} delay={500}>
         {context => {
           return (
             <div>

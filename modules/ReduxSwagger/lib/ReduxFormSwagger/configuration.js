@@ -1,7 +1,6 @@
 let swaggerEndPoint = "";
 let baseUrl = undefined;
 let apiKey = "";
-let mockMode = false;
 
 // We want to be able to set it dynamically, but we also
 // want to maybe deal with environment variables as well.
@@ -17,19 +16,11 @@ export const setBaseURL = url => {
   baseUrl = url;
 };
 
-export const setMockMode = mode => {
-  mockMode = mode;
-};
-
 export const getBaseURL = () => {
   if (baseUrl === undefined && getMockMode() === false) {
     throw new Error("baseURL is not defined. Please check your environment variables!");
   }
   return baseUrl;
-};
-
-export const getMockMode = () => {
-  return mockMode;
 };
 
 export const getSwaggerEndPoint = () => {

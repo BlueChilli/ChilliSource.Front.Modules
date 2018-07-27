@@ -1,6 +1,6 @@
 import React from 'react'
 import {loadSwaggerDataPromise} from "../data/loadSwaggerDataPromise";
-import {getMockMode} from "../configuration";
+
 
 
 const swaggerLoaderDecoratorCreator = (Spinner, ErrorComponent) => {
@@ -14,26 +14,18 @@ const swaggerLoaderDecoratorCreator = (Spinner, ErrorComponent) => {
           uid: "SwaggerLoaderDecorator" + Math.floor(Math.random() * 0xFFFF),
           swaggerDataExists: false,
           isError: false,
-          isMocked: getMockMode()
         };
       }
 
       componentDidMount() {
-        if (this.state.isMocked === false) {
           return loadSwaggerDataPromise().then(_ => {
             this.setState({swaggerDataExists: true});
           }).catch(e => {
             this.setState({isError: true});
           });
-
-        }
       }
 
       render() {
-
-        if (this.state.isMocked) {
-          return <Child {...this.props}/>
-        }
 
         if (this.state.isError === true) {
           return <ErrorComponent/>
