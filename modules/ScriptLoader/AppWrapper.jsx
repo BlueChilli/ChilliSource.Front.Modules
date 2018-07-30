@@ -1,8 +1,8 @@
 import React from "react";
 import scriptLoader from "react-async-load-script";
 
-export default ({ trackingId }) => WrappedComponent => {
-  class Ga extends React.Component {
+export default ({ scripts }) => WrappedComponent => {
+  class CustomScriptLoader extends React.Component {
     constructor(props) {
       super(props);
       this.state = { isLoaded: false };
@@ -13,15 +13,8 @@ export default ({ trackingId }) => WrappedComponent => {
         prevProps.isScriptLoadSucceed !== this.props.isScriptLoadSucceed &&
         prevProps.isScriptLoadSucceed
       ) {
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-          window.dataLayer.push(arguments);
-        }
         this.setState({ isLoaded: true });
-        gtag("js", new Date());
-        gtag("config", `${trackingId}`);
       }
-
       return true;
     }
 
@@ -32,7 +25,5 @@ export default ({ trackingId }) => WrappedComponent => {
     }
   }
 
-  return scriptLoader([
-    `https://www.googletagmanager.com/gtag/js?id=${trackingId}`
-  ])(Ga);
+  return scriptLoader(scripts)(CustomScriptLoader);
 };
