@@ -1,36 +1,31 @@
 import React from 'react';
-import scriptLoader from 'react-async-load-script'
+import scriptLoader from 'react-async-load-script';
 
-export default ({trackingId}) => WrappedComponent => {
+export default ({ trackingId }) => WrappedComponent => {
+	class Ga extends React.Component {
+		shouldComponentUpdate(prevProps) {
+			if (
+				prevProps.isScriptLoadSucceed !== this.props.isScriptLoadSucceed &&
+				prevProps.isScriptLoadSucceed
+			) {
+				window.dataLayer = window.dataLayer || [];
 
-  class Ga extends React.Component {
+				function gtag() {
+					window.dataLayer.push(arguments);
+				}
 
-    shouldComponentUpdate(prevProps) {
+				gtag('js', new Date());
 
-      if (prevProps.isScriptLoadSucceed !== this.props.isScriptLoadSucceed && prevProps.isScriptLoadSucceed) {
-        window.dataLayer = window.dataLayer || [];
+				gtag('config', `${trackingId}`);
+			}
 
-        function gtag() {
-          dataLayer.push(arguments);
-        }
+			return false;
+		}
 
-        gtag('js', new Date());
+		render() {
+			return <WrappedComponent {...this.props} />;
+		}
+	}
 
-        gtag('config', `${trackingId}`);
-
-      }
-
-      return false;
-    }
-
-    render() {
-      return <WrappedComponent {...this.props} />;
-    }
-  }
-
-  return scriptLoader([
-    `https://www.googletagmanager.com/gtag/js?id=${trackingId}`
-  ])(Ga);
-
+	return scriptLoader([`https://www.googletagmanager.com/gtag/js?id=${trackingId}`])(Ga);
 };
-
