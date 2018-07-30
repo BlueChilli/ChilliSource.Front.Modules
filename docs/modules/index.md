@@ -16,6 +16,8 @@ And although you do not need to setup any of these modules yourself, generally, 
 - [Mixpanel](mixpanel.md)
 - [ReduxBCLog](reduxbclog.md)
 - [Hotjar](hotjar.md)
+- [FacebookPixel](facebookpixel.md)
+- [ScriptLoader](scriptloader.md)
 
 ### Undocumented (todo)
 
