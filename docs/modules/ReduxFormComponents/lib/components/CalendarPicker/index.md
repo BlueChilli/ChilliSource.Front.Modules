@@ -2,7 +2,7 @@
 
 CalendarPicker displays a calendar view that allows the user to choose a exact date, or a part of thereof. We currently **do not** support date range. If you need a range selection, you can use two pickers and enforce your own validation rules or try sourcing another package from `npm` and build your own component.
 
-## Basic Usage
+## Usage
 
 As listed [below](#properties), `CalendarPicker` supports many different properties as well as customisation options.
 
