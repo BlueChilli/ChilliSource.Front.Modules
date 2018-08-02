@@ -2,6 +2,26 @@
 
 The `Checkbox` component is like an on-off switch. A user can repeatedly select and deselect and value chosen is updated in the state. It supports most of the properties of the HTML `<input type="checkbox" />` field and a few others.
 
+## Usage
+
+- Basic(_Label used as the value_)
+
+```js
+<Checkbox name="demoCheckbox" className="margin-top-2" label="Single Checkbox" />
+```
+
+<br />
+
+- Specifying value
+
+```js
+<Checkbox name="demoCheckbox" className="margin-top-2" label="Single Checkbox" value="Checked" />
+```
+
+<br />
+
+## Properties
+
 | Property  | Required | Optional | Type                 | Description                                                                                                                                        |
 | --------- | -------- | -------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 | name      | `true`   |          | `string`             | The unique name assigned to the field                                                                                                              |
