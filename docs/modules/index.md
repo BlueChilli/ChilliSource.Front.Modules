@@ -9,7 +9,7 @@ And although you do not need to setup any of these modules yourself, generally, 
 
 ### Documented
 
-- [FormComponents](/components/index.md)
+- [ReduxFormComponents](/ReduxFormComponents/index.md)
 - [Notification](notification.md)
 - [PersistState](persiststate.md)
 - [GoogleAnalytics](googleanalytics.md)
@@ -24,7 +24,6 @@ And although you do not need to setup any of these modules yourself, generally, 
 - [404](404.md)
 - [Modal](modal.md)
 - [ReduxForm](reduxform.md)
-- [ReduxFormComponents](reduxformcomponents.md)
 - [ReduxPromiseMiddleware](reduxpromisemiddleware.md)
 - [ReduxSwagger](reduxswagger.md)
 - [ReduxSwaggerAccount](reduxswaggeraccount.md)
