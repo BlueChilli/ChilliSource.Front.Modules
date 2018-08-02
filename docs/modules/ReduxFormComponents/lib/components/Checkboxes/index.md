@@ -2,6 +2,52 @@
 
 The `Checkboxes` component is a group of checkboxes suited for multiple choice selection from a set of options.
 
+## Usage
+
+- Basic(_Horizontal_)
+
+```js
+<Checkboxes
+	name="demoCheckboxesHorizontal"
+	className="margin-top-2"
+	label="Horizontal Checkboxes"
+	options={['Red', 'Green', 'Blue']}
+/>
+```
+
+<br />
+
+- Basic(_Vertical_)
+
+```diff
+<Checkboxes
+  name="demoCheckboxesVertical"
+  className="margin-top-2"
+  label="Vertical Checkboxes"
+  options={['Red', 'Green', 'Blue']}
++ position="vertical"
+/>
+```
+
+<br />
+
+- Options with values
+
+```js
+<Checkboxes
+	name="demoCheckboxesHorizontal"
+	className="margin-top-2"
+	label="Horizontal Checkboxes"
+	options={[
+		{ label: 'Red', value: '#FF0000' },
+		{ label: 'Green', value: '#00FF00' },
+		{ label: 'Blue', value: '#0000FF' },
+	]}
+/>
+```
+
+## Properties
+
 | Property    | Required | Optional | Type      | Description                                                                                                                                                                                                                                                                                                                              |
 | ----------- | -------- | -------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | name        | `true`   |          | `string`  | The unique name assigned to the field                                                                                                                                                                                                                                                                                                    |
