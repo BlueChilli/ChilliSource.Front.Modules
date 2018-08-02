@@ -38,6 +38,10 @@
 							border-color: $primaryColor;
 							color: #fff;
 							font-weight: normal;
+
+							span {
+								color: #fff;
+							}
 						}
 					}
 
@@ -58,6 +62,11 @@
 		// Select, MultiSelect and Dropdown
 		&.rw-dropdown-list,
 		&.rw-multiselect {
+			.rw-widget-picker {
+				border-radius: 0;
+				border-color: $secondaryTextColor;
+			}
+
 			.rw-popup-container {
 				.rw-popup-transition {
 					.rw-popup {

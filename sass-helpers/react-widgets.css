@@ -20,6 +20,8 @@
   border-color: #0067ff;
   color: #fff;
   font-weight: normal; }
+  .form-input .rw-widget.rw-multiselect .rw-widget-picker div ul .rw-multiselect-tag span {
+    color: #fff; }
 
 .form-input .rw-widget.rw-multiselect .rw-widget-picker div input {
   margin-top: 2px;
@@ -28,6 +30,10 @@
   height: 36px; }
   .form-input .rw-widget.rw-multiselect .rw-widget-picker div input:focus {
     border: none; }
+
+.form-input .rw-widget.rw-dropdown-list .rw-widget-picker, .form-input .rw-widget.rw-multiselect .rw-widget-picker {
+  border-radius: 0;
+  border-color: #adadb0; }
 
 .form-input .rw-widget.rw-dropdown-list .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus,
 .form-input .rw-widget.rw-dropdown-list .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus:hover, .form-input .rw-widget.rw-multiselect .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus,

@@ -20,6 +20,8 @@
     color: #adadb0; }
   .form-element .form-input {
     position: relative;
+    /** Single Line Input **/
+    /** Text Area **/
     /** Radios **/
     /** Checkboxes **/ }
     .form-element .form-input svg {
@@ -71,7 +73,7 @@
           left: 0;
           width: 14px;
           height: 14px;
-          border: 1px solid #4a4a4a;
+          border: 1px solid #adadb0;
           border-radius: 50%; }
       .form-element .form-input input[type='radio']:checked + label:after {
         content: '';
@@ -107,7 +109,7 @@
           left: 0;
           width: 14px;
           height: 14px;
-          border: 1px solid #4a4a4a; }
+          border: 1px solid #adadb0; }
       .form-element .form-input input[type='checkbox']:checked + label:after {
         content: '';
         display: block;
