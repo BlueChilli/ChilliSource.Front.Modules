@@ -29,13 +29,13 @@
 		"style-loader": "^0.21.0"
 	},
 	"dependencies": {
-		"chillifront": "git+ssh://git@github.com:BlueChilli/ChilliSource.Front.git",
 		"@fortawesome/fontawesome": "^1.1.8",
 		"@fortawesome/fontawesome-free-solid": "^5.0.13",
 		"@fortawesome/fontawesome-svg-core": "^1.2.0-14",
 		"@fortawesome/free-solid-svg-icons": "^5.1.0-11",
 		"@fortawesome/react-fontawesome": "^0.1.0-11",
 		"axios": "^0.18.0",
+		"chillifront": "git+ssh://git@github.com:BlueChilli/ChilliSource.Front.git",
 		"classnames": "^2.2.6",
 		"local-storage": "^1.4.2",
 		"lodash": "^4.17.10",
@@ -43,6 +43,7 @@
 		"moment": "^2.22.2",
 		"prop-types": "^15.6.2",
 		"react": "^16.3.2",
+		"react-async-load-script": "^1.0.7",
 		"react-burger-menu": "^2.5.2",
 		"react-dom": "^16.3.2",
 		"react-onclickoutside": "^6.7.1",
@@ -62,7 +63,7 @@
 		"valid-url": "^1.0.9"
 	},
 	"scripts": {
-		"storybook": "start-storybook -p 9001 -c .storybook",
+		"storybook": "start-storybook -p 9101 -c .storybook",
 		"start": "npm-run-all --parallel storybook watch-css watch-css-sb watch-css-components watch-sass-helpers",
 		"build": "build-storybook -c .storybook -o build",
 		"build-css": "node-sass-chokidar ./modules/  -o ./modules/",

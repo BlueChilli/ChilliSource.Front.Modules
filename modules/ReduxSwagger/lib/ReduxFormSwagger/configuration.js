@@ -17,12 +17,11 @@ export const setBaseURL = url => {
 };
 
 export const getBaseURL = () => {
-  if (baseUrl === undefined) {
-    throw new Error("baseURL is not defined. Please check your environment variables.");
+  if (baseUrl === undefined && getMockMode() === false) {
+    throw new Error("baseURL is not defined. Please check your environment variables!");
   }
   return baseUrl;
 };
-
 
 export const getSwaggerEndPoint = () => {
   const baseUrl = getBaseURL();
@@ -34,7 +33,6 @@ export const getSwaggerEndPoint = () => {
 export const setSwaggerEndpoint = ep => {
   swaggerEndPoint = ep;
 };
-
 
 // conveniences way to get everything
 export const getAllConfig = () => {

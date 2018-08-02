@@ -1,5 +1,5 @@
-import { Mod } from "chillifront";
-import { hotjar } from "react-hotjar";
+import {Mod} from "chillifront";
+import {hotjar} from "react-hotjar";
 
 export default class Hotjar extends Mod {
   name() {
@@ -7,10 +7,12 @@ export default class Hotjar extends Mod {
   }
 
   init() {
-    hotjar.initialize(
-      this.getOption("hotjarId"),
-      this.getOption("hotjarSnippetVersion")
-    );
+    if (this.getOption("hotjarId")) {
+      hotjar.initialize(
+        this.getOption("hotjarId"),
+        this.getOption("hotjarSnippetVersion")
+      );
+    }
   }
 
   options() {

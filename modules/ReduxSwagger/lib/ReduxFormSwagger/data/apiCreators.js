@@ -7,8 +7,6 @@ import {loadSwaggerDataPromise} from "./loadSwaggerDataPromise";
 
 export const apiCreator = (id, params = {}) => {
 
-
-
   /*
   console.log("getAxiosInstanceOnSubmit", {
     method: endpoint.method,
