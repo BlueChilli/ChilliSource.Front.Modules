@@ -2,6 +2,33 @@
 
 The `MultiSelect` component does not have a true equivalent in HTML. The closest is a group of checkboxes which can, technically, do the same job. However having search, filtering and occupying relatively less real estate.
 
+## Usage
+
+```js
+<MultiSelect
+  name="demoMultiSelect"
+  label="Select - Multiple Values"
+  placeholder="Select values ..."
+  data={[
+    'Violet',
+    'Indigo',
+    'Blue',
+    'Green',
+    'Yellow',
+    'Orange',
+    'Red',
+    'Purple',
+    'Black',
+    'White',
+    'Peach',
+    'Navy',
+  ]}
+```
+
+<br />
+
+## Properties
+
 | Property     | Required | Optional | Type       | Description                                                                                                                                                                                                                                                               |
 | ------------ | -------- | -------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | name         | `true`   |          | `string`   | The unique name assigned to the field                                                                                                                                                                                                                                     |

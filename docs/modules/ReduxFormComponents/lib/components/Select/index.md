@@ -2,6 +2,29 @@
 
 The `Select` component provides a drop down selector to select a value amongst a group of values. It supports most of the attributes for the default HTML `select` element and quite a few others.
 
+## Usage
+
+```js
+<Select
+	name="demoSelect"
+	label="Select - Single Value"
+	data={['Violet', 'Indigo', 'Blue', 'Green', 'Yellow', 'Orange', 'Red']}
+/>
+```
+
+```diff
+<Select
+  name="demoSelect"
+  label="Select - Single Value"
+  data={['Violet', 'Indigo', 'Blue', 'Green', 'Yellow', 'Orange', 'Red']}
++ helperText="This is a dropdown selector"
+/>
+```
+
+<br />
+
+## Properties
+
 | Property     | Required | Optional | Type       | Description                                                                                                                                                                                                                                                               |
 | ------------ | -------- | -------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | name         | `true`   |          | `string`   | The unique name assigned to the field                                                                                                                                                                                                                                     |
