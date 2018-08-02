@@ -2,6 +2,36 @@
 
 The `Radios` component is a group of radios suited for a single choice selection from a set of options.
 
+## Usage
+
+- Basic(_Horizontal_)
+
+```js
+<Radios
+	name="demoRadiosHorizontal"
+	label="Horizontal Radios"
+	options={['Red', 'Green', 'Blue', 'Yellow', 'Violet', 'Pink']}
+	flow="wrap"
+/>
+```
+
+<br />
+
+- Basic(_Vertical_)
+
+```js
+<Radios
+	name="demoRadiosVertical"
+	label="Vertical Radios"
+	options={['Red', 'Green', 'Blue']}
+	position="vertical"
+/>
+```
+
+<br />
+
+## Properties
+
 | Property    | Required | Optional | Type      | Description                                                                                                                                                                                                                                                                                                                              |
 | ----------- | -------- | -------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | name        | `true`   |          | `string`  | The unique name assigned to the field                                                                                                                                                                                                                                                                                                    |

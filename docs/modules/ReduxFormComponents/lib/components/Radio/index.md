@@ -2,6 +2,28 @@
 
 The `Radio` component is a one-click or one-tap choice field that allows the user to select a value. Once selected, it can be deselected. It supports most of the properties of the HTML `<input type="radio" />` field and a few others.
 
+## Usage
+
+- Basic
+
+```js
+<Radio name="demoRadio" label="Single Radio" />
+```
+
+<br />
+
+- Few additional basic props
+
+```diff
+<Radio
+  name="demoRadio"
+  label="Single Radio"
++ className="margin-top-2"
++ value="SingleRadio" />
+```
+
+## Properties
+
 | Property  | Required | Optional | Type       | Description                                                                                                                                        |
 | --------- | -------- | -------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 | name      | `true`   |          | `string`   | The unique name assigned to the field                                                                                                              |
