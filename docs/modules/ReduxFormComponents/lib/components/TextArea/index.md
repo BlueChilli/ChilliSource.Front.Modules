@@ -2,6 +2,30 @@
 
 The `TextArea` component is a multi line input field that allows the user to enter some text. It supports all the props that the `HTMLTextAreaElement` supports and a few others.
 
+## Usage
+
+- Basic
+
+```js
+<TextArea name="demoTextArea" label="Multi Line Input" />
+```
+
+<br />
+
+- Few additional basic props
+
+```diff
+<TextArea
+  name="demoTextArea"
+  label="Multi Line Input"
++ placeholder="Enter multi-line text here"
++ className="margin-top-2"
++ helperText="You can enter multi-line text here"
+/>
+```
+
+## Properties
+
 | Property    | Required | Optional | Type       | Description                                                                                                                                        |
 | ----------- | -------- | -------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 | name        | `true`   |          | `string`   | The unique name assigned to the field                                                                                                              |

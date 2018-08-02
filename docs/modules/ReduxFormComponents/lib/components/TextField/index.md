@@ -2,6 +2,32 @@
 
 The `TextField` component is a single line input field that allows the user to enter some text. It supports all the props that the `HTMLInputElement` supports and a few others.
 
+## Usage
+
+- Basic
+
+```js
+<TextField label="Single Line Input" name="demoTextField" />
+```
+
+<br />
+
+- Few additional basic props
+
+```diff
+<TextField
+  label="Single Line Input"
+  name="demoTextField"
++ placeholder="Enter some text"
++ helperText="This is some helper text"
++ className="margin-top-2"
+/>
+```
+
+<br />
+
+## Properties
+
 | Property    | Required | Optional | Type       | Description                                                                                                                                        |
 | ----------- | -------- | -------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 | name        | `true`   |          | `string`   | The unique name assigned to the field                                                                                                              |
