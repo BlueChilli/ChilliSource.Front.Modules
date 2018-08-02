@@ -16,6 +16,12 @@ interface RadioProps {
 	 * Refer to the docs for redux-form
 	 */
 	format?: Formatter | null;
+	/**
+	 * Parses the value given from the field input component to the
+	 * type that you want stored in the Redux store. Common use cases
+	 * are to parse currencies into Numbers or localized date formats
+	 * into Dates.
+	 */
 	parse?: Parser;
 }
 

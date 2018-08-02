@@ -52,8 +52,16 @@ const renderPicker = field => {
 };
 
 class CalendarPicker extends React.Component {
+	parseSelectedDate = value => {
+		if (!value) {
+			return value;
+		}
+
+		return Moment(value).toISOString();
+	};
+
 	render() {
-		return <Field {...this.props} component={renderPicker} />;
+		return <Field {...this.props} component={renderPicker} parse={this.parseSelectedDate} />;
 	}
 }
 
