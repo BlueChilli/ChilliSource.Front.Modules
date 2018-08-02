@@ -34,6 +34,17 @@
 	.form-input {
 		position: relative;
 
+		svg {
+			position: absolute;
+			right: 8px;
+			height: 18px;
+			top: 10px;
+
+			.icon {
+				fill: $primaryColor;
+			}
+		}
+
 		// Single Line
 		input {
 			width: 100%;

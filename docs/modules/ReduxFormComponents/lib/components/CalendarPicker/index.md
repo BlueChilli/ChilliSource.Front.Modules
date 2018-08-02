@@ -1,6 +1,72 @@
 # CalendarPicker
 
-CalendarPicker displays a calendar view that allows the user to choose a exact date, or a part of thereof. We currently **do not** support date range. If you need a range selection, you can use two pickers and enforce your own validation rules or try sourcing another package from`npm` and build your own component.
+CalendarPicker displays a calendar view that allows the user to choose a exact date, or a part of thereof. We currently **do not** support date range. If you need a range selection, you can use two pickers and enforce your own validation rules or try sourcing another package from `npm` and build your own component.
+
+## Basic Usage
+
+As listed [below](#properties), `CalendarPicker` supports many different properties as well as customisation options.
+
+- Basic(_No customisation_)
+
+```js
+<CalendarPicker
+	name="demoCalendarPicker"
+	label="Calendar Picker"
+	helperText="This is a calendar date picker"
+/>
+```
+
+<br />
+
+- Hiding Header & Footer
+
+```js
+<CalendarPicker
+	name="demoCalendarPicker"
+	className="margin-top-2"
+	label="Calendar Picker"
+	helperText="This is a calendar date picker"
+	footer={false}
+	header={false}
+/>
+```
+
+<br />
+
+- Formatting value for display
+
+```js
+<CalendarPicker
+	name="demoCalendarPicker"
+	className="margin-top-2"
+	label="Calendar Picker"
+	helperText="This is a calendar date picker"
+	format={value => Moment(value).format('MMMM DD, YYYY')}
+/>
+```
+
+The above display the date value as a ISO8601 string. You can look up [MomentJS docs](https://momentjs.com/docs/) to learn more about formatting dates.
+
+<br />
+
+- Parsing value before being stored in Redux store
+
+```js
+<CalendarPicker
+	name="demoCalendarPicker"
+	className="margin-top-2"
+	label="Calendar Picker"
+	helperText="This is a calendar date picker"
+	parse={value => Moment(value).format('MMMM DD, YYYY')}
+/>
+```
+
+The above stores the date value as a ISO8601 string in the redux store. You can look up [MomentJS docs](https://momentjs.com/docs/) to learn more about formatting dates.
+
+**Note**: The calendar icon in the picker uses the primary color supplied by the user. Default is #0067FF.
+<br />
+
+## Properties
 
 | Property      | Required | Optional | Type                   | Description                                                                                                                                                    |
 | ------------- | -------- | -------- | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -26,3 +92,7 @@ CalendarPicker displays a calendar view that allows the user to choose a exact d
 | decadeFormat  |          | `true`   | `string` or `function` | A formatter for decade, the default formats the first and last year of the decade like: 2000 - 2009. Signature is `string` or `((day: Date) => string)`        |
 | centuryFormat |          | `true`   | `string` or `function` | A formatter for century, the default formats the first and last year of the century like: 1900 - 1999. Signature is `string` or `((day: Date) => string)`      |
 | defaultView   |          | `true`   | `string`               | Set a unique starting view. Possible values = `month`, `year`, `decade` or `century`                                                                           |
+
+```
+
+```
