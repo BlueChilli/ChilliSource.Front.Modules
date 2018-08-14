@@ -70,7 +70,11 @@ class Picker extends React.Component {
 				)}
 
 				{/* Helper Text */}
-				{helperText && <div className="form-helper">{helperText}</div>}
+				{helperText && (
+					<div className="form-helper">
+						<p className="helper-text">{helperText}</p>
+					</div>
+				)}
 
 				{/* Calendar */}
 				<div className={`form-input ${invalid && 'error'}`}>

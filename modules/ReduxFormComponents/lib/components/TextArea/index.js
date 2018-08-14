@@ -33,7 +33,11 @@ const renderTextArea = field => {
 			)}
 
 			{/* Helper Text */}
-			{helperText && <div className="form-helper">{helperText}</div>}
+			{helperText && (
+				<div className="form-helper">
+					<p className="helper-text">{helperText}</p>
+				</div>
+			)}
 
 			{/* TextArea */}
 			<div className={`form-input ${resize} ${invalid && 'error'}`}>

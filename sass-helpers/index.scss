@@ -1,11 +1,59 @@
-@import 'variables.scss';
+/** 
+ * Fonts 
+ * 
+ * You can use fonts directly from Google Fonts or
+ * as I prefer, embed them in the project. The reason
+ * I like to embed the fonts is because AdBlockers
+ * (many of them) prevent media from domain other than
+ * the current domain from loading. As a result, Google
+ * Fonts can be denied loading due to which our app
+ * would be rendered in the default browser font.
+ *
+ * If you do decide to embed, then first download the 
+ * font files and compress them @ https://www.fontsquirrel.com/tools/webfont-generator.
+ * You can leave the settings at optimal. Download the 
+ * optimised fonts and then put them into the fonts 
+ * directory. Use them as demoed in the code below.
+ *
+ * If you'd rather embed Google Fonts directly, then 
+ * you can remove the font-face declarations below and 
+ * replace it with the two commented out lines directly  
+ * below this:
+ *
+ * @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700'); <- You'll get this URL from Google Fonts
+ * $projectFont = 'Roboto';
+ *
+ * Then, in the "Style Reset" section below, replace ProjectFont
+ * with $projectFont;
+ * 
+ * That's it!. And as I said before, up to you.
+ */
+@font-face {
+	font-family: ProjectFont;
+	src: url('./fonts/sf-pro-display-semibold-webfont.woff2') format('woff2'),
+		url('./fonts/sf-pro-display-semibold-webfont.woff') format('woff');
+	font-weight: 600;
+}
 
-// Style Reset
+@font-face {
+	font-family: ProjectFont;
+	src: url('./fonts/sf-pro-display-regular-webfont.woff2') format('woff2'),
+		url('./fonts/sf-pro-display-regular-webfont.woff') format('woff');
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: ProjectFont;
+	src: url('./fonts/sf-pro-display-bold-webfont.woff2') format('woff2'),
+		url('./fonts/sf-pro-display-bold-webfont.woff') format('woff');
+	font-weight: 700;
+}
+
+/** Style Reset **/
 * {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
-	font-family: 'SF Display';
 
 	&:active,
 	&:focus {
@@ -13,19 +61,15 @@
 	}
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-family: 'SFProDisplay-Heavy';
-	color: $primaryTextColor;
-}
-
-// Importing Styles
+/** Importing Styles **/
 @import 'spacing.scss';
 @import 'base.scss';
 @import 'form.scss';
 @import 'layout.scss';
 @import 'react-widgets.scss';
+@import 'typography.scss';
+
+* {
+	font-family: ProjectFont;
+	color: $primaryTextColor;
+}

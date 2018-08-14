@@ -28,7 +28,11 @@ const renderMultiSelect = field => {
 			)}
 
 			{/* Helper Text */}
-			{helperText && <div className="form-helper">{helperText}</div>}
+			{helperText && (
+				<div className="form-helper">
+					<p className="helper-text">{helperText}</p>
+				</div>
+			)}
 
 			{/* Multiselect */}
 			<div className={`form-input ${invalid && 'error'}`}>
