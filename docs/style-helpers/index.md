@@ -26,7 +26,7 @@ You should start by importing `style-helpers`/`index.scss` into your entry point
 
 You might have to, very rarely, once-in-a-while, might have to make changes to the following files:
 
-- typography.scss
+- `typography.scss`
 
 You will use classes from other files but you never have to look into them at all. They preconfigured to work as you'd expect. You should absolutely read on but can rest assured, those files are good to roll.
 
