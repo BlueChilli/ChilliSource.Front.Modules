@@ -60,7 +60,16 @@ class Checkboxes extends React.Component {
 	};
 
 	render() {
-		const { name, className, label, helperText, position, flow, optionWidth } = this.props;
+		const {
+			name,
+			className,
+			label,
+			helperText,
+			helperTextPosition = 'top',
+			position,
+			flow,
+			optionWidth,
+		} = this.props;
 
 		return (
 			<FormElementWrapper className={className}>
@@ -72,13 +81,14 @@ class Checkboxes extends React.Component {
 				)}
 
 				{/* Helper Text */}
-				{helperText && (
-					<div className="form-helper">
-						<p className="helper-text">{helperText}</p>
-					</div>
-				)}
+				{helperText &&
+					helperTextPosition === 'top' && (
+						<div className="form-helper">
+							<p className="helper-text top">{helperText}</p>
+						</div>
+					)}
 
-				{/* Radios */}
+				{/* Checkboxes */}
 				<div
 					className={`checkboxes flex ${position === 'vertical' ? 'col' : ''} ${
 						flow && flow === 'wrap' ? 'wrap' : ''
@@ -95,6 +105,14 @@ class Checkboxes extends React.Component {
 						);
 					})}
 				</div>
+
+				{/* Helper Text */}
+				{helperText &&
+					helperTextPosition === 'bottom' && (
+						<div className="form-helper margin-top-1">
+							<p className="helper-text bottom">{helperText}</p>
+						</div>
+					)}
 			</FormElementWrapper>
 		);
 	}

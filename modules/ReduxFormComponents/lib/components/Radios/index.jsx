@@ -65,6 +65,7 @@ class Radios extends React.Component {
 			className,
 			label,
 			helperText,
+			helperTextPosition = 'top',
 			position,
 			flow,
 			optionWidth,
@@ -81,11 +82,12 @@ class Radios extends React.Component {
 				)}
 
 				{/* Helper Text */}
-				{helperText && (
-					<div className="form-helper">
-						<p className="helper-text">{helperText}</p>
-					</div>
-				)}
+				{helperText &&
+					helperTextPosition === 'top' && (
+						<div className="form-helper">
+							<p className="helper-text top">{helperText}</p>
+						</div>
+					)}
 
 				{/* Radios */}
 				<div
@@ -104,6 +106,14 @@ class Radios extends React.Component {
 							/>
 						);
 					})}
+
+					{/* Helper Text */}
+					{helperText &&
+						helperTextPosition === 'bottom' && (
+							<div className="form-helper margin-top-1">
+								<p className="helper-text bottom">{helperText}</p>
+							</div>
+						)}
 				</div>
 			</FormElementWrapper>
 		);

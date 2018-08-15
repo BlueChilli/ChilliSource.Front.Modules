@@ -1,4 +1,6 @@
-/** Colors **/
+/** Backgrounds **/
+/** Text **/
+/** Alerts **/
 .form-element {
   width: 100%; }
   .form-element .form-label {
@@ -25,27 +27,29 @@
       height: 18px;
       top: 10px; }
       .form-element .form-input svg .icon {
-        fill: #0067ff; }
+        fill: #25ce81; }
     .form-element .form-input input {
       width: 100%;
       height: 40px;
       background-color: transparent;
-      border: 1px solid #adadb0;
+      border: 1px solid #9b9b9b;
       font-size: 16px;
-      color: #4a4a4a;
+      color: #6f6f6f;
       padding-left: 8px;
-      padding-right: 8px; }
+      padding-right: 8px;
+      caret-color: #25ce81; }
       .form-element .form-input input:focus {
-        border: 2px solid #0067ff; }
+        border-color: #25ce81; }
     .form-element .form-input textarea {
       width: 100%;
       background-color: transparent;
-      border: 1px solid #adadb0;
+      border: 1px solid #9b9b9b;
       font-size: 16px;
-      color: #4a4a4a;
-      padding: 8px; }
+      color: #6f6f6f;
+      padding: 8px;
+      caret-color: #f7f8fa; }
       .form-element .form-input textarea:focus {
-        border: 2px solid #0067ff; }
+        border-color: #25ce81; }
     .form-element .form-input input[type='radio'] {
       position: absolute;
       width: 100%;
@@ -68,7 +72,7 @@
           left: 0;
           width: 14px;
           height: 14px;
-          border: 1px solid #adadb0;
+          border: 1px solid #9b9b9b;
           border-radius: 50%; }
       .form-element .form-input input[type='radio']:checked + label:after {
         content: '';
@@ -78,7 +82,7 @@
         left: 3px;
         width: 10px;
         height: 10px;
-        background-color: #0067ff;
+        background-color: #25ce81;
         border-radius: 50%; }
     .form-element .form-input input[type='checkbox'] {
       position: absolute;
@@ -103,7 +107,7 @@
           left: 0;
           width: 14px;
           height: 14px;
-          border: 1px solid #adadb0; }
+          border: 1px solid #9b9b9b; }
       .form-element .form-input input[type='checkbox']:checked + label:after {
         content: '';
         display: block;
@@ -112,6 +116,6 @@
         left: 1.5px;
         width: 9.5px;
         height: 5px;
-        border-bottom: 3px solid #0067ff;
-        border-left: 3px solid #0067ff;
+        border-bottom: 3px solid #25ce81;
+        border-left: 3px solid #25ce81;
         transform: rotate(-45deg); }

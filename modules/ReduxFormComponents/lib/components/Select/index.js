@@ -12,6 +12,7 @@ const renderSelect = field => {
 		label,
 		className,
 		helperText,
+		helperTextPosition = 'top',
 		meta: { pristine, error },
 		...remainingAttributes
 	} = field;
@@ -28,16 +29,25 @@ const renderSelect = field => {
 			)}
 
 			{/* Helper Text */}
-			{helperText && (
-				<div className="form-helper">
-					<p className="helper-text">{helperText}</p>
-				</div>
-			)}
+			{helperText &&
+				helperTextPosition === 'top' && (
+					<div className="form-helper">
+						<p className="helper-text top">{helperText}</p>
+					</div>
+				)}
 
 			{/* Select */}
 			<div className={`form-input ${invalid && 'error'}`}>
 				<DropdownList {...remainingAttributes} onChange={input.onChange} />
 			</div>
+
+			{/* Helper Text */}
+			{helperText &&
+				helperTextPosition === 'bottom' && (
+					<div className="form-helper margin-top-1">
+						<p className="helper-text bottom">{helperText}</p>
+					</div>
+				)}
 
 			{/* Error */}
 			{invalid && (

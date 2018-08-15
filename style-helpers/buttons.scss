@@ -1,0 +1,49 @@
+@import 'variables.scss';
+
+.button {
+	padding: 16px 20px;
+	cursor: pointer;
+	text-decoration: none;
+	border: 1px solid;
+	transition: all 160ms ease-in-out;
+
+	&.button-primary {
+		background-color: $primaryColor;
+		color: $primaryButtonTextColor;
+		border-color: $primaryColor;
+
+		&:hover {
+			@if variable-exists(darkPrimaryColor) {
+				background-color: $darkPrimaryColor;
+				border-color: $darkPrimaryColor;
+			} @else {
+				background-color: darken($color: $primaryColor, $amount: 8);
+				border-color: darken($color: $primaryColor, $amount: 8);
+			}
+		}
+	}
+
+	&.button-secondary {
+		background-color: $secondaryColor;
+		color: $secondaryTextColor;
+		border-color: $secondaryColor;
+
+		&:hover {
+			background-color: darken($color: $secondaryColor, $amount: 8);
+			border-color: darken($color: $secondaryColor, $amount: 8);
+		}
+	}
+
+	&.button-tertiary {
+		background-color: transparent;
+		color: $primaryColor;
+		border-color: transparent;
+	}
+
+	&.button-disabled {
+		cursor: not-allowed;
+		background-color: $secondaryColor;
+		border-color: $secondaryColor;
+		color: $secondaryTextColor;
+	}
+}

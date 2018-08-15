@@ -4,6 +4,12 @@ interface SelectProps {
 	name: string;
 	label?: string;
 	helperText?: string;
+	/**
+	 * The place where the helper text appears.
+	 * top : Above the input field
+	 * bottom : Below the input field
+	 */
+	helperTextPosition?: 'top' | 'bottom';
 	className?: string;
 	/**
 	 * The current value of the DropdownList. This can be an object (such as a member of the

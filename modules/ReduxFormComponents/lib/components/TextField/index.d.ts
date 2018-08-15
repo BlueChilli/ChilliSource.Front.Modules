@@ -10,6 +10,12 @@ interface TextFieldProps {
 	onBlur?: EventWithDataHandler<FocusEvent<HTMLInputElement>>;
 	type?: 'url' | 'email' | 'text' | 'password' | 'number' | 'tel' | 'hidden' | 'search';
 	helperText?: string;
+	/**
+	 * The place where the helper text appears.
+	 * top : Above the input field
+	 * bottom : Below the input field
+	 */
+	helperTextPosition?: 'top' | 'bottom';
 	label?: string;
 	validate?: Validator;
 	/**

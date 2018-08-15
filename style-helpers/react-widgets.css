@@ -1,24 +1,26 @@
-/** Colors **/
+/** Backgrounds **/
+/** Text **/
+/** Alerts **/
 .form-input .rw-widget-container.rw-state-focus {
   box-shadow: none;
-  border-color: #adadb0; }
+  border-color: #9b9b9b; }
 
 .form-input .rw-widget.rw-state-focus .rw-widget-container {
   box-shadow: none;
-  border-color: #adadb0; }
+  border-color: #9b9b9b; }
 
 .form-input .rw-widget.rw-calendar .rw-cell.rw-state-focus,
 .form-input .rw-widget.rw-calendar .rw-cell.rw-state-focus:hover {
-  border-color: #0067ff; }
+  border-color: #25ce81; }
 
 .form-input .rw-widget.rw-calendar .rw-cell.rw-state-selected,
 .form-input .rw-widget.rw-calendar .rw-cell.rw-state-selected:hover {
-  border-color: #0067ff;
-  background-color: #0067ff; }
+  border-color: #25ce81;
+  background-color: #25ce81; }
 
 .form-input .rw-widget.rw-multiselect .rw-widget-picker div ul .rw-multiselect-tag {
-  background-color: #0067ff;
-  border-color: #0067ff;
+  background-color: #25ce81;
+  border-color: #25ce81;
   color: #fff;
   font-weight: normal; }
   .form-input .rw-widget.rw-multiselect .rw-widget-picker div ul .rw-multiselect-tag span {
@@ -34,13 +36,13 @@
 
 .form-input .rw-widget.rw-dropdown-list .rw-widget-picker, .form-input .rw-widget.rw-multiselect .rw-widget-picker {
   border-radius: 0;
-  border-color: #adadb0; }
+  border-color: #9b9b9b; }
 
 .form-input .rw-widget.rw-dropdown-list .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus,
 .form-input .rw-widget.rw-dropdown-list .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus:hover, .form-input .rw-widget.rw-multiselect .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus,
 .form-input .rw-widget.rw-multiselect .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus:hover {
-  border-color: #0067ff; }
+  border-color: #25ce81; }
   .form-input .rw-widget.rw-dropdown-list .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus.rw-state-selected,
   .form-input .rw-widget.rw-dropdown-list .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus:hover.rw-state-selected, .form-input .rw-widget.rw-multiselect .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus.rw-state-selected,
   .form-input .rw-widget.rw-multiselect .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus:hover.rw-state-selected {
-    background-color: #0067ff; }
+    background-color: #25ce81; }

@@ -62,8 +62,8 @@
 .margin-bottom-0 {
   margin-bottom: 0px !important; }
 
-.margin-top-0 {
-  margin-top: 0px !important; }
+.margin-left-0 {
+  margin-left: 0px !important; }
 
 .margin-right-0 {
   margin-right: 0px !important; }
@@ -77,8 +77,8 @@
 .margin-bottom-1 {
   margin-bottom: 8px !important; }
 
-.margin-top-1 {
-  margin-top: 8px !important; }
+.margin-left-1 {
+  margin-left: 8px !important; }
 
 .margin-right-1 {
   margin-right: 8px !important; }
@@ -92,8 +92,8 @@
 .margin-bottom-2 {
   margin-bottom: 16px !important; }
 
-.margin-top-2 {
-  margin-top: 16px !important; }
+.margin-left-2 {
+  margin-left: 16px !important; }
 
 .margin-right-2 {
   margin-right: 16px !important; }
@@ -107,8 +107,8 @@
 .margin-bottom-3 {
   margin-bottom: 24px !important; }
 
-.margin-top-3 {
-  margin-top: 24px !important; }
+.margin-left-3 {
+  margin-left: 24px !important; }
 
 .margin-right-3 {
   margin-right: 24px !important; }
@@ -122,8 +122,8 @@
 .margin-bottom-4 {
   margin-bottom: 32px !important; }
 
-.margin-top-4 {
-  margin-top: 32px !important; }
+.margin-left-4 {
+  margin-left: 32px !important; }
 
 .margin-right-4 {
   margin-right: 32px !important; }
@@ -137,8 +137,8 @@
 .margin-bottom-5 {
   margin-bottom: 40px !important; }
 
-.margin-top-5 {
-  margin-top: 40px !important; }
+.margin-left-5 {
+  margin-left: 40px !important; }
 
 .margin-right-5 {
   margin-right: 40px !important; }
@@ -152,8 +152,8 @@
 .margin-bottom-6 {
   margin-bottom: 48px !important; }
 
-.margin-top-6 {
-  margin-top: 48px !important; }
+.margin-left-6 {
+  margin-left: 48px !important; }
 
 .margin-right-6 {
   margin-right: 48px !important; }
@@ -167,8 +167,8 @@
 .margin-bottom-7 {
   margin-bottom: 56px !important; }
 
-.margin-top-7 {
-  margin-top: 56px !important; }
+.margin-left-7 {
+  margin-left: 56px !important; }
 
 .margin-right-7 {
   margin-right: 56px !important; }
@@ -182,8 +182,8 @@
 .margin-bottom-8 {
   margin-bottom: 64px !important; }
 
-.margin-top-8 {
-  margin-top: 64px !important; }
+.margin-left-8 {
+  margin-left: 64px !important; }
 
 .margin-right-8 {
   margin-right: 64px !important; }
@@ -197,8 +197,8 @@
 .margin-bottom-9 {
   margin-bottom: 72px !important; }
 
-.margin-top-9 {
-  margin-top: 72px !important; }
+.margin-left-9 {
+  margin-left: 72px !important; }
 
 .margin-right-9 {
   margin-right: 72px !important; }
@@ -212,8 +212,8 @@
 .margin-bottom-10 {
   margin-bottom: 80px !important; }
 
-.margin-top-10 {
-  margin-top: 80px !important; }
+.margin-left-10 {
+  margin-left: 80px !important; }
 
 .margin-right-10 {
   margin-right: 80px !important; }
@@ -227,8 +227,8 @@
 .margin-bottom-11 {
   margin-bottom: 88px !important; }
 
-.margin-top-11 {
-  margin-top: 88px !important; }
+.margin-left-11 {
+  margin-left: 88px !important; }
 
 .margin-right-11 {
   margin-right: 88px !important; }
@@ -242,8 +242,8 @@
 .margin-bottom-12 {
   margin-bottom: 96px !important; }
 
-.margin-top-12 {
-  margin-top: 96px !important; }
+.margin-left-12 {
+  margin-left: 96px !important; }
 
 .margin-right-12 {
   margin-right: 96px !important; }
@@ -444,12 +444,42 @@
 .padding-right-12 {
   padding-right: 96px !important; }
 
-button {
-  padding: 8px 16px;
-  font-size: 16px;
-  line-height: 22px; }
+/** Backgrounds **/
+/** Text **/
+/** Alerts **/
+.button {
+  padding: 16px 20px;
+  cursor: pointer;
+  text-decoration: none;
+  border: 1px solid;
+  transition: all 160ms ease-in-out; }
+  .button.button-primary {
+    background-color: #25ce81;
+    color: #fff;
+    border-color: #25ce81; }
+    .button.button-primary:hover {
+      background-color: #1ca067;
+      border-color: #1ca067; }
+  .button.button-secondary {
+    background-color: #f7f8fa;
+    color: #9b9b9b;
+    border-color: #f7f8fa; }
+    .button.button-secondary:hover {
+      background-color: #dee2ea;
+      border-color: #dee2ea; }
+  .button.button-tertiary {
+    background-color: transparent;
+    color: #25ce81;
+    border-color: transparent; }
+  .button.button-disabled {
+    cursor: not-allowed;
+    background-color: #f7f8fa;
+    border-color: #f7f8fa;
+    color: #9b9b9b; }
 
-/** Colors **/
+/** Backgrounds **/
+/** Text **/
+/** Alerts **/
 .form-element {
   width: 100%; }
   .form-element .form-label {
@@ -476,27 +506,29 @@ button {
       height: 18px;
       top: 10px; }
       .form-element .form-input svg .icon {
-        fill: #0067ff; }
+        fill: #25ce81; }
     .form-element .form-input input {
       width: 100%;
       height: 40px;
       background-color: transparent;
-      border: 1px solid #adadb0;
+      border: 1px solid #9b9b9b;
       font-size: 16px;
-      color: #4a4a4a;
+      color: #6f6f6f;
       padding-left: 8px;
-      padding-right: 8px; }
+      padding-right: 8px;
+      caret-color: #25ce81; }
       .form-element .form-input input:focus {
-        border: 2px solid #0067ff; }
+        border-color: #25ce81; }
     .form-element .form-input textarea {
       width: 100%;
       background-color: transparent;
-      border: 1px solid #adadb0;
+      border: 1px solid #9b9b9b;
       font-size: 16px;
-      color: #4a4a4a;
-      padding: 8px; }
+      color: #6f6f6f;
+      padding: 8px;
+      caret-color: #f7f8fa; }
       .form-element .form-input textarea:focus {
-        border: 2px solid #0067ff; }
+        border-color: #25ce81; }
     .form-element .form-input input[type='radio'] {
       position: absolute;
       width: 100%;
@@ -519,7 +551,7 @@ button {
           left: 0;
           width: 14px;
           height: 14px;
-          border: 1px solid #adadb0;
+          border: 1px solid #9b9b9b;
           border-radius: 50%; }
       .form-element .form-input input[type='radio']:checked + label:after {
         content: '';
@@ -529,7 +561,7 @@ button {
         left: 3px;
         width: 10px;
         height: 10px;
-        background-color: #0067ff;
+        background-color: #25ce81;
         border-radius: 50%; }
     .form-element .form-input input[type='checkbox'] {
       position: absolute;
@@ -554,7 +586,7 @@ button {
           left: 0;
           width: 14px;
           height: 14px;
-          border: 1px solid #adadb0; }
+          border: 1px solid #9b9b9b; }
       .form-element .form-input input[type='checkbox']:checked + label:after {
         content: '';
         display: block;
@@ -563,8 +595,8 @@ button {
         left: 1.5px;
         width: 9.5px;
         height: 5px;
-        border-bottom: 3px solid #0067ff;
-        border-left: 3px solid #0067ff;
+        border-bottom: 3px solid #25ce81;
+        border-left: 3px solid #25ce81;
         transform: rotate(-45deg); }
 
 .flex {
@@ -604,27 +636,29 @@ button {
   .flex .width-100 {
     width: 100%; }
 
-/** Colors **/
+/** Backgrounds **/
+/** Text **/
+/** Alerts **/
 .form-input .rw-widget-container.rw-state-focus {
   box-shadow: none;
-  border-color: #adadb0; }
+  border-color: #9b9b9b; }
 
 .form-input .rw-widget.rw-state-focus .rw-widget-container {
   box-shadow: none;
-  border-color: #adadb0; }
+  border-color: #9b9b9b; }
 
 .form-input .rw-widget.rw-calendar .rw-cell.rw-state-focus,
 .form-input .rw-widget.rw-calendar .rw-cell.rw-state-focus:hover {
-  border-color: #0067ff; }
+  border-color: #25ce81; }
 
 .form-input .rw-widget.rw-calendar .rw-cell.rw-state-selected,
 .form-input .rw-widget.rw-calendar .rw-cell.rw-state-selected:hover {
-  border-color: #0067ff;
-  background-color: #0067ff; }
+  border-color: #25ce81;
+  background-color: #25ce81; }
 
 .form-input .rw-widget.rw-multiselect .rw-widget-picker div ul .rw-multiselect-tag {
-  background-color: #0067ff;
-  border-color: #0067ff;
+  background-color: #25ce81;
+  border-color: #25ce81;
   color: #fff;
   font-weight: normal; }
   .form-input .rw-widget.rw-multiselect .rw-widget-picker div ul .rw-multiselect-tag span {
@@ -640,16 +674,16 @@ button {
 
 .form-input .rw-widget.rw-dropdown-list .rw-widget-picker, .form-input .rw-widget.rw-multiselect .rw-widget-picker {
   border-radius: 0;
-  border-color: #adadb0; }
+  border-color: #9b9b9b; }
 
 .form-input .rw-widget.rw-dropdown-list .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus,
 .form-input .rw-widget.rw-dropdown-list .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus:hover, .form-input .rw-widget.rw-multiselect .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus,
 .form-input .rw-widget.rw-multiselect .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus:hover {
-  border-color: #0067ff; }
+  border-color: #25ce81; }
   .form-input .rw-widget.rw-dropdown-list .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus.rw-state-selected,
   .form-input .rw-widget.rw-dropdown-list .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus:hover.rw-state-selected, .form-input .rw-widget.rw-multiselect .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus.rw-state-selected,
   .form-input .rw-widget.rw-multiselect .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus:hover.rw-state-selected {
-    background-color: #0067ff; }
+    background-color: #25ce81; }
 
 /**
  * Before doing any changes here, go to index.scss and
@@ -670,7 +704,9 @@ button {
  * Tag! You're up.
  */
 /** Variables **/
-/** Colors **/
+/** Backgrounds **/
+/** Text **/
+/** Alerts **/
 h1 {
   font-size: 36px;
   line-height: 48px;
@@ -686,10 +722,18 @@ h3 {
   line-height: 20px;
   font-weight: 700; }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #3d363b; }
+
 button {
   font-size: 16px;
-  line-height: 32px;
-  font-weight: 700; }
+  line-height: 20px;
+  font-weight: 600; }
 
 body,
 p {
@@ -704,7 +748,20 @@ label {
 .helper-text {
   font-size: 14px;
   line-height: 16px;
-  color: #adadb0; }
+  color: #9b9b9b; }
+  .helper-text.top {
+    line-height: 20px; }
+  .helper-text.bottom {
+    line-height: 16px; }
+
+.link {
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 16px;
+  color: #25ce81; }
+
+.all-caps {
+  text-transform: uppercase; }
 
 @media only screen and (max-width: 575px) {
   h1 {
@@ -713,4 +770,6 @@ label {
 
 * {
   font-family: ProjectFont;
-  color: #4a4a4a; }
+  color: #6f6f6f; }
+  *::selection {
+    background: rgba(37, 206, 129, 0.3); }

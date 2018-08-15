@@ -4,14 +4,14 @@ This starter project contains a number of useful style helpers to get you starte
 
 The folder contains the following files:
 
-- index.scss
-- base.scss
-- variables.scss
-- form.scss
-- layout.scss
-- spacing.scss
-- typography.scss
-- react-widgets.scss
+- `index.scss`
+- `buttons.scss`
+- `variables.scss`
+- `form.scss`
+- `layout.scss`
+- `spacing.scss`
+- `typography.scss`
+- `react-widgets.scss`
 
 You only have ever have to, if any, make changes in the following files:
 
@@ -29,19 +29,24 @@ You will use classes from other files but you never have to look into them at al
 
 List of variables:
 
-- `$primaryColor`
-- `$errorColor`
-- `$successColor`
-- `$warningColor`
-- `$secondaryColor`
-- `$primaryTextColor`
-- `$secondaryTextColor`
+Background Colors(_generally associated with branding_)
+
+- `$primaryColor` : This is the main color everywhere - links, primary buttons, caret, text selection, etc.. **REQUIRED**
+- `$darkPrimaryColor` : optional. If not provided, will self compute. Comment it out if you don't need it.
+- `$secondaryColor`: The background color to denote secondary actions like a cancel button **REQUIRED**
+
+Text Colors
+
+- `$primaryTextColor`: The main color of text everywhere
+- `$secondaryTextColor`: The color for secondary actions like a cancel button
+- `headingTextColor`: The color used for heading i.e. h1, h2, h3, h4, etc..
+- `primaryButtonTextColor`: This is the color used for primary actions - login, sign up, call-to-actions, etc. Make sure it is contrasting enough with respect to `$primaryColor`
 
 When you start your project, take the colors from Zeplin's "Style Guide" and update the variables there.
 
 Do not worry if your project doesn't have all these colors to update. Leave them be. **DO NOT COMMENT THEM OUT**
 
-For the project to work properly, it **NEEDS** `$primaryColor`, `$secondaryColor` `$primaryTextColor` & `$secondaryTextColor` to be specified. If not, it'll use the default colors.
+For the project to work properly, it **NEEDS** all the variables apart from `$darkPrimaryColor` to exist. **DO NOT REMOVE OR COMMENT THEM OUT**
 
 <br />
 

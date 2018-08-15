@@ -51,9 +51,10 @@
 			color: $primaryTextColor;
 			padding-left: 8px;
 			padding-right: 8px;
+			caret-color: $primaryColor;
 
 			&:focus {
-				border: 2px solid $primaryColor;
+				border-color: $primaryColor;
 			}
 		}
 
@@ -65,9 +66,10 @@
 			font-size: 16px;
 			color: $primaryTextColor;
 			padding: 8px;
+			caret-color: $secondaryColor;
 
 			&:focus {
-				border: 2px solid $primaryColor;
+				border-color: $primaryColor;
 			}
 		}
 

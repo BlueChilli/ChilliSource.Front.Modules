@@ -20,10 +20,11 @@ import '../style-helpers/index.css';
 
 /** Rendering Components */
 storiesOf('Style Helpers', module)
-	.add('Text', () => {
+	.add('Typography', () => {
 		return (
 			<React.Fragment>
-				<h1>Text Styles</h1>
+				<p style={{ fontSize: 36, color: '#0067FF', fontWeight: 700 }}>Typography</p>
+				<br />
 
 				<br />
 				<h1>This is an h1 heading</h1>
@@ -45,6 +46,30 @@ storiesOf('Style Helpers', module)
 
 				<br />
 				<p>This is a paragraph text</p>
+
+				<br />
+				<a href="#" className="link">
+					This is a link
+				</a>
+			</React.Fragment>
+		);
+	})
+	.add('Buttons', () => {
+		return (
+			<React.Fragment>
+				<p style={{ fontSize: 36, color: '#0067FF', fontWeight: 700 }}>Buttons</p>
+
+				<button className="button button-primary margin-top-3">Primary Button</button>
+				<br />
+
+				<button className="button button-secondary margin-top-2">Secondary Button</button>
+				<br />
+
+				<button className="button button-tertiary margin-top-2">Tertiary Button</button>
+				<br />
+
+				<button className="button button-disabled margin-top-2">Disabled Button</button>
+				<br />
 			</React.Fragment>
 		);
 	})
@@ -59,6 +84,15 @@ storiesOf('Style Helpers', module)
 					label="Single Line Input"
 					name="demoTextField"
 					helperText="This is some helper text"
+					className="margin-top-2"
+				/>
+
+				{/* TextField */}
+				<TextField
+					label="Single Line Input"
+					name="demoTextField"
+					helperText="This is some helper text"
+					helperTextPosition="bottom"
 					className="margin-top-2"
 				/>
 

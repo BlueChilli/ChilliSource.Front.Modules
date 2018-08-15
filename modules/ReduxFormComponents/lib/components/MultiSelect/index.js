@@ -12,6 +12,7 @@ const renderMultiSelect = field => {
 		className,
 		label,
 		helperText,
+		helperTextPosition = 'top',
 		meta: { pristine, error },
 		...remainingAttributes
 	} = field;
@@ -28,16 +29,25 @@ const renderMultiSelect = field => {
 			)}
 
 			{/* Helper Text */}
-			{helperText && (
-				<div className="form-helper">
-					<p className="helper-text">{helperText}</p>
-				</div>
-			)}
+			{helperText &&
+				helperTextPosition === 'top' && (
+					<div className="form-helper">
+						<p className="helper-text top">{helperText}</p>
+					</div>
+				)}
 
 			{/* Multiselect */}
 			<div className={`form-input ${invalid && 'error'}`}>
 				<Multiselect {...remainingAttributes} onChange={input.onChange} />
 			</div>
+
+			{/* Helper Text */}
+			{helperText &&
+				helperTextPosition === 'bottom' && (
+					<div className="form-helper margin-top-1">
+						<p className="helper-text bottom">{helperText}</p>
+					</div>
+				)}
 
 			{/* Error */}
 			{invalid && (

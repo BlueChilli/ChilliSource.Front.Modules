@@ -8,6 +8,12 @@ interface CheckboxesProps {
 	required?: boolean;
 	helperText?: string;
 	/**
+	 * The place where the helper text appears.
+	 * top : Above the input field
+	 * bottom : Below the input field
+	 */
+	helperTextPosition?: 'top' | 'bottom';
+	/**
 	 * This is useful only when setting the flow property
 	 * to wrap. You can choose how much percent of the
 	 * available space the option should occupy.

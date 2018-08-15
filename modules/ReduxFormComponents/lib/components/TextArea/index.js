@@ -13,6 +13,7 @@ const renderTextArea = field => {
 		placeholder,
 		label,
 		helperText,
+		helperTextPosition = 'top',
 		maxLength,
 		disabled,
 		rows = 4,
@@ -33,11 +34,12 @@ const renderTextArea = field => {
 			)}
 
 			{/* Helper Text */}
-			{helperText && (
-				<div className="form-helper">
-					<p className="helper-text">{helperText}</p>
-				</div>
-			)}
+			{helperText &&
+				helperTextPosition === 'top' && (
+					<div className="form-helper">
+						<p className="helper-text top">{helperText}</p>
+					</div>
+				)}
 
 			{/* TextArea */}
 			<div className={`form-input ${resize} ${invalid && 'error'}`}>
@@ -52,6 +54,14 @@ const renderTextArea = field => {
 					style={{ resize }}
 				/>
 			</div>
+
+			{/* Helper Text */}
+			{helperText &&
+				helperTextPosition === 'bottom' && (
+					<div className="form-helper margin-top-1">
+						<p className="helper-text bottom">{helperText}</p>
+					</div>
+				)}
 
 			{/* Error */}
 			{invalid && (

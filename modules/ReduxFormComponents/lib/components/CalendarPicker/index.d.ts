@@ -6,6 +6,12 @@ interface CalendarPickerProps {
 	name: string;
 	label?: string;
 	helperText?: string;
+	/**
+	 * The place where the helper text appears.
+	 * top : Above the input field
+	 * bottom : Below the input field
+	 */
+	helperTextPosition?: 'top' | 'bottom';
 	className?: string;
 	/**
 	 * The current selected date, should be a Date object or null.

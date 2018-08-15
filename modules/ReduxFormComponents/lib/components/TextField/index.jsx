@@ -21,6 +21,7 @@ const renderInputField = field => {
 		type = 'text',
 		label,
 		helperText,
+		helperTextPosition = 'top',
 		className,
 		autoFocus = false,
 		required = false,
@@ -39,11 +40,12 @@ const renderInputField = field => {
 			)}
 
 			{/* Helper Text */}
-			{helperText && (
-				<div className="form-helper">
-					<p className="helper-text">{helperText}</p>
-				</div>
-			)}
+			{helperText &&
+				helperTextPosition === 'top' && (
+					<div className="form-helper">
+						<p className="helper-text top">{helperText}</p>
+					</div>
+				)}
 
 			{/* Input */}
 			<div className={`form-input ${invalid && 'error'}`}>
@@ -57,6 +59,14 @@ const renderInputField = field => {
 					onKeyDown={suppressReturn}
 				/>
 			</div>
+
+			{/* Helper Text */}
+			{helperText &&
+				helperTextPosition === 'bottom' && (
+					<div className="form-helper margin-top-1">
+						<p className="helper-text bottom">{helperText}</p>
+					</div>
+				)}
 
 			{/* Error */}
 			{invalid && (

@@ -53,6 +53,7 @@ class Picker extends React.Component {
 			label,
 			className,
 			helperText,
+			helperTextPosition = 'top',
 			meta: { pristine, error },
 			...remainingAttributes
 		} = this.props;
@@ -70,11 +71,12 @@ class Picker extends React.Component {
 				)}
 
 				{/* Helper Text */}
-				{helperText && (
-					<div className="form-helper">
-						<p className="helper-text">{helperText}</p>
-					</div>
-				)}
+				{helperText &&
+					helperTextPosition === 'top' && (
+						<div className="form-helper">
+							<p className="helper-text top">{helperText}</p>
+						</div>
+					)}
 
 				{/* Calendar */}
 				<div className={`form-input ${invalid && 'error'}`}>
@@ -112,6 +114,14 @@ class Picker extends React.Component {
 						/>
 					)}
 				</div>
+
+				{/* Helper Text */}
+				{helperText &&
+					helperTextPosition === 'bottom' && (
+						<div className="form-helper margin-top-1">
+							<p className="helper-text bottom">{helperText}</p>
+						</div>
+					)}
 
 				{/* Error */}
 				{invalid && (

@@ -6,6 +6,12 @@ interface RadiosProps {
 	options: string[] | { label: string; value: string | number }[];
 	label?: string;
 	helperText?: string;
+	/**
+	 * The place where the helper text appears.
+	 * top : Above the input field
+	 * bottom : Below the input field
+	 */
+	helperTextPosition?: 'top' | 'bottom';
 	required?: boolean;
 	/**
 	 * This is useful only when setting the flow property

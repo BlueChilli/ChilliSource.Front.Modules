@@ -38,10 +38,19 @@ h3 {
 	font-weight: 700;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: $headingTextColor;
+}
+
 button {
 	font-size: 16px;
-	line-height: 32px;
-	font-weight: 700;
+	line-height: 20px;
+	font-weight: 600;
 }
 
 body,
@@ -60,6 +69,25 @@ label {
 	font-size: 14px;
 	line-height: 16px;
 	color: $secondaryTextColor;
+
+	&.top {
+		line-height: 20px;
+	}
+
+	&.bottom {
+		line-height: 16px;
+	}
+}
+
+.link {
+	text-decoration: none;
+	font-size: 14px;
+	line-height: 16px;
+	color: $primaryColor;
+}
+
+.all-caps {
+	text-transform: uppercase;
 }
 
 @media only screen and (max-width: 575px) {
