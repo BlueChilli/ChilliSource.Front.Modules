@@ -13,6 +13,12 @@ The folder contains the following files:
 - `typography.scss`
 - `react-widgets.scss`
 
+<br />
+
+## Getting Started
+
+You should start by importing `style-helpers`/`index.scss` into your entry point component. This way, you get all the styles and are ready to go. After that,
+
 > You should definitely edit these files. Its the one place for you to brand the app to your liking.
 
 - `index.scss`
