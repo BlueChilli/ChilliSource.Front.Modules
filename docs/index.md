@@ -4,7 +4,7 @@ This is a starter pack to get started on BlueChilli web app projects. Here you'l
 
 ## Quick Install
 
-1. This will give you a minimal app without any modules.
+1. This will give you a minimal app without any modules. <br />
    `npx https://github.com/BlueChilli/ChilliSource.Front.Installer.git --install ./target-directory`
 
 2. Change into the target directory created above and then <br />
@@ -20,7 +20,7 @@ This is a starter pack to get started on BlueChilli web app projects. Here you'l
 2. Change into the target directory created above and then <br />
    `yarn add chillifront`
 
-3. Create Re3dux Store
+3. Create Redux Store
 
 ```js
 import { createStore, applyMiddleware } from 'redux';
