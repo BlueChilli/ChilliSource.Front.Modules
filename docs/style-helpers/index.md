@@ -1,6 +1,6 @@
 # Style Helpers
 
-This starter project contains a number of useful style helpers to get you started on your implementation. Designed with 8-point grid in mind - which is what our deisgners use - you can be sure using these classes will definitely help you in reproducing the design to pixel perfect standard.
+This starter project contains a number of useful style helpers to get you started on your implementation. Designed with 8-point grid in mind - which is what our designers use - you can be sure using these classes will definitely help you in reproducing their designs to the pixel-perfect standard.
 
 The folder contains the following files:
 
@@ -13,13 +13,16 @@ The folder contains the following files:
 - `typography.scss`
 - `react-widgets.scss`
 
-You only have ever have to, if any, make changes in the following files:
+> You should definitely edit these files. Its the one place for you to brand the app to your liking.
 
-- index.scss
-- variables.scss
+- `index.scss`
+- `variables.scss`
+
+You might have to, very rarely, once-in-a-while, might have to make changes to the following files:
+
 - typography.scss
 
-You will use classes from other files but you never have to look into them at all. They preconfigured to work as you'd expect.
+You will use classes from other files but you never have to look into them at all. They preconfigured to work as you'd expect. You should absolutely read on but can rest assured, those files are good to roll.
 
 <br />
 
@@ -56,7 +59,7 @@ It's quite upto the developer to choose whether to use [embedded Google Fonts](#
 
 #### Embedded Google Fonts
 
-Since you won't be providing the source files, you can't unfotunately use `@font-face` declaration. This is being done behind the scenes by Google Fonts itself.
+Since you won't be providing the source files, you can't unfortunately use `@font-face` declaration since this is being done behind the scenes by Google Fonts itself.
 
 Steps:
 
