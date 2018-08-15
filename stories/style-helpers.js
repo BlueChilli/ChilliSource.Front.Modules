@@ -74,7 +74,7 @@ storiesOf('Style Helpers', module)
 		);
 	})
 	.addDecorator(getStory => <DemoFormDecorator story={getStory()} />)
-	.add('Forms Components', () => {
+	.add('Form Components', () => {
 		return (
 			<React.Fragment>
 				<h1 className="margin-bottom-2">Form Components</h1>
