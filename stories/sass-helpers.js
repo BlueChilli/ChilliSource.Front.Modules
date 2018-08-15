@@ -16,7 +16,7 @@ import MultiSelect from '../modules/ReduxFormComponents/lib/components/MultiSele
 import { DemoFormDecorator } from './helpers/';
 
 import 'react-widgets/dist/css/react-widgets.css';
-import '../sass-helpers/index.css';
+import '../style-helpers/index.css';
 
 /** Rendering Components */
 storiesOf('Style Helpers', module)
