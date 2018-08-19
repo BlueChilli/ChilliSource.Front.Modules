@@ -66,14 +66,33 @@
 @import 'buttons.scss';
 @import 'form.scss';
 @import 'layout.scss';
-@import 'react-widgets.scss';
 @import 'typography.scss';
+@import 'misc.scss';
+@import 'react-widgets.scss';
 
 * {
 	font-family: ProjectFont;
 	color: $primaryTextColor;
+	font-smooth: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 
 	&::selection {
 		background: rgba($primaryColor, 0.3);
 	}
+}
+
+body {
+	background-color: #f7f8fa;
+}
+
+.inverse {
+	* {
+		color: #fff;
+	}
+}
+
+/** For Spinners **/
+div[class*='css-'] {
+	margin-right: 8px;
 }

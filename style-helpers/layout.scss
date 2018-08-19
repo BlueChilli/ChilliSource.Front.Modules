@@ -17,6 +17,11 @@
 
 	&.col {
 		flex-direction: column;
+		align-items: flex-start;
+
+		&.center {
+			justify-content: center;
+		}
 	}
 
 	&.wrap {
@@ -28,4 +33,10 @@
 			width: $i * 10%;
 		}
 	}
+}
+
+.auto-center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }

@@ -53,3 +53,12 @@
 		padding-right: $i * 8px !important;
 	}
 }
+
+/** Resetters **/
+.depad-left {
+	margin-left: -8px;
+}
+
+.depad-right {
+	margin-right: -8px;
+}

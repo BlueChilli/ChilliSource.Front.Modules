@@ -14,6 +14,16 @@
 			}
 		}
 
+		.rw-popup-container {
+			top: 0;
+
+			.rw-popup {
+				border: none;
+				border-top-left-radius: 2px;
+				border-top-right-radius: 2px;
+			}
+		}
+
 		// Calendar
 		&.rw-calendar {
 			.rw-cell.rw-state-focus,
@@ -63,20 +73,29 @@
 		&.rw-dropdown-list,
 		&.rw-multiselect {
 			.rw-widget-picker {
+				height: 48px;
 				border-radius: 0;
-				border-color: $secondaryTextColor;
+				border: none;
 			}
 
 			.rw-popup-container {
 				.rw-popup-transition {
 					.rw-popup {
 						ul {
-							.rw-list-option.rw-state-focus,
-							.rw-list-option.rw-state-focus:hover {
-								border-color: $primaryColor;
+							.rw-list-option {
+								&.rw-state-focus,
+								&.rw-state-focus:hover {
+									border-color: $primaryColor;
+
+									&.rw-state-selected {
+										background-color: $primaryColor;
+										border-color: $primaryColor;
+									}
+								}
 
 								&.rw-state-selected {
 									background-color: $primaryColor;
+									border-color: $primaryColor;
 								}
 							}
 						}

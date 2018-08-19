@@ -6,6 +6,9 @@
 	text-decoration: none;
 	border: 1px solid;
 	transition: all 160ms ease-in-out;
+	border-radius: 100px;
+	display: inline-block;
+	text-align: center;
 
 	&.button-primary {
 		background-color: $primaryColor;
@@ -45,5 +48,9 @@
 		background-color: $secondaryColor;
 		border-color: $secondaryColor;
 		color: $secondaryTextColor;
+	}
+
+	&.full-width {
+		width: 100%;
 	}
 }
