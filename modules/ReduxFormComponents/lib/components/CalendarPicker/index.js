@@ -8,6 +8,7 @@ import onClickOutside from 'react-onclickoutside';
 
 /** Components */
 import FormElementWrapper from '../../helpers/FormElementWrapper';
+import Error from '../../General/Error';
 
 /** Initialisation */
 Moment.locale('en');
@@ -102,7 +103,8 @@ class Picker extends React.Component {
 					<input
 						readOnly
 						onClick={this.pickDate}
-						value={input.value ? input.value : 'Choose a date'}
+						placeholder="Choose a date"
+						value={input.value}
 						style={{ cursor: 'pointer', color: '#d8d8d8d' }}
 					/>
 					{isPickingDate && (

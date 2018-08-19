@@ -3,8 +3,7 @@ import React from 'react';
 
 /** Components */
 import FormElementWrapper from '../../helpers/FormElementWrapper';
-
-/** Components */
+import Error from '../../General/Error';
 import Checkbox from '../Checkbox';
 
 class Checkboxes extends React.Component {

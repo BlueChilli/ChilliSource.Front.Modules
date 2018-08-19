@@ -5,6 +5,7 @@ import { Multiselect } from 'react-widgets';
 
 /** Components */
 import FormElementWrapper from '../../helpers/FormElementWrapper';
+import Error from '../../General/Error';
 
 const renderMultiSelect = field => {
 	const {

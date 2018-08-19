@@ -5,6 +5,7 @@ import { Field } from 'redux-form';
 
 /** Components */
 import FormElementWrapper from '../../helpers/FormElementWrapper';
+import Error from '../../General/Error';
 
 const renderSelect = field => {
 	const {

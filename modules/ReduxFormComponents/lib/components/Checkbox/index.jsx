@@ -45,7 +45,7 @@ const renderCheckbox = field => {
 
 class Checkbox extends React.Component {
 	render() {
-		return <Field {...this.props} component={renderCheckbox} />;
+		return <Field type="checkbox" {...this.props} component={renderCheckbox} />;
 	}
 }
 

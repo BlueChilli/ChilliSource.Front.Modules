@@ -3,8 +3,7 @@ import React from 'react';
 
 /** Components */
 import FormElementWrapper from '../../helpers/FormElementWrapper';
-
-/** Components */
+import Error from '../../General/Error';
 import Radio from '../Radio';
 
 class Radios extends React.Component {

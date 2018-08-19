@@ -4,6 +4,7 @@ import { Field } from 'redux-form';
 
 /** Components */
 import FormElementWrapper from '../../helpers/FormElementWrapper';
+import Error from '../../General/Error';
 
 /** Radio */
 const renderRadio = field => {
@@ -45,7 +46,7 @@ const renderRadio = field => {
 
 class Radio extends React.Component {
 	render() {
-		return <Field {...this.props} component={renderRadio} />;
+		return <Field type="radio" {...this.props} component={renderRadio} />;
 	}
 }
 
