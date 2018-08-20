@@ -1,27 +1,20 @@
+/** Libraries */
 import axios from 'axios';
 
-import {getApiKey, getBaseURL} from "../configuration";
+/** Helpers */
+import { getApiKey, getBaseURL } from '../configuration';
 
-const getAxiosInstance = (options = {}) => {
+const axiosInstance = axios.create({
+	baseURL: getBaseURL(),
+	withCredentials: true,
+	headers: {
+		apiKey: getApiKey(),
+	},
+});
 
-  let defaults = {
-    baseURL: getBaseURL(),
-    withCredentials: true,
-    headers: {
-      apiKey: getApiKey()
-    }
-  };
+axiosInstance.interceptors.response.use(
+	response => Promise.resolve(response),
+	error => Promise.reject(error.response)
+);
 
-  let axiosOptions = Object.assign({}, defaults, options);
-
-  axios.interceptors.response.use((response) => {
-    return response;
-  }, function (error) {
-    return Promise.reject(error.response);
-  });
-
-  return axios.create(axiosOptions);
-};
-
-
-export default getAxiosInstance;
+export default axiosInstance;
