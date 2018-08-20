@@ -444,6 +444,13 @@
 .padding-right-12 {
   padding-right: 96px !important; }
 
+/** Resetters **/
+.depad-left {
+  margin-left: -8px; }
+
+.depad-right {
+  margin-right: -8px; }
+
 /** Backgrounds **/
 /** Text **/
 /** Alerts **/
@@ -452,7 +459,10 @@
   cursor: pointer;
   text-decoration: none;
   border: 1px solid;
-  transition: all 160ms ease-in-out; }
+  transition: all 160ms ease-in-out;
+  border-radius: 100px;
+  display: inline-block;
+  text-align: center; }
   .button.button-primary {
     background-color: #25ce81;
     color: #fff;
@@ -476,6 +486,8 @@
     background-color: #f7f8fa;
     border-color: #f7f8fa;
     color: #9b9b9b; }
+  .button.full-width {
+    width: 100%; }
 
 /** Backgrounds **/
 /** Text **/
@@ -610,7 +622,10 @@
   .flex.bottom {
     align-items: flex-end; }
   .flex.col {
-    flex-direction: column; }
+    flex-direction: column;
+    align-items: flex-start; }
+    .flex.col.center {
+      justify-content: center; }
   .flex.wrap {
     flex-wrap: wrap; }
   .flex .width-0 {
@@ -636,54 +651,10 @@
   .flex .width-100 {
     width: 100%; }
 
-/** Backgrounds **/
-/** Text **/
-/** Alerts **/
-.form-input .rw-widget-container.rw-state-focus {
-  box-shadow: none;
-  border-color: #9b9b9b; }
-
-.form-input .rw-widget.rw-state-focus .rw-widget-container {
-  box-shadow: none;
-  border-color: #9b9b9b; }
-
-.form-input .rw-widget.rw-calendar .rw-cell.rw-state-focus,
-.form-input .rw-widget.rw-calendar .rw-cell.rw-state-focus:hover {
-  border-color: #25ce81; }
-
-.form-input .rw-widget.rw-calendar .rw-cell.rw-state-selected,
-.form-input .rw-widget.rw-calendar .rw-cell.rw-state-selected:hover {
-  border-color: #25ce81;
-  background-color: #25ce81; }
-
-.form-input .rw-widget.rw-multiselect .rw-widget-picker div ul .rw-multiselect-tag {
-  background-color: #25ce81;
-  border-color: #25ce81;
-  color: #fff;
-  font-weight: normal; }
-  .form-input .rw-widget.rw-multiselect .rw-widget-picker div ul .rw-multiselect-tag span {
-    color: #fff; }
-
-.form-input .rw-widget.rw-multiselect .rw-widget-picker div input {
-  margin-top: 2px;
-  margin-bottom: 2px;
-  border: none;
-  height: 36px; }
-  .form-input .rw-widget.rw-multiselect .rw-widget-picker div input:focus {
-    border: none; }
-
-.form-input .rw-widget.rw-dropdown-list .rw-widget-picker, .form-input .rw-widget.rw-multiselect .rw-widget-picker {
-  border-radius: 0;
-  border-color: #9b9b9b; }
-
-.form-input .rw-widget.rw-dropdown-list .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus,
-.form-input .rw-widget.rw-dropdown-list .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus:hover, .form-input .rw-widget.rw-multiselect .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus,
-.form-input .rw-widget.rw-multiselect .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus:hover {
-  border-color: #25ce81; }
-  .form-input .rw-widget.rw-dropdown-list .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus.rw-state-selected,
-  .form-input .rw-widget.rw-dropdown-list .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus:hover.rw-state-selected, .form-input .rw-widget.rw-multiselect .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus.rw-state-selected,
-  .form-input .rw-widget.rw-multiselect .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus:hover.rw-state-selected {
-    background-color: #25ce81; }
+.auto-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
 
 /**
  * Before doing any changes here, go to index.scss and
@@ -730,10 +701,10 @@ h5,
 h6 {
   color: #3d363b; }
 
-button {
+.button {
   font-size: 16px;
   line-height: 20px;
-  font-weight: 600; }
+  font-weight: 700; }
 
 body,
 p {
@@ -743,7 +714,8 @@ p {
 label {
   font-size: 14px;
   font-weight: 700;
-  line-height: 32px; }
+  line-height: 32px;
+  color: #3d363b; }
 
 .helper-text {
   font-size: 14px;
@@ -754,6 +726,9 @@ label {
   .helper-text.bottom {
     line-height: 16px; }
 
+a {
+  text-decoration: none; }
+
 .link {
   text-decoration: none;
   font-size: 14px;
@@ -763,13 +738,87 @@ label {
 .all-caps {
   text-transform: uppercase; }
 
+.text-center {
+  text-align: center; }
+
 @media only screen and (max-width: 575px) {
   h1 {
     font-size: 28px;
     line-height: 32px; } }
 
+/** Backgrounds **/
+/** Text **/
+/** Alerts **/
+.form-input .rw-widget-container.rw-state-focus {
+  box-shadow: none;
+  border-color: #9b9b9b; }
+
+.form-input .rw-widget.rw-state-focus .rw-widget-container {
+  box-shadow: none;
+  border-color: #9b9b9b; }
+
+.form-input .rw-widget .rw-popup-container {
+  top: 0; }
+  .form-input .rw-widget .rw-popup-container .rw-popup {
+    border: none;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px; }
+
+.form-input .rw-widget.rw-calendar .rw-cell.rw-state-focus,
+.form-input .rw-widget.rw-calendar .rw-cell.rw-state-focus:hover {
+  border-color: #25ce81; }
+
+.form-input .rw-widget.rw-calendar .rw-cell.rw-state-selected,
+.form-input .rw-widget.rw-calendar .rw-cell.rw-state-selected:hover {
+  border-color: #25ce81;
+  background-color: #25ce81; }
+
+.form-input .rw-widget.rw-multiselect .rw-widget-picker div ul .rw-multiselect-tag {
+  background-color: #25ce81;
+  border-color: #25ce81;
+  color: #fff;
+  font-weight: normal; }
+  .form-input .rw-widget.rw-multiselect .rw-widget-picker div ul .rw-multiselect-tag span {
+    color: #fff; }
+
+.form-input .rw-widget.rw-multiselect .rw-widget-picker div input {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border: none;
+  height: 36px; }
+  .form-input .rw-widget.rw-multiselect .rw-widget-picker div input:focus {
+    border: none; }
+
+.form-input .rw-widget.rw-dropdown-list .rw-widget-picker, .form-input .rw-widget.rw-multiselect .rw-widget-picker {
+  height: 48px;
+  border-radius: 0;
+  border: none; }
+
+.form-input .rw-widget.rw-dropdown-list .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus, .form-input .rw-widget.rw-dropdown-list .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus:hover, .form-input .rw-widget.rw-multiselect .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus, .form-input .rw-widget.rw-multiselect .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus:hover {
+  border-color: #25ce81; }
+  .form-input .rw-widget.rw-dropdown-list .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus.rw-state-selected, .form-input .rw-widget.rw-dropdown-list .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus:hover.rw-state-selected, .form-input .rw-widget.rw-multiselect .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus.rw-state-selected, .form-input .rw-widget.rw-multiselect .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus:hover.rw-state-selected {
+    background-color: #25ce81;
+    border-color: #25ce81; }
+
+.form-input .rw-widget.rw-dropdown-list .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-selected, .form-input .rw-widget.rw-multiselect .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-selected {
+  background-color: #25ce81;
+  border-color: #25ce81; }
+
 * {
   font-family: ProjectFont;
-  color: #6f6f6f; }
+  color: #6f6f6f;
+  font-smooth: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
   *::selection {
     background: rgba(37, 206, 129, 0.3); }
+
+body {
+  background-color: #fff; }
+
+.inverse * {
+  color: #fff; }
+
+/** For Spinners **/
+div[class*='css-'] {
+  margin-right: 8px; }

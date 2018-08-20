@@ -1,9 +1,7 @@
-import { Mod } from "chillifront";
-
-import "./lib/themes/bootstrap.css";
+import { Mod } from 'chillifront';
 
 export default class ReduxFormComponents extends Mod {
-  name() {
-    return "ReduxFormComponents";
-  }
+	name() {
+		return 'ReduxFormComponents';
+	}
 }

@@ -6,7 +6,10 @@
   cursor: pointer;
   text-decoration: none;
   border: 1px solid;
-  transition: all 160ms ease-in-out; }
+  transition: all 160ms ease-in-out;
+  border-radius: 100px;
+  display: inline-block;
+  text-align: center; }
   .button.button-primary {
     background-color: #25ce81;
     color: #fff;
@@ -30,3 +33,5 @@
     background-color: #f7f8fa;
     border-color: #f7f8fa;
     color: #9b9b9b; }
+  .button.full-width {
+    width: 100%; }

@@ -9,7 +9,10 @@
   .flex.bottom {
     align-items: flex-end; }
   .flex.col {
-    flex-direction: column; }
+    flex-direction: column;
+    align-items: flex-start; }
+    .flex.col.center {
+      justify-content: center; }
   .flex.wrap {
     flex-wrap: wrap; }
   .flex .width-0 {
@@ -34,3 +37,8 @@
     width: 90%; }
   .flex .width-100 {
     width: 100%; }
+
+.auto-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
