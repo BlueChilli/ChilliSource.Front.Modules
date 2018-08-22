@@ -10,6 +10,7 @@ And although you do not need to setup any of these modules yourself, generally, 
 ### Documented
 
 - [ReduxFormComponents](ReduxFormComponents/index.md)
+- [Auth](auth.md)
 - [Notification](notification.md)
 - [PersistState](persiststate.md)
 - [GoogleAnalytics](googleanalytics.md)
