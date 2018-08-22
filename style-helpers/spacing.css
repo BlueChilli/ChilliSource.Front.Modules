@@ -389,3 +389,10 @@
 
 .padding-right-12 {
   padding-right: 96px !important; }
+
+/** Resetters **/
+.depad-left {
+  margin-left: -8px; }
+
+.depad-right {
+  margin-right: -8px; }

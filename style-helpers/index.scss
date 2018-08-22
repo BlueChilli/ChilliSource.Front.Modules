@@ -67,7 +67,6 @@
 @import 'form.scss';
 @import 'layout.scss';
 @import 'typography.scss';
-@import 'misc.scss';
 @import 'react-widgets.scss';
 
 * {
@@ -83,7 +82,7 @@
 }
 
 body {
-	background-color: #f7f8fa;
+	background-color: #fff;
 }
 
 .inverse {

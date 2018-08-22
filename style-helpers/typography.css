@@ -43,10 +43,10 @@ h5,
 h6 {
   color: #3d363b; }
 
-button {
+.button {
   font-size: 16px;
   line-height: 20px;
-  font-weight: 600; }
+  font-weight: 700; }
 
 body,
 p {
@@ -56,7 +56,8 @@ p {
 label {
   font-size: 14px;
   font-weight: 700;
-  line-height: 32px; }
+  line-height: 32px;
+  color: #3d363b; }
 
 .helper-text {
   font-size: 14px;
@@ -67,6 +68,9 @@ label {
   .helper-text.bottom {
     line-height: 16px; }
 
+a {
+  text-decoration: none; }
+
 .link {
   text-decoration: none;
   font-size: 14px;
@@ -75,6 +79,9 @@ label {
 
 .all-caps {
   text-transform: uppercase; }
+
+.text-center {
+  text-align: center; }
 
 @media only screen and (max-width: 575px) {
   h1 {
