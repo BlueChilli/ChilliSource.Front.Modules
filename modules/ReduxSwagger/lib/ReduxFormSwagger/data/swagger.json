@@ -1,0 +1,1805 @@
+{
+	"swagger": "2.0",
+	"info": { "version": "v1", "title": "PicMi.Web" },
+	"host": "dev.bluechilli.com",
+	"basePath": "/PicMi",
+	"schemes": ["https"],
+	"paths": {
+		"/api/v1/devicepin": {
+			"post": {
+				"tags": ["DevicePin"],
+				"operationId": "DevicePin_Add",
+				"consumes": [
+					"application/json",
+					"text/json",
+					"text/xml",
+					"application/x-www-form-urlencoded",
+					"multipart/form-data"
+				],
+				"produces": ["application/json", "text/json", "text/xml", "multipart/form-data"],
+				"parameters": [
+					{
+						"name": "model",
+						"in": "body",
+						"required": true,
+						"schema": { "$ref": "#/definitions/PersistDevicePinApiModel" }
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": { "$ref": "#/definitions/DevicePinResponseApiModel" }
+					}
+				},
+				"security": [{ "apiKeyHeader": [] }, { "userKeyHeader": [] }],
+				"x-blue-ApiAuthorization": {}
+			},
+			"delete": {
+				"tags": ["DevicePin"],
+				"operationId": "DevicePin_Delete",
+				"consumes": [],
+				"produces": ["application/json", "text/json", "text/xml", "multipart/form-data"],
+				"responses": { "200": { "description": "OK", "schema": { "type": "object" } } },
+				"security": [{ "apiKeyHeader": [] }, { "userKeyHeader": [] }],
+				"x-blue-ApiAuthorization": {}
+			}
+		},
+		"/api/v1/devicepushtokens": {
+			"post": {
+				"tags": ["DevicePushToken"],
+				"operationId": "DevicePushToken_Add",
+				"consumes": [
+					"application/json",
+					"text/json",
+					"text/xml",
+					"application/x-www-form-urlencoded",
+					"multipart/form-data"
+				],
+				"produces": ["application/json", "text/json", "text/xml", "multipart/form-data"],
+				"parameters": [
+					{
+						"name": "model",
+						"in": "body",
+						"required": true,
+						"schema": { "$ref": "#/definitions/PushTokenRegistrationApiModel" }
+					}
+				],
+				"responses": { "200": { "description": "OK", "schema": { "type": "object" } } },
+				"security": [{ "apiKeyHeader": [] }, { "userKeyHeader": [] }],
+				"x-blue-ApiAuthorization": {}
+			}
+		},
+		"/api/server/tick": {
+			"get": {
+				"tags": ["Server"],
+				"operationId": "Server_ServerTick",
+				"consumes": [],
+				"produces": ["application/json", "text/json", "text/xml", "multipart/form-data"],
+				"responses": { "200": { "description": "OK", "schema": { "type": "object" } } }
+			}
+		},
+		"/api/server/migrations": {
+			"get": {
+				"tags": ["Server"],
+				"operationId": "Server_ServerMigrations",
+				"consumes": [],
+				"produces": ["application/json", "text/json", "text/xml", "multipart/form-data"],
+				"responses": { "200": { "description": "OK", "schema": { "type": "object" } } }
+			}
+		},
+		"/api/server/error": {
+			"get": {
+				"tags": ["Server"],
+				"operationId": "Server_ServerError",
+				"consumes": [],
+				"produces": ["application/json", "text/json", "text/xml", "multipart/form-data"],
+				"parameters": [{ "name": "message", "in": "query", "required": false, "type": "string" }],
+				"responses": { "200": { "description": "OK", "schema": { "type": "object" } } }
+			}
+		},
+		"/api/server/testrazor": {
+			"get": {
+				"tags": ["Server"],
+				"operationId": "Server_TestRazor",
+				"consumes": [],
+				"produces": ["application/json", "text/json", "text/xml", "multipart/form-data"],
+				"parameters": [
+					{ "name": "key", "in": "query", "required": false, "type": "string", "format": "uuid" }
+				],
+				"responses": { "200": { "description": "OK", "schema": { "type": "object" } } }
+			}
+		},
+		"/api/v1/users/byemail": {
+			"post": {
+				"tags": ["Users"],
+				"summary": "Create a user (registration)",
+				"operationId": "Users_AddByEmail",
+				"consumes": [
+					"application/json",
+					"text/json",
+					"text/xml",
+					"application/x-www-form-urlencoded",
+					"multipart/form-data"
+				],
+				"produces": ["application/json", "text/json", "text/xml", "multipart/form-data"],
+				"parameters": [
+					{
+						"name": "model",
+						"in": "body",
+						"required": true,
+						"schema": { "$ref": "#/definitions/RegistrationApiModel" }
+					}
+				],
+				"responses": {
+					"200": { "description": "OK", "schema": { "$ref": "#/definitions/UserAccountApiModel" } }
+				},
+				"security": [{ "apiKeyHeader": [] }]
+			}
+		},
+		"/api/v1/users/byphone": {
+			"post": {
+				"tags": ["Users"],
+				"summary": "Create a user (registration)",
+				"operationId": "Users_AddByPhone",
+				"consumes": [
+					"application/json",
+					"text/json",
+					"text/xml",
+					"application/x-www-form-urlencoded",
+					"multipart/form-data"
+				],
+				"produces": ["application/json", "text/json", "text/xml", "multipart/form-data"],
+				"parameters": [
+					{
+						"name": "model",
+						"in": "body",
+						"required": true,
+						"schema": { "$ref": "#/definitions/PhoneRegistrationApiModel" }
+					}
+				],
+				"responses": {
+					"200": { "description": "OK", "schema": { "$ref": "#/definitions/UserAccountApiModel" } }
+				},
+				"security": [{ "apiKeyHeader": [] }]
+			}
+		},
+		"/api/v1/users/tokens": {
+			"post": {
+				"tags": ["Users"],
+				"summary": "Create a token (only reset password supported ATM - delivered by email with link to ~/user/resetpassword)",
+				"operationId": "Users_CreateToken",
+				"consumes": [
+					"application/json",
+					"text/json",
+					"text/xml",
+					"application/x-www-form-urlencoded",
+					"multipart/form-data"
+				],
+				"produces": ["application/json", "text/json", "text/xml", "multipart/form-data"],
+				"parameters": [
+					{
+						"name": "model",
+						"in": "body",
+						"required": true,
+						"schema": { "$ref": "#/definitions/TokenEditApiModel" }
+					}
+				],
+				"responses": { "200": { "description": "OK", "schema": { "type": "object" } } },
+				"security": [{ "apiKeyHeader": [] }]
+			}
+		},
+		"/api/v1/users/bytoken/{tokenId}": {
+			"get": {
+				"tags": ["Users"],
+				"summary": "Get user by token",
+				"operationId": "Users_GetByToken",
+				"consumes": [],
+				"produces": ["application/json", "text/json", "text/xml", "multipart/form-data"],
+				"parameters": [
+					{ "name": "tokenId", "in": "path", "required": true, "type": "string" },
+					{
+						"name": "email",
+						"in": "query",
+						"required": true,
+						"type": "string",
+						"maxLength": 100,
+						"minLength": 0
+					},
+					{ "name": "token", "in": "query", "required": false, "type": "string" }
+				],
+				"responses": {
+					"200": { "description": "OK", "schema": { "$ref": "#/definitions/UserAccountApiModel" } }
+				},
+				"security": [{ "apiKeyHeader": [] }]
+			},
+			"patch": {
+				"tags": ["Users"],
+				"summary": "Patches user by token (update password and/or name).",
+				"operationId": "Users_PatchByToken",
+				"consumes": [
+					"application/json",
+					"text/json",
+					"text/xml",
+					"application/x-www-form-urlencoded",
+					"multipart/form-data"
+				],
+				"produces": ["application/json", "text/json", "text/xml", "multipart/form-data"],
+				"parameters": [
+					{ "name": "tokenId", "in": "path", "required": true, "type": "string" },
+					{
+						"name": "model",
+						"in": "body",
+						"required": true,
+						"schema": { "$ref": "#/definitions/PatchAccountTokenApiModel" }
+					}
+				],
+				"responses": {
+					"200": { "description": "OK", "schema": { "$ref": "#/definitions/UserAccountApiModel" } }
+				},
+				"security": [{ "apiKeyHeader": [] }]
+			}
+		},
+		"/api/v1/users/current": {
+			"get": {
+				"tags": ["Users"],
+				"summary": "Current user",
+				"operationId": "Users_Query",
+				"consumes": [],
+				"produces": ["application/json", "text/json", "text/xml", "multipart/form-data"],
+				"responses": {
+					"200": { "description": "OK", "schema": { "$ref": "#/definitions/UserAccountApiModel" } }
+				},
+				"security": [{ "apiKeyHeader": [] }, { "userKeyHeader": [] }],
+				"x-blue-ApiAuthorization": {}
+			},
+			"put": {
+				"tags": ["Users"],
+				"summary": "Update user details (Firstname, Lastname, Email, Profile photo (optional)",
+				"operationId": "Users_Update",
+				"consumes": [
+					"application/json",
+					"text/json",
+					"text/xml",
+					"application/x-www-form-urlencoded",
+					"multipart/form-data"
+				],
+				"produces": ["application/json", "text/json", "text/xml", "multipart/form-data"],
+				"parameters": [
+					{
+						"name": "model",
+						"in": "body",
+						"required": true,
+						"schema": { "$ref": "#/definitions/PersistUserAccountApiModel" }
+					}
+				],
+				"responses": {
+					"200": { "description": "OK", "schema": { "$ref": "#/definitions/UserAccountApiModel" } }
+				},
+				"security": [{ "apiKeyHeader": [] }, { "userKeyHeader": [] }],
+				"x-blue-ApiAuthorization": {}
+			},
+			"patch": {
+				"tags": ["Users"],
+				"summary": "Patch user (password and/or email)",
+				"operationId": "Users_Patch",
+				"consumes": [
+					"application/json",
+					"text/json",
+					"text/xml",
+					"application/x-www-form-urlencoded",
+					"multipart/form-data"
+				],
+				"produces": ["application/json", "text/json", "text/xml", "multipart/form-data"],
+				"parameters": [
+					{
+						"name": "model",
+						"in": "body",
+						"required": true,
+						"schema": { "$ref": "#/definitions/PatchAccountApiModel" }
+					}
+				],
+				"responses": {
+					"200": { "description": "OK", "schema": { "$ref": "#/definitions/UserAccountApiModel" } }
+				},
+				"security": [{ "apiKeyHeader": [] }, { "userKeyHeader": [] }],
+				"x-blue-ApiAuthorization": {}
+			}
+		},
+		"/api/v1/usersessions/byemail": {
+			"post": {
+				"tags": ["UserSessions"],
+				"summary": "Create a new session (login)",
+				"operationId": "UserSessions_AddByEmail",
+				"consumes": [
+					"application/json",
+					"text/json",
+					"text/xml",
+					"application/x-www-form-urlencoded",
+					"multipart/form-data"
+				],
+				"produces": ["application/json", "text/json", "text/xml", "multipart/form-data"],
+				"parameters": [
+					{
+						"name": "model",
+						"in": "body",
+						"required": true,
+						"schema": { "$ref": "#/definitions/NewSessionApiModel" }
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": { "$ref": "#/definitions/SessionSummaryApiModel" }
+					}
+				},
+				"security": [{ "apiKeyHeader": [] }]
+			}
+		},
+		"/api/v1/usersessions/byphone/coderequest": {
+			"post": {
+				"tags": ["UserSessions"],
+				"summary": "Create a new session (login)",
+				"operationId": "UserSessions_CodeRequest",
+				"consumes": [
+					"application/json",
+					"text/json",
+					"text/xml",
+					"application/x-www-form-urlencoded",
+					"multipart/form-data"
+				],
+				"produces": ["application/json", "text/json", "text/xml", "multipart/form-data"],
+				"parameters": [
+					{
+						"name": "model",
+						"in": "body",
+						"required": true,
+						"schema": { "$ref": "#/definitions/LoginCodeRequestApiModel" }
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": { "$ref": "#/definitions/LoginCodeResponseApiModel" }
+					}
+				},
+				"security": [{ "apiKeyHeader": [] }]
+			}
+		},
+		"/api/v1/usersessions/byphone": {
+			"post": {
+				"tags": ["UserSessions"],
+				"operationId": "UserSessions_AddByPhone",
+				"consumes": [
+					"application/json",
+					"text/json",
+					"text/xml",
+					"application/x-www-form-urlencoded",
+					"multipart/form-data"
+				],
+				"produces": ["application/json", "text/json", "text/xml", "multipart/form-data"],
+				"parameters": [
+					{
+						"name": "model",
+						"in": "body",
+						"required": true,
+						"schema": { "$ref": "#/definitions/NewSessionByPhoneApiModel" }
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": { "$ref": "#/definitions/SessionSummaryApiModel" }
+					}
+				},
+				"security": [{ "apiKeyHeader": [] }]
+			}
+		},
+		"/api/v1/usersessions/bypin": {
+			"post": {
+				"tags": ["UserSessions"],
+				"operationId": "UserSessions_AddByPin",
+				"consumes": [
+					"application/json",
+					"text/json",
+					"text/xml",
+					"application/x-www-form-urlencoded",
+					"multipart/form-data"
+				],
+				"produces": ["application/json", "text/json", "text/xml", "multipart/form-data"],
+				"parameters": [
+					{
+						"name": "model",
+						"in": "body",
+						"required": true,
+						"schema": { "$ref": "#/definitions/PinLoginPinApiModel" }
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": { "$ref": "#/definitions/LoginResultMobileModel" }
+					}
+				},
+				"security": [{ "apiKeyHeader": [] }]
+			}
+		},
+		"/api/v1/usersessions/current": {
+			"get": {
+				"tags": ["UserSessions"],
+				"summary": "Current session details",
+				"operationId": "UserSessions_Current",
+				"consumes": [],
+				"produces": ["application/json", "text/json", "text/xml", "multipart/form-data"],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": { "$ref": "#/definitions/SessionSummaryApiModel" }
+					}
+				},
+				"security": [{ "apiKeyHeader": [] }, { "userKeyHeader": [] }],
+				"x-blue-ApiAuthorization": {}
+			},
+			"delete": {
+				"tags": ["UserSessions"],
+				"summary": "Delete session (logout)",
+				"operationId": "UserSessions_Delete",
+				"consumes": [],
+				"produces": ["application/json", "text/json", "text/xml", "multipart/form-data"],
+				"responses": { "200": { "description": "OK", "schema": { "type": "object" } } },
+				"security": [{ "apiKeyHeader": [] }]
+			}
+		},
+		"/api/v1/usersessions/impersonate": {
+			"post": {
+				"tags": ["UserSessions"],
+				"summary": "Impersonate another user",
+				"operationId": "UserSessions_Impersonate",
+				"consumes": [],
+				"produces": ["application/json", "text/json", "text/xml", "multipart/form-data"],
+				"parameters": [
+					{ "name": "id", "in": "query", "required": true, "type": "integer", "format": "int32" }
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": { "$ref": "#/definitions/SessionSummaryApiModel" }
+					}
+				},
+				"security": [{ "apiKeyHeader": [] }, { "userKeyHeader": [] }],
+				"x-blue-ApiAuthorization": { "roles": ["Administrator", "FarmAdmin"] }
+			}
+		},
+		"/api/v1/usersessions/undoimpersonate": {
+			"post": {
+				"tags": ["UserSessions"],
+				"summary": "Undo impersonation and return to previous session",
+				"operationId": "UserSessions_UndoImpersonate",
+				"consumes": [],
+				"produces": ["application/json", "text/json", "text/xml", "multipart/form-data"],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": { "$ref": "#/definitions/SessionSummaryApiModel" }
+					}
+				},
+				"security": [{ "apiKeyHeader": [] }]
+			}
+		},
+		"/api/endpoint": {
+			"get": {
+				"tags": ["Version"],
+				"summary": "For apple to test the live app against a testing endpoint. So the app can be tested live before the api is pushed to production.",
+				"operationId": "Version_Endpoint",
+				"consumes": [],
+				"produces": ["application/json", "text/json", "text/xml", "multipart/form-data"],
+				"parameters": [
+					{
+						"name": "version",
+						"in": "query",
+						"description": "",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": { "200": { "description": "OK", "schema": { "type": "object" } } },
+				"security": [{ "apiKeyHeader": [] }]
+			}
+		},
+		"/api/v1/workers/profile": {
+			"get": {
+				"tags": ["WorkerApi"],
+				"operationId": "WorkerApi_Profile",
+				"consumes": [],
+				"produces": ["application/json", "text/json", "text/xml", "multipart/form-data"],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": { "$ref": "#/definitions/WorkerProfileApiModel" }
+					}
+				},
+				"security": [{ "apiKeyHeader": [] }, { "userKeyHeader": [] }],
+				"x-blue-ApiAuthorization": { "roles": ["Worker"] }
+			},
+			"put": {
+				"tags": ["WorkerApi"],
+				"operationId": "WorkerApi_ProfileUpdate",
+				"consumes": [
+					"application/json",
+					"text/json",
+					"text/xml",
+					"application/x-www-form-urlencoded",
+					"multipart/form-data"
+				],
+				"produces": ["application/json", "text/json", "text/xml", "multipart/form-data"],
+				"parameters": [
+					{
+						"name": "model",
+						"in": "body",
+						"required": true,
+						"schema": { "$ref": "#/definitions/WorkerProfileApiModel" }
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": { "$ref": "#/definitions/WorkerProfileApiModel" }
+					}
+				},
+				"security": [{ "apiKeyHeader": [] }, { "userKeyHeader": [] }],
+				"x-blue-ApiAuthorization": { "roles": ["Worker"] }
+			}
+		},
+		"/api/v1/workers/jobs/{id}": {
+			"put": {
+				"tags": ["WorkerApi"],
+				"operationId": "WorkerApi_ProfileUpdate",
+				"consumes": [
+					"application/json",
+					"text/json",
+					"text/xml",
+					"application/x-www-form-urlencoded",
+					"multipart/form-data"
+				],
+				"produces": ["application/json", "text/json", "text/xml", "multipart/form-data"],
+				"parameters": [
+					{ "name": "id", "in": "path", "required": true, "type": "integer", "format": "int32" },
+					{
+						"name": "model",
+						"in": "body",
+						"required": true,
+						"schema": { "$ref": "#/definitions/JobEditApiModel" }
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": { "$ref": "#/definitions/WorkerProfileApiModel" }
+					}
+				},
+				"security": [{ "apiKeyHeader": [] }, { "userKeyHeader": [] }],
+				"x-blue-ApiAuthorization": { "roles": ["Worker"] }
+			}
+		},
+		"/api/v1/workers/jobs": {
+			"get": {
+				"tags": ["WorkerApi"],
+				"operationId": "WorkerApi_Jobs",
+				"consumes": [],
+				"produces": ["application/json", "text/json", "text/xml", "multipart/form-data"],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": { "type": "array", "items": { "$ref": "#/definitions/JobApiModel" } }
+					}
+				},
+				"security": [{ "apiKeyHeader": [] }, { "userKeyHeader": [] }],
+				"x-blue-ApiAuthorization": { "roles": ["Worker"] }
+			}
+		}
+	},
+	"definitions": {
+		"PersistDevicePinApiModel": {
+			"required": ["pin", "deviceId"],
+			"type": "object",
+			"properties": {
+				"pin": {
+					"title": "Pin",
+					"maxLength": 4,
+					"minLength": 4,
+					"type": "string",
+					"x-sys-Required": { "allowEmptyStrings": false }
+				},
+				"deviceId": {
+					"title": "Device id",
+					"maxLength": 100,
+					"minLength": 0,
+					"type": "string",
+					"x-sys-Required": { "allowEmptyStrings": false }
+				}
+			}
+		},
+		"DevicePinResponseApiModel": {
+			"type": "object",
+			"properties": { "pinToken": { "title": "Pin token", "type": "string" } }
+		},
+		"PushTokenRegistrationApiModel": {
+			"type": "object",
+			"properties": {
+				"deviceId": { "title": "Device id", "type": "string" },
+				"token": { "title": "Token", "type": "string" }
+			}
+		},
+		"RegistrationApiModel": {
+			"required": ["firstName", "lastName", "email", "password"],
+			"type": "object",
+			"properties": {
+				"firstName": {
+					"title": "First name",
+					"maxLength": 25,
+					"type": "string",
+					"x-sys-Required": { "allowEmptyStrings": false }
+				},
+				"lastName": {
+					"title": "Last name",
+					"maxLength": 25,
+					"type": "string",
+					"x-sys-Required": { "allowEmptyStrings": false }
+				},
+				"email": {
+					"title": "Email",
+					"maxLength": 100,
+					"type": "string",
+					"x-sys-Required": { "allowEmptyStrings": false },
+					"x-sys-EmailAddress": {
+						"dataType": "EmailAddress",
+						"errorMessage": "The {0} field is not a valid e-mail address."
+					}
+				},
+				"password": {
+					"title": "Password",
+					"maxLength": 50,
+					"minLength": 6,
+					"type": "string",
+					"x-sys-Required": { "allowEmptyStrings": false },
+					"x-sys-DataType": { "dataType": "Password" }
+				},
+				"acceptTermsConditions": {
+					"title": "Accept terms conditions",
+					"type": "boolean",
+					"x-blue-MustBeTrue": { "errorMessage": "Please accept terms and conditions" }
+				},
+				"anonymousUserId": { "format": "uuid", "title": "Anonymous user id", "type": "string" }
+			}
+		},
+		"UserAccountApiModel": {
+			"type": "object",
+			"properties": {
+				"firstName": { "title": "First name", "type": "string" },
+				"lastName": { "title": "Last name", "type": "string" },
+				"fullName": { "title": "Full name", "type": "string", "readOnly": true },
+				"email": { "title": "Email", "type": "string" },
+				"phone": { "title": "Phone", "type": "string" },
+				"status": {
+					"allOf": [
+						{ "$ref": "#/definitions/Enum_UserStatus" },
+						{ "title": "Status", "type": "string" }
+					]
+				},
+				"userRoles": {
+					"title": "User roles",
+					"type": "array",
+					"items": { "$ref": "#/definitions/UserRoleApiModel" }
+				},
+				"roles": { "title": "Roles", "type": "array", "items": { "type": "string" } },
+				"profilePhotoPath": { "title": "Profile photo path", "type": "string" }
+			}
+		},
+		"UserRoleApiModel": {
+			"type": "object",
+			"properties": {
+				"role": {
+					"allOf": [{ "$ref": "#/definitions/Enum_Role" }, { "title": "Role", "type": "string" }]
+				},
+				"companyId": { "format": "int32", "title": "Company id", "type": "integer" }
+			}
+		},
+		"Enum_UserStatus": {
+			"enum": ["Registered", "Activated", "Deleted", "Invited"],
+			"type": "string",
+			"x-blue-enum-definitions": {
+				"Registered": { "description": "Registered", "value": 1 },
+				"Activated": { "description": "Activated", "value": 2 },
+				"Deleted": { "description": "Deleted", "value": 3 },
+				"Invited": { "description": "Invited", "value": 4 }
+			}
+		},
+		"Enum_Role": {
+			"enum": ["Administrator", "Worker", "FarmAdmin"],
+			"type": "string",
+			"x-blue-enum-definitions": {
+				"Administrator": { "description": "Administrator", "value": 1 },
+				"Worker": { "description": "Worker", "value": 2 },
+				"FarmAdmin": { "description": "Farm admin", "value": 4 }
+			}
+		},
+		"PhoneRegistrationApiModel": {
+			"required": ["firstName", "lastName", "phone"],
+			"type": "object",
+			"properties": {
+				"profilePhotoFile": {
+					"allOf": [
+						{ "$ref": "#/definitions/HttpPostedFileBase" },
+						{
+							"title": "Profile photo file",
+							"type": "object",
+							"x-blue-FileMaxSize": {
+								"maxSize": 8388608,
+								"errorMessage": "The {0} field: The size of the file selected must be less than {1}."
+							},
+							"x-blue-HttpPostedFileBaseFileExtensions": {
+								"extensions": "jpg,jpeg,png,gif",
+								"errorMessage": "Field {0} is not one of following valid extensions ({1})",
+								"accept": "image/jpeg, image/png, image/gif"
+							}
+						}
+					]
+				},
+				"firstName": {
+					"title": "First name",
+					"maxLength": 25,
+					"type": "string",
+					"x-sys-Required": { "allowEmptyStrings": false }
+				},
+				"lastName": {
+					"title": "Last name",
+					"maxLength": 25,
+					"type": "string",
+					"x-sys-Required": { "allowEmptyStrings": false }
+				},
+				"phone": {
+					"title": "Phone",
+					"type": "string",
+					"x-sys-Required": { "allowEmptyStrings": false }
+				},
+				"email": {
+					"title": "Email",
+					"maxLength": 100,
+					"type": "string",
+					"x-sys-EmailAddress": {
+						"dataType": "EmailAddress",
+						"errorMessage": "The {0} field is not a valid e-mail address."
+					}
+				},
+				"anonymousUserId": { "format": "uuid", "title": "Anonymous user id", "type": "string" }
+			}
+		},
+		"HttpPostedFileBase": { "type": "file", "properties": {} },
+		"TokenEditApiModel": {
+			"required": ["email", "type"],
+			"type": "object",
+			"properties": {
+				"email": {
+					"title": "Email",
+					"maxLength": 100,
+					"type": "string",
+					"x-sys-Required": { "allowEmptyStrings": false },
+					"x-sys-DataType": { "dataType": "EmailAddress" }
+				},
+				"type": {
+					"allOf": [
+						{ "$ref": "#/definitions/Enum_UserTokenType" },
+						{ "title": "Type", "type": "string", "x-sys-Required": { "allowEmptyStrings": false } }
+					]
+				}
+			}
+		},
+		"Enum_UserTokenType": {
+			"enum": ["Password", "Invite", "Activate"],
+			"type": "string",
+			"x-blue-enum-definitions": {
+				"Password": { "description": "Password", "value": 1 },
+				"Invite": { "description": "Invite", "value": 2 },
+				"Activate": { "description": "Activate", "value": 3 }
+			}
+		},
+		"AccountTokenApiModel": {
+			"required": ["email"],
+			"type": "object",
+			"properties": {
+				"email": { "maxLength": 100, "minLength": 0, "type": "string" },
+				"token": { "type": "string" }
+			}
+		},
+		"PatchAccountTokenApiModel": {
+			"required": ["email"],
+			"type": "object",
+			"properties": {
+				"firstName": { "title": "First name", "maxLength": 25, "type": "string" },
+				"lastName": { "title": "Last name", "maxLength": 25, "type": "string" },
+				"password": {
+					"title": "Password",
+					"maxLength": 50,
+					"minLength": 6,
+					"type": "string",
+					"x-sys-DataType": { "dataType": "Password" }
+				},
+				"email": {
+					"title": "Email",
+					"maxLength": 100,
+					"minLength": 0,
+					"type": "string",
+					"x-sys-Required": { "allowEmptyStrings": false }
+				},
+				"token": { "title": "Token", "type": "string" }
+			}
+		},
+		"PatchAccountApiModel": {
+			"type": "object",
+			"properties": {
+				"currentPassword": {
+					"title": "Current password",
+					"maxLength": 50,
+					"type": "string",
+					"x-sys-DataType": { "dataType": "Password" }
+				},
+				"password": {
+					"title": "Password",
+					"maxLength": 50,
+					"minLength": 6,
+					"type": "string",
+					"x-sys-DataType": { "dataType": "Password" }
+				},
+				"passwordSpecified": { "title": "Password specified", "type": "boolean" },
+				"email": {
+					"title": "Email",
+					"maxLength": 100,
+					"type": "string",
+					"x-sys-EmailAddress": {
+						"dataType": "EmailAddress",
+						"errorMessage": "The {0} field is not a valid e-mail address."
+					}
+				},
+				"emailSpecified": { "title": "Email specified", "type": "boolean" }
+			}
+		},
+		"PersistUserAccountApiModel": {
+			"required": ["firstName", "lastName", "email"],
+			"type": "object",
+			"properties": {
+				"firstName": {
+					"title": "First name",
+					"maxLength": 25,
+					"type": "string",
+					"x-sys-Required": { "allowEmptyStrings": false }
+				},
+				"lastName": {
+					"title": "Last name",
+					"maxLength": 25,
+					"type": "string",
+					"x-sys-Required": { "allowEmptyStrings": false }
+				},
+				"email": {
+					"title": "Email",
+					"maxLength": 100,
+					"type": "string",
+					"x-sys-Required": { "allowEmptyStrings": false },
+					"x-sys-EmailAddress": {
+						"dataType": "EmailAddress",
+						"errorMessage": "The {0} field is not a valid e-mail address."
+					}
+				},
+				"profilePhotoFile": {
+					"allOf": [
+						{ "$ref": "#/definitions/HttpPostedFileBase" },
+						{
+							"title": "Profile photo file",
+							"type": "object",
+							"x-blue-FileMaxSize": {
+								"maxSize": 8388608,
+								"errorMessage": "The {0} field: The size of the file selected must be less than {1}."
+							},
+							"x-blue-HttpPostedFileBaseFileExtensions": {
+								"extensions": "jpg,jpeg,png,gif",
+								"errorMessage": "Field {0} is not one of following valid extensions ({1})",
+								"accept": "image/jpeg, image/png, image/gif"
+							}
+						}
+					]
+				}
+			}
+		},
+		"NewSessionApiModel": {
+			"required": ["email", "password"],
+			"type": "object",
+			"properties": {
+				"email": {
+					"title": "Email",
+					"maxLength": 100,
+					"type": "string",
+					"x-sys-Required": { "allowEmptyStrings": false },
+					"x-sys-DataType": { "dataType": "EmailAddress" }
+				},
+				"password": {
+					"title": "Password",
+					"maxLength": 50,
+					"type": "string",
+					"x-sys-Required": { "allowEmptyStrings": false },
+					"x-sys-DataType": { "dataType": "Password" }
+				},
+				"deviceId": { "title": "Device id", "maxLength": 100, "minLength": 0, "type": "string" }
+			}
+		},
+		"SessionSummaryApiModel": {
+			"type": "object",
+			"properties": {
+				"userKey": { "title": "User key", "type": "string" },
+				"firstName": { "title": "First name", "type": "string" },
+				"lastName": { "title": "Last name", "type": "string" },
+				"fullName": { "title": "Full name", "type": "string" },
+				"email": { "title": "Email", "type": "string" },
+				"status": {
+					"allOf": [
+						{ "$ref": "#/definitions/Enum_UserStatus" },
+						{ "title": "Status", "type": "string" }
+					]
+				},
+				"roles": { "title": "Roles", "type": "array", "items": { "type": "string" } },
+				"profilePhotoPath": { "title": "Profile photo path", "type": "string" },
+				"impersonator": {
+					"allOf": [
+						{ "$ref": "#/definitions/ImpersonatorSummaryApiModel" },
+						{ "title": "Impersonator", "type": "object" }
+					]
+				}
+			}
+		},
+		"ImpersonatorSummaryApiModel": {
+			"type": "object",
+			"properties": {
+				"firstName": { "title": "First name", "type": "string" },
+				"lastName": { "title": "Last name", "type": "string" },
+				"email": { "title": "Email", "type": "string" },
+				"roles": {
+					"title": "Roles",
+					"type": "array",
+					"items": { "$ref": "#/definitions/UserRoleApiModel" }
+				}
+			}
+		},
+		"LoginCodeRequestApiModel": {
+			"required": ["phone"],
+			"type": "object",
+			"properties": {
+				"phone": {
+					"title": "Phone",
+					"maxLength": 10,
+					"minLength": 10,
+					"type": "string",
+					"x-sys-Required": { "allowEmptyStrings": false },
+					"x-blue-PhoneNumber": {
+						"maximumDigits": 10,
+						"region": "AU",
+						"phoneTypesToCheck": [2, 1, 0],
+						"maximumLength": 10,
+						"minimumLength": 10
+					}
+				}
+			}
+		},
+		"LoginCodeResponseApiModel": {
+			"type": "object",
+			"properties": { "verificationToken": { "title": "Verification token", "type": "string" } }
+		},
+		"NewSessionByPhoneApiModel": {
+			"required": ["phone", "verificationToken", "verificationCode"],
+			"type": "object",
+			"properties": {
+				"phone": {
+					"title": "Phone",
+					"maxLength": 10,
+					"minLength": 10,
+					"type": "string",
+					"x-sys-Required": { "allowEmptyStrings": false },
+					"x-blue-PhoneNumber": {
+						"maximumDigits": 10,
+						"region": "AU",
+						"phoneTypesToCheck": [2, 1, 0],
+						"maximumLength": 10,
+						"minimumLength": 10
+					}
+				},
+				"verificationToken": {
+					"title": "Verification token",
+					"maxLength": 200,
+					"minLength": 0,
+					"type": "string",
+					"x-sys-Required": { "allowEmptyStrings": false }
+				},
+				"verificationCode": {
+					"title": "Verification code",
+					"maxLength": 10,
+					"minLength": 0,
+					"type": "string",
+					"x-sys-Required": { "allowEmptyStrings": false }
+				},
+				"deviceId": { "title": "Device id", "maxLength": 100, "minLength": 0, "type": "string" }
+			}
+		},
+		"PinLoginPinApiModel": {
+			"required": ["pinToken", "pin", "deviceId"],
+			"type": "object",
+			"properties": {
+				"pinToken": {
+					"title": "Pin token",
+					"maxLength": 200,
+					"minLength": 0,
+					"type": "string",
+					"x-sys-Required": { "allowEmptyStrings": false }
+				},
+				"pin": {
+					"title": "Pin",
+					"maxLength": 4,
+					"minLength": 4,
+					"type": "string",
+					"x-sys-Required": { "allowEmptyStrings": false }
+				},
+				"deviceId": {
+					"title": "Device id",
+					"maxLength": 100,
+					"minLength": 0,
+					"type": "string",
+					"x-sys-Required": { "allowEmptyStrings": false }
+				}
+			}
+		},
+		"LoginResultMobileModel": {
+			"type": "object",
+			"properties": {
+				"accountId": { "format": "int32", "title": "Account id", "type": "integer" },
+				"userKey": { "title": "User key", "type": "string" },
+				"mustChangePassword": { "title": "Must change password", "type": "boolean" },
+				"isVerified": { "title": "Is verified", "type": "boolean" },
+				"isInvited": { "title": "Is invited", "type": "boolean" }
+			}
+		},
+		"WorkerProfileApiModel": {
+			"required": ["firstName", "lastName"],
+			"type": "object",
+			"properties": {
+				"firstName": {
+					"title": "First name",
+					"maxLength": 25,
+					"type": "string",
+					"x-sys-Required": { "allowEmptyStrings": false }
+				},
+				"lastName": {
+					"title": "Last name",
+					"maxLength": 25,
+					"type": "string",
+					"x-sys-Required": { "allowEmptyStrings": false }
+				},
+				"phone": { "title": "Phone", "maxLength": 20, "type": "string" },
+				"dateOfBirth": { "format": "date-time", "title": "Date of birth", "type": "string" },
+				"gender": {
+					"allOf": [
+						{ "$ref": "#/definitions/Enum_Gender" },
+						{ "title": "Gender", "type": "string" }
+					]
+				},
+				"country": {
+					"allOf": [
+						{ "$ref": "#/definitions/Enum_Country" },
+						{ "title": "Country", "type": "string" }
+					]
+				},
+				"location": { "title": "Location", "maxLength": 50, "type": "string" },
+				"profilePhotoPath": { "title": "Profile photo path", "type": "string" },
+				"profilePhotoFile": {
+					"allOf": [
+						{ "$ref": "#/definitions/HttpPostedFileBase" },
+						{
+							"title": "Profile photo file",
+							"type": "object",
+							"x-blue-FileMaxSize": {
+								"maxSize": 8388608,
+								"errorMessage": "The {0} field: The size of the file selected must be less than {1}."
+							},
+							"x-blue-HttpPostedFileBaseFileExtensions": {
+								"extensions": "jpg,jpeg,png,gif",
+								"errorMessage": "Field {0} is not one of following valid extensions ({1})",
+								"accept": "image/jpeg, image/png, image/gif"
+							}
+						}
+					]
+				},
+				"visaNumber": { "title": "Visa number", "maxLength": 20, "type": "string" },
+				"visaStartsOn": { "format": "date-time", "title": "Visa starts on", "type": "string" },
+				"bankAccountName": { "title": "Bank account name", "maxLength": 50, "type": "string" },
+				"bankAccountBsb": { "title": "Bank account bsb", "maxLength": 20, "type": "string" },
+				"bankAccountNumber": { "title": "Bank account number", "maxLength": 20, "type": "string" },
+				"taxId": { "title": "Tax id", "maxLength": 20, "type": "string" },
+				"passportNumber": { "title": "Passport number", "maxLength": 20, "type": "string" },
+				"hasDriverLicence": { "title": "Has driver licence", "type": "boolean" },
+				"driverLicenceNumber": {
+					"title": "Driver licence number",
+					"maxLength": 20,
+					"type": "string"
+				},
+				"emergencyName": { "title": "Emergency name", "maxLength": 50, "type": "string" },
+				"emergencyRelationship": {
+					"title": "Emergency relationship",
+					"maxLength": 20,
+					"type": "string"
+				},
+				"emergencyEmail": { "title": "Emergency email", "maxLength": 100, "type": "string" },
+				"emergencyPhone": { "title": "Emergency phone", "maxLength": 20, "type": "string" },
+				"hasHealthCondition": { "title": "Has health condition", "type": "boolean" },
+				"healthConditions": { "title": "Health conditions", "maxLength": 2000, "type": "string" },
+				"hasAllergies": { "title": "Has allergies", "type": "boolean" },
+				"allergies": { "title": "Allergies", "maxLength": 2000, "type": "string" },
+				"heightInCentimetres": {
+					"format": "int32",
+					"title": "Height in centimetres",
+					"type": "integer"
+				},
+				"completion": {
+					"allOf": [
+						{ "$ref": "#/definitions/WorkerProfileCompletionModel" },
+						{ "title": "Completion", "type": "object" }
+					]
+				}
+			}
+		},
+		"WorkerProfileCompletionModel": {
+			"type": "object",
+			"properties": {
+				"totalCompletedPercentage": {
+					"format": "double",
+					"title": "Total completed percentage",
+					"type": "number",
+					"readOnly": true
+				},
+				"totalCompleted": {
+					"format": "int32",
+					"title": "Total completed",
+					"type": "integer",
+					"readOnly": true
+				},
+				"totalItems": {
+					"format": "int32",
+					"title": "Total items",
+					"type": "integer",
+					"readOnly": true
+				},
+				"sections": {
+					"title": "Sections",
+					"type": "array",
+					"items": { "$ref": "#/definitions/WorkerProfileCompletionSection" }
+				}
+			}
+		},
+		"WorkerProfileCompletionSection": {
+			"type": "object",
+			"properties": {
+				"type": {
+					"allOf": [
+						{ "$ref": "#/definitions/Enum_WorkerProfileCompletionSectionType" },
+						{ "title": "Type", "type": "string" }
+					]
+				},
+				"completedPercentage": {
+					"format": "double",
+					"title": "Completed percentage",
+					"type": "number",
+					"readOnly": true
+				},
+				"completed": { "format": "int32", "title": "Completed", "type": "integer" },
+				"items": { "format": "int32", "title": "Items", "type": "integer" }
+			}
+		},
+		"Enum_Gender": {
+			"enum": ["Female", "Male"],
+			"type": "string",
+			"x-blue-enum-definitions": {
+				"Female": { "description": "Female", "value": 0 },
+				"Male": { "description": "Male", "value": 1 }
+			}
+		},
+		"Enum_Country": {
+			"enum": [
+				"AF",
+				"AX",
+				"AL",
+				"DZ",
+				"AS",
+				"AD",
+				"AO",
+				"AI",
+				"AQ",
+				"AG",
+				"AR",
+				"AM",
+				"AW",
+				"AU",
+				"AT",
+				"AZ",
+				"BS",
+				"BH",
+				"BD",
+				"BB",
+				"BY",
+				"BE",
+				"BZ",
+				"BJ",
+				"BM",
+				"BT",
+				"BO",
+				"BQ",
+				"BA",
+				"BW",
+				"BV",
+				"BR",
+				"IO",
+				"BN",
+				"BG",
+				"BF",
+				"BI",
+				"KH",
+				"CM",
+				"CA",
+				"CV",
+				"KY",
+				"CF",
+				"TD",
+				"CL",
+				"CN",
+				"CX",
+				"CC",
+				"CO",
+				"KM",
+				"CG",
+				"CD",
+				"CK",
+				"CR",
+				"CI",
+				"HR",
+				"CU",
+				"CW",
+				"CY",
+				"CZ",
+				"DK",
+				"DJ",
+				"DM",
+				"DO",
+				"EC",
+				"EG",
+				"SV",
+				"GQ",
+				"ER",
+				"EE",
+				"ET",
+				"FK",
+				"FO",
+				"FJ",
+				"FI",
+				"FR",
+				"GF",
+				"PF",
+				"TF",
+				"GA",
+				"GM",
+				"GE",
+				"DE",
+				"GH",
+				"GI",
+				"GR",
+				"GL",
+				"GD",
+				"GP",
+				"GU",
+				"GT",
+				"GG",
+				"GN",
+				"GW",
+				"GY",
+				"HT",
+				"HM",
+				"VA",
+				"HN",
+				"HK",
+				"HU",
+				"IS",
+				"IN",
+				"ID",
+				"IR",
+				"IQ",
+				"IE",
+				"IM",
+				"IL",
+				"IT",
+				"JM",
+				"JP",
+				"JE",
+				"JO",
+				"KZ",
+				"KE",
+				"KI",
+				"KP",
+				"KR",
+				"KW",
+				"KG",
+				"LA",
+				"LV",
+				"LB",
+				"LS",
+				"LR",
+				"LY",
+				"LI",
+				"LT",
+				"LU",
+				"MO",
+				"MK",
+				"MG",
+				"MW",
+				"MY",
+				"MV",
+				"ML",
+				"MT",
+				"MH",
+				"MQ",
+				"MR",
+				"MU",
+				"YT",
+				"MX",
+				"FM",
+				"MD",
+				"MC",
+				"MN",
+				"ME",
+				"MS",
+				"MA",
+				"MZ",
+				"MM",
+				"NA",
+				"NR",
+				"NP",
+				"NL",
+				"NC",
+				"NZ",
+				"NI",
+				"NE",
+				"NG",
+				"NU",
+				"NF",
+				"MP",
+				"NO",
+				"OM",
+				"PK",
+				"PW",
+				"PS",
+				"PA",
+				"PG",
+				"PY",
+				"PE",
+				"PH",
+				"PN",
+				"PL",
+				"PT",
+				"PR",
+				"QA",
+				"RE",
+				"RO",
+				"RU",
+				"RW",
+				"BL",
+				"SH",
+				"KN",
+				"LC",
+				"MF",
+				"PM",
+				"VC",
+				"WS",
+				"SM",
+				"ST",
+				"SA",
+				"SN",
+				"RS",
+				"SC",
+				"SL",
+				"SG",
+				"SX",
+				"SK",
+				"SI",
+				"SB",
+				"SO",
+				"ZA",
+				"GS",
+				"SS",
+				"ES",
+				"LK",
+				"SD",
+				"SR",
+				"SJ",
+				"SZ",
+				"SE",
+				"CH",
+				"SY",
+				"TW",
+				"TJ",
+				"TZ",
+				"TH",
+				"TL",
+				"TG",
+				"TK",
+				"TO",
+				"TT",
+				"TN",
+				"TR",
+				"TM",
+				"TC",
+				"TV",
+				"UG",
+				"UA",
+				"AE",
+				"GB",
+				"US",
+				"UM",
+				"UY",
+				"UZ",
+				"VU",
+				"VE",
+				"VN",
+				"VG",
+				"VI",
+				"WF",
+				"EH",
+				"YE",
+				"ZM",
+				"ZW"
+			],
+			"type": "string",
+			"x-blue-enum-definitions": {
+				"AF": { "description": "Afghanistan", "value": 1 },
+				"AX": { "description": "Åland Islands", "value": 2 },
+				"AL": { "description": "Albania", "value": 3 },
+				"DZ": { "description": "Algeria", "value": 4 },
+				"AS": { "description": "American Samoa", "value": 5 },
+				"AD": { "description": "Andorra", "value": 6 },
+				"AO": { "description": "Angola", "value": 7 },
+				"AI": { "description": "Anguilla", "value": 8 },
+				"AQ": { "description": "Antarctica", "value": 9 },
+				"AG": { "description": "Antigua and Barbuda", "value": 10 },
+				"AR": { "description": "Argentina", "value": 11 },
+				"AM": { "description": "Armenia", "value": 12 },
+				"AW": { "description": "Aruba", "value": 13 },
+				"AU": { "description": "Australia", "value": 14 },
+				"AT": { "description": "Austria", "value": 15 },
+				"AZ": { "description": "Azerbaijan", "value": 16 },
+				"BS": { "description": "Bahamas", "value": 17 },
+				"BH": { "description": "Bahrain", "value": 18 },
+				"BD": { "description": "Bangladesh", "value": 19 },
+				"BB": { "description": "Barbados", "value": 20 },
+				"BY": { "description": "Belarus", "value": 21 },
+				"BE": { "description": "Belgium", "value": 22 },
+				"BZ": { "description": "Belize", "value": 23 },
+				"BJ": { "description": "Benin", "value": 24 },
+				"BM": { "description": "Bermuda", "value": 25 },
+				"BT": { "description": "Bhutan", "value": 26 },
+				"BO": { "description": "Bolivia, Plurinational State of", "value": 27 },
+				"BQ": { "description": "Bonaire, Sint Eustatius and Saba", "value": 28 },
+				"BA": { "description": "Bosnia and Herzegovina", "value": 29 },
+				"BW": { "description": "Botswana", "value": 30 },
+				"BV": { "description": "Bouvet Island", "value": 31 },
+				"BR": { "description": "Brazil", "value": 32 },
+				"IO": { "description": "British Indian Ocean Territory", "value": 33 },
+				"BN": { "description": "Brunei Darussalam", "value": 34 },
+				"BG": { "description": "Bulgaria", "value": 35 },
+				"BF": { "description": "Burkina Faso", "value": 36 },
+				"BI": { "description": "Burundi", "value": 37 },
+				"KH": { "description": "Cambodia", "value": 38 },
+				"CM": { "description": "Cameroon", "value": 39 },
+				"CA": { "description": "Canada", "value": 40 },
+				"CV": { "description": "Cape Verde", "value": 41 },
+				"KY": { "description": "Cayman Islands", "value": 42 },
+				"CF": { "description": "Central African Republic", "value": 43 },
+				"TD": { "description": "Chad", "value": 44 },
+				"CL": { "description": "Chile", "value": 45 },
+				"CN": { "description": "China", "value": 46 },
+				"CX": { "description": "Christmas Island", "value": 47 },
+				"CC": { "description": "Cocos (Keeling) Islands", "value": 48 },
+				"CO": { "description": "Colombia", "value": 49 },
+				"KM": { "description": "Comoros", "value": 50 },
+				"CG": { "description": "Congo", "value": 51 },
+				"CD": { "description": "Congo, the Democratic Republic of the", "value": 52 },
+				"CK": { "description": "Cook Islands", "value": 53 },
+				"CR": { "description": "Costa Rica", "value": 54 },
+				"CI": { "description": "Côte d'Ivoire", "value": 55 },
+				"HR": { "description": "Croatia", "value": 56 },
+				"CU": { "description": "Cuba", "value": 57 },
+				"CW": { "description": "Curaçao", "value": 58 },
+				"CY": { "description": "Cyprus", "value": 59 },
+				"CZ": { "description": "Czech Republic", "value": 60 },
+				"DK": { "description": "Denmark", "value": 61 },
+				"DJ": { "description": "Djibouti", "value": 62 },
+				"DM": { "description": "Dominica", "value": 63 },
+				"DO": { "description": "Dominican Republic", "value": 64 },
+				"EC": { "description": "Ecuador", "value": 65 },
+				"EG": { "description": "Egypt", "value": 66 },
+				"SV": { "description": "El Salvador", "value": 67 },
+				"GQ": { "description": "Equatorial Guinea", "value": 68 },
+				"ER": { "description": "Eritrea", "value": 69 },
+				"EE": { "description": "Estonia", "value": 70 },
+				"ET": { "description": "Ethiopia", "value": 71 },
+				"FK": { "description": "Falkland Islands (Malvinas)", "value": 72 },
+				"FO": { "description": "Faroe Islands", "value": 73 },
+				"FJ": { "description": "Fiji", "value": 74 },
+				"FI": { "description": "Finland", "value": 75 },
+				"FR": { "description": "France", "value": 76 },
+				"GF": { "description": "French Guiana", "value": 77 },
+				"PF": { "description": "French Polynesia", "value": 78 },
+				"TF": { "description": "French Southern Territories", "value": 79 },
+				"GA": { "description": "Gabon", "value": 80 },
+				"GM": { "description": "Gambia", "value": 81 },
+				"GE": { "description": "Georgia", "value": 82 },
+				"DE": { "description": "Germany", "value": 83 },
+				"GH": { "description": "Ghana", "value": 84 },
+				"GI": { "description": "Gibraltar", "value": 85 },
+				"GR": { "description": "Greece", "value": 86 },
+				"GL": { "description": "Greenland", "value": 87 },
+				"GD": { "description": "Grenada", "value": 88 },
+				"GP": { "description": "Guadeloupe", "value": 89 },
+				"GU": { "description": "Guam", "value": 90 },
+				"GT": { "description": "Guatemala", "value": 91 },
+				"GG": { "description": "Guernsey", "value": 92 },
+				"GN": { "description": "Guinea", "value": 93 },
+				"GW": { "description": "Guinea-Bissau", "value": 94 },
+				"GY": { "description": "Guyana", "value": 95 },
+				"HT": { "description": "Haiti", "value": 96 },
+				"HM": { "description": "Heard Island and McDonald Islands", "value": 97 },
+				"VA": { "description": "Holy See (Vatican City State)", "value": 98 },
+				"HN": { "description": "Honduras", "value": 99 },
+				"HK": { "description": "Hong Kong", "value": 100 },
+				"HU": { "description": "Hungary", "value": 101 },
+				"IS": { "description": "Iceland", "value": 102 },
+				"IN": { "description": "India", "value": 103 },
+				"ID": { "description": "Indonesia", "value": 104 },
+				"IR": { "description": "Iran, Islamic Republic of", "value": 105 },
+				"IQ": { "description": "Iraq", "value": 106 },
+				"IE": { "description": "Ireland", "value": 107 },
+				"IM": { "description": "Isle of Man", "value": 108 },
+				"IL": { "description": "Israel", "value": 109 },
+				"IT": { "description": "Italy", "value": 110 },
+				"JM": { "description": "Jamaica", "value": 111 },
+				"JP": { "description": "Japan", "value": 112 },
+				"JE": { "description": "Jersey", "value": 113 },
+				"JO": { "description": "Jordan", "value": 114 },
+				"KZ": { "description": "Kazakhstan", "value": 115 },
+				"KE": { "description": "Kenya", "value": 116 },
+				"KI": { "description": "Kiribati", "value": 117 },
+				"KP": { "description": "Korea, Democratic People's Republic of", "value": 118 },
+				"KR": { "description": "Korea, Republic of", "value": 119 },
+				"KW": { "description": "Kuwait", "value": 120 },
+				"KG": { "description": "Kyrgyzstan", "value": 121 },
+				"LA": { "description": "Lao People's Democratic Republic", "value": 122 },
+				"LV": { "description": "Latvia", "value": 123 },
+				"LB": { "description": "Lebanon", "value": 124 },
+				"LS": { "description": "Lesotho", "value": 125 },
+				"LR": { "description": "Liberia", "value": 126 },
+				"LY": { "description": "Libya", "value": 127 },
+				"LI": { "description": "Liechtenstein", "value": 128 },
+				"LT": { "description": "Lithuania", "value": 129 },
+				"LU": { "description": "Luxembourg", "value": 130 },
+				"MO": { "description": "Macao", "value": 131 },
+				"MK": { "description": "Macedonia, the former Yugoslav Republic of", "value": 132 },
+				"MG": { "description": "Madagascar", "value": 133 },
+				"MW": { "description": "Malawi", "value": 134 },
+				"MY": { "description": "Malaysia", "value": 135 },
+				"MV": { "description": "Maldives", "value": 136 },
+				"ML": { "description": "Mali", "value": 137 },
+				"MT": { "description": "Malta", "value": 138 },
+				"MH": { "description": "Marshall Islands", "value": 139 },
+				"MQ": { "description": "Martinique", "value": 140 },
+				"MR": { "description": "Mauritania", "value": 141 },
+				"MU": { "description": "Mauritius", "value": 142 },
+				"YT": { "description": "Mayotte", "value": 143 },
+				"MX": { "description": "Mexico", "value": 144 },
+				"FM": { "description": "Micronesia, Federated States of", "value": 145 },
+				"MD": { "description": "Moldova, Republic of", "value": 146 },
+				"MC": { "description": "Monaco", "value": 147 },
+				"MN": { "description": "Mongolia", "value": 148 },
+				"ME": { "description": "Montenegro", "value": 149 },
+				"MS": { "description": "Montserrat", "value": 150 },
+				"MA": { "description": "Morocco", "value": 151 },
+				"MZ": { "description": "Mozambique", "value": 152 },
+				"MM": { "description": "Myanmar", "value": 153 },
+				"NA": { "description": "Namibia", "value": 154 },
+				"NR": { "description": "Nauru", "value": 155 },
+				"NP": { "description": "Nepal", "value": 156 },
+				"NL": { "description": "Netherlands", "value": 157 },
+				"NC": { "description": "New Caledonia", "value": 158 },
+				"NZ": { "description": "New Zealand", "value": 159 },
+				"NI": { "description": "Nicaragua", "value": 160 },
+				"NE": { "description": "Niger", "value": 161 },
+				"NG": { "description": "Nigeria", "value": 162 },
+				"NU": { "description": "Niue", "value": 163 },
+				"NF": { "description": "Norfolk Island", "value": 164 },
+				"MP": { "description": "Northern Mariana Islands", "value": 165 },
+				"NO": { "description": "Norway", "value": 166 },
+				"OM": { "description": "Oman", "value": 167 },
+				"PK": { "description": "Pakistan", "value": 168 },
+				"PW": { "description": "Palau", "value": 169 },
+				"PS": { "description": "Palestine, State of", "value": 170 },
+				"PA": { "description": "Panama", "value": 171 },
+				"PG": { "description": "Papua New Guinea", "value": 172 },
+				"PY": { "description": "Paraguay", "value": 173 },
+				"PE": { "description": "Peru", "value": 174 },
+				"PH": { "description": "Philippines", "value": 175 },
+				"PN": { "description": "Pitcairn", "value": 176 },
+				"PL": { "description": "Poland", "value": 177 },
+				"PT": { "description": "Portugal", "value": 178 },
+				"PR": { "description": "Puerto Rico", "value": 179 },
+				"QA": { "description": "Qatar", "value": 180 },
+				"RE": { "description": "Réunion", "value": 181 },
+				"RO": { "description": "Romania", "value": 182 },
+				"RU": { "description": "Russian Federation", "value": 183 },
+				"RW": { "description": "Rwanda", "value": 184 },
+				"BL": { "description": "Saint Barthélemy", "value": 185 },
+				"SH": { "description": "Saint Helena, Ascension and Tristan da Cunha", "value": 186 },
+				"KN": { "description": "Saint Kitts and Nevis", "value": 187 },
+				"LC": { "description": "Saint Lucia", "value": 188 },
+				"MF": { "description": "Saint Martin (French part)", "value": 189 },
+				"PM": { "description": "Saint Pierre and Miquelon", "value": 190 },
+				"VC": { "description": "Saint Vincent and the Grenadines", "value": 191 },
+				"WS": { "description": "Samoa", "value": 192 },
+				"SM": { "description": "San Marino", "value": 193 },
+				"ST": { "description": "Sao Tome and Principe", "value": 194 },
+				"SA": { "description": "Saudi Arabia", "value": 195 },
+				"SN": { "description": "Senegal", "value": 196 },
+				"RS": { "description": "Serbia", "value": 197 },
+				"SC": { "description": "Seychelles", "value": 198 },
+				"SL": { "description": "Sierra Leone", "value": 199 },
+				"SG": { "description": "Singapore", "value": 200 },
+				"SX": { "description": "Sint Maarten (Dutch part)", "value": 201 },
+				"SK": { "description": "Slovakia", "value": 202 },
+				"SI": { "description": "Slovenia", "value": 203 },
+				"SB": { "description": "Solomon Islands", "value": 204 },
+				"SO": { "description": "Somalia", "value": 205 },
+				"ZA": { "description": "South Africa", "value": 206 },
+				"GS": { "description": "South Georgia and the South Sandwich Islands", "value": 207 },
+				"SS": { "description": "South Sudan", "value": 208 },
+				"ES": { "description": "Spain", "value": 209 },
+				"LK": { "description": "Sri Lanka", "value": 210 },
+				"SD": { "description": "Sudan", "value": 211 },
+				"SR": { "description": "Suriname", "value": 212 },
+				"SJ": { "description": "Svalbard and Jan Mayen", "value": 213 },
+				"SZ": { "description": "Swaziland", "value": 214 },
+				"SE": { "description": "Sweden", "value": 215 },
+				"CH": { "description": "Switzerland", "value": 216 },
+				"SY": { "description": "Syrian Arab Republic", "value": 217 },
+				"TW": { "description": "Taiwan, Province of China", "value": 218 },
+				"TJ": { "description": "Tajikistan", "value": 219 },
+				"TZ": { "description": "Tanzania, United Republic of", "value": 220 },
+				"TH": { "description": "Thailand", "value": 221 },
+				"TL": { "description": "Timor-Leste", "value": 222 },
+				"TG": { "description": "Togo", "value": 223 },
+				"TK": { "description": "Tokelau", "value": 224 },
+				"TO": { "description": "Tonga", "value": 225 },
+				"TT": { "description": "Trinidad and Tobago", "value": 226 },
+				"TN": { "description": "Tunisia", "value": 227 },
+				"TR": { "description": "Turkey", "value": 228 },
+				"TM": { "description": "Turkmenistan", "value": 229 },
+				"TC": { "description": "Turks and Caicos Islands", "value": 230 },
+				"TV": { "description": "Tuvalu", "value": 231 },
+				"UG": { "description": "Uganda", "value": 232 },
+				"UA": { "description": "Ukraine", "value": 233 },
+				"AE": { "description": "United Arab Emirates", "value": 234 },
+				"GB": { "description": "United Kingdom", "value": 235 },
+				"US": { "description": "United States", "value": 236 },
+				"UM": { "description": "United States Minor Outlying Islands", "value": 237 },
+				"UY": { "description": "Uruguay", "value": 238 },
+				"UZ": { "description": "Uzbekistan", "value": 239 },
+				"VU": { "description": "Vanuatu", "value": 240 },
+				"VE": { "description": "Venezuela, Bolivarian Republic of", "value": 241 },
+				"VN": { "description": "Viet Nam", "value": 242 },
+				"VG": { "description": "Virgin Islands, British", "value": 243 },
+				"VI": { "description": "Virgin Islands, U.S.", "value": 244 },
+				"WF": { "description": "Wallis and Futuna", "value": 245 },
+				"EH": { "description": "Western Sahara", "value": 246 },
+				"YE": { "description": "Yemen", "value": 247 },
+				"ZM": { "description": "Zambia", "value": 248 },
+				"ZW": { "description": "Zimbabwe", "value": 249 }
+			}
+		},
+		"Enum_WorkerProfileCompletionSectionType": {
+			"enum": ["About", "Documentation", "HealthSafety"],
+			"type": "string",
+			"x-blue-enum-definitions": {
+				"About": { "description": "About", "value": 0 },
+				"Documentation": { "description": "Documentation", "value": 1 },
+				"HealthSafety": { "description": "Health safety", "value": 2 }
+			}
+		},
+		"JobEditApiModel": {
+			"type": "object",
+			"properties": {
+				"id": { "format": "int32", "title": "Id", "type": "integer" },
+				"workingAddress": { "title": "Working address", "maxLength": 500, "type": "string" },
+				"accept": { "title": "Accept", "type": "boolean" },
+				"declineReason": {
+					"title": "Decline reason",
+					"maxLength": 1000,
+					"type": "string",
+					"x-blue-RequiredIf": {
+						"operator": "EqualTo",
+						"dependentValue": false,
+						"clientTypeName": "RequiredIf",
+						"defaultErrorMessage": "{0} is required due to {1} being equal to {2}",
+						"dependentProperty": "Accept",
+						"clientValidationParameters": {
+							"dependentproperty": "Accept",
+							"operator": "EqualTo",
+							"dependentvalue": false
+						}
+					}
+				}
+			}
+		},
+		"JobApiModel": {
+			"type": "object",
+			"properties": {
+				"id": { "format": "int32", "title": "Id", "type": "integer" },
+				"farm": {
+					"allOf": [{ "$ref": "#/definitions/FarmApiModel" }, { "title": "Farm", "type": "object" }]
+				},
+				"type": { "title": "Type", "type": "string" },
+				"season": { "title": "Season", "type": "string" },
+				"description": { "title": "Description", "type": "string" },
+				"coverImagePath": { "title": "Cover image path", "type": "string" },
+				"workingAddress": { "title": "Working address", "type": "string" },
+				"status": {
+					"allOf": [
+						{ "$ref": "#/definitions/Enum_WorkerStatus" },
+						{ "title": "Status", "type": "string" }
+					]
+				}
+			}
+		},
+		"FarmApiModel": {
+			"type": "object",
+			"properties": {
+				"name": { "title": "Name", "type": "string" },
+				"description": { "title": "Description", "type": "string" },
+				"website": { "title": "Website", "type": "string" },
+				"supportEmail": { "title": "Support email", "type": "string" },
+				"address": { "title": "Address", "type": "string" },
+				"addressInstructions": { "title": "Address instructions", "type": "string" },
+				"logoPath": { "title": "Logo path", "type": "string" },
+				"coverImagePath": { "title": "Cover image path", "type": "string" }
+			}
+		},
+		"Enum_WorkerStatus": {
+			"enum": ["Invited", "InProgress", "Completed", "Declined"],
+			"type": "string",
+			"x-blue-enum-definitions": {
+				"Invited": { "description": "Invited", "value": 1 },
+				"InProgress": { "description": "In progress", "value": 2 },
+				"Completed": { "description": "Completed", "value": 3 },
+				"Declined": { "description": "Declined", "value": 4 }
+			}
+		}
+	},
+	"securityDefinitions": {
+		"apiKeyHeader": {
+			"type": "apiKey",
+			"description": "API Key Authentication",
+			"name": "ApiKey",
+			"in": "header"
+		},
+		"userKeyHeader": {
+			"type": "apiKey",
+			"description": "User Key Authentication",
+			"name": "UserKey",
+			"in": "header"
+		}
+	}
+}

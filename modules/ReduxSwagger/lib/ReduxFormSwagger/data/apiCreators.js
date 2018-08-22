@@ -1,9 +1,10 @@
-import axiosInstance from './getAxiosInstance';
-//const source = CancelToken.source();
-import { getDataExpectations } from './swaggerReaderUtils';
+/** Libraries */
 import queryString from 'query-string';
+
+/** Helpers */
+import axiosInstance from './getAxiosInstance';
 import findReplaceString from '../helpers/findReplaceString';
-import { loadSwaggerDataPromise } from './loadSwaggerDataPromise';
+import { loadSwaggerData, getApiRequirements } from './utilities';
 
 export const apiCreator = (id, params = {}) => {
 	/*
@@ -14,11 +15,11 @@ export const apiCreator = (id, params = {}) => {
   });
 */
 
-	const endpoint = getDataExpectations(id);
+	const endpoint = getApiRequirements(id);
 
 	params = mutateParamsFromSwaggerID(id, params);
 
-	return loadSwaggerDataPromise().then(_ => {
+	return loadSwaggerData().then(_ => {
 		// ammend query string
 		if (params.queryString) {
 			endpoint.url = endpoint.url + '?' + queryString.stringify(params.queryString);
@@ -43,7 +44,7 @@ export const apiCreator = (id, params = {}) => {
 
 const mutateParamsFromSwaggerID = (id, params) => {
 	if (!params.data) return params;
-	const de = getDataExpectations(id);
+	const de = getApiRequirements(id);
 	const { hasPath, hasQuery, method } = de;
 	if (method === 'GET') {
 		if (hasQuery === true && hasPath === false) {
