@@ -1,0 +1,47 @@
+@import 'variables.scss';
+
+.modal {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(#c7c7cc, 0.53);
+	z-index: 999;
+
+	.modal-content {
+		position: relative;
+		width: 450px;
+		height: auto;
+		background: #ffffff;
+		box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.12), 0 8px 8px 0 rgba(0, 0, 0, 0.24);
+		border-radius: 2px;
+		padding: 32px 32px 16px 32px;
+		// padding-right: 32px;
+
+		.title {
+			color: #3b3b3b;
+			font-size: 16px;
+		}
+
+		.explanation {
+			font-size: 13px;
+		}
+
+		.close {
+			position: absolute;
+			top: 16px;
+			right: 16px;
+			border: none;
+			cursor: pointer;
+
+			circle {
+				fill: $primaryColor;
+			}
+		}
+
+		.input-group {
+			width: 100%;
+		}
+	}
+}
