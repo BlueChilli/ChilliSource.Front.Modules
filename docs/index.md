@@ -4,13 +4,10 @@ This is a starter pack to get started on BlueChilli web app projects. Here you'l
 
 ## Quick Install
 
-1. This will give you a minimal app without any modules. <br />
-   `npx https://github.com/BlueChilli/ChilliSource.Front.Installer.git --install ./target-directory`
+1. Run the command below:
+   `npx bc-starter-template <project-directory>`
 
-2. Change into the target directory created above and then <br />
-   `npx https://github.com/BlueChilli/ChilliSource.Front.Installer.git --getMods`
-
-3. Choose the modules you need and then off you go.
+2. When promted, choose the modules you need and then off you go.
 
 ## Manual Install
 
