@@ -19,6 +19,8 @@ And although you do not need to setup any of these modules yourself, generally, 
 - [Hotjar](hotjar.md)
 - [FacebookPixel](facebookpixel.md)
 - [ScriptLoader](scriptloader.md)
+- [CenteredComponent][centeredcomponent.md]
+- [Portal Modal](portalmodal.md)
 
 ### Undocumented (todo)
 

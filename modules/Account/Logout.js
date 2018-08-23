@@ -5,11 +5,7 @@ import React from 'react';
 import { CenteredComponent } from '../CenteredComponent';
 
 /** Helpers */
-// Uncomment this line below and fix the import path
-// import { logoutUser } from 'UPDATE_IMPORT_PATH_HERE';
-
-// Delete the line below after fixing the import path just above this
-const loginUser = () => console.log('logoutUser > This is a dummy action.');
+import { logoutUser } from './actions';
 
 /** Class Logout */
 class Logout extends React.Component {

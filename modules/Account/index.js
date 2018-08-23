@@ -7,6 +7,7 @@ import { Switch, Route } from 'react-router-dom';
 import Login from './Login';
 import Logout from './Logout';
 import Register from './Register';
+import AcceptInvite from './AcceptInvite';
 import Manage from './Manage';
 
 /** Helpers */
@@ -17,8 +18,13 @@ class Account extends React.Component {
 	render() {
 		return (
 			<Switch>
-				<Route exact path="/user/acceptInvite" component={doNotRequireAuthentication(Register)} />
+				<Route
+					exact
+					path="/user/acceptInvite"
+					component={doNotRequireAuthentication(AcceptInvite)}
+				/>
 				<Route exact path="/user/login" component={doNotRequireAuthentication(Login)} />
+				<Route exact path="/user/register" component={doNotRequireAuthentication(Register)} />
 				<Route exact path="/user/manage" component={requireAuthentication(Manage)} />
 				<Route exact path="/user/logout" component={requireAuthentication(Logout)} />
 			</Switch>
@@ -34,13 +40,15 @@ class AccountMod extends Mod {
 
 	reducers() {
 		const initialState = {
-			impersonator: undefined,
-			companyId: undefined,
-			companyName: undefined,
+			userKey: undefined,
+			firstName: undefined,
+			lastName: undefined,
+			fullName: undefined,
 			email: undefined,
-			profilePhotoPath: undefined,
-			roles: [],
 			status: undefined,
+			roles: [],
+			profilePhotoPath: undefined,
+			impersonator: undefined,
 		};
 
 		const reducer = (state = initialState, action) => {
@@ -49,8 +57,16 @@ class AccountMod extends Mod {
 					return { ...state, ...action.payload };
 				}
 
-				case 'LOGOUT_USER': {
+				case 'USER_LOGGED_OUT': {
 					return initialState;
+				}
+
+				case 'UPDATE_EMAIL': {
+					return { ...state, email: action.payload };
+				}
+
+				case 'UPDATE_PROFILE_DETAILS': {
+					return { ...state, ...action.payload };
 				}
 
 				default:
@@ -65,4 +81,4 @@ class AccountMod extends Mod {
 }
 
 export default AccountMod;
-export { Account, Login, Register, Manage, Logout };
+export { Account, Login, Register, Manage, Logout, AcceptInvite };

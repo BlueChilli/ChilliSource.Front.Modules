@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class Account {}
+export default class AccountMod {}
 
 export class Account extends React.Component {}
 
