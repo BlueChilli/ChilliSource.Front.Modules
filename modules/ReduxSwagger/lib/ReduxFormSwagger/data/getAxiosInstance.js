@@ -14,7 +14,12 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.response.use(
 	response => Promise.resolve(response),
-	error => Promise.reject(error.response)
+	error => {
+		if (error.response.status === 400) {
+			// log user out here
+		}
+		return Promise.reject(error.response);
+	}
 );
 
 export default axiosInstance;

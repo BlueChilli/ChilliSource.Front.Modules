@@ -10,7 +10,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
 
 const mapStateToProps = state => {
 	return {
-		isLoggedIn: state.Account.email ? false : true,
+		isLoggedIn: state.Account.email ? true : false,
 		roles: state.Account.roles,
 	};
 };
