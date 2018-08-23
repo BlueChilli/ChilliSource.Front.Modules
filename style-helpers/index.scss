@@ -67,6 +67,7 @@
 @import 'form.scss';
 @import 'layout.scss';
 @import 'typography.scss';
+@import 'modal.scss';
 @import 'react-widgets.scss';
 
 * {
@@ -89,6 +90,10 @@ body {
 	* {
 		color: #fff;
 	}
+}
+
+code {
+	font-family: monospace;
 }
 
 /** For Spinners **/
