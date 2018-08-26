@@ -95,7 +95,7 @@ class Checkboxes extends React.Component {
 					{this.getFormattedOptions().map((option, index) => {
 						return (
 							<Checkbox
-								name={name}
+								name={`${name}.${option.value}`}
 								className={this.isOptionWidthValid() ? `width-${optionWidth}` : ''}
 								key={`${name}-${index}`}
 								label={option.label}
