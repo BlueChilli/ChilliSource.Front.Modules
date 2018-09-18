@@ -85,6 +85,7 @@ storiesOf('Style Helpers', module)
 					name="demoTextField"
 					helperText="This is some helper text"
 					className="margin-top-2"
+					required
 				/>
 
 				{/* TextField */}

@@ -9,12 +9,10 @@
   box-shadow: none;
   border-color: #9b9b9b; }
 
-.form-input .rw-widget .rw-popup-container {
-  top: 0; }
-  .form-input .rw-widget .rw-popup-container .rw-popup {
-    border: none;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px; }
+.form-input .rw-widget .rw-popup-container .rw-popup {
+  border: none;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px; }
 
 .form-input .rw-widget.rw-calendar .rw-cell.rw-state-focus,
 .form-input .rw-widget.rw-calendar .rw-cell.rw-state-focus:hover {
@@ -43,8 +41,7 @@
 
 .form-input .rw-widget.rw-dropdown-list .rw-widget-picker, .form-input .rw-widget.rw-multiselect .rw-widget-picker {
   height: 48px;
-  border-radius: 0;
-  border: none; }
+  border-radius: 0; }
 
 .form-input .rw-widget.rw-dropdown-list .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus, .form-input .rw-widget.rw-dropdown-list .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus:hover, .form-input .rw-widget.rw-multiselect .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus, .form-input .rw-widget.rw-multiselect .rw-popup-container .rw-popup-transition .rw-popup ul .rw-list-option.rw-state-focus:hover {
   border-color: #25ce81; }

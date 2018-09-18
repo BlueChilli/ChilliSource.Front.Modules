@@ -11,7 +11,7 @@ import FormElementWrapper from '../../helpers/FormElementWrapper';
 import Error from '../../General/Error';
 
 /** Initialisation */
-Moment.locale('en-au');
+// Moment.locale('en-au');
 momentLocalizer();
 const defaultCurrentDate = new Date();
 defaultCurrentDate.setHours(0, 0, 0, 0);
@@ -57,19 +57,23 @@ class Picker extends React.Component {
 			className,
 			helperText,
 			helperTextPosition = 'top',
-			meta: { pristine, error },
+			required = false,
+			meta: { touched, error },
 			...remainingAttributes
 		} = this.props;
 		const { isPickingDate } = this.state;
 
-		const invalid = !pristine && error;
+		const invalid = touched && error;
 
 		return (
 			<FormElementWrapper className={className}>
 				{/* Label */}
 				{label && (
 					<div className="form-label">
-						<label>{label}</label>
+						<label>
+							{label}
+							{required && <span>*</span>}
+						</label>
 					</div>
 				)}
 
@@ -132,11 +136,7 @@ class Picker extends React.Component {
 					)}
 
 				{/* Error */}
-				{invalid && (
-					<div className="form-error">
-						<Error invalid={invalid}>{error}</Error>
-					</div>
-				)}
+				<Error invalid={invalid} error={error} />
 			</FormElementWrapper>
 		);
 	}
@@ -145,27 +145,38 @@ class Picker extends React.Component {
 class CalendarPicker extends React.Component {
 	parseSelectedDate = value => {
 		if (!value) {
-			return undefined;
+			return null;
 		}
 
 		return Moment(value).toISOString();
 	};
 
 	defaultFormatter = value => {
-		if (!value) {
-			return undefined;
+		if (!value || value === null) {
+			return '';
 		}
 
 		return Moment(value).format('MMMM DD, YYYY');
+	};
+
+	isRequired = value => {
+		const { required = false } = this.props;
+
+		if (required) {
+			return value ? undefined : 'Required';
+		}
+
+		return undefined;
 	};
 
 	render() {
 		return (
 			<Field
 				format={this.defaultFormatter}
+				validate={this.isRequired}
+				parse={this.parseSelectedDate}
 				{...this.props}
 				component={Picker}
-				parse={this.parseSelectedDate}
 			/>
 		);
 	}

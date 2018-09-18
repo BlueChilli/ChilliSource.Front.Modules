@@ -15,7 +15,8 @@
 		}
 
 		.rw-popup-container {
-			top: 0;
+			// Uncomment the line below to hide the empty white space above the pop up
+			// top: 0;
 
 			.rw-popup {
 				border: none;
@@ -75,7 +76,6 @@
 			.rw-widget-picker {
 				height: 48px;
 				border-radius: 0;
-				border: none;
 			}
 
 			.rw-popup-container {
