@@ -13,32 +13,67 @@ const suppressReturn = event => {
 	}
 };
 
+const getLabel = (label = undefined, required, moreInfo = undefined) => {
+	if (moreInfo) {
+		if (label) {
+			return (
+				<div className="form-label flex between">
+					<label>
+						{label}
+						{required && <span>*</span>}
+					</label>
+
+					<a href={moreInfo.link} target="_blank" className="link" rel="noopener noreferrer">
+						{moreInfo.title}
+					</a>
+				</div>
+			);
+		}
+
+		return (
+			<div className="form-label flex between">
+				<a href={moreInfo.link} target="_blank" className="link" rel="noopener noreferrer">
+					{moreInfo.title}
+				</a>
+			</div>
+		);
+	}
+
+	if (label) {
+		return (
+			<div className="form-label">
+				<label>
+					{label}
+					{required && <span>*</span>}
+				</label>
+			</div>
+		);
+	}
+
+	return <noscript />;
+};
+
 /** Input */
 const renderInputField = field => {
 	const {
 		input,
-		meta: { error, pristine },
-		placeholder,
+		meta: { error, touched },
 		type = 'text',
+		required = false,
 		label,
 		helperText,
 		helperTextPosition = 'top',
 		className,
-		autoFocus = false,
-		required = false,
-		disabled = false,
+		moreInfo,
+		...remainingAttributes
 	} = field;
 
-	const invalid = !pristine && error;
+	const invalid = touched && error;
 
 	return (
 		<FormElementWrapper className={className} _id="fe-textfield">
 			{/* Label */}
-			{label && (
-				<div className="form-label">
-					<label>{label}</label>
-				</div>
-			)}
+			{getLabel(label, required, moreInfo)}
 
 			{/* Helper Text */}
 			{helperText &&
@@ -53,11 +88,9 @@ const renderInputField = field => {
 				<input
 					{...input}
 					type={type}
-					placeholder={placeholder}
-					autoFocus={autoFocus}
 					required={required}
-					disabled={disabled}
 					onKeyDown={suppressReturn}
+					{...remainingAttributes}
 				/>
 			</div>
 
@@ -70,18 +103,24 @@ const renderInputField = field => {
 				)}
 
 			{/* Error */}
-			{invalid && (
-				<div className="form-error">
-					<Error invalid={invalid}>{error}</Error>
-				</div>
-			)}
+			<Error invalid={invalid} error={error} />
 		</FormElementWrapper>
 	);
 };
 
 class TextField extends React.Component {
+	isRequired = value => {
+		const { required = false } = this.props;
+
+		if (required) {
+			return value ? undefined : 'Required';
+		}
+
+		return undefined;
+	};
+
 	render() {
-		return <Field {...this.props} component={renderInputField} />;
+		return <Field validate={this.isRequired} {...this.props} component={renderInputField} />;
 	}
 }
 

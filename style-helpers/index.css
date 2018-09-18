@@ -559,7 +559,7 @@
           content: '';
           display: block;
           position: absolute;
-          top: 8px;
+          top: 7px;
           left: 0;
           width: 14px;
           height: 14px;
@@ -569,7 +569,7 @@
         content: '';
         display: block;
         position: absolute;
-        top: 11px;
+        top: 10px;
         left: 3px;
         width: 10px;
         height: 10px;
@@ -594,7 +594,7 @@
           content: '';
           display: block;
           position: absolute;
-          top: 8px;
+          top: 7px;
           left: 0;
           width: 14px;
           height: 14px;
@@ -603,7 +603,7 @@
         content: '';
         display: block;
         position: absolute;
-        top: 10px;
+        top: 9px;
         left: 1.5px;
         width: 9.5px;
         height: 5px;
@@ -615,6 +615,8 @@
   display: flex;
   align-items: center;
   justify-content: flex-start; }
+  .flex.top {
+    align-items: flex-start; }
   .flex.center {
     justify-content: center; }
   .flex.end {
@@ -623,9 +625,16 @@
     align-items: flex-end; }
   .flex.col {
     flex-direction: column;
+    justify-content: center;
     align-items: flex-start; }
+    .flex.col.top {
+      justify-content: flex-start; }
     .flex.col.center {
-      justify-content: center; }
+      align-items: center; }
+    .flex.col.end {
+      align-items: flex-end; }
+    .flex.col.bottom {
+      justify-content: flex-end; }
   .flex.wrap {
     flex-wrap: wrap; }
   .flex .width-0 {
@@ -714,7 +723,7 @@ p {
 label {
   font-size: 14px;
   font-weight: 700;
-  line-height: 32px;
+  line-height: 24px;
   color: #3d363b; }
 
 .helper-text {

@@ -39,7 +39,7 @@ const renderSelect = field => {
 
 			{/* Select */}
 			<div className={`form-input ${invalid && 'error'}`}>
-				<DropdownList {...remainingAttributes} onChange={input.onChange} />
+				<DropdownList {...remainingAttributes} value={input.value} onChange={input.onChange} />
 			</div>
 
 			{/* Helper Text */}

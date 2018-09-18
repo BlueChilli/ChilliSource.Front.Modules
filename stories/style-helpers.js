@@ -112,7 +112,6 @@ storiesOf('Style Helpers', module)
 					name="demoRadiosHorizontal"
 					className="margin-top-2"
 					options={['Red', 'Green', 'Blue', 'Yellow', 'Violet', 'Pink']}
-					flow="wrap"
 					label="Horizontal Radios"
 				/>
 

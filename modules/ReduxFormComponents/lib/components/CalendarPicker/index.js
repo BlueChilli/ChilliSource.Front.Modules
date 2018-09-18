@@ -11,8 +11,10 @@ import FormElementWrapper from '../../helpers/FormElementWrapper';
 import Error from '../../General/Error';
 
 /** Initialisation */
-Moment.locale('en');
+Moment.locale('en-au');
 momentLocalizer();
+const defaultCurrentDate = new Date();
+defaultCurrentDate.setHours(0, 0, 0, 0);
 
 class WidgetsPicker extends React.Component {
 	handleClickOutside = () => {
@@ -26,7 +28,7 @@ class WidgetsPicker extends React.Component {
 	}
 }
 
-const _Picker = onClickOutside(WidgetsPicker);
+const InnerPicker = onClickOutside(WidgetsPicker);
 
 class Picker extends React.Component {
 	constructor() {
@@ -85,7 +87,8 @@ class Picker extends React.Component {
 						viewBox="0 0 76 84"
 						version="1.1"
 						xmlns="http://www.w3.org/2000/svg"
-						xmlnsXlink="http://www.w3.org/1999/xlink">
+						xmlnsXlink="http://www.w3.org/1999/xlink"
+						onClick={this.pickDate}>
 						<g
 							className="icon calendar"
 							stroke="none"
@@ -108,9 +111,12 @@ class Picker extends React.Component {
 						style={{ cursor: 'pointer', color: '#d8d8d8d' }}
 					/>
 					{isPickingDate && (
-						<_Picker
-							defaultValue={new Date()}
-							onChange={input.onChange}
+						<InnerPicker
+							defaultCurrentDate={input.value ? new Date(input.value) : defaultCurrentDate}
+							onChange={data => {
+								input.onChange(data);
+								this.pickedDate();
+							}}
 							{...remainingAttributes}
 							onFinish={this.pickedDate}
 						/>
@@ -139,7 +145,7 @@ class Picker extends React.Component {
 class CalendarPicker extends React.Component {
 	parseSelectedDate = value => {
 		if (!value) {
-			return value;
+			return undefined;
 		}
 
 		return Moment(value).toISOString();
@@ -147,7 +153,7 @@ class CalendarPicker extends React.Component {
 
 	defaultFormatter = value => {
 		if (!value) {
-			return value;
+			return undefined;
 		}
 
 		return Moment(value).format('MMMM DD, YYYY');
