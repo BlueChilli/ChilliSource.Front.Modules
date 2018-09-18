@@ -9,8 +9,6 @@ And although you do not need to setup any of these modules yourself, generally, 
 
 ### Documented
 
-- [ReduxFormComponents](ReduxFormComponents/index.md)
-- [Auth](auth.md)
 - [Notification](notification.md)
 - [PersistState](persiststate.md)
 - [GoogleAnalytics](googleanalytics.md)
@@ -19,13 +17,10 @@ And although you do not need to setup any of these modules yourself, generally, 
 - [Hotjar](hotjar.md)
 - [FacebookPixel](facebookpixel.md)
 - [ScriptLoader](scriptloader.md)
-- [CenteredComponent](centeredcomponent.md)
-- [Portal Modal](portalmodal.md)
 - [Account](account.md)
 
 ### Undocumented (todo)
 
-- [404](404.md)
 - [Modal](modal.md)
 - [ReduxForm](reduxform.md)
 - [ReduxPromiseMiddleware](reduxpromisemiddleware.md)

@@ -1,39 +1,8 @@
 /** Libraries */
-import React from 'react';
 import { Mod } from 'chillifront';
-import { Switch, Route } from 'react-router-dom';
 
-/** Components */
-import Login from './Login';
-import Logout from './Logout';
-import Register from './Register';
-import AcceptInvite from './AcceptInvite';
-import Manage from './Manage';
-
-/** Helpers */
-import { requireAuthentication, doNotRequireAuthentication } from '../Auth';
-
-/** Class Account */
-class Account extends React.Component {
-	render() {
-		return (
-			<Switch>
-				<Route
-					exact
-					path="/user/acceptInvite"
-					component={doNotRequireAuthentication(AcceptInvite)}
-				/>
-				<Route exact path="/user/login" component={doNotRequireAuthentication(Login)} />
-				<Route exact path="/user/register" component={doNotRequireAuthentication(Register)} />
-				<Route exact path="/user/manage" component={requireAuthentication(Manage)} />
-				<Route exact path="/user/logout" component={requireAuthentication(Logout)} />
-			</Switch>
-		);
-	}
-}
-
-/** Class Account */
-class AccountMod extends Mod {
+/** Module Account */
+class Account extends Mod {
 	name() {
 		return 'Account';
 	}
@@ -49,6 +18,7 @@ class AccountMod extends Mod {
 			roles: [],
 			profilePhotoPath: undefined,
 			impersonator: undefined,
+			isFirstTimeLogin: undefined,
 		};
 
 		const reducer = (state = initialState, action) => {
@@ -80,5 +50,4 @@ class AccountMod extends Mod {
 	}
 }
 
-export default AccountMod;
-export { Account, Login, Register, Manage, Logout, AcceptInvite };
+export default Account;
