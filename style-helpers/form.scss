@@ -16,6 +16,11 @@
 		&.upper {
 			align-items: flex-start;
 		}
+
+		span {
+			margin-left: 4px;
+			color: $errorColor;
+		}
 	}
 
 	// Helper Text
@@ -52,10 +57,6 @@
 			padding-left: 8px;
 			padding-right: 8px;
 			caret-color: $primaryColor;
-
-			&:focus {
-				border-color: $primaryColor;
-			}
 		}
 
 		/** Text Area **/
@@ -66,11 +67,7 @@
 			font-size: 16px;
 			color: $primaryTextColor;
 			padding: 8px;
-			caret-color: $secondaryColor;
-
-			&:focus {
-				border-color: $primaryColor;
-			}
+			caret-color: $primaryColor;
 		}
 
 		/** Radios **/

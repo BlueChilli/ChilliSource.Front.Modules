@@ -11,6 +11,9 @@
       align-items: flex-end; }
     .form-element .form-label.upper {
       align-items: flex-start; }
+    .form-element .form-label span {
+      margin-left: 4px;
+      color: #ff3b30; }
   .form-element .form-helper {
     display: flex;
     align-items: center;
@@ -38,8 +41,6 @@
       padding-left: 8px;
       padding-right: 8px;
       caret-color: #25ce81; }
-      .form-element .form-input input:focus {
-        border-color: #25ce81; }
     .form-element .form-input textarea {
       width: 100%;
       background-color: transparent;
@@ -47,9 +48,7 @@
       font-size: 16px;
       color: #6f6f6f;
       padding: 8px;
-      caret-color: #f7f8fa; }
-      .form-element .form-input textarea:focus {
-        border-color: #25ce81; }
+      caret-color: #25ce81; }
     .form-element .form-input input[type='radio'] {
       position: absolute;
       width: 100%;
