@@ -35,7 +35,7 @@
 		"@fortawesome/free-solid-svg-icons": "^5.1.0-11",
 		"@fortawesome/react-fontawesome": "^0.1.0-11",
 		"axios": "^0.18.0",
-		"chillifront": "git+ssh://git@github.com:BlueChilli/ChilliSource.Front.git",
+		"chillifront": "^1.0.1",
 		"classnames": "^2.2.6",
 		"local-storage": "^1.4.2",
 		"lodash": "^4.17.10",

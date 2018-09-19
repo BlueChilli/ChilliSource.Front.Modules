@@ -1857,22 +1857,18 @@ chardet@^0.4.0:
   version "0.4.2"
   resolved "https://registry.yarnpkg.com/chardet/-/chardet-0.4.2.tgz#b5473b33dc97c424e5d98dc87d55d4d8a29c8bf2"
 
-"chillifront@git+ssh://git@github.com:BlueChilli/ChilliSource.Front.git":
-  version "0.0.2"
-  resolved "git+ssh://git@github.com:BlueChilli/ChilliSource.Front.git#9cfeea4a15b8eafbc9e7d6220a02927090455d94"
+chillifront@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/chillifront/-/chillifront-1.0.1.tgz#7c2e369414464bd450f21d8e79bcc17d286a3915"
   dependencies:
-    immutable "^3.8.2"
-    lodash-es "^4.17.4"
+    connected-react-router "^4.4.1"
+    lodash "^4.17.10"
     object.map "^1.0.1"
-    react "^16.2.0"
-    react-redux "^5.0.6"
-    react-router "^4.2.0"
-    react-router-config "^1.0.0-beta.4"
-    react-router-dom "^4.2.2"
-    react-router-redux "^5.0.0-alpha.9"
-    redux "^3.7.2"
-    redux-devtools-extension "^2.13.2"
-    redux-immutablejs "^0.0.8"
+    react "^16.4.0"
+    react-redux "^5.0.7"
+    react-router-dom "^4.3.0"
+    redux "^4.0.0"
+    redux-devtools-extension "^2.13.5"
 
 chokidar@^1.6.1:
   version "1.7.0"
@@ -2082,6 +2078,12 @@ concat-stream@^1.5.0:
     inherits "^2.0.3"
     readable-stream "^2.2.2"
     typedarray "^0.0.6"
+
+connected-react-router@^4.4.1:
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/connected-react-router/-/connected-react-router-4.4.1.tgz#352ad5340ca3d296e7ebac14adcf789eb8a20e0c"
+  dependencies:
+    immutable "^3.8.1"
 
 console-browserify@^1.1.0:
   version "1.1.0"
@@ -3672,7 +3674,7 @@ ignore-walk@^3.0.1:
   dependencies:
     minimatch "^3.0.4"
 
-immutable@^3.8.1, immutable@^3.8.2:
+immutable@^3.8.1:
   version "3.8.2"
   resolved "https://registry.yarnpkg.com/immutable/-/immutable-3.8.2.tgz#c2439951455bb39913daf281376f1530e104adf3"
 
@@ -4229,7 +4231,7 @@ locate-path@^2.0.0:
     p-locate "^2.0.0"
     path-exists "^3.0.0"
 
-lodash-es@^4.17.10, lodash-es@^4.17.4, lodash-es@^4.17.5, lodash-es@^4.2.1:
+lodash-es@^4.17.10, lodash-es@^4.17.5, lodash-es@^4.2.1:
   version "4.17.10"
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.10.tgz#62cd7104cdf5dd87f235a837f0ede0e8e5117e05"
 
@@ -5835,7 +5837,7 @@ react-onclickoutside@^6.7.1:
   version "6.7.1"
   resolved "https://registry.yarnpkg.com/react-onclickoutside/-/react-onclickoutside-6.7.1.tgz#6a5b5b8b4eae6b776259712c89c8a2b36b17be93"
 
-react-redux@^5.0.6, react-redux@^5.0.7:
+react-redux@^5.0.7:
   version "5.0.7"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.0.7.tgz#0dc1076d9afb4670f993ffaef44b8f8c1155a4c8"
   dependencies:
@@ -5854,11 +5856,7 @@ react-responsive@^4.1.0:
     matchmediaquery "^0.2.1"
     prop-types "^15.6.1"
 
-react-router-config@^1.0.0-beta.4:
-  version "1.0.0-beta.4"
-  resolved "https://registry.yarnpkg.com/react-router-config/-/react-router-config-1.0.0-beta.4.tgz#d202496dd0eabdf06cf24eb0793031f6891eef01"
-
-react-router-dom@^4.2.2, react-router-dom@^4.3.1:
+react-router-dom@^4.3.0, react-router-dom@^4.3.1:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-4.3.1.tgz#4c2619fc24c4fa87c9fd18f4fb4a43fe63fbd5c6"
   dependencies:
@@ -5869,15 +5867,7 @@ react-router-dom@^4.2.2, react-router-dom@^4.3.1:
     react-router "^4.3.1"
     warning "^4.0.1"
 
-react-router-redux@^5.0.0-alpha.9:
-  version "5.0.0-alpha.9"
-  resolved "https://registry.yarnpkg.com/react-router-redux/-/react-router-redux-5.0.0-alpha.9.tgz#825431516e0e6f1fd93b8807f6bd595e23ec3d10"
-  dependencies:
-    history "^4.7.2"
-    prop-types "^15.6.0"
-    react-router "^4.2.0"
-
-react-router@^4.2.0, react-router@^4.3.1:
+react-router@^4.3.1:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/react-router/-/react-router-4.3.1.tgz#aada4aef14c809cb2e686b05cee4742234506c4e"
   dependencies:
@@ -5949,7 +5939,7 @@ react-widgets@^4.4.3:
     uncontrollable "^5.0.0"
     warning "^3.0.0"
 
-react@^16.2.0, react@^16.3.2:
+react@^16.3.2:
   version "16.4.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.4.1.tgz#de51ba5764b5dbcd1f9079037b862bd26b82fe32"
   dependencies:
@@ -5957,6 +5947,15 @@ react@^16.2.0, react@^16.3.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.0"
+
+react@^16.4.0:
+  version "16.5.2"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.5.2.tgz#19f6b444ed139baa45609eee6dc3d318b3895d42"
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
+    schedule "^0.5.0"
 
 read-pkg-up@^1.0.1:
   version "1.0.1"
@@ -6081,7 +6080,7 @@ redux-create-reducer@^1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/redux-create-reducer/-/redux-create-reducer-1.1.2.tgz#c8b3fec55b3b25f6bdf0188d4c28b13889197ac0"
 
-redux-devtools-extension@^2.13.2:
+redux-devtools-extension@^2.13.5:
   version "2.13.5"
   resolved "https://registry.yarnpkg.com/redux-devtools-extension/-/redux-devtools-extension-2.13.5.tgz#3ff34f7227acfeef3964194f5f7fc2765e5c5a39"
 
@@ -6097,10 +6096,6 @@ redux-form@^7.4.2:
     lodash-es "^4.17.10"
     prop-types "^15.6.1"
     react-lifecycles-compat "^3.0.4"
-
-redux-immutablejs@^0.0.8:
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/redux-immutablejs/-/redux-immutablejs-0.0.8.tgz#2c173dac1aaebfb20ec86e076b7e2ce65f487a41"
 
 redux-promise-middleware@^5.1.1:
   version "5.1.1"
@@ -6118,6 +6113,13 @@ redux@^3.7.2:
     lodash-es "^4.2.1"
     loose-envify "^1.1.0"
     symbol-observable "^1.0.3"
+
+redux@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.0.tgz#aa698a92b729315d22b34a0553d7e6533555cc03"
+  dependencies:
+    loose-envify "^1.1.0"
+    symbol-observable "^1.2.0"
 
 regenerate@^1.2.1:
   version "1.4.0"
@@ -6405,6 +6407,12 @@ sass-loader@^7.0.1:
 sax@^1.2.4, sax@~1.2.1:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
+
+schedule@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/schedule/-/schedule-0.5.0.tgz#c128fffa0b402488b08b55ae74bb9df55cc29cc8"
+  dependencies:
+    object-assign "^4.1.1"
 
 schema-utils@^0.3.0:
   version "0.3.0"
@@ -6960,7 +6968,7 @@ swagger-schema-official@2.0.0-bab6bed:
   version "2.0.0-bab6bed"
   resolved "https://registry.yarnpkg.com/swagger-schema-official/-/swagger-schema-official-2.0.0-bab6bed.tgz#70070468d6d2977ca5237b2e519ca7d06a2ea3fd"
 
-symbol-observable@^1.0.3:
+symbol-observable@^1.0.3, symbol-observable@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
 
