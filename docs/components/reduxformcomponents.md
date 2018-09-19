@@ -4,12 +4,12 @@ We have pre-written basic form components, derived from [`redux-form`](https://r
 
 We provide the following components(_more to come_);
 
-- [`TextField`](/ReduxFormComponents/lib/components/TextField/index.md)
-- [`TextArea`](/ReduxFormComponents/lib/components/TextArea/index.md)
-- [`Radio`](/ReduxFormComponents/lib/components/Radio/index.md)
-- [`Radios`](/ReduxFormComponents/lib/components/Radios/index.md)
-- [`Checkbox`](/ReduxFormComponents/lib/components/Checkbox/index.md)
-- [`Checkboxes`](/ReduxFormComponents/lib/components/Checkboxes/index.md)
-- [`Select`](/ReduxFormComponents/lib/components/Select/index.md)
-- [`MultiSelect`](/ReduxFormComponents/lib/components/MultiSelect/index.md)
-- [`CalendarPicker`](/ReduxFormComponents/lib/components/CalendarPicker/index.md)
+- [`TextField`](/FormComponents/lib/components/TextField/index.md)
+- [`TextArea`](/FormComponents/lib/components/TextArea/index.md)
+- [`Radio`](/FormComponents/lib/components/Radio/index.md)
+- [`Radios`](/FormComponents/lib/components/Radios/index.md)
+- [`Checkbox`](/FormComponents/lib/components/Checkbox/index.md)
+- [`Checkboxes`](/FormComponents/lib/components/Checkboxes/index.md)
+- [`Select`](/FormComponents/lib/components/Select/index.md)
+- [`MultiSelect`](/FormComponents/lib/components/MultiSelect/index.md)
+- [`CalendarPicker`](/FormComponents/lib/components/CalendarPicker/index.md)

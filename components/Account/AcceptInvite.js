@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import QueryString from 'query-string';
 
 /** Components */
-import TextField from '../ReduxFormComponents/lib/components/TextField';
+import TextField from '../FormComponents/lib/components/TextField';
 import { CenteredComponent, Row, Col } from '../CenteredComponent';
 
 /** Helpers */

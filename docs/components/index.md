@@ -2,9 +2,9 @@
 
 ## Documented
 
-- [ReduxFormComponents](ReduxFormComponents/index.md)
+- [Form Components](FormComponents/index.md)
 - [Auth](auth.md)
-- [CenteredComponent](centeredcomponent.md)
+- [Centered Component](centeredcomponent.md)
 - [Portal Modal](portalmodal.md)
 - [Account](account.md)
 

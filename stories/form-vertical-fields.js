@@ -3,12 +3,12 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 // Components we're basically testing
-// import TextField from '../modules/ReduxFormComponents/lib/Vertical/TextField/';
-// import SimpleCheck from '../modules/ReduxFormComponents/lib/Vertical/CheckSimple/CheckSimple';
-// import Radio from '../modules/ReduxFormComponents/lib/Vertical/Radio/';
-// import CheckArrayVertical from '../modules/ReduxFormComponents/lib/Vertical/CheckArrayVertical/CheckArrayVertical';
-// import RadioVertical from "../modules/ReduxFormComponents/lib/Vertical/RadioVertical/RadioVertical";
-// import TextFieldWithSubmit from '../modules/ReduxFormComponents/lib/Vertical/TextFieldWithSubmit/';
+// import TextField from '../modules/FormComponents/lib/Vertical/TextField/';
+// import SimpleCheck from '../modules/FormComponents/lib/Vertical/CheckSimple/CheckSimple';
+// import Radio from '../modules/FormComponents/lib/Vertical/Radio/';
+// import CheckArrayVertical from '../modules/FormComponents/lib/Vertical/CheckArrayVertical/CheckArrayVertical';
+// import RadioVertical from "../modules/FormComponents/lib/Vertical/RadioVertical/RadioVertical";
+// import TextFieldWithSubmit from '../modules/FormComponents/lib/Vertical/TextFieldWithSubmit/';
 
 // Validators
 import ticked from '../components/FormComponents/lib/validators/ticked';
@@ -16,8 +16,8 @@ import required from '../components/FormComponents/lib/validators/required';
 import tickedArray from '../components/FormComponents/lib/validators/tickedArray';
 
 // CSS
-// import "../modules/ReduxFormComponents/lib/themes/default.css";
-// import DatePicker from '../modules/ReduxFormComponents/lib/Vertical/Datepicker/DatePicker';
+// import "../modules/FormComponents/lib/themes/default.css";
+// import DatePicker from '../modules/FormComponents/lib/Vertical/Datepicker/DatePicker';
 
 const genericOptions1 = [
 	{
