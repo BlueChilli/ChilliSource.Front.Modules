@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import './helpers/storybook.css';
 import chillifront from 'chillifront';
 import NotificationTest from '../chillisauce-app/App/NotificationTest';
-import NotFoundPage from '../modules/404/index';
+import NotFoundPage from '../components/404/index';
 import ReduxThunk from '../modules/ReduxThunk/index';
 import Notification from '../modules/Notification/index';
 import GoogleAnalytics from '../modules/GoogleAnalytics/index';

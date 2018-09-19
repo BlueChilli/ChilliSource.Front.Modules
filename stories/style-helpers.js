@@ -3,15 +3,15 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 /** Components */
-import TextField from '../modules/ReduxFormComponents/lib/components/TextField/';
-import TextArea from '../modules/ReduxFormComponents/lib/components/TextArea/';
-import Radio from '../modules/ReduxFormComponents/lib/components/Radio';
-import Radios from '../modules/ReduxFormComponents/lib/components/Radios';
-import Checkbox from '../modules/ReduxFormComponents/lib/components/Checkbox';
-import Checkboxes from '../modules/ReduxFormComponents/lib/components/Checkboxes';
-import CalendarPicker from '../modules/ReduxFormComponents/lib/components/CalendarPicker';
-import Select from '../modules/ReduxFormComponents/lib/components/Select/';
-import MultiSelect from '../modules/ReduxFormComponents/lib/components/MultiSelect/';
+import TextField from '../components/FormComponents/lib/components/TextField/';
+import TextArea from '../components/FormComponents/lib/components/TextArea/';
+import Radio from '../components/FormComponents/lib/components/Radio';
+import Radios from '../components/FormComponents/lib/components/Radios';
+import Checkbox from '../components/FormComponents/lib/components/Checkbox';
+import Checkboxes from '../components/FormComponents/lib/components/Checkboxes';
+import CalendarPicker from '../components/FormComponents/lib/components/CalendarPicker';
+import Select from '../components/FormComponents/lib/components/Select/';
+import MultiSelect from '../components/FormComponents/lib/components/MultiSelect/';
 
 import { DemoFormDecorator } from './helpers/';
 

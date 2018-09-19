@@ -1,7 +1,6 @@
 import React from 'react';
-import { Field } from 'redux-form';
+
 import { storiesOf } from '@storybook/react';
-import { ReduxFormProviderDecorator } from './helpers/';
 
 // Components we're basically testing
 // import TextField from '../modules/ReduxFormComponents/lib/Vertical/TextField/';
@@ -12,9 +11,9 @@ import { ReduxFormProviderDecorator } from './helpers/';
 // import TextFieldWithSubmit from '../modules/ReduxFormComponents/lib/Vertical/TextFieldWithSubmit/';
 
 // Validators
-import ticked from '../modules/ReduxFormComponents/lib/validators/ticked';
-import required from '../modules/ReduxFormComponents/lib/validators/required';
-import tickedArray from '../modules/ReduxFormComponents/lib/validators/tickedArray';
+import ticked from '../components/FormComponents/lib/validators/ticked';
+import required from '../components/FormComponents/lib/validators/required';
+import tickedArray from '../components/FormComponents/lib/validators/tickedArray';
 
 // CSS
 // import "../modules/ReduxFormComponents/lib/themes/default.css";
