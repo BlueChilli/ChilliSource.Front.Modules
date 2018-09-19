@@ -3,15 +3,18 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 /** Components */
-import TextField from '../components/FormComponents/lib/components/TextField/';
-import TextArea from '../components/FormComponents/lib/components/TextArea/';
-import Radio from '../components/FormComponents/lib/components/Radio';
-import Radios from '../components/FormComponents/lib/components/Radios';
-import Checkbox from '../components/FormComponents/lib/components/Checkbox';
-import Checkboxes from '../components/FormComponents/lib/components/Checkboxes';
-import CalendarPicker from '../components/FormComponents/lib/components/CalendarPicker';
-import Select from '../components/FormComponents/lib/components/Select/';
-import MultiSelect from '../components/FormComponents/lib/components/MultiSelect/';
+import {
+	TextField,
+	TextArea,
+	Radio,
+	Radios,
+	Checkbox,
+	Checkboxes,
+	CalendarPicker,
+	Select,
+	MultiSelect,
+	Dropzone,
+} from '../components/FormComponents/';
 
 import { DemoFormDecorator } from './helpers/';
 

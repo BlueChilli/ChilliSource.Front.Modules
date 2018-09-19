@@ -1,9 +1,9 @@
 /** Libraries */
 import React from 'react';
+import kebabCase from 'lodash/kebabCase';
 
 /** Components */
 import FormElementWrapper from '../../helpers/FormElementWrapper';
-import Error from '../../General/Error';
 import Checkbox from '../Checkbox';
 
 class Checkboxes extends React.Component {
@@ -68,6 +68,7 @@ class Checkboxes extends React.Component {
 			position,
 			flow,
 			optionWidth,
+			icons,
 		} = this.props;
 
 		return (
@@ -93,15 +94,19 @@ class Checkboxes extends React.Component {
 						flow && flow === 'wrap' ? 'wrap' : ''
 					}`}>
 					{this.getFormattedOptions().map((option, index) => {
-						return (
-							<Checkbox
-								name={`${name}.${option.label}`}
-								className={this.isOptionWidthValid() ? `width-${optionWidth}` : ''}
-								key={`${name}-${index}`}
-								label={option.label}
-								value={option.value}
-							/>
-						);
+						const checkboxProps = {
+							name: `${name}.${kebabCase(option.value)}`,
+							className: this.isOptionWidthValid() ? `width-${optionWidth}` : '',
+							key: `${name}-${index}`,
+							label: option.label,
+							value: option.value,
+						};
+
+						if (icons) {
+							return <Checkbox {...checkboxProps} icons={icons[index]} />;
+						}
+
+						return <Checkbox {...checkboxProps} />;
 					})}
 				</div>
 

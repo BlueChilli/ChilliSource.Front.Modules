@@ -4,7 +4,7 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import { NavLink } from 'react-router-dom';
 
 /** Components */
-import TextField from '../FormComponents/lib/components/TextField';
+import { TextField } from '../FormComponents/';
 import { Row, Col } from '../CenteredComponent';
 
 /** Helpers */

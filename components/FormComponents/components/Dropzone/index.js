@@ -34,6 +34,9 @@ class RenderDropzone extends React.Component {
 			className,
 			disabled = false,
 			multiple = false,
+			accept = 'image/jpeg, image/png, image/jpg',
+			minSize,
+			maxSize,
 		} = this.props;
 
 		const invalid = !pristine && error;
@@ -65,7 +68,9 @@ class RenderDropzone extends React.Component {
 								onDrop={this.onDrop}
 								multiple={multiple}
 								disabled={disabled}
-								accept="image/jpeg, image/png, image/jpg">
+								accept={accept}
+								minSize={minSize}
+								maxSize={maxSize}>
 								<div className="dropzone-placeholder flex col center">
 									<svg
 										width="46px"

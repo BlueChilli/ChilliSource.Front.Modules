@@ -13,6 +13,7 @@ const renderCheckbox = field => {
 		className,
 		required,
 		meta: { pristine, error },
+		icons,
 	} = field;
 
 	const handleChange = event => input.onChange(event);
@@ -22,7 +23,7 @@ const renderCheckbox = field => {
 	return (
 		<FormElementWrapper className={className}>
 			{/* Checkbox */}
-			<div className={`form-input ${invalid && 'error'}`}>
+			<div className={`form-input ${input.checked ? 'selected' : ''} ${invalid ? 'error' : ''}`}>
 				<input
 					type="checkbox"
 					{...input}
@@ -31,6 +32,16 @@ const renderCheckbox = field => {
 					onChange={handleChange}
 				/>
 
+				{/* icon if provided */}
+				{icons && (
+					<img
+						src={input.checked ? icons.active : icons.default}
+						className="option-icon"
+						alt="option-icon"
+					/>
+				)}
+
+				{/* label if provided */}
 				{label && <label htmlFor={input.name}>{label}</label>}
 			</div>
 
