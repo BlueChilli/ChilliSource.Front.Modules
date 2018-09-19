@@ -54,10 +54,39 @@ const updateProfileDetails = values => {
 };
 
 /**
+ * Submits a forgot password request which sends and email
+ * to the user to reset their password
+ * @param {{email: string}} values
+ */
+const forgotPassword = values => {
+	console.error('Account > actions.js > forgotPassword > NOT IMPLEMENTED');
+	console.log('values', values);
+};
+
+/**
+ * Submits a reset password request with the user's
+ * new chosen password
+ * @param {{token:string, email: string, newPassword: string, confirmPassword: string}} values
+ */
+const resetPassword = values => {
+	console.error('Account > actions.js > resetPassword > NOT IMPLEMENTED');
+	console.log('values', values);
+};
+
+/**
  * De-authenticate user and terminate the current session
  */
 const logoutUser = () => {
 	console.error('Account > actions.js > logoutUser > NOT IMPLEMENTED');
 };
 
-export { loginUser, registerUser, updateEmail, updatePassword, updateProfileDetails, logoutUser };
+export {
+	loginUser,
+	registerUser,
+	updateEmail,
+	updatePassword,
+	updateProfileDetails,
+	logoutUser,
+	forgotPassword,
+	resetPassword,
+};

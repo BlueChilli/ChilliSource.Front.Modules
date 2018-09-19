@@ -1,6 +1,5 @@
 /** Libraries */
 import React from 'react';
-import { Mod } from 'chillifront';
 import { Switch, Route } from 'react-router-dom';
 
 /** Components */
@@ -32,53 +31,5 @@ class Account extends React.Component {
 	}
 }
 
-/** Class Account */
-class AccountMod extends Mod {
-	name() {
-		return 'Account';
-	}
-
-	reducers() {
-		const initialState = {
-			userKey: undefined,
-			firstName: undefined,
-			lastName: undefined,
-			fullName: undefined,
-			email: undefined,
-			status: undefined,
-			roles: [],
-			profilePhotoPath: undefined,
-			impersonator: undefined,
-		};
-
-		const reducer = (state = initialState, action) => {
-			switch (action.type) {
-				case 'USER_LOGGED_IN': {
-					return { ...state, ...action.payload };
-				}
-
-				case 'USER_LOGGED_OUT': {
-					return initialState;
-				}
-
-				case 'UPDATE_EMAIL': {
-					return { ...state, email: action.payload };
-				}
-
-				case 'UPDATE_PROFILE_DETAILS': {
-					return { ...state, ...action.payload };
-				}
-
-				default:
-					return state;
-			}
-		};
-
-		return {
-			Account: reducer,
-		};
-	}
-}
-
-export default AccountMod;
-export { Account, Login, Register, Manage, Logout, AcceptInvite };
+export default Account;
+export { Login, Register, Manage, Logout, AcceptInvite };

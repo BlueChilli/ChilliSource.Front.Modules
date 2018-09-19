@@ -1,8 +1,6 @@
 import React from 'react';
 
-export default class AccountMod {}
-
-export class Account extends React.Component {}
+export default class Account extends React.Component {}
 
 export class Login extends React.Component {}
 

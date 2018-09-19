@@ -14,6 +14,8 @@ import {
 	updatePassword,
 	updateProfileDetails,
 	registerUser,
+	forgotPassword,
+	resetPassword,
 } from './actions';
 
 /** Login Form */
@@ -220,4 +222,79 @@ const UpdateProfileDetailsForm = reduxForm({
 	);
 });
 
-export { LoginForm, RegisterForm, UpdateEmailForm, UpdatePasswordForm, UpdateProfileDetailsForm };
+/** Reset Password Form */
+const ResetPasswordForm = reduxForm({
+	form: 'reset',
+	onSubmit: resetPassword,
+	enableReinitialize: true,
+	keepDirtyOnReinitialize: true,
+})(props => {
+	return (
+		<form onSubmit={props.handleSubmit}>
+			<TextField
+				name="password"
+				label="Choose new password"
+				className="margin-top-4"
+				placeholder="*********"
+				type="password"
+				required
+			/>
+
+			<TextField name="token" type="hidden" />
+
+			<TextField name="email" type="hidden" />
+
+			<button className="button button-primary full-width margin-top-3 flex center">
+				{props.submitting && <ClipLoader size={16} color="#fff" loading={true} />}
+				{props.submitting ? 'Logging in' : 'Login'}
+			</button>
+
+			<p className="helper-text margin-top-3" style={{ textAlign: 'center' }}>
+				Do not have an account?{' '}
+				<NavLink to="/user/register" className="link">
+					Create account
+				</NavLink>
+			</p>
+		</form>
+	);
+});
+
+/** Forgot Password Form */
+const ForgotPasswordForm = reduxForm({
+	form: 'forgot',
+	onSubmit: forgotPassword,
+})(props => {
+	return (
+		<form onSubmit={props.handleSubmit}>
+			<TextField
+				name="email"
+				label="Email address"
+				placeholder="john@example.com"
+				className="margin-top-4"
+				required
+			/>
+
+			<button className="button button-primary full-width margin-top-3 flex center">
+				{props.submitting && <ClipLoader size={16} color="#fff" loading={true} />}
+				{props.submitting ? 'Resetting ...' : 'Reset'}
+			</button>
+
+			<p className="helper-text margin-top-3" style={{ textAlign: 'center' }}>
+				Do not have an account?{' '}
+				<NavLink to="/user/register" className="link">
+					Create account
+				</NavLink>
+			</p>
+		</form>
+	);
+});
+
+export {
+	LoginForm,
+	RegisterForm,
+	UpdateEmailForm,
+	UpdatePasswordForm,
+	UpdateProfileDetailsForm,
+	ResetPasswordForm,
+	ForgotPasswordForm,
+};
