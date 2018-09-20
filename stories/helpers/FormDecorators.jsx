@@ -2,10 +2,10 @@ import React from 'react';
 import createStore from './createStore';
 import { Provider, connect } from 'react-redux';
 import { compose } from 'redux';
-import { Field, reduxForm } from 'redux-form';
+import { reduxForm } from 'redux-form';
 import { action } from '@storybook/addon-actions';
 import './storybook.css';
-import { SubmitButton } from '../../components/FormComponents/lib/General/SubmitButton';
+import { SubmitButton } from '../../components/FormComponents/General/SubmitButton';
 
 let PristineForm = props => {
 	const { handleSubmit, story } = props;

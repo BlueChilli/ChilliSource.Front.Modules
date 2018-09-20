@@ -1,0 +1,18 @@
+@keyframes frsfsspinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.rfs-inline-spinner:before {
+    content: '';
+    position: relative;
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border-top: 2px solid #434346;
+    border-right: 2px solid transparent;
+    animation: frsfsspinner .5s linear infinite;
+    display: inline-block;
+}

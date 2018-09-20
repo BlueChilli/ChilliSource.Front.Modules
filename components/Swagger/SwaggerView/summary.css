@@ -1,0 +1,118 @@
+.swagger-view-container {
+  max-width: 900px;
+  margin: 0 auto; }
+
+.swaggerHeader {
+  font-size: 20px;
+  font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
+  margin: 32px 0 8px;
+  color: #1f9cd8; }
+
+.swaggerInfo {
+  font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
+  color: #222222; }
+  .swaggerInfo.open .heading-wrapper {
+    color: white;
+    padding: 4px 4px;
+    background: #ffa431;
+    border-bottom: none; }
+    .swaggerInfo.open .heading-wrapper:hover {
+      background: #ffa431; }
+    .swaggerInfo.open .heading-wrapper h2 {
+      font-weight: bold; }
+  .swaggerInfo .content {
+    padding: 8px;
+    border-left: 3px solid #ffa431;
+    border-right: 3px solid #ffa431;
+    border-bottom: 3px solid #ffa431; }
+    .swaggerInfo .content .summary {
+      border-bottom: 1px solid #ffa432;
+      padding: 4px 0; }
+    .swaggerInfo .content .desc {
+      padding: 4px 0;
+      font-size: 90%; }
+  .swaggerInfo .heading-wrapper {
+    display: flex;
+    padding: 2px 2px;
+    border-bottom: 1px solid #eee; }
+    .swaggerInfo .heading-wrapper .summary-labels > span {
+      background: #1f9cd8;
+      color: white;
+      border-radius: 3px;
+      padding: 2px 6px;
+      margin-left: 2px;
+      font-size: 12px; }
+      .swaggerInfo .heading-wrapper .summary-labels > span.q {
+        background: purple; }
+      .swaggerInfo .heading-wrapper .summary-labels > span.p {
+        background: #b74224; }
+      .swaggerInfo .heading-wrapper .summary-labels > span.b {
+        background: #804217; }
+      .swaggerInfo .heading-wrapper .summary-labels > span.f {
+        background: #055607; }
+    .swaggerInfo .heading-wrapper:hover {
+      cursor: pointer;
+      background: #f1f1f1; }
+    .swaggerInfo .heading-wrapper .heading-left {
+      flex: 1 1 auto; }
+    .swaggerInfo .heading-wrapper .heading-right {
+      margin-left: 8px;
+      flex: 0 0 auto;
+      font-size: 14px;
+      font-family: monospace; }
+    .swaggerInfo .heading-wrapper h3 {
+      padding: 0;
+      margin: 0;
+      font-size: 15px;
+      font-weight: normal; }
+  .swaggerInfo .separate {
+    margin-top: 4px; }
+  .swaggerInfo .floater {
+    float: right; }
+  .swaggerInfo .label {
+    width: 61px;
+    display: inline-block;
+    text-align: center;
+    background: #ce790e;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 80%;
+    color: #ffffff;
+    margin-right: 4px; }
+  .swaggerInfo h3.table-heading {
+    font-size: 16px;
+    color: #d88722;
+    margin: 0;
+    padding: 6px 6px 6px 0;
+    font-weight: normal; }
+  .swaggerInfo .swagger-table {
+    border-collapse: collapse;
+    font-size: 12px; }
+    .swaggerInfo .swagger-table button {
+      font-size: 12px;
+      border: none;
+      background: #9b939c;
+      color: white;
+      padding: 4px 8px; }
+    .swaggerInfo .swagger-table tr:nth-child(even) {
+      background: #f7f7f7; }
+    .swaggerInfo .swagger-table tr:nth-child(odd) {
+      background: #efefef; }
+    .swaggerInfo .swagger-table td {
+      padding: 4px 8px;
+      border: 1px solid #fff; }
+    .swaggerInfo .swagger-table th {
+      background: #848484;
+      color: white; }
+
+.view-swagger-config {
+  background-color: #1a6990;
+  padding: 16px;
+  color: white; }
+  .view-swagger-config h1 {
+    font-size: 30px;
+    color: white;
+    margin: 0 0 16px 0;
+    text-shadow: 2px 2px #000000; }
+  .view-swagger-config strong {
+    color: #f1e166; }
