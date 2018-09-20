@@ -9,6 +9,32 @@ import { axiosInstance, getApiRequirements, loadSwaggerData } from '../helpers';
  * Checks whether or not the provided apiPath is valid or not
  * @param {string} apiPath
  *
+ * @returns {boolean} Whether or not the apiPath is valid or not
+ */
+const apiPathIsWellFormed = apiPath => {
+	if (!apiPath || apiPath.length === 0) {
+		console.error('Supplied apiPath is empty or non-existant. Please check your request.');
+		return false;
+	}
+
+	if (apiPath.indexOf('/api/v1') > 0 && apiPath.indexOf('//') !== 0) {
+		// The type of operation is in apiPath
+		return true;
+	} else if (apiPath.indexOf('/api/v1') < 0) {
+		// The type apiPath is not explicit. Method is supplied by a different param.
+		return true;
+	}
+
+	console.error(
+		'Supplied `apiPath` is not well-formed. Either supply the full API path from Swagger like so - `get/api/v1/user/account{id}` - or just supply - `/user/account/24` - and supply the method separately. Mixing these patterns will certainly mess shit up! Please check your request.'
+	);
+	return false;
+};
+
+/**
+ * Checks whether or not the provided apiPath is valid or not
+ * @param {string} apiPath
+ *
  * @returns {boolean} Whether or not the apiPath provided has the params and query args inserted or not
  */
 const apiPathHasBeenSubstitutedWithParamsAndQueryArgs = apiPath => {
@@ -60,8 +86,8 @@ const apiPathIncludesOperationType = apiPath => {
  * @returns {AxiosPromise}
  */
 async function _ApiRequest(apiPath, apiRequestParams) {
-	if (!apiPath || apiPath.length === 0) {
-		throw new Error('Supplied apiPath is empty or non-existant. Please check your request.');
+	if (!apiPathIsWellFormed(apiPath)) {
+		return;
 	}
 
 	if (apiPathIncludesOperationType(apiPath)) {
@@ -98,9 +124,12 @@ async function _ApiRequest(apiPath, apiRequestParams) {
 				data,
 			});
 		} catch (error) {
+			//TODO: Need better error handling here
 			console.error("Couldn't load the swagger data. Please try again.", error);
 			return Promise.reject(error);
 		}
+
+		// end try-catch
 	} else {
 		/**
 		 * This is when the dev has provided the type explicitly. We
@@ -108,18 +137,27 @@ async function _ApiRequest(apiPath, apiRequestParams) {
 		 * need to look up swagger definitions & stuff
 		 */
 		if (!apiPathHasBeenSubstitutedWithParamsAndQueryArgs(apiPath)) {
-			console.error('Stopping here. Good bye!');
-			return;
+			return Promise.reject({
+				response: {
+					data: {
+						errorMessage:
+							'Supplied `apiPath` is not well-formed. Either supply the full API path from Swagger like so - `get/api/v1/user/account{id}` - or just supply - `/user/account/24` - and supply the method separately. Mixing these patterns will certainly mess shit up! Please check your request.',
+					},
+				},
+			});
 		}
 
 		const { method, body: data } = apiRequestParams;
 
 		if (!method) {
-			console.error(
-				"Please provide the type of operation you'd like to perform. `method` has not been provided in apiRequestParams"
-			);
-			console.error('Stopping here. Good bye!');
-			return;
+			return Promise.reject({
+				response: {
+					data: {
+						errorMessage:
+							"Please provide the type of operation you'd like to perform. `method` has not been provided in request params",
+					},
+				},
+			});
 		}
 
 		return axiosInstance({
