@@ -8,6 +8,7 @@ import {
 	getFormParamsForOperation,
 	getQueryParamsForOperation,
 	getObjectFromSwaggerSchema,
+	getBaseUrl,
 } from './manipulators';
 
 /** Variables */
@@ -25,7 +26,7 @@ const loadSwaggerData = () => {
 
 	if (swaggerApiUrl.length === 0) {
 		throw new Error(
-			'Please check your .env-cmdrc file and ensure you have defined REACT_APP_API_KEY & REACT_APP_BASE_URL'
+			'Please check your .env-cmdrc file and ensure you have defined apiKey and base URL for all requests.'
 		);
 	}
 

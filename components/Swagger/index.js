@@ -1,5 +1,11 @@
-export { default as FetchData } from './FetchData';
+import FetchData from './FetchData';
+import SendData from './SendData';
+import ApiRequest from './ApiRequest';
 
-export { default as SendData } from './SendData';
+const Swagger = {
+	FetchData,
+	SendData,
+	ApiRequest,
+};
 
-export { default as ApiRequest } from './ApiRequest';
+export default Swagger;

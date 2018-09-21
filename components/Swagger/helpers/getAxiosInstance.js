@@ -4,9 +4,9 @@ import axios from 'axios';
 /** Helpers */
 import { getAllConfig } from './configuration';
 
-const { apiKey, baseURL } = getAllConfig();
+const { apiKey, apiURL } = getAllConfig();
 const axiosInstance = axios.create({
-	baseURL,
+	baseURL: apiURL,
 	withCredentials: true,
 	headers: {
 		apiKey,

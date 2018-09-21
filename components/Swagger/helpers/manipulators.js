@@ -66,9 +66,11 @@ const getAllOperationsFromSwagger = data => {
 const getOperationById = (data, operationId) => {
 	const operations = getAllOperationsFromSwagger(data);
 
-	const filteredOperations = operations.find(operation => operation.id === operationId);
+	const filteredOperation = operations.find(operation => {
+		return operation.id === operationId;
+	});
 
-	return filteredOperations.length > 0 ? filteredOperations[0] : undefined;
+	return filteredOperation;
 };
 
 /**

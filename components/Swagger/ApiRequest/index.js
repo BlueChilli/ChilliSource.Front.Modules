@@ -17,10 +17,12 @@ const apiPathIsWellFormed = apiPath => {
 		return false;
 	}
 
-	if (apiPath.indexOf('/api/v1') > 0 && apiPath.indexOf('//') !== 0) {
+	if (apiPath.indexOf('/api/v1') > 0) {
 		// The type of operation is in apiPath
 		return true;
-	} else if (apiPath.indexOf('/api/v1') < 0) {
+	}
+
+	if (apiPath.indexOf('/api/v1') < 0) {
 		// The type apiPath is not explicit. Method is supplied by a different param.
 		return true;
 	}
@@ -38,7 +40,7 @@ const apiPathIsWellFormed = apiPath => {
  * @returns {boolean} Whether or not the apiPath provided has the params and query args inserted or not
  */
 const apiPathHasBeenSubstitutedWithParamsAndQueryArgs = apiPath => {
-	const filteredCharacters = ['{', '}'].filter(char => apiPath.indexOf(char) < 0);
+	const filteredCharacters = ['{', '}'].filter(character => apiPath.indexOf(character) > 0);
 
 	if (filteredCharacters.length > 0) {
 		console.error(
@@ -61,11 +63,7 @@ const apiPathIncludesOperationType = apiPath => {
 		operationType => apiPath.indexOf(operationType) === 0
 	);
 
-	if (filteredOperationTypes.length > 0) {
-		return true;
-	}
-
-	return false;
+	return filteredOperationTypes.length > 0;
 };
 
 /**
@@ -98,38 +96,37 @@ async function _ApiRequest(apiPath, apiRequestParams) {
 
 		try {
 			const _ = await loadSwaggerData();
-
-			const { method, url } = getApiRequirements(apiPath);
-			const { body: data, query, path } = apiRequestParams;
-
-			let updatedApiPath = url;
-
-			if (query) {
-				updatedApiPath = `${updatedApiPath}?${QueryString.stringify(query)}`;
-			}
-
-			if (path) {
-				updatedApiPath = Object.keys(path).reduce((reduction, key) => {
-					if (reduction.indexOf(`{${key}}`) >= 0) {
-						return reduction.replace(`{${key}}`, path[key]);
-					}
-
-					return reduction;
-				}, updatedApiPath);
-			}
-
-			return axiosInstance({
-				method,
-				url: updatedApiPath,
-				data,
-			});
 		} catch (error) {
 			//TODO: Need better error handling here
 			console.error("Couldn't load the swagger data. Please try again.", error);
 			return Promise.reject(error);
 		}
-
 		// end try-catch
+
+		const { method, url } = getApiRequirements(apiPath);
+		const { body: data, query, path } = apiRequestParams;
+
+		let updatedApiPath = url;
+
+		if (query) {
+			updatedApiPath = `${updatedApiPath}?${QueryString.stringify(query)}`;
+		}
+
+		if (path) {
+			updatedApiPath = Object.keys(path).reduce((reduction, key) => {
+				if (reduction.indexOf(`{${key}}`) >= 0) {
+					return reduction.replace(`{${key}}`, path[key]);
+				}
+
+				return reduction;
+			}, updatedApiPath);
+		}
+
+		return axiosInstance({
+			method,
+			url: updatedApiPath,
+			data,
+		});
 	} else {
 		/**
 		 * This is when the dev has provided the type explicitly. We

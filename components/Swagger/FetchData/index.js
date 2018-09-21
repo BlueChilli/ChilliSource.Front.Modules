@@ -35,13 +35,12 @@ class FetchData extends React.Component {
 
 		// If Mock Mode
 		if (mockData) {
-			setTimeout(() => {
+			return setTimeout(() => {
 				this.setState(prevState => ({
 					data: mockData,
 					isFetching: false,
 				}));
 			}, 900);
-			return;
 		}
 
 		const { apiPath, pathArgs, queryArgs } = this.props;
@@ -50,30 +49,42 @@ class FetchData extends React.Component {
 			path: pathArgs,
 			query: queryArgs,
 		})
-			.then(response =>
+			.then(response => {
 				this.setState(prevState => ({
 					data: response.data,
 					isFetching: false,
 					error: undefined,
-				}))
-			)
-			.catch(error =>
+				}));
+			})
+			.catch(error => {
 				this.setState(prevState => ({
 					error: error,
 					isFetching: false,
 					data: undefined,
-				}))
-			);
+				}));
+			});
 	};
 
-	refetchData = this.setState(
-		prevState => ({
-			isFetching: true,
-			error: undefined,
-			data: undefined,
-		}),
-		this.fetchData
-	);
+	refetchData = () =>
+		this.setState(
+			prevState => ({
+				isFetching: true,
+				error: undefined,
+				data: undefined,
+			}),
+			this.fetchData
+		);
+
+	// shouldComponentUpdate(nextProps, nextState) {
+	// 	const propsHaveChanged = JSON.stringify(nextProps) !== JSON.stringify(this.props),
+	// 		hasFinishedApiRequest = this.state.isFetching === true && nextState.isFetching === false;
+
+	// 	if (propsHaveChanged || hasFinishedApiRequest) {
+	// 		return true;
+	// 	}
+
+	// 	return false;
+	// }
 
 	render() {
 		const { children } = this.props;
