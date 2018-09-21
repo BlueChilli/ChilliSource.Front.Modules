@@ -1,6 +1,5 @@
 /** Libraries */
 import QueryString from 'query-string';
-import { AxiosPromise } from 'axios';
 
 /** Helpers */
 import { axiosInstance, getApiRequirements, loadSwaggerData } from '../helpers';
@@ -95,7 +94,7 @@ async function _ApiRequest(apiPath, apiRequestParams) {
 		 */
 
 		try {
-			const _ = await loadSwaggerData();
+			await loadSwaggerData();
 		} catch (error) {
 			//TODO: Need better error handling here
 			console.error("Couldn't load the swagger data. Please try again.", error);

@@ -159,6 +159,23 @@ const DATA_TYPE = schemaItem => {
 };
 
 /**
+ * Retrieves the email data type, if any
+ * @param {object} schemaItem
+ *
+ * @returns {({feature:string, validation: string} | undefined)}
+ */
+const EMAIL_ADDRESS = schemaItem => {
+	if (!schemaItem || schemaItem['x-sys-EmailAddress'] !== undefined) {
+		return {
+			feature: `email`,
+			validation: 'email',
+		};
+	}
+
+	return undefined;
+};
+
+/**
  * Retrieves the phone number data type, if any
  * @param {object} schemaItem
  *

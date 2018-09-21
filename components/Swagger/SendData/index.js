@@ -92,13 +92,14 @@ class SendData extends React.Component {
 
 	render() {
 		const { children } = this.props;
+		const formName = `form-${Math.floor(Math.random() * 10 + 9)}`;
 
 		if (!children) {
-			return <Form onSubmit={this.handleSubmit} />;
+			return <Form form={formName} onSubmit={this.handleSubmit} />;
 		}
 
 		return (
-			<Form onSubmit={this.handleSubmit}>
+			<Form form={formName} onSubmit={this.handleSubmit}>
 				{React.Children.map(children, (child, key) =>
 					React.cloneElement(child, {
 						key,
