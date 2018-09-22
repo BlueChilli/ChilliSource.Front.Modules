@@ -1,6 +1,7 @@
 /** Libraries */
 import React, { Validator } from 'react';
 import { AxiosPromise } from 'axios';
+import { ConfigProps } from 'redux-form';
 
 export = Swagger;
 export as namespace Swagger;
@@ -49,14 +50,14 @@ declare namespace Swagger {
 		path?: Object;
 	}
 
-	const ApiRequest = {
-		Base: (apiPath: string, apiRequestParams: ApiRequestParams) => AxiosPromise,
-		Get: (apiPath: string, apiRequestParams: GetRequestParams) => AxiosPromise,
-		Post: (apiPath: string, apiRequestParams: PostRequestParams) => AxiosPromise,
-		Patch: (apiPath: string, apiRequestParams: PatchRequestParams) => AxiosPromise,
-		Put: (apiPath: string, apiRequestParams: PutRequestParams) => AxiosPromise,
-		Delete: (apiPath: string, apiRequestParams: DeleteRequestParams) => AxiosPromise,
-	};
+	class ApiRequest {
+		Base: (apiPath: string, apiRequestParams: ApiRequestParams) => AxiosPromise;
+		Get: (apiPath: string, apiRequestParams: GetRequestParams) => AxiosPromise;
+		Post: (apiPath: string, apiRequestParams: PostRequestParams) => AxiosPromise;
+		Patch: (apiPath: string, apiRequestParams: PatchRequestParams) => AxiosPromise;
+		Put: (apiPath: string, apiRequestParams: PutRequestParams) => AxiosPromise;
+		Delete: (apiPath: string, apiRequestParams: DeleteRequestParams) => AxiosPromise;
+	}
 
 	/**
 	 * General
@@ -67,8 +68,9 @@ declare namespace Swagger {
 	}
 
 	type FetchDataRenderFunction = (
-		data: {
+		response: {
 			isFetching?: boolean;
+			hasFetchedSuccessfully?: boolean;
 			data?: any;
 			error?: any;
 		},
@@ -79,10 +81,19 @@ declare namespace Swagger {
 	interface GeneralApiProps {
 		/**
 		 * This is the API path to fetch data from.
-		 * If it needs a path arg or query arg, insert
-		 * it using a template string like below:
+		 * If it needs a path arg or query arg, there are
+		 * two ways to do so.
+		 *
+		 * 1. Insert it using a template string like below:
 		 *
 		 * `/user/account/${id}?type=${type}`
+		 *
+		 * 2. Provide the full path likw below:
+		 * `post/user/account/{id}`
+		 * and specify `pathArgs` & `queryArgs`.
+		 *
+		 * If you mix and match, the component will definitely
+		 * throw an error.
 		 */
 		apiPath: string;
 		pathArgs?: Object;
@@ -93,13 +104,13 @@ declare namespace Swagger {
 		 * test your component. Supplies
 		 */
 		mockData?: Object;
+		modifier?: (value: any) => any;
 	}
 
 	/**
 	 * FetchData
 	 */
 	interface FetchDataProps extends GeneralApiProps {
-		modifier?: (value: Object) => any;
 		children: React.ReactNode | FetchDataRenderFunction;
 	}
 
@@ -109,19 +120,18 @@ declare namespace Swagger {
 	 * SendData
 	 */
 	type SendDataRenderFunction = (
-		data: {
-			isSending?: boolean;
+		response: {
+			isSending: boolean;
+			hasSentSuccessfully?: boolean;
 			data?: any;
 			error?: any;
 		},
-		modifiedData: undefined | object,
-		options: Options
+		modifiedData: undefined | object
 	) => React.ReactNode;
 
-	interface SendDataProps extends GeneralApiProps {
+	interface SendDataProps extends GeneralApiProps, ConfigProps {
 		data?: Object;
 		type?: 'PUT' | 'POST' | 'DELETE' | 'PATCH';
-		children: React.ReactNode | SendDataRenderFunction;
 	}
 
 	class SendData extends React.Component<SendDataProps> {}

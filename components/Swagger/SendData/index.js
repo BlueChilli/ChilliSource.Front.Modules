@@ -1,13 +1,15 @@
 /** Libraries */
 import React from 'react';
-import { reduxForm } from 'redux-form';
+// eslint-disable-next-line
+import { reduxForm, ConfigProps } from 'redux-form';
+import camelCase from 'lodash/camelCase';
 
 /** Helpers */
 import ApiRequest from '../ApiRequest/';
 
-const Form = reduxForm({
-	enableReinitialize: true,
-})(props => {
+const defaultModifier = value => value;
+
+const Form = reduxForm()(props => {
 	const { handleSubmit, children, submitting } = props;
 
 	return (
@@ -29,7 +31,7 @@ const Form = reduxForm({
 
 /**
  * @class SendData
- * @augments React.Component<SendDataProps, {isSending: boolean, data: any, error: any, hasSentSuccessfully?: boolean}>
+ * @augments React.Component<SendDataProps & ConfigProps, {isSending: boolean, data: any, error: any, hasSentSuccessfully?: boolean}>
  */
 class SendData extends React.Component {
 	state = {
@@ -66,12 +68,19 @@ class SendData extends React.Component {
 
 		const { apiPath, pathArgs, queryArgs, type } = this.props;
 
-		return ApiRequest.Base(apiPath, {
-			body: values,
-			method: type,
-			path: pathArgs,
-			query: queryArgs,
-		})
+		return Promise.resolve(
+			this.setState(prevState => ({
+				isSending: true,
+			}))
+		)
+			.then(_ =>
+				ApiRequest.Base(apiPath, {
+					body: values,
+					method: type,
+					path: pathArgs,
+					query: queryArgs,
+				})
+			)
 			.then(response =>
 				this.setState(prevState => ({
 					hasSentSuccessfully: true,
@@ -91,18 +100,35 @@ class SendData extends React.Component {
 	};
 
 	render() {
-		const { children } = this.props;
-		const formName = `form-${Math.floor(Math.random() * 10 + 9)}`;
+		const { apiPath } = this.props;
 
-		if (!children) {
-			return <Form form={formName} onSubmit={this.handleSubmit} />;
+		if (!apiPath) {
+			throw new Error('apiPath is marked as required while using SendData.');
 		}
 
+		const { children, modifier = defaultModifier, ...remainingAttributes } = this.props;
+		const { data, error, isSending, hasSentSuccessfully } = this.state;
+
+		const modifiedData = data ? modifier(data) : undefined;
+
 		return (
-			<Form form={formName} onSubmit={this.handleSubmit}>
-				{React.Children.map(children, (child, key) =>
-					React.cloneElement(child, {
-						key,
+			<Form form={camelCase(apiPath)} onSubmit={this.handleSubmit} {...remainingAttributes}>
+				{!children ? (
+					<noscript />
+				) : typeof children === 'function' ? (
+					children(data, modifiedData)
+				) : (
+					React.Children.map(children, (child, key) => {
+						return React.cloneElement(child, {
+							key,
+							response: {
+								data,
+								error,
+								isSending,
+								hasSentSuccessfully,
+							},
+							modifiedData,
+						});
 					})
 				)}
 			</Form>

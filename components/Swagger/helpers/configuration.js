@@ -13,11 +13,7 @@ export const getApiKey = () => {
 		return process.env.REACT_APP_API_KEY;
 	}
 
-	if (!baseUrl) {
-		console.error(
-			'API key is not defined. Please check your .env-cmdrc file for REACT_APP_API_KEY'
-		);
-	}
+	console.error('API key is not defined. Please check your .env-cmdrc file for REACT_APP_API_KEY');
 	return undefined;
 };
 
@@ -26,16 +22,13 @@ export const getBaseURL = () => {
 		return process.env.STORYBOOK_BASE_URL;
 	}
 
-	if (process.env.REACT_APP_BASE_API_URL) {
-		return process.env.REACT_APP_BASE_API_URL;
+	if (process.env.REACT_APP_BASE_URL) {
+		return process.env.REACT_APP_BASE_URL;
 	}
 
-	if (!baseUrl) {
-		console.error(
-			'Base URL for API requests is not defined. Please check your .env-cmdrc file for REACT_APP_BASE_URL'
-		);
-	}
-
+	console.error(
+		'Base URL for API requests is not defined. Please check your .env-cmdrc file for REACT_APP_BASE_URL'
+	);
 	return undefined;
 };
 
@@ -52,12 +45,13 @@ export const getApiURL = () => {
 		return process.env.REACT_APP_BASE_API_URL;
 	}
 
-	if (!baseUrl) {
-		console.error(
-			'Base URL for API requests is not defined. Please check your .env-cmdrc file for REACT_APP_BASE_URL'
-		);
+	if (process.env.REACT_APP_API_EXTENSION && process.env.REACT_APP_BASE_URL) {
+		return `${process.env.REACT_APP_BASE_URL}${process.env.REACT_APP_API_EXTENSION}`;
 	}
 
+	console.error(
+		'URL for API requests is not defined. Please check your .env-cmdrc file & ensure REACT_APP_BASE_URL & REACT_APP_API_EXTENSION or REACT_APP_API_URL'
+	);
 	return undefined;
 };
 
