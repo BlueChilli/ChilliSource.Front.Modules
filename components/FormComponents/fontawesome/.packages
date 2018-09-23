@@ -3,6 +3,3 @@
 @fortawesome/react-fontawesome@prerelease
 @fortawesome/free-solid-svg-icons@prerelease
 @fortawesome/fontawesome-svg-core@prerelease
-react-show@^2.0.4
-classnames
-valid-url

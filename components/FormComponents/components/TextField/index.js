@@ -3,8 +3,7 @@ import React from 'react';
 import { Field } from 'redux-form';
 
 /** Components */
-import FormElementWrapper from '../../helpers/FormElementWrapper';
-import Error from '../../General/Error';
+import { Wrapper, Error } from '../../general/';
 
 const suppressReturn = event => {
 	if (event.keyCode === 13) {
@@ -71,7 +70,7 @@ const renderInputField = field => {
 	const invalid = touched && error;
 
 	return (
-		<FormElementWrapper className={className} _id="fe-textfield">
+		<Wrapper className={className} _id="fe-textfield">
 			{/* Label */}
 			{getLabel(label, required, moreInfo)}
 
@@ -104,7 +103,7 @@ const renderInputField = field => {
 
 			{/* Error */}
 			<Error invalid={invalid} error={error} />
-		</FormElementWrapper>
+		</Wrapper>
 	);
 };
 

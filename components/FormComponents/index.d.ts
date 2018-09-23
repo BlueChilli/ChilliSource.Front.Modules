@@ -5,6 +5,7 @@ export = FormComponents;
 export as namespace FormComponents;
 
 declare namespace FormComponents {
+	/** Interfaces */
 	interface GeneralFieldProps {
 		/**
 		 * Allows you to to provide a field-level validation rule. The
@@ -356,26 +357,36 @@ declare namespace FormComponents {
 		minSize?: number;
 	}
 
-	/**
-	 * Exports
-	 */
-	export class TextField extends React.Component<TextFieldProps> {}
+	/** Components */
+	class TextField extends React.Component<TextFieldProps> {}
 
-	export class TextArea extends React.Component<TextAreaProps> {}
+	class TextArea extends React.Component<TextAreaProps> {}
 
-	export class Select extends React.Component<SelectProps> {}
+	class Select extends React.Component<SelectProps> {}
 
-	export class MultiSelect extends React.Component<MultiSelectProps> {}
+	class MultiSelect extends React.Component<MultiSelectProps> {}
 
-	export class Checkbox extends React.Component<CheckboxProps> {}
+	class Checkbox extends React.Component<CheckboxProps> {}
 
-	export class Checkboxes extends React.Component<CheckboxesProps> {}
+	class Checkboxes extends React.Component<CheckboxesProps> {}
 
-	export class Radio extends React.Component<RadioProps> {}
+	class Radio extends React.Component<RadioProps> {}
 
-	export class Radios extends React.Component<RadiosProps> {}
+	class Radios extends React.Component<RadiosProps> {}
 
-	export class CalendarPicker extends React.Component<CalendarPickerProps> {}
+	class CalendarPicker extends React.Component<CalendarPickerProps> {}
 
-	export class Dropzone extends React.Component<DropzoneProps> {}
+	class Dropzone extends React.Component<DropzoneProps> {}
+
+	/** Validators */
+	class Validators {
+		validateEmail: (email?: string) => undefined | string;
+		validateConfirmPassword: (confirmPassword?: string, allFormValues: any) => undefined | string;
+		validateMaximumLength: (maxLength: number) => (value?: string) => undefined | string;
+		validateMinimumLength: (minLength: number) => (value?: string) => undefined | string;
+		validateRequired: (value?: string) => undefined | string;
+		validateValueIsUrlOfType: (
+			type: 'HTTP' | 'HTTPS' | 'URI_STANDARD'
+		) => (value?: string) => undefined | string;
+	}
 }

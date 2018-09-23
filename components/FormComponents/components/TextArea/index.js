@@ -3,14 +3,13 @@ import React from 'react';
 import { Field } from 'redux-form';
 
 /** Components */
-import FormElementWrapper from '../../helpers/FormElementWrapper';
-import Error from '../../General/Error';
+import { Wrapper, Error } from '../../general/';
 
 const renderTextArea = field => {
 	const {
 		input,
 		className,
-		meta: { pristine, error },
+		meta: { touched, error },
 		placeholder,
 		label,
 		helperText,
@@ -23,10 +22,10 @@ const renderTextArea = field => {
 		resize = 'none',
 	} = field;
 
-	const invalid = !pristine && error;
+	const invalid = touched && error;
 
 	return (
-		<FormElementWrapper className={className}>
+		<Wrapper className={className}>
 			{/* Label */}
 			{label && (
 				<div className="form-label">
@@ -65,12 +64,8 @@ const renderTextArea = field => {
 				)}
 
 			{/* Error */}
-			{invalid && (
-				<div className="form-error">
-					<Error invalid={invalid}>{error}</Error>
-				</div>
-			)}
-		</FormElementWrapper>
+			<Error invalid={invalid} error={error} />
+		</Wrapper>
 	);
 };
 

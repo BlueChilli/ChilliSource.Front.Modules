@@ -161,4 +161,11 @@
 			}
 		}
 	}
+
+	// Form Error
+	.form-error {
+		p {
+			color: $errorColor;
+		}
+	}
 }

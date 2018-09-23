@@ -1,19 +1,44 @@
-export { default as TextField } from './components/TextField';
+/** Helpers */
+import {
+	validateEmail,
+	validateConfirmPassword,
+	validateMaximumLength,
+	validateMinimumLength,
+	validateRequired,
+	validateValueIsUrlOfType,
+} from './Validators/';
 
-export { default as TextArea } from './components/TextArea';
+/** Components */
+import TextField from './components/TextField';
+import TextArea from './components/TextArea';
+import Select from './components/Select';
+import Radios from './components/Radios';
+import Radio from './components/Radio';
+import MultiSelect from './components/MultiSelect';
+import Dropzone from './components/Dropzone';
+import Checkboxes from './components/Checkboxes';
+import Checkbox from './components/Checkbox';
+import CalendarPicker from './components/CalendarPicker';
 
-export { default as Select } from './components/Select';
+const FormComponents = {
+	TextField,
+	TextArea,
+	Select,
+	MultiSelect,
+	Checkbox,
+	Checkboxes,
+	Radio,
+	Radios,
+	CalendarPicker,
+	Dropzone,
+	Validators: {
+		validateEmail,
+		validateConfirmPassword,
+		validateMaximumLength,
+		validateMinimumLength,
+		validateRequired,
+		validateValueIsUrlOfType,
+	},
+};
 
-export { default as Radios } from './components/Radios';
-
-export { default as Radio } from './components/Radio';
-
-export { default as MultiSelect } from './components/MultiSelect';
-
-export { default as Dropzone } from './components/Dropzone';
-
-export { default as Checkboxes } from './components/Checkboxes';
-
-export { default as Checkbox } from './components/Checkbox';
-
-export { default as CalendarPicker } from './components/CalendarPicker';
+export default FormComponents;

@@ -3,8 +3,7 @@ import React from 'react';
 import { Field } from 'redux-form';
 
 /** Components */
-import FormElementWrapper from '../../helpers/FormElementWrapper';
-import Error from '../../General/Error';
+import { Wrapper, Error } from '../../general/';
 
 const renderCheckbox = field => {
 	const {
@@ -12,16 +11,16 @@ const renderCheckbox = field => {
 		label,
 		className,
 		required,
-		meta: { pristine, error },
+		meta: { touched, error },
 		icons,
 	} = field;
 
 	const handleChange = event => input.onChange(event);
 
-	const invalid = !pristine && error;
+	const invalid = touched && error;
 
 	return (
-		<FormElementWrapper className={className}>
+		<Wrapper className={className}>
 			{/* Checkbox */}
 			<div className={`form-input ${input.checked ? 'selected' : ''} ${invalid ? 'error' : ''}`}>
 				<input
@@ -46,12 +45,8 @@ const renderCheckbox = field => {
 			</div>
 
 			{/* Error */}
-			{invalid && (
-				<div className="form-error">
-					<Error invalid={invalid}>{error}</Error>
-				</div>
-			)}
-		</FormElementWrapper>
+			<Error invalid={invalid} error={error} />
+		</Wrapper>
 	);
 };
 

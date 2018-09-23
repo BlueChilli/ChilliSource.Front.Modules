@@ -4,8 +4,7 @@ import { DropdownList } from 'react-widgets';
 import { Field } from 'redux-form';
 
 /** Components */
-import FormElementWrapper from '../../helpers/FormElementWrapper';
-import Error from '../../General/Error';
+import { Wrapper, Error } from '../../general/';
 
 const renderSelect = field => {
 	const {
@@ -14,14 +13,14 @@ const renderSelect = field => {
 		className,
 		helperText,
 		helperTextPosition = 'top',
-		meta: { pristine, error },
+		meta: { touched, error },
 		...remainingAttributes
 	} = field;
 
-	const invalid = !pristine && error;
+	const invalid = touched && error;
 
 	return (
-		<FormElementWrapper className={className}>
+		<Wrapper className={className}>
 			{/* Label */}
 			{label && (
 				<div className="form-label">
@@ -51,12 +50,8 @@ const renderSelect = field => {
 				)}
 
 			{/* Error */}
-			{invalid && (
-				<div className="form-error">
-					<Error invalid={invalid}>{error}</Error>
-				</div>
-			)}
-		</FormElementWrapper>
+			<Error invalid={invalid} error={error} />
+		</Wrapper>
 	);
 };
 

@@ -1,6 +1,6 @@
 # Account
 
-This module is used to handle all the `Account` related things. It contains of one singular component - `Account`.
+This module is used to handle all the `Account` related things. It contains of one singular mod - `Account`.
 
 <br>
 
@@ -9,13 +9,13 @@ This module is used to handle all the `Account` related things. It contains of o
 1. In your `App.js` file:
 
 ```js
-import Account from ../modules/Account
+import Account from '../modules/Account';
 ```
 
 Then, inside the `chillifront` wrapper's first argument - array of `Mod` - insert it anywhere like so:
 
 ```js
-new AccountMod();
+new Account();
 ```
 
 This `Mod` contains the reducers for account management and redux state. If you would like to modify them, you can modify them right in the file and they'll update instantly.

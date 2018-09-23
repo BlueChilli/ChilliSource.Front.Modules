@@ -3,8 +3,7 @@ import React from 'react';
 import { Field } from 'redux-form';
 
 /** Components */
-import FormElementWrapper from '../../helpers/FormElementWrapper';
-import Error from '../../General/Error';
+import { Wrapper, Error } from '../../general/';
 
 /** Radio */
 const renderRadio = field => {
@@ -13,14 +12,14 @@ const renderRadio = field => {
 		label,
 		className,
 		required,
-		meta: { pristine, error },
+		meta: { touched, error },
 	} = field;
 
 	const handleChange = event => input.onChange(event);
-	const invalid = !pristine && error;
+	const invalid = touched && error;
 
 	return (
-		<FormElementWrapper className={className}>
+		<Wrapper className={className}>
 			{/* Radio */}
 			<div className={`form-input ${invalid && 'error'}`}>
 				<input
@@ -35,12 +34,8 @@ const renderRadio = field => {
 			</div>
 
 			{/* Error */}
-			{invalid && (
-				<div className="form-error">
-					<Error invalid={invalid}>{error}</Error>
-				</div>
-			)}
-		</FormElementWrapper>
+			<Error invalid={invalid} error={error} />
+		</Wrapper>
 	);
 };
 

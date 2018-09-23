@@ -4,8 +4,7 @@ import DropZone from 'react-dropzone';
 import { Field } from 'redux-form';
 
 /** Components */
-import FormElementWrapper from '../../helpers/FormElementWrapper';
-import Error from '../../General/Error';
+import { Wrapper, Error } from '../../general/';
 
 /** Class RenderDropzone */
 class RenderDropzone extends React.Component {
@@ -26,7 +25,7 @@ class RenderDropzone extends React.Component {
 	render() {
 		const {
 			input: { name, value },
-			meta: { error, pristine },
+			meta: { error, touched },
 			placeholder = 'Upload a photo',
 			label,
 			helperText,
@@ -39,10 +38,10 @@ class RenderDropzone extends React.Component {
 			maxSize,
 		} = this.props;
 
-		const invalid = !pristine && error;
+		const invalid = touched && error;
 
 		return (
-			<FormElementWrapper className={className} _id="fe-textfield">
+			<Wrapper className={className} _id="fe-textfield">
 				{/* Label */}
 				{label && (
 					<div className="form-label">
@@ -141,12 +140,8 @@ class RenderDropzone extends React.Component {
 					)}
 
 				{/* Error */}
-				{invalid && (
-					<div className="form-error">
-						<Error invalid={invalid}>{error}</Error>
-					</div>
-				)}
-			</FormElementWrapper>
+				<Error invalid={invalid} error={error} />
+			</Wrapper>
 		);
 	}
 }

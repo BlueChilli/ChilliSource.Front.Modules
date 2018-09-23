@@ -1,12 +1,11 @@
 /** Libraries */
 import React from 'react';
-import kebabCase from 'lodash/kebabCase';
 
 /** Components */
-import FormElementWrapper from '../../helpers/FormElementWrapper';
-import Checkbox from '../Checkbox';
+import { Wrapper } from '../../general/';
+import Radio from '../Radio';
 
-class Checkboxes extends React.Component {
+class Radios extends React.Component {
 	getFormattedOptions = () => {
 		const { options } = this.props;
 
@@ -68,11 +67,11 @@ class Checkboxes extends React.Component {
 			position,
 			flow,
 			optionWidth,
-			icons,
+			required = false,
 		} = this.props;
 
 		return (
-			<FormElementWrapper className={className}>
+			<Wrapper className={className}>
 				{/* Label */}
 				{label && (
 					<div className="form-label">
@@ -88,38 +87,35 @@ class Checkboxes extends React.Component {
 						</div>
 					)}
 
-				{/* Checkboxes */}
+				{/* Radios */}
 				<div
-					className={`checkboxes flex ${position === 'vertical' ? 'col' : ''} ${
+					className={`radios flex ${position === 'vertical' ? 'col' : ''} ${
 						flow && flow === 'wrap' ? 'wrap' : ''
 					}`}>
 					{this.getFormattedOptions().map((option, index) => {
-						const checkboxProps = {
-							name: `${name}.${kebabCase(option.value)}`,
-							className: this.isOptionWidthValid() ? `width-${optionWidth}` : '',
-							key: `${name}-${index}`,
-							label: option.label,
-							value: option.value,
-						};
-
-						if (icons) {
-							return <Checkbox {...checkboxProps} icons={icons[index]} />;
-						}
-
-						return <Checkbox {...checkboxProps} />;
+						return (
+							<Radio
+								name={name}
+								className={this.isOptionWidthValid() ? `width-${optionWidth}` : ''}
+								key={`${name}-${index}`}
+								label={option.label}
+								value={option.value}
+								required={required}
+							/>
+						);
 					})}
-				</div>
 
-				{/* Helper Text */}
-				{helperText &&
-					helperTextPosition === 'bottom' && (
-						<div className="form-helper margin-top-1">
-							<p className="helper-text bottom">{helperText}</p>
-						</div>
-					)}
-			</FormElementWrapper>
+					{/* Helper Text */}
+					{helperText &&
+						helperTextPosition === 'bottom' && (
+							<div className="form-helper margin-top-1">
+								<p className="helper-text bottom">{helperText}</p>
+							</div>
+						)}
+				</div>
+			</Wrapper>
 		);
 	}
 }
 
-export default Checkboxes;
+export default Radios;

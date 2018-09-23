@@ -7,11 +7,9 @@ import { Field } from 'redux-form';
 import onClickOutside from 'react-onclickoutside';
 
 /** Components */
-import FormElementWrapper from '../../helpers/FormElementWrapper';
-import Error from '../../General/Error';
+import { Wrapper, Error } from '../../general/';
 
 /** Initialisation */
-// Moment.locale('en-au');
 momentLocalizer();
 const defaultCurrentDate = new Date();
 defaultCurrentDate.setHours(0, 0, 0, 0);
@@ -66,7 +64,7 @@ class Picker extends React.Component {
 		const invalid = touched && error;
 
 		return (
-			<FormElementWrapper className={className}>
+			<Wrapper className={className}>
 				{/* Label */}
 				{label && (
 					<div className="form-label">
@@ -137,7 +135,7 @@ class Picker extends React.Component {
 
 				{/* Error */}
 				<Error invalid={invalid} error={error} />
-			</FormElementWrapper>
+			</Wrapper>
 		);
 	}
 }
