@@ -1,6 +1,6 @@
 /** Libraries */
 import React, { Validator } from 'react';
-import { AxiosPromise } from 'axios';
+import { AxiosPromise, AxiosRequestConfig } from 'axios';
 import { ConfigProps } from 'redux-form';
 
 export = Swagger;
@@ -10,7 +10,7 @@ declare namespace Swagger {
 	type Method = 'get' | 'put' | 'post' | 'patch' | 'delete';
 
 	/** General Base Request */
-	interface ApiRequestParams {
+	interface ApiRequestParams extends AxiosRequestConfig {
 		query?: Object;
 		path?: Object;
 		body?: Object;

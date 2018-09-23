@@ -1,5 +1,7 @@
 /** Libraries */
 import QueryString from 'query-string';
+// eslint-disable-next-line
+import { AxiosRequestConfig } from 'axios';
 
 /** Helpers */
 import { axiosInstance, getApiRequirements, loadSwaggerData } from '../helpers';
@@ -66,7 +68,7 @@ const apiPathIncludesOperationType = apiPath => {
 };
 
 /**
- * @typedef ApiRequestParams
+ * @typedef {AxiosRequestConfig} ApiRequestParams
  * @property {Object} [query]
  * @property {Object} [path]
  * @property {Object} [body]
@@ -103,7 +105,7 @@ async function _ApiRequest(apiPath, apiRequestParams) {
 		// end try-catch
 
 		const { method, url } = getApiRequirements(apiPath);
-		const { body: data, query, path } = apiRequestParams;
+		const { body: data, query, path, ...remainingAttributes } = apiRequestParams;
 
 		let updatedApiPath = url;
 
@@ -125,6 +127,7 @@ async function _ApiRequest(apiPath, apiRequestParams) {
 			method,
 			url: updatedApiPath,
 			data,
+			...remainingAttributes,
 		});
 	} else {
 		/**
@@ -143,7 +146,7 @@ async function _ApiRequest(apiPath, apiRequestParams) {
 			});
 		}
 
-		const { method, body: data } = apiRequestParams;
+		const { method, body: data, ...remainingAttributes } = apiRequestParams;
 
 		if (!method) {
 			return Promise.reject({
@@ -160,6 +163,7 @@ async function _ApiRequest(apiPath, apiRequestParams) {
 			method,
 			url: apiPath,
 			data,
+			...remainingAttributes,
 		});
 	}
 }
