@@ -60,7 +60,7 @@ class Chapters extends React.Component {
 
 <br />
 
-## 2. Providing a child render function
+## Providing a child render function
 
 This method consist of providing a function that'll render once the request has been completed.
 
@@ -72,6 +72,7 @@ This method consist of providing a function that'll render once the request has 
 	{(response, modifiedData, options) => {
 
     // IT IS IMPORTANT TO RETURN A VALID REACT NODE
+    // AT ALL TIMES
     return ...
   }}
 </FetchData>
@@ -85,6 +86,7 @@ You can use it follows
 <FetchData apiPath="/chapters" type="GET">
 	{(response, modifiedData, options) => {
 		// IT IS IMPORTANT TO RETURN A VALID REACT NODE
+		// AT ALL TIMES
 		return <button onClick={options.refresh}>Re-fetch Data</button>;
 	}}
 </FetchData>
