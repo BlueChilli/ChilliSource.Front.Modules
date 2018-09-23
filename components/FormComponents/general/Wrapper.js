@@ -7,7 +7,7 @@ import React from 'react';
  */
 class Wrapper extends React.Component {
 	render() {
-		const { className, children } = props;
+		const { className, children } = this.props;
 
 		return <div className={`form-element ${className ? className : ''}`}>{children}</div>;
 	}

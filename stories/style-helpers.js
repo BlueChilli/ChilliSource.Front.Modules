@@ -13,9 +13,10 @@ import {
 	CalendarPicker,
 	Select,
 	MultiSelect,
-	Dropzone,
-} from '../components/FormComponents/';
-import Swagger from '../components/Swagger';
+} from '../components/FormComponents';
+
+import {} from '../components/FormComponents';
+import SwaggerView from '../components/Swagger/View/SwaggerView';
 
 import { DemoFormDecorator } from './helpers/';
 
@@ -77,26 +78,7 @@ storiesOf('Style Helpers', module)
 			</React.Fragment>
 		);
 	})
-	.add('Swagger', () => {
-		return (
-			<React.Fragment>
-				<h1>Swagger</h1>
-
-				<Swagger.FetchData apiPath="/chapters">
-					{(data, modifiedData, options) => <noscript />}
-				</Swagger.FetchData>
-
-				<Swagger.FetchData
-					apiPath="get/api/v1/chapters/{chapterId}/lessons/{id}"
-					pathArgs={{ id: 145, chapterId: 21 }}>
-					{(data, options) => {
-						console.log('Fetch data', data);
-						return <noscript />;
-					}}
-				</Swagger.FetchData>
-			</React.Fragment>
-		);
-	})
+	.add('Swagger', () => <SwaggerView />)
 	.addDecorator(getStory => <DemoFormDecorator story={getStory()} />)
 	.add('Form Components', () => {
 		return (

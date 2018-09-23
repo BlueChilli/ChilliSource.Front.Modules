@@ -6,7 +6,7 @@ import {
 	validateMinimumLength,
 	validateRequired,
 	validateValueIsUrlOfType,
-} from './Validators/';
+} from './validators/';
 
 /** Components */
 import TextField from './components/TextField';
@@ -20,25 +20,25 @@ import Checkboxes from './components/Checkboxes';
 import Checkbox from './components/Checkbox';
 import CalendarPicker from './components/CalendarPicker';
 
-const FormComponents = {
+class Validators {
+	validateEmail;
+	validateConfirmPassword;
+	validateMaximumLength;
+	validateMinimumLength;
+	validateRequired;
+	validateValueIsUrlOfType;
+}
+
+export {
 	TextField,
 	TextArea,
 	Select,
 	MultiSelect,
-	Checkbox,
-	Checkboxes,
 	Radio,
 	Radios,
-	CalendarPicker,
+	Checkbox,
+	Checkboxes,
 	Dropzone,
-	Validators: {
-		validateEmail,
-		validateConfirmPassword,
-		validateMaximumLength,
-		validateMinimumLength,
-		validateRequired,
-		validateValueIsUrlOfType,
-	},
+	CalendarPicker,
+	Validators,
 };
-
-export default FormComponents;

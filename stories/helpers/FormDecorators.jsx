@@ -5,7 +5,7 @@ import { compose } from 'redux';
 import { reduxForm } from 'redux-form';
 import { action } from '@storybook/addon-actions';
 import './storybook.css';
-import { SubmitButton } from '../../components/FormComponents/General/SubmitButton';
+import { SubmitButton } from '../../components/FormComponents/general';
 
 let PristineForm = props => {
 	const { handleSubmit, story } = props;

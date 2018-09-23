@@ -71,8 +71,6 @@ class Checkboxes extends React.Component {
 			icons,
 		} = this.props;
 
-		const invalid = touched && error;
-
 		return (
 			<Wrapper className={className}>
 				{/* Label */}
