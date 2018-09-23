@@ -7,6 +7,7 @@
 - [Centered Component](centeredcomponent.md)
 - [Portal Modal](portalmodal.md)
 - [Account](account.md)
+- [Swagger](Swagger/index.md)
 
 ## Undocumented
 

@@ -4,12 +4,12 @@ We have pre-written basic form components, derived from [`redux-form`](https://r
 
 We provide the following components(_more to come_);
 
-- [`TextField`](components/TextField/index.md)
-- [`TextArea`](components/TextArea/index.md)
-- [`Radio`](components/Radio/index.md)
-- [`Radios`](components/Radios/index.md)
-- [`Checkbox`](components/Checkbox/index.md)
-- [`Checkboxes`](components/Checkboxes/index.md)
-- [`Select`](components/Select/index.md)
-- [`MultiSelect`](components/MultiSelect/index.md)
-- [`CalendarPicker`](components/CalendarPicker/index.md)
+- [`TextField`](components/TextField.md)
+- [`TextArea`](components/TextArea.md)
+- [`Radio`](components/Radio.md)
+- [`Radios`](components/Radios.md)
+- [`Checkbox`](components/Checkbox.md)
+- [`Checkboxes`](components/Checkboxes.md)
+- [`Select`](components/Select.md)
+- [`MultiSelect`](components/MultiSelect.md)
+- [`CalendarPicker`](components/CalendarPicker.md)
