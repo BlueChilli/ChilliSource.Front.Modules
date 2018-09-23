@@ -79,7 +79,18 @@ This method consist of providing a function that'll render once the request has 
 > This method causes your provided function to be called every time it is re-rendered. > If you are going to be rendering something complex, you'd be better off using the > method above where you can have more control over rendering.
 
 ```js
-<SendData apiPath="/account/login" type="POST">
+<SendData apiPath="/user/current" type="PUT">
+	{(response, modifiedData) => {
+
+    // IT IS IMPORTANT TO RETURN A VALID REACT NODE
+    // AT ALL TIMES
+    return ...
+  }}
+</SendData>
+```
+
+```js
+<SendData apiPath="put/api/v1/user/current">
 	{(response, modifiedData) => {
 
     // IT IS IMPORTANT TO RETURN A VALID REACT NODE

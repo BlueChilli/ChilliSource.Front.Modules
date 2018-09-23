@@ -244,22 +244,7 @@ ApiRequest.Post("/account/login", {
 ### Basic with path args
 
 ```js
-ApiRequest.Get("/chapters/{chapterId}/lessons/{id}", {
-            path: {
-              chapterId: 27,
-              id: 149
-            }
-          })
-          .then(response => ...)
-          .catch(error => ...)
-```
-
-```js
-ApiRequest.Post("/chapters/{chapterId}/lessons/{id}", {
-            path: {
-              chapterId: 27,
-              id: 149
-            },
+ApiRequest.Post("/chapters/27/lessons/149", {
             body: {
               completed: true
             }
@@ -273,15 +258,7 @@ ApiRequest.Post("/chapters/{chapterId}/lessons/{id}", {
 ### Basic with path & query args
 
 ```js
-ApiRequest.Delete("/group/{groupId}/users/{id}", {
-            path: {
-              groupId: 32,
-              id: 12
-            },
-            query: {
-              summary: true
-            }
-          })
+ApiRequest.Delete("/group/32/users/12?summary=true")
           .then(response => ...)
           .catch(error => ...)
 ```

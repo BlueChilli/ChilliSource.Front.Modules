@@ -68,7 +68,18 @@ This method consist of providing a function that'll render once the request has 
 > This method causes your provided function to be called every time it is re-rendered. > If you are going to be rendering something complex, you'd be better off using the > method above where you can have more control over rendering.
 
 ```js
-<FetchData apiPath="/chapters" type="GET">
+<FetchData apiPath="/chapters/27/lessons/149">
+	{(response, modifiedData, options) => {
+
+    // IT IS IMPORTANT TO RETURN A VALID REACT NODE
+    // AT ALL TIMES
+    return ...
+  }}
+</FetchData>
+```
+
+```js
+<FetchData apiPath="get/api/v1/chapters/{chapterId}/lessons/{id}" pathArgs={{ chapterId: 27, id: 149 }}>
 	{(response, modifiedData, options) => {
 
     // IT IS IMPORTANT TO RETURN A VALID REACT NODE
@@ -83,7 +94,17 @@ The `response` and `modifiedData` objects are the same as in [method 1](#providi
 You can use it follows
 
 ```js
-<FetchData apiPath="/chapters" type="GET">
+<FetchData apiPath="/user/account?summary=true">
+	{(response, modifiedData, options) => {
+		// IT IS IMPORTANT TO RETURN A VALID REACT NODE
+		// AT ALL TIMES
+		return <button onClick={options.refresh}>Re-fetch Data</button>;
+	}}
+</FetchData>
+```
+
+```js
+<FetchData apiPath="get/api/v1/user/account" queryArgs={{ summary: true }}>
 	{(response, modifiedData, options) => {
 		// IT IS IMPORTANT TO RETURN A VALID REACT NODE
 		// AT ALL TIMES
