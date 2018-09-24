@@ -15,7 +15,6 @@ import {
 	MultiSelect,
 } from '../components/FormComponents';
 
-import {} from '../components/FormComponents';
 import SwaggerView from '../components/Swagger/View/SwaggerView';
 
 import { DemoFormDecorator } from './helpers/';
