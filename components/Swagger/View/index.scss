@@ -108,7 +108,7 @@ $deleteColor: #ff3b30;
 
 		p,
 		strong {
-			color: #000;
+			color: #4a4a4a;
 		}
 	}
 
@@ -267,5 +267,18 @@ $deleteColor: #ff3b30;
 				line-height: 32px;
 			}
 		}
+	}
+}
+
+// Alerts
+.s-alert-box {
+	border-radius: 4px;
+	top: 24px;
+	right: 24px;
+	padding: 16px 40px 16px 16px;
+
+	.s-alert-box-inner {
+		color: #fff;
+		font-weight: 600;
 	}
 }

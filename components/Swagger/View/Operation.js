@@ -71,12 +71,12 @@ class Operation extends React.Component {
 		return (
 			<Container style={{ marginTop: 8 }}>
 				<Row className={`operation ${method.toLowerCase()}`} onClick={this.toggleOperationDetails}>
-					<Col xs={2} className={`flex center method ${method.toLowerCase()}`}>
+					<Col xs={2} md={1} className={`flex center method ${method.toLowerCase()}`}>
 						<p>{method}</p>
 					</Col>
 
-					<Col xs={10} className="flex start" style={{ height: 32 }}>
-						<p>{path}</p>
+					<Col xs={10} md={11} className="flex start" style={{ height: 32 }}>
+						<code style={{ color: '#000' }}>{path}</code>
 					</Col>
 				</Row>
 
@@ -105,7 +105,7 @@ class Operation extends React.Component {
 										</strong>
 									</p>
 
-									<Action type="Copy" />
+									<Action type="Copy" text={id} />
 								</li>
 
 								<li className="flex between">
@@ -116,7 +116,7 @@ class Operation extends React.Component {
 										</strong>
 									</p>
 
-									<Action type="Copy" />
+									<Action type="Copy" text={path.replace('/api/v1', '')} />
 								</li>
 							</ul>
 						</Col>

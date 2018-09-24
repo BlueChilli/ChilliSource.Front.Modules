@@ -60,7 +60,7 @@
     background-color: #ffcc00; }
     .method.put p,
     .method.put strong {
-      color: #000; }
+      color: #4a4a4a; }
   .method.patch {
     background-color: #ff9500; }
     .method.patch p {
@@ -128,3 +128,12 @@
       .operation-details .params th code,
       .operation-details .params td code {
         line-height: 32px; }
+
+.s-alert-box {
+  border-radius: 4px;
+  top: 24px;
+  right: 24px;
+  padding: 16px 40px 16px 16px; }
+  .s-alert-box .s-alert-box-inner {
+    color: #fff;
+    font-weight: 600; }

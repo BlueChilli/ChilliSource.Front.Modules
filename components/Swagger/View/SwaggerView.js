@@ -3,6 +3,7 @@ import React from 'react';
 import { ClipLoader } from 'react-spinners';
 import groupBy from 'lodash/groupBy';
 import ReactShow from 'react-show';
+import Alert from 'react-s-alert';
 
 /** Components */
 import { Container, Row, Col } from './helpers';
@@ -13,6 +14,7 @@ import Action from './Action';
 import { loadSwaggerData, getAllOperationsFromSwagger, getAllConfig } from '../helpers';
 
 /** Styles */
+import 'react-s-alert/dist/s-alert-default.css';
 import './index.css';
 
 /**
@@ -69,7 +71,7 @@ class SwaggerView extends React.Component {
 							<h1>Swagger View</h1>
 						</Col>
 
-						<Col xs={12} className="flex center margin-top-2">
+						<Col xs={12} className="flex center margin-top-4">
 							<ClipLoader loading={true} color="#7ED321" size={32} />
 						</Col>
 					</Row>
@@ -122,6 +124,8 @@ class SwaggerView extends React.Component {
 						</React.Fragment>
 					);
 				})}
+
+				<Alert stack={{ limit: 1 }} timeout={2000} />
 			</React.Fragment>
 		);
 	}

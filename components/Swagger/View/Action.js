@@ -1,44 +1,74 @@
 /** Libraries */
 import React from 'react';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import Alert from 'react-s-alert';
 
 /**
  * @typedef ActionProps
- * @property {'Copy' | 'Collapse' | 'Expand'} type
- * @property {string} [className]
+ * @property {'Copy' | 'Collapse' | 'Expand'} type The type of action it is
+ * @property {string} [className] Any additional className to give to the component
+ * @property {string} [text] The text to copy to clipboard
+ */
+
+/**
+ * @typedef ActionStateProps
+ * @property {boolean} hasCopiedText Whether or not the text has been copied
  */
 
 /**
  * @class Action
- * @augments React.Component<ActionProps, {}>
+ * @augments React.Component<ActionProps, ActionStateProps>
  */
 class Action extends React.Component {
+	state = {
+		hasCopiedText: false,
+	};
+
+	toggleCopyStatus = () =>
+		this.setState(prevState => ({
+			hasCopiedText: !prevState.hasCopiedText,
+		}));
+
+	componentDidUpdate(prevProps, prevState) {
+		if (this.state.hasCopiedText && !prevState.hasCopiedText) {
+			Alert.success('API path copied!');
+			setTimeout(this.toggleCopyStatus, 2000);
+		}
+	}
+
 	render() {
-		const { type, className } = this.props;
+		const { type, className, text } = this.props;
 
 		if (!type) {
 			throw new Error('Action requires the `type` parameter to be defined.');
 		}
 
 		if (type === 'Copy') {
+			if (!text) {
+				throw new Error("Action with type = 'Copy' requires the `text` parameter to be defined.");
+			}
+
 			return (
-				<div className={`action copy flex center ${className ? className : ''}`}>
-					<svg
-						width="17px"
-						height="22px"
-						viewBox="0 0 17 22"
-						version="1.1"
-						xmlns="http://www.w3.org/2000/svg"
-						xmlnsXlink="http://www.w3.org/1999/xlink">
-						<g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-							<path
-								d="M-0.0173717905,5.22717467 L-0.0165918042,15.3329789 L-0.858898857,15.3329789 C-1.32439976,15.3329789 -1.70120591,14.9552204 -1.70120591,14.4906719 L-1.70120591,3.54351296 C-1.70120591,3.07801206 -1.32439976,2.70120591 -0.859851251,2.70120591 L15.1393917,2.70120591 C15.6048926,2.70120591 15.9816988,3.07896446 15.9816988,3.54351296 L15.9826526,4.38486762 L0.824935262,4.38486762 C0.359434362,4.38486762 -0.0173717905,4.76262617 -0.0173717905,5.22717467 Z M2.50867023,6.06943288 L18.5079132,6.06943288 C18.9724617,6.06943288 19.3502203,6.44623904 19.3502203,6.91173994 L19.3502203,17.8588989 C19.3502203,18.3234474 18.9734141,18.7012059 18.5079132,18.7012059 L2.50867023,18.7002518 C2.04412173,18.7002518 1.66636318,18.3234457 1.66636318,17.8579448 L1.66731704,6.91176265 C1.66731704,6.44626175 2.04412319,6.0694556 2.5086717,6.0694556 L2.50867023,6.06943288 Z"
-								id="Shape"
-								fillRule="nonzero"
-								transform="translate(8.824507, 10.701206) rotate(90.000000) translate(-8.824507, -10.701206) "
-							/>
-						</g>
-					</svg>
-				</div>
+				<CopyToClipboard text={text} onCopy={this.toggleCopyStatus}>
+					<div className={`action copy flex center ${className ? className : ''}`}>
+						<svg
+							width="17px"
+							height="22px"
+							viewBox="0 0 17 22"
+							version="1.1"
+							xmlns="http://www.w3.org/2000/svg"
+							xmlnsXlink="http://www.w3.org/1999/xlink">
+							<g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+								<path
+									d="M-0.0173717905,5.22717467 L-0.0165918042,15.3329789 L-0.858898857,15.3329789 C-1.32439976,15.3329789 -1.70120591,14.9552204 -1.70120591,14.4906719 L-1.70120591,3.54351296 C-1.70120591,3.07801206 -1.32439976,2.70120591 -0.859851251,2.70120591 L15.1393917,2.70120591 C15.6048926,2.70120591 15.9816988,3.07896446 15.9816988,3.54351296 L15.9826526,4.38486762 L0.824935262,4.38486762 C0.359434362,4.38486762 -0.0173717905,4.76262617 -0.0173717905,5.22717467 Z M2.50867023,6.06943288 L18.5079132,6.06943288 C18.9724617,6.06943288 19.3502203,6.44623904 19.3502203,6.91173994 L19.3502203,17.8588989 C19.3502203,18.3234474 18.9734141,18.7012059 18.5079132,18.7012059 L2.50867023,18.7002518 C2.04412173,18.7002518 1.66636318,18.3234457 1.66636318,17.8579448 L1.66731704,6.91176265 C1.66731704,6.44626175 2.04412319,6.0694556 2.5086717,6.0694556 L2.50867023,6.06943288 Z"
+									id="Shape"
+									fillRule="nonzero"
+									transform="translate(8.824507, 10.701206) rotate(90.000000) translate(-8.824507, -10.701206) "
+								/>
+							</g>
+						</svg>
+					</div>
+				</CopyToClipboard>
 			);
 		}
 
