@@ -1,0 +1,283 @@
+$getColor: #007aff;
+$postColor: #4cd964;
+$putColor: #ffcc00;
+$patchColor: #ff9500;
+$deleteColor: #ff3b30;
+
+.namespace {
+	background-color: #f5f5f5;
+	border-radius: 2px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	cursor: pointer;
+
+	h3 {
+		color: #4a4a4a;
+	}
+
+	.action {
+		height: 40px;
+		width: 40px;
+		border-radius: 50%;
+		background-color: #f5f5f5;
+		transition: transform 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+
+		svg {
+			height: 20px;
+			width: auto;
+		}
+
+		&.rotate {
+			transform: rotate(45deg);
+		}
+	}
+}
+
+.operation {
+	border-radius: 2px;
+	border: 1px solid;
+	cursor: pointer;
+
+	&.get {
+		border-color: $getColor;
+
+		*::selection {
+			background: rgba($getColor, 0.3);
+		}
+	}
+
+	&.post {
+		border-color: $postColor;
+
+		*::selection {
+			background: rgba($postColor, 0.3);
+		}
+	}
+
+	&.put {
+		border-color: $putColor;
+
+		*::selection {
+			background: rgba($putColor, 0.3);
+		}
+	}
+
+	&.patch {
+		border-color: $patchColor;
+
+		*::selection {
+			background: rgba($patchColor, 0.3);
+		}
+	}
+
+	&.delete {
+		border-color: $deleteColor;
+
+		*::selection {
+			background: rgba($deleteColor, 0.3);
+		}
+	}
+}
+
+.method {
+	height: 32px;
+
+	p {
+		font-weight: 600;
+	}
+
+	&.get {
+		background-color: $getColor;
+
+		p {
+			color: #fff;
+		}
+	}
+
+	&.post {
+		background-color: $postColor;
+
+		p {
+			color: #fff;
+		}
+	}
+
+	&.put {
+		background-color: $putColor;
+
+		p,
+		strong {
+			color: #4a4a4a;
+		}
+	}
+
+	&.patch {
+		background-color: $patchColor;
+
+		p {
+			color: #fff;
+		}
+	}
+
+	&.delete {
+		background-color: $deleteColor;
+
+		p {
+			color: #fff;
+		}
+	}
+}
+
+.operation-details {
+	background-color: #f5f5f5;
+	border-radius: 2px;
+	margin-top: 4px;
+	transition: all 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+	.detail {
+		font-weight: 700;
+		font-size: 20px;
+	}
+
+	ul {
+		margin-top: 8px;
+		list-style-type: none;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+		width: 100%;
+
+		li {
+			width: 100%;
+
+			&:first-of-type {
+				margin-bottom: 4px;
+			}
+
+			.action {
+				cursor: pointer;
+			}
+		}
+	}
+
+	// Code
+	code {
+		padding: 2px 4px;
+		background-color: #e0e0e0;
+		color: #4a4a4a;
+		font-size: 14px;
+		border-radius: 2px;
+	}
+
+	// Action
+	&.get {
+		ul {
+			li {
+				.action {
+					svg {
+						#Shape {
+							fill: $getColor;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&.post {
+		ul {
+			li {
+				.action {
+					svg {
+						#Shape {
+							fill: $postColor;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&.put {
+		ul {
+			li {
+				.action {
+					svg {
+						#Shape {
+							fill: $putColor;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&.patch {
+		ul {
+			li {
+				.action {
+					svg {
+						#Shape {
+							fill: $patchColor;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&.delete {
+		ul {
+			li {
+				.action {
+					svg {
+						#Shape {
+							fill: $deleteColor;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&.open {
+		padding: 16px;
+		margin-bottom: 24px;
+	}
+
+	/** Parameters */
+	.params {
+		border-collapse: collapse;
+		margin-top: 4px;
+		width: 100%;
+
+		th,
+		td {
+			border-radius: 2px;
+			border: 0.25px solid #d8d8d8;
+			text-align: left;
+			padding-left: 4px;
+			padding-right: 4px;
+			line-height: 24px;
+			font-size: 14px;
+
+			code {
+				line-height: 32px;
+			}
+		}
+	}
+}
+
+// Alerts
+.s-alert-box {
+	border-radius: 4px;
+	top: 24px;
+	right: 24px;
+	padding: 16px 40px 16px 16px;
+
+	.s-alert-box-inner {
+		color: #fff;
+		font-weight: 600;
+	}
+}

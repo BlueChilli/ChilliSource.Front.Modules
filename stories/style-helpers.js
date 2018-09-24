@@ -3,15 +3,19 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 /** Components */
-import TextField from '../modules/ReduxFormComponents/lib/components/TextField/';
-import TextArea from '../modules/ReduxFormComponents/lib/components/TextArea/';
-import Radio from '../modules/ReduxFormComponents/lib/components/Radio';
-import Radios from '../modules/ReduxFormComponents/lib/components/Radios';
-import Checkbox from '../modules/ReduxFormComponents/lib/components/Checkbox';
-import Checkboxes from '../modules/ReduxFormComponents/lib/components/Checkboxes';
-import CalendarPicker from '../modules/ReduxFormComponents/lib/components/CalendarPicker';
-import Select from '../modules/ReduxFormComponents/lib/components/Select/';
-import MultiSelect from '../modules/ReduxFormComponents/lib/components/MultiSelect/';
+import {
+	TextField,
+	TextArea,
+	Radio,
+	Radios,
+	Checkbox,
+	Checkboxes,
+	CalendarPicker,
+	Select,
+	MultiSelect,
+} from '../components/FormComponents';
+
+import SwaggerView from '../components/Swagger/View/SwaggerView';
 
 import { DemoFormDecorator } from './helpers/';
 
@@ -73,6 +77,7 @@ storiesOf('Style Helpers', module)
 			</React.Fragment>
 		);
 	})
+	.add('Swagger', () => <SwaggerView />)
 	.addDecorator(getStory => <DemoFormDecorator story={getStory()} />)
 	.add('Form Components', () => {
 		return (
@@ -85,6 +90,7 @@ storiesOf('Style Helpers', module)
 					name="demoTextField"
 					helperText="This is some helper text"
 					className="margin-top-2"
+					required
 				/>
 
 				{/* TextField */}
@@ -112,7 +118,6 @@ storiesOf('Style Helpers', module)
 					name="demoRadiosHorizontal"
 					className="margin-top-2"
 					options={['Red', 'Green', 'Blue', 'Yellow', 'Violet', 'Pink']}
-					flow="wrap"
 					label="Horizontal Radios"
 				/>
 

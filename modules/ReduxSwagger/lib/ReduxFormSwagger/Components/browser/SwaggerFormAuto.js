@@ -10,7 +10,7 @@ import {
 	getFormDataParamsFromOperation,
 } from '../data/swaggerReaderUtils';
 import { getFieldDataType } from '../../data/helpers';
-import TextField from '../../../../ReduxFormComponents/lib/Vertical/TextField';
+import TextField from '../../../../FormComponents/lib/Vertical/TextField';
 import Password from '../Components/Vertical/Password/Password';
 import { SubmitButton } from '../Components/General/SubmitButton';
 import { apiCreator } from '../data/apiCreators';

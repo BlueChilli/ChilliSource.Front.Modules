@@ -3,47 +3,42 @@
  */
 
 import React from 'react';
-import {connect} from 'react-redux';
-import get from "lodash/get";
-import {push} from 'react-router-redux'
+import { connect } from 'react-redux';
+import get from 'lodash/get';
+import { push } from 'connected-react-router';
 
 const allowAuth = Component => {
+	class IsAuthenticated extends React.Component {
+		constructor(props, context) {
+			super(props, context);
 
-  class IsAuthenticated extends React.Component {
-    constructor(props, context) {
-      super(props, context);
+			this.state = {
+				sessionExists: false,
+			};
+		}
 
-      this.state = {
-        sessionExists: false
-      };
-    }
+		componentWillMount() {
+			if (!this.props.sessionExists) {
+				this.props.dispatch(push('/account/signin'));
+			}
+		}
 
+		render() {
+			if (this.props.sessionExists) {
+				return <Component {...this.props} />;
+			} else {
+				return null;
+			}
+		}
+	}
 
-    componentWillMount() {
-      if (!this.props.sessionExists) {
-        this.props.dispatch(push('/account/signin'));
-      }
-    }
+	const mstp = state => {
+		return {
+			sessionExists: get(state, 'account.sessionExists'),
+		};
+	};
 
-    render() {
-      if (this.props.sessionExists) {
-        return (
-          <Component {...this.props}/>
-        )
-      } else {
-        return null;
-      }
-    }
-  }
-
-  const mstp = (state) => {
-    return {
-      sessionExists: get(state, "account.sessionExists")
-    }
-  };
-
-  return connect(mstp)(IsAuthenticated);
-
+	return connect(mstp)(IsAuthenticated);
 };
 
 export default allowAuth;

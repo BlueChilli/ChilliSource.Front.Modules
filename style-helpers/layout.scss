@@ -3,6 +3,10 @@
 	align-items: center;
 	justify-content: flex-start;
 
+	&.top {
+		align-items: flex-start;
+	}
+
 	&.center {
 		justify-content: center;
 	}
@@ -15,12 +19,29 @@
 		align-items: flex-end;
 	}
 
+	&.between {
+		justify-content: space-between;
+	}
+
 	&.col {
 		flex-direction: column;
+		justify-content: center;
 		align-items: flex-start;
 
+		&.top {
+			justify-content: flex-start;
+		}
+
 		&.center {
-			justify-content: center;
+			align-items: center;
+		}
+
+		&.end {
+			align-items: flex-end;
+		}
+
+		&.bottom {
+			justify-content: flex-end;
 		}
 	}
 

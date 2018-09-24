@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import BurgerMenu from './comps/BurgerMenu';
-import PortalModal from '../modules/PortalModal';
+import PortalModal from '../components/PortalModal';
 import './helpers/storybook.css';
 
 /** Class ModalDemo */

@@ -16,6 +16,11 @@
 		&.upper {
 			align-items: flex-start;
 		}
+
+		span {
+			margin-left: 4px;
+			color: $errorColor;
+		}
 	}
 
 	// Helper Text
@@ -52,10 +57,6 @@
 			padding-left: 8px;
 			padding-right: 8px;
 			caret-color: $primaryColor;
-
-			&:focus {
-				border-color: $primaryColor;
-			}
 		}
 
 		/** Text Area **/
@@ -66,11 +67,7 @@
 			font-size: 16px;
 			color: $primaryTextColor;
 			padding: 8px;
-			caret-color: $secondaryColor;
-
-			&:focus {
-				border-color: $primaryColor;
-			}
+			caret-color: $primaryColor;
 		}
 
 		/** Radios **/
@@ -94,7 +91,7 @@
 					content: '';
 					display: block;
 					position: absolute;
-					top: 8px;
+					top: 7px;
 					left: 0;
 					width: 14px;
 					height: 14px;
@@ -108,7 +105,7 @@
 					content: '';
 					display: block;
 					position: absolute;
-					top: 11px;
+					top: 10px;
 					left: 3px;
 					width: 10px;
 					height: 10px;
@@ -140,7 +137,7 @@
 					content: '';
 					display: block;
 					position: absolute;
-					top: 8px;
+					top: 7px;
 					left: 0;
 					width: 14px;
 					height: 14px;
@@ -153,7 +150,7 @@
 					content: '';
 					display: block;
 					position: absolute;
-					top: 10px;
+					top: 9px;
 					left: 1.5px;
 					width: 9.5px;
 					height: 5px;
@@ -162,6 +159,13 @@
 					transform: rotate(-45deg);
 				}
 			}
+		}
+	}
+
+	// Form Error
+	.form-error {
+		p {
+			color: $errorColor;
 		}
 	}
 }
