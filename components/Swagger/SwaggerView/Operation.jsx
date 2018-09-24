@@ -52,8 +52,10 @@ const Operation = props => {
 
 			{isOpen && (
 				<div className="content">
+					{/* Done */}
 					{summary && <div className="summary">{summary}</div>}
 
+					{/* Done */}
 					<div className="desc">
 						<strong>id:</strong> {id}
 					</div>
@@ -61,6 +63,7 @@ const Operation = props => {
 						<strong>OperationId:</strong> {operationId}
 					</div>
 
+					{/* START HERE */}
 					{bodyParams && (
 						<div>
 							<h3 className="table-heading">Body Parameters </h3>

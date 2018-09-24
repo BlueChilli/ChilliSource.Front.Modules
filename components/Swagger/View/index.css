@@ -1,0 +1,130 @@
+.namespace {
+  background-color: #f5f5f5;
+  border-radius: 2px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  cursor: pointer; }
+  .namespace h3 {
+    color: #4a4a4a; }
+  .namespace .action {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    transition: transform 300ms cubic-bezier(0.075, 0.82, 0.165, 1); }
+    .namespace .action svg {
+      height: 20px;
+      width: auto; }
+    .namespace .action.rotate {
+      transform: rotate(45deg); }
+
+.operation {
+  border-radius: 2px;
+  border: 1px solid;
+  cursor: pointer; }
+  .operation.get {
+    border-color: #007aff; }
+    .operation.get *::selection {
+      background: rgba(0, 122, 255, 0.3); }
+  .operation.post {
+    border-color: #4cd964; }
+    .operation.post *::selection {
+      background: rgba(76, 217, 100, 0.3); }
+  .operation.put {
+    border-color: #ffcc00; }
+    .operation.put *::selection {
+      background: rgba(255, 204, 0, 0.3); }
+  .operation.patch {
+    border-color: #ff9500; }
+    .operation.patch *::selection {
+      background: rgba(255, 149, 0, 0.3); }
+  .operation.delete {
+    border-color: #ff3b30; }
+    .operation.delete *::selection {
+      background: rgba(255, 59, 48, 0.3); }
+
+.method {
+  height: 32px;
+  border-radius: 2px; }
+  .method p {
+    font-weight: 600; }
+  .method.get {
+    background-color: #007aff; }
+    .method.get p {
+      color: #fff; }
+  .method.post {
+    background-color: #4cd964; }
+    .method.post p {
+      color: #fff; }
+  .method.put {
+    background-color: #ffcc00; }
+    .method.put p,
+    .method.put strong {
+      color: #000; }
+  .method.patch {
+    background-color: #ff9500; }
+    .method.patch p {
+      color: #fff; }
+  .method.delete {
+    background-color: #ff3b30; }
+    .method.delete p {
+      color: #fff; }
+
+.operation-details {
+  background-color: #f5f5f5;
+  border-radius: 2px;
+  margin-top: 4px;
+  transition: all 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /** Parameters */ }
+  .operation-details .detail {
+    font-weight: 700;
+    font-size: 20px; }
+  .operation-details ul {
+    margin-top: 8px;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%; }
+    .operation-details ul li {
+      width: 100%; }
+      .operation-details ul li:first-of-type {
+        margin-bottom: 4px; }
+      .operation-details ul li .action {
+        cursor: pointer; }
+  .operation-details code {
+    padding: 2px 4px;
+    background-color: #e0e0e0;
+    color: #4a4a4a;
+    font-size: 14px;
+    border-radius: 2px; }
+  .operation-details.get ul li .action svg #Shape {
+    fill: #007aff; }
+  .operation-details.post ul li .action svg #Shape {
+    fill: #4cd964; }
+  .operation-details.put ul li .action svg #Shape {
+    fill: #ffcc00; }
+  .operation-details.patch ul li .action svg #Shape {
+    fill: #ff9500; }
+  .operation-details.delete ul li .action svg #Shape {
+    fill: #ff3b30; }
+  .operation-details.open {
+    padding: 16px;
+    margin-bottom: 24px; }
+  .operation-details .params {
+    border-collapse: collapse;
+    margin-top: 4px;
+    width: 100%; }
+    .operation-details .params th,
+    .operation-details .params td {
+      border-radius: 2px;
+      border: 0.25px solid #d8d8d8;
+      text-align: left;
+      padding-left: 4px;
+      padding-right: 4px;
+      line-height: 24px;
+      font-size: 14px; }
+      .operation-details .params th code,
+      .operation-details .params td code {
+        line-height: 32px; }

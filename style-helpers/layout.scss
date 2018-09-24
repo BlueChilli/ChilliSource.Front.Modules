@@ -19,6 +19,10 @@
 		align-items: flex-end;
 	}
 
+	&.between {
+		justify-content: space-between;
+	}
+
 	&.col {
 		flex-direction: column;
 		justify-content: center;

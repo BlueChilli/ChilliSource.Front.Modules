@@ -147,7 +147,7 @@ const COMPARE_AGAINST_PROPERTY = schemaItem => {
  */
 const DATA_TYPE = schemaItem => {
 	if (!schemaItem || schemaItem['x-sys-DataType'] !== undefined) {
-		const dataType = schemaItem['x-sys-DataType'].datatype.toLowerCase();
+		const dataType = schemaItem['x-sys-DataType'].dataType.toLowerCase();
 
 		return {
 			feature: `datatype : ${dataType}`,

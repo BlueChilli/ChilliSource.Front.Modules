@@ -21,11 +21,23 @@ import {
 } from './validations';
 
 /**
+ * @typedef Operation
+ * @property {string} id
+ * @property {string} path
+ * @property {string} method
+ * @property {string} operationId
+ * @property {string} nameSpace
+ * @property {string} action
+ * @property {string} summary
+ * @property {Object} data
+ */
+
+/**
  * Retrieves a list of all the operations provided by
  * current swagger definitions.
  * @param {*} data
  *
- * @returns {{id:string, path:string, method:string, operationId: string, nameSpace: string, action:string, summary:string, data: object}[]}
+ * @returns {Operation[]}
  */
 const getAllOperationsFromSwagger = data => {
 	const paths = data.paths;
@@ -105,15 +117,17 @@ const getBaseUrl = data => {
  * Returns an object of path params if the operation
  * requires it. Undefined otherwise
  * @param {object} operation
+ *
+ * @returns {(Object | undefined)}
  */
 const getPathParamsForOperation = operation => {
-	const params = get(operation, 'data.parameters');
+	const params = get(operation, 'parameters');
 
 	if (params === undefined) {
 		return undefined;
 	}
 
-	const pathParams = params.filter(parameter => parameter.in === 'query');
+	const pathParams = params.filter(parameter => parameter.in === 'path');
 
 	return pathParams.length > 0 ? pathParams : undefined;
 };
@@ -122,9 +136,11 @@ const getPathParamsForOperation = operation => {
  * Returns an object of body params if the operation
  * requires it. Undefined otherwise
  * @param {object} operation
+ *
+ * @returns {(Object | undefined)}
  */
 const getBodyParamsForOperation = operation => {
-	const params = get(operation, 'data.parameters');
+	const params = get(operation, 'parameters');
 
 	if (params === undefined) {
 		return undefined;
@@ -143,9 +159,11 @@ const getBodyParamsForOperation = operation => {
  * Returns an object of form data params if the operation
  * requires it. Undefined otherwise
  * @param {object} operation
+ *
+ * @returns {(Object | undefined)}
  */
 const getFormParamsForOperation = operation => {
-	const params = get(operation, 'data.parameters');
+	const params = get(operation, 'parameters');
 
 	if (params === undefined) {
 		return undefined;
@@ -164,9 +182,11 @@ const getFormParamsForOperation = operation => {
  * Returns an object of form data params if the operation
  * requires it. Undefined otherwise
  * @param {object} operation
+ *
+ * @returns {(Object | undefined)}
  */
 const getQueryParamsForOperation = operation => {
-	const params = get(operation, 'data.parameters');
+	const params = get(operation, 'parameters');
 
 	if (params === undefined) {
 		return undefined;
@@ -192,23 +212,23 @@ const getFieldDataType = summary => {
 
 	// Has Resource Reference
 	if (summary.resourceReference) {
-		return 'DropDownSelectSingle';
+		return 'Select';
 	}
 
 	// Has choices
 	if (summary.choices && fieldType !== 'array') {
-		return 'DropDownSelectSingle';
+		return 'Select';
 	}
 
 	// Simple Data Types
 	switch (fieldType) {
 		case 'string': {
 			if (summary.dataType && summary.dataType.toLowerCase() === 'password') {
-				return 'Password';
+				return 'TextField';
 			}
 
 			const size = summary.maxLength || 10;
-			return size < 499 ? 'Text' : 'TextBox';
+			return size < 499 ? 'TextField' : 'TextArea';
 		}
 
 		case 'boolean':
@@ -216,13 +236,13 @@ const getFieldDataType = summary => {
 
 		case 'integer':
 		case 'number':
-			return 'Number';
+			return 'TextField';
 
 		case 'array':
 			return 'MultiSelect';
 
 		case 'file':
-			return 'UploadSingle';
+			return 'Dropzone';
 
 		default:
 			return 'Unknown';

@@ -45,7 +45,15 @@ const loadSwaggerData = () => {
 /**
  * Returns the currently cached swagger data
  */
-const retreiveCachedSwaggerData = () => swaggerData;
+async function retreiveCachedSwaggerData() {
+	if (swaggerData) {
+		return swaggerData;
+	}
+
+	await loadSwaggerData();
+
+	return swaggerData;
+}
 
 /**
  * Tells us what this endpoint expects in order to work

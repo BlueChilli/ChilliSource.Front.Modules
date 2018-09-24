@@ -57,7 +57,19 @@ export const getApiURL = () => {
 
 export const getSwaggerEndPoint = () => `${getBaseURL()}swagger/docs/v1?flatten=true`;
 
-// conveniences way to get everything
+/**
+ * @typedef SwaggerConfig
+ * @property {string} apiKey
+ * @property {string} baseURL
+ * @property {string} apiURL
+ * @property {string} swaggerEndPoint
+ */
+
+/**
+ * Retreives all the config params
+ *
+ * @returns {SwaggerConfig}
+ */
 export const getAllConfig = () => ({
 	apiKey: getApiKey(),
 	baseURL: getBaseURL(),
