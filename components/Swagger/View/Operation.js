@@ -60,7 +60,7 @@ class Operation extends React.Component {
 		}));
 
 	render() {
-		const { action, data, id, method, nameSpace, operationId, path, summary } = this.props;
+		const { data, id, method, path, summary } = this.props;
 		const { isOpen } = this.state;
 
 		const bodyParams = getBodyParamsForOperation(data),

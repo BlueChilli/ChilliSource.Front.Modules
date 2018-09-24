@@ -55,7 +55,7 @@ export const getApiURL = () => {
 	return undefined;
 };
 
-export const getSwaggerEndPoint = () => `${getBaseURL()}swagger/docs/v1?flatten=true`;
+export const getSwaggerEndPoint = () => `${getBaseURL()}/swagger/docs/v1?flatten=true`;
 
 /**
  * @typedef SwaggerConfig
