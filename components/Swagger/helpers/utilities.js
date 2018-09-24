@@ -31,7 +31,7 @@ const loadSwaggerData = () => {
 	}
 
 	if (swaggerData !== undefined && cachedSwaggerEndPoint === swaggerApiUrl) {
-		return new Promise.resolve(swaggerData);
+		return Promise.resolve(swaggerData);
 	}
 
 	return axiosInstance.get(swaggerApiUrl).then(response => {
