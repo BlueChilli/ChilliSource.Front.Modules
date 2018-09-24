@@ -1,7 +1,7 @@
 {
 	"name": "chillifront-modules",
-	"version": "0.0.1",
-	"description": "ChilliFront Library of things",
+	"version": "1.0.0",
+	"description": "A collection of commonly used components and Mods",
 	"main": "index.js",
 	"license": "MIT",
 	"prettier": {
