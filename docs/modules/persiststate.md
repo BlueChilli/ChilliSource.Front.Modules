@@ -1,10 +1,31 @@
 # PersistState
 
-If you intend to persist state across browser refreshes, you really should use this module.
-It would be impractical not to use this. It uses sessionStorage.
+This `Mod` is used to ensure that your app's state remains constant across browser refreshes. If you intend to persist state this way, you should use this module. It uses `sessionStorage` under the hood.
 
-## Quick Start
+This `Mod` allows you to store either the complete app state or slice(s) thereof in session storage so that they can persist across refreshes.
 
-Throw is in your chillifront declaration and you're all good to go.
+Note: If you specify a slice to persist and it doesn't exist in the store, then it'll be skipped.
 
-`new PersistState()`
+## Usage
+
+- **Basic**: Persisting the complete app state
+
+```diff
+const App = chillifront([
++    new PersistState()
+  ], {...}
+)(Entry)
+```
+
+<br>
+
+- **Advanced**: Persisting specified state slices
+
+```diff
+const App = chillifront([
++   new PersistState({
++     states: ['Account', ...]
++   })
+  ], {...}
+)(Entry)
+```
