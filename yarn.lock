@@ -1911,9 +1911,9 @@ chardet@^0.4.0:
   version "0.4.2"
   resolved "https://registry.yarnpkg.com/chardet/-/chardet-0.4.2.tgz#b5473b33dc97c424e5d98dc87d55d4d8a29c8bf2"
 
-chillifront@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/chillifront/-/chillifront-1.0.1.tgz#7c2e369414464bd450f21d8e79bcc17d286a3915"
+chillifront@^1.0.0:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/chillifront/-/chillifront-1.0.2.tgz#2d4a48cb2e28d42efd469e795d30896f57f03a89"
   dependencies:
     connected-react-router "^4.4.1"
     lodash "^4.17.10"
