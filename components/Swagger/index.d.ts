@@ -10,45 +10,33 @@ declare namespace Swagger {
 	type Method = 'get' | 'put' | 'post' | 'patch' | 'delete';
 
 	/** General Base Request */
-	interface ApiRequestParams extends AxiosRequestConfig {
+	interface GeneralApiRequestProps extends AxiosRequestConfig {
 		query?: Object;
 		path?: Object;
+	}
+
+	interface SubmitDataToApiProps {
 		body?: Object;
+	}
+
+	interface ApiRequestParams extends GeneralApiRequestProps, SubmitDataToApiProps {
 		method?: Method;
 	}
 
 	/** Get */
-	interface GetRequestParams {
-		query?: Object;
-		path?: Object;
-	}
+	interface GetRequestParams extends GeneralApiRequestProps {}
 
 	/** Post */
-	interface PostRequestParams {
-		query?: Object;
-		path?: Object;
-		body?: Object;
-	}
+	interface PostRequestParams extends GeneralApiRequestProps, SubmitDataToApiProps {}
 
 	/** Put */
-	interface PutRequestParams {
-		query?: Object;
-		path?: Object;
-		body?: Object;
-	}
+	interface PutRequestParams extends GeneralApiRequestProps, SubmitDataToApiProps {}
 
 	/** Patch */
-	interface PatchRequestParams {
-		query?: Object;
-		path?: Object;
-		body?: Object;
-	}
+	interface PatchRequestParams extends GeneralApiRequestProps, SubmitDataToApiProps {}
 
 	/** Delete */
-	interface DeleteRequestParams {
-		query?: Object;
-		path?: Object;
-	}
+	interface DeleteRequestParams extends GeneralApiRequestProps {}
 
 	class ApiRequest {
 		Base: (apiPath: string, apiRequestParams: ApiRequestParams) => AxiosPromise;
@@ -82,7 +70,7 @@ declare namespace Swagger {
 		/**
 		 * This is the API path to fetch data from.
 		 * If it needs a path arg or query arg, there are
-		 * two ways to do so.
+		 * two ways to do so:
 		 *
 		 * 1. Insert it using a template string like below:
 		 *
@@ -100,11 +88,29 @@ declare namespace Swagger {
 		queryArgs?: Object;
 		/**
 		 * Setting this parameter removes all the network
-		 * request uses the supplied data. You can use it to
-		 * test your component. Supplies
+		 * request(s) & uses the supplied data. You can use
+		 * it to test your component.
 		 */
 		mockData?: Object;
+		/**
+		 * Any custom data modifier function that
+		 * modifies the response from the request.
+		 */
 		modifier?: (value: any) => any;
+		/**
+		 * A callback function to execute once the API
+		 * request is successfully completed. If the
+		 * request fails, then this function is not
+		 * executed. Its YOUR responsibility to handle
+		 * errors encountered.
+		 *
+		 * NOTE: If you specify this property, then your
+		 * child components will be returned as is without
+		 * any `data` or `modifiedData` properties. If you
+		 * have provided a render function instead, then
+		 * `data` and `modifiedData` will always be undefined
+		 */
+		onRequestIsSuccessful?: (data: any) => any;
 	}
 
 	/**
@@ -114,6 +120,10 @@ declare namespace Swagger {
 		children: React.ReactNode | FetchDataRenderFunction;
 	}
 
+	/**
+	 * @class FetchData
+	 * @description A simple component to fetch data from an API.
+	 */
 	class FetchData extends React.Component<FetchDataProps> {}
 
 	/**

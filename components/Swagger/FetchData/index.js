@@ -13,6 +13,7 @@ const defaultModifier = value => value;
  * @property {Object} [queryArgsArgs]
  * @property {Object} [mockData]
  * @property {Function} [modifier]
+ * @property {(data: any) => any} [onRequestIsSuccessful]
  */
 
 /**
@@ -32,36 +33,38 @@ class FetchData extends React.Component {
 	}
 
 	fetchData = () => {
-		const { mockData } = this.props;
+		const { mockData, onRequestIsSuccessful = defaultModifier } = this.props;
 
 		// If Mock Mode
 		if (mockData) {
 			return setTimeout(() => {
-				this.setState(prevState => ({
-					data: mockData,
-					isFetching: false,
-					hasFetchedSuccessfully: true,
-				}));
+				this.setState(
+					prevState => ({
+						data: mockData,
+						isFetching: false,
+						hasFetchedSuccessfully: true,
+					}),
+					() => onRequestIsSuccessful(mockData)
+				);
 			}, 1800);
 		}
 
 		const { apiPath, pathArgs, queryArgs } = this.props;
-
-		if (!apiPath) {
-			throw new Error('apiPath is marked as required in FetchData component');
-		}
 
 		ApiRequest.Get(apiPath, {
 			path: pathArgs,
 			query: queryArgs,
 		})
 			.then(response => {
-				this.setState(prevState => ({
-					data: response.data,
-					isFetching: false,
-					hasFetchedSuccessfully: true,
-					error: undefined,
-				}));
+				this.setState(
+					prevState => ({
+						data: response.data,
+						isFetching: false,
+						hasFetchedSuccessfully: true,
+						error: undefined,
+					}),
+					() => onRequestIsSuccessful(response.data)
+				);
 			})
 			.catch(error => {
 				this.setState(prevState => ({
@@ -84,29 +87,55 @@ class FetchData extends React.Component {
 			this.fetchData
 		);
 
+	/**
+	 * Returns child render function provided
+	 * by the dev
+	 *
+	 * @param {boolean} [supplyData = false] Whether or not data is provided to the child render function
+	 */
+	getChildRenderFunction = (supplyData = true) => {
+		const { data, error, isFetching, hasFetchedSuccessfully, children } = this.state;
+		const { modifier = defaultModifier } = this.props;
+
+		const response = { data, error, isFetching, hasFetchedSuccessfully };
+
+		return children(
+			supplyData ? response : { ...response, data: undefined },
+			supplyData ? modifier(data) : undefined,
+			{
+				refresh: this.refetchData,
+			}
+		);
+	};
+
 	render() {
-		const { children } = this.props;
+		const { children, apiPath } = this.props;
+
+		if (!apiPath) {
+			throw new Error('apiPath is marked as required in FetchData component');
+		}
 
 		if (!children) {
 			return <noscript />;
 		}
 
-		const { modifier = defaultModifier } = this.props;
+		const { modifier = defaultModifier, onRequestIsSuccessful } = this.props;
 		const { data, error, isFetching, hasFetchedSuccessfully } = this.state;
-		const modifiedData = data ? modifier(data) : undefined;
 
 		if (typeof children === 'function') {
-			const response = { data, error, isFetching };
-			return children(response, modifiedData, {
-				refresh: this.refetchData,
-			});
+			return this.getChildRenderFunction(onRequestIsSuccessful ? false : true);
 		}
 
 		return React.Children.map(children, (child, index) =>
 			React.cloneElement(child, {
 				key: index,
-				response: { data, error, isFetching, hasFetchedSuccessfully },
-				modifiedData,
+				response: {
+					data: onRequestIsSuccessful ? undefined : data,
+					error,
+					isFetching,
+					hasFetchedSuccessfully,
+				},
+				modifiedData: onRequestIsSuccessful ? undefined : modifier(data),
 			})
 		);
 	}

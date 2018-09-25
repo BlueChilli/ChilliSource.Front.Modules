@@ -27,6 +27,7 @@ const Form = reduxForm()(props => {
  * @property {Object} [mockData]
  * @property {any} body
  * @property {'PUT' | 'POST' | 'DELETE' | 'PATCH'} [type]
+ * @property {(data: any) => any} [onRequestIsSuccessful]
  */
 
 /**
@@ -42,7 +43,7 @@ class SendData extends React.Component {
 	};
 
 	handleSubmit = (values, dispatch) => {
-		const { mockData } = this.props;
+		const { mockData, onRequestIsSuccessful } = this.props;
 
 		if (mockData) {
 			return this.setState(
@@ -55,12 +56,15 @@ class SendData extends React.Component {
 				() =>
 					setTimeout(
 						() =>
-							this.setState(prevState => ({
-								data: mockData,
-								error: undefined,
-								isSending: false,
-								hasSentSuccessfully: true,
-							})),
+							this.setState(
+								prevState => ({
+									data: mockData,
+									error: undefined,
+									isSending: false,
+									hasSentSuccessfully: true,
+								}),
+								() => onRequestIsSuccessful(mockData)
+							),
 						900
 					)
 			);
@@ -82,12 +86,15 @@ class SendData extends React.Component {
 				})
 			)
 			.then(response =>
-				this.setState(prevState => ({
-					hasSentSuccessfully: true,
-					isSending: false,
-					data: response.data,
-					error: undefined,
-				}))
+				this.setState(
+					prevState => ({
+						hasSentSuccessfully: true,
+						isSending: false,
+						data: response.data,
+						error: undefined,
+					}),
+					() => onRequestIsSuccessful(mockData)
+				)
 			)
 			.catch(error =>
 				this.setState(prevState => ({
@@ -99,6 +106,24 @@ class SendData extends React.Component {
 			);
 	};
 
+	/**
+	 * Returns child render function provided
+	 * by the dev
+	 *
+	 * @param {boolean} [supplyData = false] Whether or not data is provided to the child render function
+	 */
+	getChildRenderFunction = (supplyData = true) => {
+		const { data, error, isSending, hasSentSuccessfully, children } = this.state;
+		const { modifier = defaultModifier } = this.props;
+
+		const response = { data, error, isSending, hasSentSuccessfully };
+
+		return children(
+			supplyData ? response : { ...response, data: undefined },
+			supplyData ? modifier(data) : undefined
+		);
+	};
+
 	render() {
 		const { apiPath } = this.props;
 
@@ -106,31 +131,40 @@ class SendData extends React.Component {
 			throw new Error('apiPath is marked as required while using SendData.');
 		}
 
-		const { children, modifier = defaultModifier, ...remainingAttributes } = this.props;
-		const { data, error, isSending, hasSentSuccessfully } = this.state;
+		if (!children) {
+			throw new Error(
+				'`children` or a child component is marked as required while using SendData.'
+			);
+		}
 
-		const modifiedData = data ? modifier(data) : undefined;
+		const {
+			children,
+			modifier = defaultModifier,
+			onRequestIsSuccessful,
+			...remainingAttributes
+		} = this.props;
+		const { data, error, isSending, hasSentSuccessfully } = this.state;
 
 		return (
 			<Form form={camelCase(apiPath)} onSubmit={this.handleSubmit} {...remainingAttributes}>
-				{!children ? (
-					<noscript />
-				) : typeof children === 'function' ? (
-					children(data, modifiedData)
+				{typeof children === 'function' ? (
+					this.getChildRenderFunction(onRequestIsSuccessful ? false : true)
 				) : (
-					React.Children.map(children, (child, key) => {
-						return React.cloneElement(child, {
-							key,
-							response: {
-								data,
-								error,
-								isSending,
-								hasSentSuccessfully,
-							},
-							modifiedData,
-						});
-					})
+					<noscript />
 				)}
+
+				{React.Children.map(children, (child, key) => {
+					return React.cloneElement(child, {
+						key,
+						response: {
+							data: onRequestIsSuccessful ? undefined : data,
+							error,
+							isSending,
+							hasSentSuccessfully,
+						},
+						modifiedData: onRequestIsSuccessful ? undefined : modifier(data),
+					});
+				})}
 			</Form>
 		);
 	}
