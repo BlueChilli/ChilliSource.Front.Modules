@@ -116,7 +116,7 @@ Then, modify your `App.js`:
   import chillifront from "chillifront";
   import configureStore from "./redux/configureStore";
   import Entry from "./App/Entry";
-+ import PersistState from "./modules/PeristState/index";
++ import PersistState from "./modules/PersistState/index";
 + import NotFoundPage from "./modules/404/index";
 + import ReduxThunk from "./modules/ReduxThunk/index";
 + import ReduxPromiseMiddleware from "./modules/ReduxPromiseMiddleware/index";
