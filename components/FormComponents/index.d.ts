@@ -8,6 +8,26 @@ declare namespace FormComponents {
 	/** Interfaces */
 	interface GeneralFieldProps {
 		/**
+		 * Small helper text to display below the label or the field
+		 * to assist the user in completing the field
+		 */
+		helperText?: string;
+		/**
+		 * The place where the helper text appears.
+		 * top : Above the input field and below the label
+		 * bottom : Below the input field
+		 */
+		helperTextPosition?: 'top' | 'bottom';
+		label?: string;
+		name: string;
+		id?: string;
+		className?: string;
+		required?: boolean;
+		disabled?: boolean;
+	}
+
+	interface ExtendedGeneralFieldProps extends GeneralFieldProps {
+		/**
 		 * Allows you to to provide a field-level validation rule. The
 		 * function is given the fields current value, all other form
 		 * values, the props passed to the form, and the name of field
@@ -32,23 +52,6 @@ declare namespace FormComponents {
 		 * date formats into Dates.
 		 */
 		parse?: Parser;
-		/**
-		 * Small helper text to display below the label or the field
-		 * to assist the user in completing the field
-		 */
-		helperText?: string;
-		/**
-		 * The place where the helper text appears.
-		 * top : Above the input field and below the label
-		 * bottom : Below the input field
-		 */
-		helperTextPosition?: 'top' | 'bottom';
-		label?: string;
-		name: string;
-		id?: string;
-		className?: string;
-		required?: boolean;
-		disabled?: boolean;
 	}
 
 	interface GeneralSelectProps {
@@ -172,20 +175,20 @@ declare namespace FormComponents {
 		dropUp?: boolean;
 	}
 
-	interface TextFieldProps extends GeneralFieldProps {
+	interface TextFieldProps extends ExtendedGeneralFieldProps {
 		placeholder?: string;
 		onFocus?: EventWithDataHandler<FocusEvent<HTMLInputElement>>;
 		onBlur?: EventWithDataHandler<FocusEvent<HTMLInputElement>>;
 		type?: 'url' | 'email' | 'text' | 'password' | 'number' | 'tel' | 'hidden' | 'search';
 	}
 
-	interface TextAreaProps extends GeneralFieldProps {
+	interface TextAreaProps extends ExtendedGeneralFieldProps {
 		wrap: 'hard' | 'soft';
 		resize?: 'none' | 'both' | 'horizontal' | 'vertical' | 'initial' | 'inherit';
 		rows?: number;
 	}
 
-	interface SelectProps extends GeneralFieldProps, GeneralSelectProps {
+	interface SelectProps extends ExtendedGeneralFieldProps, GeneralSelectProps {
 		/**
 		 * This component is used to render the selected value of the DropdownList. The default
 		 * component renders the text of the selected item (specified by textfield)
@@ -193,7 +196,7 @@ declare namespace FormComponents {
 		valueComponent?: React.ReactType;
 	}
 
-	interface MultiSelectProps extends GeneralFieldProps, GeneralSelectProps {
+	interface MultiSelectProps extends ExtendedGeneralFieldProps, GeneralSelectProps {
 		/**
 		 * This is used to render the individual selected item
 		 * in the list of selected items i.e. tag
@@ -201,11 +204,11 @@ declare namespace FormComponents {
 		tagComponent?: React.ReactType | string;
 	}
 
-	interface CheckboxProps extends GeneralFieldProps {
+	interface CheckboxProps extends ExtendedGeneralFieldProps {
 		value?: string | number;
 	}
 
-	interface CheckboxesProps extends GeneralFieldProps {
+	interface CheckboxesProps extends ExtendedGeneralFieldProps {
 		options: string[] | { label: string; value: string | number }[];
 		/**
 		 * This is useful only when setting the flow property
@@ -229,11 +232,11 @@ declare namespace FormComponents {
 		flow?: 'wrap' | 'inline';
 	}
 
-	interface RadioProps extends GeneralFieldProps {
+	interface RadioProps extends ExtendedGeneralFieldProps {
 		value?: string | number;
 	}
 
-	interface RadiosProps extends GeneralFieldProps {
+	interface RadiosProps extends ExtendedGeneralFieldProps {
 		options: string[] | { label: string; value: string | number }[];
 		/**
 		 * This is useful only when setting the flow property
@@ -259,7 +262,7 @@ declare namespace FormComponents {
 
 	type View = 'month' | 'year' | 'decade' | 'century';
 
-	interface CalendarPickerProps extends GeneralFieldProps {
+	interface CalendarPickerProps extends ExtendedGeneralFieldProps {
 		/**
 		 * The minimum date that the Calendar can navigate from.
 		 */
@@ -381,7 +384,7 @@ declare namespace FormComponents {
 	/** Validators */
 	class Validators {
 		validateEmail: (email?: string) => undefined | string;
-		validateConfirmPassword: (confirmPassword?: string, allFormValues: any) => undefined | string;
+		validateConfirmPassword: (confirmPassword: string, allFormValues: any) => undefined | string;
 		validateMaximumLength: (maxLength: number) => (value?: string) => undefined | string;
 		validateMinimumLength: (minLength: number) => (value?: string) => undefined | string;
 		validateRequired: (value?: string) => undefined | string;
