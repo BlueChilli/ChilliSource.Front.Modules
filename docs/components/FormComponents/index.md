@@ -13,3 +13,4 @@ We provide the following components(_more to come_);
 - [`Select`](components/Select.md)
 - [`MultiSelect`](components/MultiSelect.md)
 - [`CalendarPicker`](components/CalendarPicker.md)
+- [`Dropzone`](components/Dropzone.md)
