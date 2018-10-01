@@ -29,10 +29,11 @@ Then in your component,
 #### Properties
 
 This component can be used for the use case I mentioned just above. It accepts two props apart from the `children` and both are optional: <br>
-| Property | Type | Description |
-| ----------------- | --------- | ----------------------------------------------------------------------------------------------------------------- |
-| `centerContent` | `boolean` | This is like justify center. All the children will arranged in the center of the container |
-| `removeTopOffset` | `boolean` | By default, this HOC has a top offset of `48px` to separate children from whatever might be above this component. |
+
+| Property        | Required | Optional | Type      | Description                                                                                                       |
+| --------------- | -------- | -------- | --------- | ----------------------------------------------------------------------------------------------------------------- |
+| centerContent   |          | `true`   | `boolean` | This is like justify center. All the children will arranged in the center of the container                        |
+| removeTopOffset |          | `true`   | `boolean` | By default, this HOC has a top offset of `48px` to separate children from whatever might be above this component. |
 
 ## `Container`, `Row`, `Col`
 
