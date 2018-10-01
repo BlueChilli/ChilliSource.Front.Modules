@@ -6,7 +6,7 @@ import {
 	validateMinimumLength,
 	validateRequired,
 	validateValueIsUrlOfType,
-} from './validators/';
+} from './Validators/';
 
 /** Components */
 import TextField from './components/TextField';
