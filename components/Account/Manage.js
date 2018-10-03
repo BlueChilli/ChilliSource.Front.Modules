@@ -3,9 +3,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 /** Components */
-import { CenteredComponent, Row, Col } from '../CenteredComponent';
+import CenteredComponent, { Row, Col } from '../CenteredComponent';
 import PortalModal from '../PortalModal';
-import { UpdateEmailForm, UpdatePasswordForm, UpdateProfileForm } from './forms';
+import { UpdateEmailForm, UpdatePasswordForm, UpdateProfileDetailsForm } from './forms';
 
 /** Class Manage */
 class Manage extends React.Component {
@@ -105,7 +105,7 @@ class Manage extends React.Component {
 					title="Update Profile Details"
 					isOpen={isUpdatingProfileDetails}
 					onClose={this.toggleUpdatingProfileDetails}>
-					<UpdateProfileForm initialValues={{ firstName, lastName }} />
+					<UpdateProfileDetailsForm initialValues={{ firstName, lastName }} />
 				</PortalModal>
 			</CenteredComponent>
 		);

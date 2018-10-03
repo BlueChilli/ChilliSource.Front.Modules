@@ -2,7 +2,8 @@
 import React from 'react';
 
 /** Components */
-import { CenteredComponent } from '../CenteredComponent';
+import CenteredComponent from '../CenteredComponent';
+import { LoginForm } from './forms';
 
 /** Class Login */
 class Login extends React.Component {
@@ -14,7 +15,7 @@ class Login extends React.Component {
 					PicMi makes it easy for you to apply for orchard jobs in New Zealand.{' '}
 				</p>
 
-				<LoginForm onSubmit={loginUser} />
+				<LoginForm />
 			</CenteredComponent>
 		);
 	}

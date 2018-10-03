@@ -20,14 +20,14 @@ import Checkboxes from './components/Checkboxes';
 import Checkbox from './components/Checkbox';
 import CalendarPicker from './components/CalendarPicker';
 
-class Validators {
-	validateEmail;
-	validateConfirmPassword;
-	validateMaximumLength;
-	validateMinimumLength;
-	validateRequired;
-	validateValueIsUrlOfType;
-}
+const Validators = {
+	validateEmail,
+	validateConfirmPassword,
+	validateMaximumLength,
+	validateMinimumLength,
+	validateRequired,
+	validateValueIsUrlOfType,
+};
 
 export {
 	TextField,

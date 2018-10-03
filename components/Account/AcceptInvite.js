@@ -8,7 +8,7 @@ import QueryString from 'query-string';
 
 /** Components */
 import { TextField } from '../FormComponents/';
-import { CenteredComponent, Row, Col } from '../CenteredComponent';
+import CenteredComponent, { Row, Col } from '../CenteredComponent';
 
 /** Helpers */
 import { registerUser } from './actions';

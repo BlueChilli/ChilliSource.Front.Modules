@@ -6,8 +6,10 @@ import { Switch, Route } from 'react-router-dom';
 import Login from './Login';
 import Logout from './Logout';
 import Register from './Register';
-import AcceptInvite from './AcceptInvite';
 import Manage from './Manage';
+import AcceptInvite from './AcceptInvite';
+import ResetPassword from './ResetPassword';
+import ForgotPassword from './ForgotPassword';
 
 /** Helpers */
 import { requireAuthentication, doNotRequireAuthentication } from '../Auth';
@@ -19,13 +21,24 @@ class Account extends React.Component {
 			<Switch>
 				<Route
 					exact
-					path="/user/acceptInvite"
+					path="/account/acceptInvite"
 					component={doNotRequireAuthentication(AcceptInvite)}
 				/>
-				<Route exact path="/user/login" component={doNotRequireAuthentication(Login)} />
-				<Route exact path="/user/register" component={doNotRequireAuthentication(Register)} />
-				<Route exact path="/user/manage" component={requireAuthentication(Manage)} />
-				<Route exact path="/user/logout" component={requireAuthentication(Logout)} />
+				<Route exact path="/account/login" component={doNotRequireAuthentication(Login)} />
+				<Route exact path="/account/register" component={doNotRequireAuthentication(Register)} />
+				<Route exact path="/account/manage" component={requireAuthentication(Manage)} />
+				<Route exact path="/account/logout" component={requireAuthentication(Logout)} />
+				<Route
+					exact
+					path="/account/resetPassword"
+					component={requireAuthentication(ResetPassword)}
+				/>
+				<Route
+					exact
+					path="/account/forgotPassword"
+					component={requireAuthentication(ForgotPassword)}
+				/>
+				<Route exact path="/account/acceptInvite" component={requireAuthentication(AcceptInvite)} />
 			</Switch>
 		);
 	}

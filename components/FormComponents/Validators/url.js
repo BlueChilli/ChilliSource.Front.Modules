@@ -21,9 +21,4 @@ const validateValueIsUrlOfType = (type = 'http') => value => {
 	return isWebUri(value) ? undefined : 'Please enter a valid URL';
 };
 
-const validURL = value => {
-	if (vurl.isUri(value)) return undefined;
-	else return 'Must be a valid URL';
-};
-
 export default validateValueIsUrlOfType;

@@ -2,7 +2,7 @@
 import React from 'react';
 
 /** Components */
-import { CenteredComponent } from '../CenteredComponent';
+import CenteredComponent from '../CenteredComponent';
 import { RegisterForm } from './forms';
 
 /** Class Register */

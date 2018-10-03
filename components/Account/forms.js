@@ -1,4 +1,5 @@
 /** Libraries */
+import React from 'react';
 import { reduxForm } from 'redux-form';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { NavLink } from 'react-router-dom';

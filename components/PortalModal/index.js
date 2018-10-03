@@ -3,11 +3,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Row, Col } from '../CenteredComponent';
 
-/** Constants */
-const modalRoot = document.getElementById('root');
-
 /** Helpers */
 import { Container } from '../CenteredComponent';
+
+/** Constants */
+const modalRoot = document.getElementById('root');
 
 /** Class PortalModal */
 class PortalModal extends React.Component {
