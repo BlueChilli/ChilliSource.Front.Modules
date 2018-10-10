@@ -8,6 +8,7 @@
 - [Portal Modal](portalmodal.md)
 - [Account](account.md)
 - [Swagger](Swagger/index.md)
+- [Analytics](analytics.md)
 
 ## Undocumented
 
