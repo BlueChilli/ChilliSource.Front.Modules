@@ -24,6 +24,10 @@ declare namespace FormComponents {
 		className?: string;
 		required?: boolean;
 		disabled?: boolean;
+		moreInfo?: {
+			title: string;
+			link: string;
+		};
 	}
 
 	interface ExtendedGeneralFieldProps extends GeneralFieldProps {

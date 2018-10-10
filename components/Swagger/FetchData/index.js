@@ -94,8 +94,8 @@ class FetchData extends React.Component {
 	 * @param {boolean} [supplyData = false] Whether or not data is provided to the child render function
 	 */
 	getChildRenderFunction = (supplyData = true) => {
-		const { data, error, isFetching, hasFetchedSuccessfully, children } = this.state;
-		const { modifier = defaultModifier } = this.props;
+		const { data, error, isFetching, hasFetchedSuccessfully } = this.state;
+		const { modifier = defaultModifier, children } = this.props;
 
 		const response = { data, error, isFetching, hasFetchedSuccessfully };
 

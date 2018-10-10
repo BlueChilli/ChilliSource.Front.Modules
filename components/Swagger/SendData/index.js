@@ -113,8 +113,8 @@ class SendData extends React.Component {
 	 * @param {boolean} [supplyData = false] Whether or not data is provided to the child render function
 	 */
 	getChildRenderFunction = (supplyData = true) => {
-		const { data, error, isSending, hasSentSuccessfully, children } = this.state;
-		const { modifier = defaultModifier } = this.props;
+		const { data, error, isSending, hasSentSuccessfully } = this.state;
+		const { modifier = defaultModifier, children } = this.props;
 
 		const response = { data, error, isSending, hasSentSuccessfully };
 
@@ -125,7 +125,7 @@ class SendData extends React.Component {
 	};
 
 	render() {
-		const { apiPath } = this.props;
+		const { apiPath, children } = this.props;
 
 		if (!apiPath) {
 			throw new Error('apiPath is marked as required while using SendData.');
@@ -138,7 +138,6 @@ class SendData extends React.Component {
 		}
 
 		const {
-			children,
 			modifier = defaultModifier,
 			onRequestIsSuccessful,
 			...remainingAttributes
