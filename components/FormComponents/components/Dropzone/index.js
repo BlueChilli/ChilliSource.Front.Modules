@@ -4,10 +4,25 @@ import DropZone from 'react-dropzone';
 import { Field } from 'redux-form';
 
 /** Components */
-import { Wrapper, Error } from '../../general/';
+import FormElementWrapper from '../../helpers/FormElementWrapper';
+import Error from '../../General/Error';
 
 /** Class RenderDropzone */
 class RenderDropzone extends React.Component {
+	componentDidMount() {
+		const scriptId = 'exifScript';
+		const _scriptElements = document.getElementById(scriptId);
+		const hasMountedScript = _scriptElements && _scriptElements.length > 0 ? true : false;
+
+		if (!hasMountedScript) {
+			const scriptElement = document.createElement('script');
+			scriptElement.id = scriptId;
+			scriptElement.src = 'https://cdn.jsdelivr.net/npm/exif-js';
+
+			document.getElementsByTagName('head')[0].appendChild(scriptElement);
+		}
+	}
+
 	onDrop = acceptedFiles => {
 		const {
 			input: { onChange },
@@ -22,10 +37,59 @@ class RenderDropzone extends React.Component {
 		this.props.input.onChange(null);
 	};
 
+	checkEXIFDataForOrientation = event => {
+		const imageElement = event.target;
+
+		window.EXIF.getData(imageElement, function() {
+			const tag = parseInt(window.EXIF.getTag(this, 'Orientation'), 10);
+			console.log('tag', tag);
+
+			switch (tag) {
+				case 2: {
+					imageElement.classList.add('flip');
+					break;
+				}
+
+				case 3: {
+					imageElement.classList.add('rotate-180');
+					break;
+				}
+
+				case 4: {
+					imageElement.classList.add('flip-and-rotate-180');
+					break;
+				}
+
+				case 5: {
+					imageElement.classList.add('flip-and-rotate-270');
+					break;
+				}
+
+				case 6: {
+					imageElement.classList.add('rotate-90');
+					break;
+				}
+
+				case 7: {
+					imageElement.classList.add('flip-and-rotate-90');
+					break;
+				}
+
+				case 8: {
+					imageElement.classList.add('rotate-270');
+					break;
+				}
+
+				default:
+					break;
+			}
+		});
+	};
+
 	render() {
 		const {
 			input: { name, value },
-			meta: { error, touched },
+			meta: { error, pristine },
 			placeholder = 'Upload a photo',
 			label,
 			helperText,
@@ -33,15 +97,12 @@ class RenderDropzone extends React.Component {
 			className,
 			disabled = false,
 			multiple = false,
-			accept = 'image/jpeg, image/png, image/jpg',
-			minSize,
-			maxSize,
 		} = this.props;
 
-		const invalid = touched && error;
+		const invalid = !pristine && error;
 
 		return (
-			<Wrapper className={className} _id="fe-textfield">
+			<FormElementWrapper className={className} _id="fe-textfield">
 				{/* Label */}
 				{label && (
 					<div className="form-label">
@@ -67,9 +128,7 @@ class RenderDropzone extends React.Component {
 								onDrop={this.onDrop}
 								multiple={multiple}
 								disabled={disabled}
-								accept={accept}
-								minSize={minSize}
-								maxSize={maxSize}>
+								accept="image/jpeg, image/png, image/jpg">
 								<div className="dropzone-placeholder flex col center">
 									<svg
 										width="46px"
@@ -104,8 +163,10 @@ class RenderDropzone extends React.Component {
 					{value && (
 						<div className="file-preview">
 							<img
+								id="file-preview"
 								src={typeof value === 'string' ? value : value.preview}
 								alt="uploaded-file-preview"
+								onLoad={this.checkEXIFDataForOrientation}
 							/>
 							<svg
 								width="32px"
@@ -140,8 +201,12 @@ class RenderDropzone extends React.Component {
 					)}
 
 				{/* Error */}
-				<Error invalid={invalid} error={error} />
-			</Wrapper>
+				{invalid && (
+					<div className="form-error">
+						<Error invalid={invalid}>{error}</Error>
+					</div>
+				)}
+			</FormElementWrapper>
 		);
 	}
 }
