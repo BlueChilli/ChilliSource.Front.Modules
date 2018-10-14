@@ -9,6 +9,20 @@ import Error from '../../General/Error';
 
 /** Class RenderDropzone */
 class RenderDropzone extends React.Component {
+	componentDidMount() {
+		const scriptId = 'exifScript';
+		const _scriptElements = document.getElementById(scriptId);
+		const hasMountedScript = _scriptElements && _scriptElements.length > 0 ? true : false;
+
+		if (!hasMountedScript) {
+			const scriptElement = document.createElement('script');
+			scriptElement.id = scriptId;
+			scriptElement.src = 'https://cdn.jsdelivr.net/npm/exif-js';
+
+			document.getElementsByTagName('head')[0].appendChild(scriptElement);
+		}
+	}
+
 	onDrop = acceptedFiles => {
 		const {
 			input: { onChange },
@@ -23,10 +37,14 @@ class RenderDropzone extends React.Component {
 		this.props.input.onChange(null);
 	};
 
-	checkEXIFDataForOrientation = () => {
-		const imageElement = document.getElementById('file-preview')[0];
-		EXIF.getData(imageElement, () => {
-			switch (parseInt(EXIF.getTag(this, 'Orientation'))) {
+	checkEXIFDataForOrientation = event => {
+		const imageElement = event.target;
+
+		window.EXIF.getData(imageElement, function() {
+			const tag = parseInt(window.EXIF.getTag(this, 'Orientation'), 10);
+			console.log('tag', tag);
+
+			switch (tag) {
 				case 2: {
 					imageElement.classList.add('flip');
 					break;
@@ -61,6 +79,9 @@ class RenderDropzone extends React.Component {
 					imageElement.classList.add('rotate-270');
 					break;
 				}
+
+				default:
+					break;
 			}
 		});
 	};
