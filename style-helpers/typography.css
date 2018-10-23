@@ -1,0 +1,89 @@
+/**
+ * Before doing any changes here, go to index.scss and
+ * read the instructions there. Most probably, you would
+ * not need to make any changes to this file what-so-ever.
+ *
+ *
+ * If you happen to use to embedded Google Fonts, then you
+ * are in the right place. Using the Zeplin's "Style Guide"
+ * tab, update the font-weight values below. Apart from that, 
+ * no other change is required in this section. 
+ *
+ * If your project uses really custom font styles - i.e. variable
+ * line heights and many different variations of fonts, you can
+ * add more styles below but be aware, more styles means more 
+ * to manage and take care of.
+ *
+ * Tag! You're up.
+ */
+/** Variables **/
+/** Backgrounds **/
+/** Text **/
+/** Alerts **/
+h1 {
+  font-size: 36px;
+  line-height: 48px;
+  font-weight: 700; }
+
+h2 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400; }
+
+h3 {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #3d363b; }
+
+.button {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700; }
+
+body,
+p {
+  font-size: 16px;
+  line-height: 24px; }
+
+label {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #3d363b; }
+
+.helper-text {
+  font-size: 14px;
+  line-height: 16px;
+  color: #9b9b9b; }
+  .helper-text.top {
+    line-height: 20px; }
+  .helper-text.bottom {
+    line-height: 16px; }
+
+a {
+  text-decoration: none; }
+
+.link {
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 16px;
+  color: #25ce81; }
+
+.all-caps {
+  text-transform: uppercase; }
+
+.text-center {
+  text-align: center; }
+
+@media only screen and (max-width: 575px) {
+  h1 {
+    font-size: 28px;
+    line-height: 32px; } }

@@ -1,28 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const classnames = require('classnames');
+const MenuItem = props => {
+	const { to, icon: Icon = null, fontAwesomeIcon } = props;
+	return (
+		<li>
+			<NavLink to={to} className="menu-item">
+				{fontAwesomeIcon && <FontAwesomeIcon icon={fontAwesomeIcon} style={{ marginRight: 8 }} />}
+				{Icon && <Icon />}
+				{props.label}
+			</NavLink>
+		</li>
+	);
+};
 
-class MenuItem extends React.Component {
-	constructor(props, context) {
-		super(props, context);
-		this.state = {};
-	}
-
-	render() {
-		if (this.props.hideIf === true) return null;
-		if (this.props.showIf === false) return null;
-		const { style, className } = this.props;
-		const listItemStyle = classnames('navbar-responsive__list-item');
-
-		return (
-			<li className={listItemStyle}>
-				<Link to={this.props.to} className={className} style={style || null}>
-					{this.props.children}
-				</Link>
-			</li>
-		);
-	}
-}
+MenuItem.propTypes = {
+	to: PropTypes.string.isRequired,
+};
 
 export default MenuItem;

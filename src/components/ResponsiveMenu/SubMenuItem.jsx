@@ -1,47 +1,36 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import faCaretDown from '@fortawesome/fontawesome-free-solid/faCaretDown';
-import onClickOutside from 'react-onclickoutside';
-
-const classnames = require('classnames');
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import classnames from 'classnames';
 
 class SubMenu extends React.Component {
-	constructor(props, context) {
-		super(props, context);
-		this.state = { expanded: false };
-	}
+	state = {
+		extended: false,
+	};
 
-	toggleState(evt) {
-		evt.preventDefault();
-		evt.stopPropagation();
-		this.setState({ expanded: !this.state.expanded });
-	}
-
-	handleClickOutside = evt => {
-		this.setState({ expanded: false });
+	handleClick = () => {
+		this.setState({ extended: !this.state.extended });
 	};
 
 	render() {
-		const { className, style } = this.props;
-		const submenuItemStyle = classnames('navbar-responsive__list-item');
-		const dropdownStyle = classnames('submenu-items', className);
+		const { extended } = this.state;
+		const { label, children } = this.props;
+		const subMenuClasses = classnames('navbar__submenu_dropdown');
 
 		return (
-			<Fragment>
-				<li className={submenuItemStyle}>
-					<span className="submenu-item" onClick={this.toggleState.bind(this)}>
-						{this.props.label}
-						<FontAwesomeIcon icon={faCaretDown} />
-					</span>
-					{this.state.expanded && (
-						<ul className={dropdownStyle} style={style || null}>
-							{this.props.children}
-						</ul>
-					)}
-				</li>
-			</Fragment>
+			<li>
+				<span onClick={this.handleClick}>
+					{label}
+					<FontAwesomeIcon icon={faCaretDown} style={{ marginLeft: 8 }} />
+				</span>
+				{extended && (
+					<ul className={subMenuClasses} {...this.props}>
+						{children}
+					</ul>
+				)}
+			</li>
 		);
 	}
 }
 
-export default onClickOutside(SubMenu);
+export default SubMenu;
