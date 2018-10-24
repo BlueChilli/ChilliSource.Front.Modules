@@ -2,6 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import classnames from 'classnames';
+import PropTypes from 'prop-types';
 
 class SubMenu extends React.Component {
 	state = {
@@ -14,8 +15,8 @@ class SubMenu extends React.Component {
 
 	render() {
 		const { extended } = this.state;
-		const { label, children } = this.props;
-		const subMenuClasses = classnames('navbar__submenu_dropdown');
+		const { label, children, className, ...remainingProps } = this.props;
+		const subMenuClasses = classnames('navbar__submenu_dropdown', className && className);
 
 		return (
 			<li>
@@ -24,7 +25,7 @@ class SubMenu extends React.Component {
 					<FontAwesomeIcon icon={faCaretDown} style={{ marginLeft: 8 }} />
 				</span>
 				{extended && (
-					<ul className={subMenuClasses} {...this.props}>
+					<ul className={subMenuClasses} {...remainingProps}>
 						{children}
 					</ul>
 				)}
@@ -32,5 +33,9 @@ class SubMenu extends React.Component {
 		);
 	}
 }
+
+SubMenu.propTypes = {
+	label: PropTypes.string.isRequired,
+};
 
 export default SubMenu;
