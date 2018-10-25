@@ -1,6 +1,11 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
+/** Libraries */
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-ReactDOM.render(<App />, document.getElementById("root"));
+/** Components */
+import App from './App';
+
+/** Styles */
+import './style-helpers/index.css';
+
+ReactDOM.render(<App />, document.getElementById('root'));
