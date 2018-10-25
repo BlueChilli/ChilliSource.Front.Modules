@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
+import onClickOutside from 'react-onclickoutside';
 
 class SubMenu extends React.Component {
 	state = {
@@ -13,6 +14,20 @@ class SubMenu extends React.Component {
 		this.setState({ extended: !this.state.extended });
 	};
 
+	handleClickOutside = evt => {
+		const { extended } = this.state;
+		if (extended) {
+			this.setState({ extended: false });
+		}
+	};
+
+	renderChildren = () => {
+		const { children } = this.props;
+		return React.Children.map(children, child =>
+			React.cloneElement(child, { onClick: this.handleClick })
+		);
+	};
+
 	render() {
 		const { extended } = this.state;
 		const { label, children, className, ...remainingProps } = this.props;
@@ -20,13 +35,13 @@ class SubMenu extends React.Component {
 
 		return (
 			<li>
-				<span onClick={this.handleClick}>
+				<span onClick={this.handleClick} className="submenu__item">
 					{label}
 					<FontAwesomeIcon icon={faCaretDown} style={{ marginLeft: 8 }} />
 				</span>
 				{extended && (
 					<ul className={subMenuClasses} {...remainingProps}>
-						{children}
+						{this.renderChildren()}
 					</ul>
 				)}
 			</li>
@@ -38,4 +53,4 @@ SubMenu.propTypes = {
 	label: PropTypes.string.isRequired,
 };
 
-export default SubMenu;
+export default onClickOutside(SubMenu);

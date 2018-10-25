@@ -5,12 +5,26 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classnames from 'classnames';
 
 const MenuItem = props => {
-	const { to, icon: Icon = null, fontAwesomeIcon, label, className, ...remainingProps } = props;
+	const {
+		to,
+		icon: Icon = null,
+		fontAwesomeIcon,
+		label,
+		className,
+		onClick,
+		...remainingProps
+	} = props;
 	const classes = classnames('menu-item', className && className);
 
 	return (
 		<li>
-			<NavLink to={to} className={classes} {...remainingProps}>
+			<NavLink
+				to={to}
+				onClick={() => {
+					onClick && onClick();
+				}}
+				className={classes}
+				{...remainingProps}>
 				{fontAwesomeIcon && <FontAwesomeIcon icon={fontAwesomeIcon} style={{ marginRight: 8 }} />}
 				{Icon && <Icon />}
 				{label}

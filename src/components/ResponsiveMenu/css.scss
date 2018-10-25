@@ -1,9 +1,9 @@
+@import '../../../style-helpers/variables.scss';
+
 * {
 	box-sizing: border-box;
 	padding: 0;
 	margin: 0;
-	font-family: 'Arial';
-	font-size: 16px;
 }
 
 .navbar_desktop,
@@ -19,8 +19,8 @@
 			text-decoration: none;
 			color: inherit;
 
-			&:hover {
-				background: #373a4743;
+			&:not(.submenu__item):hover {
+				background: $darkPrimaryColor;
 			}
 		}
 	}
@@ -54,11 +54,6 @@
 		li {
 			.navbar__submenu_dropdown {
 				position: static;
-				li {
-					a {
-						margin-left: 8px;
-					}
-				}
 			}
 		}
 	}
@@ -75,7 +70,7 @@
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-	background: #373a47;
+	background: $primaryButtonTextColor;
 }
 
 /* Position and sizing of clickable cross button */
@@ -93,24 +88,24 @@
 
 /* Color/shape of close button cross */
 .bm-cross {
-	background: #bdc3c7;
+	background: $primaryButtonTextColor;
 }
 
 /* General sidebar styles */
 .bm-menu {
-	background: #373a47;
+	background: $primaryColor;
 	padding: 2.5em 1.5em 0;
 	font-size: 1.15em;
 }
 
 /* Morph shape necessary with bubble or elastic */
 .bm-morph-shape {
-	fill: #373a47;
+	fill: $primaryButtonTextColor;
 }
 
 /* Wrapper for item list */
 .bm-item-list {
-	color: #b8b7ad;
+	color: $primaryButtonTextColor;
 	padding: 0.8em;
 }
 
