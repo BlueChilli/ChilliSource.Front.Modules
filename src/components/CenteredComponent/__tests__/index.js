@@ -3,6 +3,8 @@ import { shallow, mount } from 'enzyme';
 import CenteredComponent from '../index';
 
 describe('Centered Component Tests', () => {
+	// regardless of whatever it is
+	// this component should render Container, Row, Col
 	it('should render correctly.', () => {
 		const wrapper = shallow(
 			<CenteredComponent>
@@ -15,7 +17,9 @@ describe('Centered Component Tests', () => {
 		expect(wrapper.find('div.center')).toHaveLength(0);
 	});
 
-	it('should render correctly.', () => {
+	// the content should display in the center which means
+	// div class "center" should render
+	it('the content should be in the middle.', () => {
 		const wrapper = shallow(
 			<CenteredComponent centerContent>
 				<div>This is testing</div>
