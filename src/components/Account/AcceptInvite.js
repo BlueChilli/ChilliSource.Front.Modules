@@ -14,9 +14,7 @@ import CenteredComponent, { Row, Col } from '../CenteredComponent';
 import { registerUser } from './actions';
 
 /** Invitation Form */
-const InvitationForm = reduxForm({
-	form: 'invitation',
-})(props => {
+export const _InvitationForm = props => {
 	return (
 		<form onSubmit={props.handleSubmit}>
 			<Row>
@@ -84,10 +82,14 @@ const InvitationForm = reduxForm({
 			</p>
 		</form>
 	);
-});
+};
+
+export const InvitationForm = reduxForm({
+	form: 'invitation',
+})(_InvitationForm);
 
 /** Class AcceptInvite */
-class AcceptInvite extends React.Component {
+export class _AcceptInvite extends React.Component {
 	handleSubmit = values => registerUser(this.props.dispatch, values);
 
 	render() {
@@ -106,4 +108,6 @@ class AcceptInvite extends React.Component {
 	}
 }
 
-export default connect()(AcceptInvite);
+const AcceptInvite = connect()(_AcceptInvite);
+
+export default AcceptInvite;

@@ -20,10 +20,7 @@ import {
 } from './actions';
 
 /** Login Form */
-const LoginForm = reduxForm({
-	form: 'login',
-	onSubmit: loginUser,
-})(props => {
+export const _LoginForm = props => {
 	return (
 		<form onSubmit={props.handleSubmit}>
 			<TextField
@@ -53,13 +50,15 @@ const LoginForm = reduxForm({
 			</p>
 		</form>
 	);
-});
+};
+
+const LoginForm = reduxForm({
+	form: 'login',
+	onSubmit: loginUser,
+})(_LoginForm);
 
 /** Register Form */
-const RegisterForm = reduxForm({
-	form: 'register',
-	onSubmit: registerUser,
-})(props => {
+export const _RegisterForm = props => {
 	return (
 		<form onSubmit={props.handleSubmit}>
 			<Row>
@@ -120,7 +119,12 @@ const RegisterForm = reduxForm({
 			</p>
 		</form>
 	);
-});
+};
+
+const RegisterForm = reduxForm({
+	form: 'register',
+	onSubmit: registerUser,
+})(_RegisterForm);
 
 /** Update Email Form */
 const UpdateEmailForm = reduxForm({
@@ -151,13 +155,7 @@ const UpdateEmailForm = reduxForm({
 });
 
 /** Update Password Form */
-const UpdatePasswordForm = reduxForm({
-	form: 'updatePassword',
-	initialValues: {
-		passwordSpecified: true,
-	},
-	onSubmit: updatePassword,
-})(props => {
+export const _UpdatePasswordForm = props => {
 	return (
 		<form onSubmit={props.handleSubmit}>
 			<TextField
@@ -184,7 +182,15 @@ const UpdatePasswordForm = reduxForm({
 			</button>
 		</form>
 	);
-});
+};
+
+const UpdatePasswordForm = reduxForm({
+	form: 'updatePassword',
+	initialValues: {
+		passwordSpecified: true,
+	},
+	onSubmit: updatePassword,
+})(_UpdatePasswordForm);
 
 /** Update Profile Details Form */
 const UpdateProfileDetailsForm = reduxForm({
@@ -224,12 +230,7 @@ const UpdateProfileDetailsForm = reduxForm({
 });
 
 /** Reset Password Form */
-const ResetPasswordForm = reduxForm({
-	form: 'reset',
-	onSubmit: resetPassword,
-	enableReinitialize: true,
-	keepDirtyOnReinitialize: true,
-})(props => {
+export const _ResetPasswordForm = props => {
 	return (
 		<form onSubmit={props.handleSubmit}>
 			<TextField
@@ -258,13 +259,17 @@ const ResetPasswordForm = reduxForm({
 			</p>
 		</form>
 	);
-});
+};
+
+const ResetPasswordForm = reduxForm({
+	form: 'reset',
+	onSubmit: resetPassword,
+	enableReinitialize: true,
+	keepDirtyOnReinitialize: true,
+})(_ResetPasswordForm);
 
 /** Forgot Password Form */
-const ForgotPasswordForm = reduxForm({
-	form: 'forgot',
-	onSubmit: forgotPassword,
-})(props => {
+export const _ForgotPasswordForm = props => {
 	return (
 		<form onSubmit={props.handleSubmit}>
 			<TextField
@@ -288,7 +293,12 @@ const ForgotPasswordForm = reduxForm({
 			</p>
 		</form>
 	);
-});
+};
+
+const ForgotPasswordForm = reduxForm({
+	form: 'forgot',
+	onSubmit: forgotPassword,
+})(_ForgotPasswordForm);
 
 export {
 	LoginForm,
